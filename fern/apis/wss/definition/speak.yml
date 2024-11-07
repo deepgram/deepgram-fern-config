@@ -1,0 +1,182 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fern-api/fern/main/fern.schema.json
+
+channel:
+  path: /speak
+
+  display-name: Transform Text-to-Speech
+
+  docs: |
+    The TTS Websocket API endpoint allows you to stream text into the websocket and stream audio output. If you are using TTS with LLMs, this is a helpful endpoint that allows you to stream LLM outputs into our TTS directly.
+
+  auth: true
+
+  query-parameters:
+    encoding:
+      type: Encoding
+      docs: |
+        Allows you to specify the expected encoding of your audio output.
+    model: 
+      type: Model
+      docs: |
+        AI model used to synthesize text into speech. Default: `aura-asteria-en`.
+    sample_rate:
+      type: string
+      docs: |
+        Specifies the sample rate for the output audio.
+    text: 
+      type: string
+      docs: |
+        	Send text as a string or text/plain.
+
+  messages:
+    textMessage:
+      display-name: "Text message"
+      origin: client
+      body: TextMessageFormat
+    flush: 
+      display-name: "Flush"
+      docs: |
+        Flush the internal text buffer and send the audio to the client.
+      origin: client
+      body: FlushFormat
+    clear: 
+      display-name: "Clear"
+      docs: |
+        Clear the internal text buffer.
+      origin: client
+      body: ClearFormat
+    close: 
+      display-name: "Close"
+      docs: |
+        Close the connection.
+      origin: client
+      body: CloseFormat
+    metadata:
+      display-name: "Metadata Response"
+      docs: |
+        Includes information such as its request ID. Deepgram will send a metadata message immediately after completing the websocket handshake when you establish a websocket connection.
+      origin: server
+      body: MetadataFormat
+    flushConfirmation:
+      display-name: "Flush Confirmation"
+      docs: |
+        Deepgram will send a flush confirmation message after receiving a flush message.
+      origin: server
+      body: FlushConfirmationFormat
+    clearConfirmation:
+      display-name: "Clear Confirmation"
+      docs: |
+        Deepgram will send a clear confirmation message after receiving a clear message.
+      origin: server
+      body: ClearConfirmationFormat
+    warning: 
+      display-name: "Warning"
+      docs: |
+        Deepgram will send a warning message if there is an issue with the request.
+      origin: server
+      body: WarningFormat
+      
+types:
+  Encoding: 
+    enum: 
+      - linear16
+      - mulaw
+      - alaw
+      - mp3
+      - opus
+      - flac
+      - aac
+      
+  Model: 
+    enum: 
+      - name: asteria
+        value: aura-asteria-en
+      - name: luna
+        value: aura-luna-en
+      - name: stella
+        value: aura-stella-en
+      - name: hera
+        value: aura-hera-en
+      - name: orion
+        value: aura-orion-en
+      - name: arcas
+        value: aura-arcas-en
+      - name: perseus
+        value: aura-perseus-en
+      - name: angus
+        value: aura-angus-en
+      - name: orpheus
+        value: aura-orpheus-en
+      - name: helios
+        value: aura-helios-en
+      - name: zeus
+        value: aura-zeus-en
+      # - aura-luna-en
+      # - aura-stella-en
+      # - aura-hera-en
+      # - aura-orion-en
+      # - aura-arcas-en
+      # - aura-perseus-en
+      # - aura-angus-en
+      # - aura-orpheus-en
+      # - aura-helios-en
+      # - aura-zeus-en
+
+  TextMessageFormat:
+    properties: 
+      type: 
+        type: literal<"Speak">
+      text: 
+        type: string
+  
+  FlushFormat:
+    properties: 
+      type: 
+        type: literal<"Flush">
+  
+  ClearFormat:
+    properties: 
+      type: 
+        type: literal<"Clear">
+  
+  CloseFormat:
+    properties: 
+      type: 
+        type: literal<"Close">
+  
+  MetadataFormat:
+    properties:
+      type:
+        type: literal<"Metadata">
+      request_id:
+        type: string
+      model_name:
+        type: string
+      model_version: 
+        type: string
+      model_uuid: 
+        type: string
+        
+  FlushConfirmationFormat:
+    properties:
+      type:
+        type: literal<"Flushed">
+      sequence_id:
+        type: integer
+        
+  ClearConfirmationFormat:
+    properties:
+      type:
+        type: literal<"Cleared">
+      sequence_id:
+        type: integer
+  
+  WarningFormat:
+    properties:
+      type:
+        type: literal<"Warning">
+      warn_code:
+        type: string
+      warn_msg:
+        type: string
+  

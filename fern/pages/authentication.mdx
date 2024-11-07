@@ -1,0 +1,17 @@
+---
+title: Authentication 
+subtitle: Authenticating requests made to the Deepgram API
+---
+
+Send requests to the API with an `Authorization` header that references your project's API Key:
+
+`Authorization: Token <YOUR_DEEPGRAM_API_KEY>`
+
+You can [create a Deepgram API Key in the Deepgram Console](https://console.deepgram.com/signup?utm_source=api-ref&_gl=1*1blldlp*_gcl_au*MzUxNjY3Nzc5LjE3MzA5MzU3NDA.*_ga*NzE2NjQyNzQuMTczMDkzNTc0MA..*_ga_TYPC1TBCKT*MTczMDk4NTE5OS40LjEuMTczMDk4NzQxOC4yOC4wLjA.). You must create your first API Key using the Console.
+
+All API requests must be made over HTTPS. Calls made over plain HTTP will fail. API requests made without authentication will also fail.
+
+| | |
+| - | - |
+| **Security Scheme Type**	| API Key |
+| **Header parameter name:**	| Authorization | 

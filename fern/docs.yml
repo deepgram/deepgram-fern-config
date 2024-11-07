@@ -1,0 +1,66 @@
+instances:
+  - url: https://deepgram0637.docs.buildwithfern.com
+title: Deepgram | Documentation 
+announcement:
+  message: "Deepgram scheduled maintenance: Nov 14, 2024 | 8PM-10PM PT. [Learn more](https://deepgram.gitbook.io/help-center/notices/november-15-2024-deepgram-maintenance-window-faq)."
+logo:
+  dark: assets/logo.svg
+  height: 28
+  href: /
+css: assets/styles.css
+js:
+  - path: ./assets/component.js
+    strategy: lazyOnload
+favicon: assets/favicon.ico
+layout: 
+  tabs-placement: header
+  searchbar-placement: header
+  page-width: full
+colors:
+  accent-primary:
+    dark: "#eb038f"
+  background:
+    dark: "#1c1c20"
+  header-background:
+    dark: "#101014"
+navbar-links:
+  - type: minimal 
+    text: Community
+    url: https://community.deepgram.com/?_gl=1*1b0uprd*_gcl_au*MzUxNjY3Nzc5LjE3MzA5MzU3NDA.*_ga*NzE2NjQyNzQuMTczMDkzNTc0MA..*_ga_TYPC1TBCKT*MTczMDk4NTE5OS40LjEuMTczMDk4NjI3MC42MC4wLjA.
+  - type: minimal
+    text: Status
+    url: https://status.deepgram.com/?_gl=1*3z4ghk*_gcl_au*MzUxNjY3Nzc5LjE3MzA5MzU3NDA.*_ga*NzE2NjQyNzQuMTczMDkzNTc0MA..*_ga_TYPC1TBCKT*MTczMDk4NTE5OS40LjEuMTczMDk4NjI3MC42MC4wLjA.
+  - type: filled
+    text: Free API Key
+    url: https://console.deepgram.com/signup?jump=keys&_gl=1*1phlo0p*_gcl_au*MzUxNjY3Nzc5LjE3MzA5MzU3NDA.*_ga*NzE2NjQyNzQuMTczMDkzNTc0MA..*_ga_TYPC1TBCKT*MTczMDk4NTE5OS40LjEuMTczMDk4NTIyMy4zNi4wLjA.
+tabs:
+  guides:
+    display-name: Guides
+    slug: docs
+    icon: fa-regular fa-book
+  ref:
+    display-name: API Reference
+    slug: streaming
+    icon: fa-regular fa-code
+navigation:
+  - tab: guides
+    layout: 
+      - page: Introduction
+        path: pages/introduction.mdx
+      - section: Speech to Text
+        contents: 
+          - section: Streaming Audio
+            contents: 
+              - page: Getting Started
+                path: pages/quickstart.mdx    
+  - tab: ref
+    layout:
+      - page: Authentication
+        path: pages/authentication.mdx
+      - api: API Endpoints
+        api-name: openapi
+        paginated: true
+      - api: Streaming Endpoints
+        api-name: wss
+        paginated: true
+        flattened: true

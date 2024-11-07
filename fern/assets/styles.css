@@ -1,0 +1,21 @@
+.fern-button.filled {
+	background: linear-gradient(85.5deg, rgba(238, 2, 139, 1) 5.66%, rgba(174, 41, 255, 1) 99.14%) !important;
+}
+
+.fern-header-tab-button[data-state=active] {
+	color: white !important;
+}
+
+.fern-header-tab-button[data-state=active]:after {
+	background: linear-gradient(85.5deg, rgba(238, 2, 139, 1) 5.66%, rgba(174, 41, 255, 1) 99.14%) !important;
+	height: 2px !important;
+}
+
+.fern-mdx-link {
+	color: #79affa !important;
+	text-decoration: none;
+}
+
+.gradient .fern-card span {
+	background: linear-gradient(85.5deg, rgba(238, 2, 139, 1) 5.66%, rgba(174, 41, 255, 1) 99.14%) !important;
+}

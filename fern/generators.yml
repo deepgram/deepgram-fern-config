@@ -1,0 +1,19 @@
+default-group: java-sdk
+groups:
+  java-sdk:
+    generators:
+      - name: fernapi/fern-java-sdk
+        version: 2.2.0
+        # output:
+        #   location: maven
+        #   coordinate: com.deepgram:deepgram-java
+        #   username: ${MAVEN_USERNAME}
+        #   password: ${MAVEN_PASSWORD}
+        #   signature:
+        #     keyId: ${MAVEN_CENTRAL_SECRET_KEY_KEY_ID}
+        #     password: ""
+        #     secretKey: ${MAVEN_CENTRAL_SECRET_KEY}
+        github:
+          repository: "fern-demo/deepgram-java-sdk"
+        config:
+          client-class-name: Deepgram
