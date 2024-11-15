@@ -1,6 +1,6 @@
 instances:
   - url: https://deepgram0637.docs.buildwithfern.com
-title: Deepgram | Documentation 
+title: Deepgram | Documentation
 announcement:
   message: "Deepgram scheduled maintenance: Nov 14, 2024 | 8PM-10PM PT. [Learn more](https://deepgram.gitbook.io/help-center/notices/november-15-2024-deepgram-maintenance-window-faq)."
 logo:
@@ -12,7 +12,7 @@ js:
   - path: ./assets/component.js
     strategy: lazyOnload
 favicon: assets/favicon.ico
-layout: 
+layout:
   tabs-placement: header
   searchbar-placement: header
   page-width: full
@@ -24,7 +24,7 @@ colors:
   header-background:
     dark: "#101014"
 navbar-links:
-  - type: minimal 
+  - type: minimal
     text: Community
     url: https://community.deepgram.com/?_gl=1*1b0uprd*_gcl_au*MzUxNjY3Nzc5LjE3MzA5MzU3NDA.*_ga*NzE2NjQyNzQuMTczMDkzNTc0MA..*_ga_TYPC1TBCKT*MTczMDk4NTE5OS40LjEuMTczMDk4NjI3MC42MC4wLjA.
   - type: minimal
@@ -44,15 +44,29 @@ tabs:
     icon: fa-regular fa-code
 navigation:
   - tab: guides
-    layout: 
+    layout:
       - page: Introduction
         path: pages/introduction.mdx
       - section: Speech to Text
-        contents: 
+        contents:
           - section: Streaming Audio
-            contents: 
+            contents:
               - page: Getting Started
-                path: pages/quickstart.mdx    
+                path: pages/quickstart.mdx
+              - page: Finalize
+                path: pages/finalize.mdx
+      - section: Text to Speech
+        contents:
+          - page: Getting Started
+            path: pages/test-page.mdx
+      - section: Intelligence
+        contents:
+          - page: Getting Started
+            path: pages/test-page.mdx
+      - section: Voice Agent
+        contents:
+          - page: Getting Started
+            path: pages/test-page.mdx
   - tab: ref
     layout:
       - page: Authentication
