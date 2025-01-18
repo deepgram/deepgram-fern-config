@@ -48,9 +48,7 @@ paths:
     description: Use Deepgram's speech-to-text API to transcribe and analyze pre-recorded audio.
     externalDocs:
       description: Transcribe & Analyze Audio
-      urls:
-        local: https://developers.deepgram.com/reference/listen-file
-        remote: https://developers.deepgram.com/reference/listen-remote
+      url: https://developers.deepgram.com/reference/listen-file
     post:
       tags:
         - Speech to Text
@@ -133,10 +131,10 @@ paths:
                   content:
                     application/json:
                       schema:
-                        $ref: '#/components/schemas/listen/response'
+                        $ref: '#/components/schemas/response'
               responses:
                 '200':
-                  description: We expect a 200 to determine whether the callback was successfully received.
+                  description: We expect a 200 to determine whether the callback was successfully received
   /v1/read:
     description: Use Deepgram's speech-to-text API to analyze the content of text sources.
     externalDocs:
@@ -167,15 +165,15 @@ paths:
                   - required:
                       - text
       parameters:
-        - $ref: "#/components/parameters/callback"
-        - $ref: "#/components/parameters/callback_method"
-        # - $ref: "#/components/parameters/custom_topics"
-        # - $ref: "#/components/parameters/custom_topics_mode"
-        - $ref: "#/components/parameters/intents"
-        # - $ref: "#/components/parameters/read/language"
-        - $ref: "#/components/parameters/sentiment"
-        # - $ref: "#/components/parameters/read/summarize"
-        - $ref: "#/components/parameters/topics"
+        - $ref:"./components/parameters/callback.yml"
+        - $ref:"./components/parameters/callback_method.yml"
+        - $ref:"./components/parameters/custom_topic.yml"
+        - $ref:"./components/parameters/custom_topic_mode.yml"
+        - $ref:"./components/parameters/intents.yml"
+        - $ref:"./components/parameters/read/language.yml"
+        - $ref:"./components/parameters/sentiment.yml"
+        - $ref:"./components/parameters/read/summarize.yml"
+        - $ref:"./components/parameters/topics.yml"
       responses:
         '200':
           description: Successful text analysis
@@ -196,7 +194,7 @@ paths:
                   content:
                     application/json:
                       schema:
-                        $ref: '#/components/schemas/text/response'
+                        $ref: '#/components/schemas/text/response.yml'
             responses:
               '200':
                 description: We expect a 200 to determine whether the callback was successfully received
@@ -210,22 +208,24 @@ paths:
         - Text to Speech
       summary: Transform text to speech
       operationId: speak
-      requestBody: null
-      description: Transform text to speech
-      content:
-        application/json: null
-        schema: object
-        properties:
-          text:
-            type: string
-            description: The text to transform to speech
+      requestBody:
+        description: Transform text to speech
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                  description: The text to transform to speech
       parameters:
-        # - $ref: "#/components/parameters/speak/batch/bit_rate"
-        - $ref: "#/components/parameters/callback"
-        # - $ref: "#/components/parameters/speak/batch/container"
-        # - $ref: "#/components/parameters/speak/batch/encoding"
-        # - $ref: "#/components/parameters/speak/batch/model"
-        # - $ref: "#/components/parameters/speak/batch/sample_rate"
+        - $ref:"./components/parameters/speak/batch/bit_rate.yml"
+        - $ref:"./components/parameters/callback.yml"
+        - $ref:"./components/parameters/speak/batch/container.yml"
+        - $ref:"./components/parameters/speak/batch/encoding.yml"
+        - $ref:"./components/parameters/speak/batch/model.yml"
+        - $ref:"./components/parameters/speak/batch/sample_rate.yml"
       responses:
         '200':
           description: Successful text to speech
@@ -281,7 +281,7 @@ paths:
                   content:
                     application/json:
                       schema:
-                        $ref: '#/components/schemas/speak/speak_response'
+                        $ref: '#/components/schemas/speak/speak_response.yml'
             responses:
               '200':
                 description: We expect a 200 to determine whether the callback was successfully received
@@ -295,7 +295,7 @@ paths:
       responses:
         '200':
           '403':
-            $ref: #/components/responses/projects/authentication_failed
+            $ref: ./components/responses/projects/authentication_failed.yml
           description: A list of projects
           content:
             application/json:
@@ -352,7 +352,7 @@ paths:
           url: https://developers.deepgram.com/reference/update-project
         summary: Updates the specified project
         parameters:
-          - $ref: #/components/parameters/projects/project_id
+          - $ref: ./components/parameters/projects/project_id.yml
         requestBody:
           description: The name of the project
           content:
@@ -379,18 +379,18 @@ paths:
                   example:
                     message: Successfully updated project info.
           '400':
-            $ref: #/components/responses/projects/projects_bad_request
+            $ref: ./components/responses/projects/projects_bad_request.yml
           '403':
-            $ref: #/components/responses/projects/authentication_failed
+            $ref: ./components/responses/projects/authentication_failed.yml
           '404':
-            $ref: #/components/responses/projects/project_not_found
+            $ref: ./components/responses/projects/project_not_found.yml
       delete:
         externalDocs:
           description: Delete a Project
           url: https://developers.deepgram.com/reference/delete-project
         summary: Deletes the specified project
         parameters:
-          - $ref: #/components/parameters/projects/project_id
+          - $ref: ./components/parameters/projects/project_id.yml
         responses:
           '200':
             description: A project
@@ -405,11 +405,11 @@ paths:
                   example:
                     message: Successfully deleted a project.
           '400':
-            $ref: #/components/responses/projects/projects_bad_request
+            $ref: ./components/responses/projects/projects_bad_request.yml
           '403':
-            $ref: #/components/responses/projects/authentication_failed
+            $ref: ./components/responses/projects/authentication_failed.yml
           '404':
-            $ref: #/components/responses/projects/project_not_found
+            $ref: ./components/responses/projects/project_not_found.yml
   /v1/projects/{project_id}/balances:
     description: Manage your project balances
     get:
@@ -436,7 +436,7 @@ paths:
                           type: string
                           description: The unique identifier of the balance
                         amount:
-                          type: integer
+                          type: number
                           default: 0
                           description: The amount of the balance
                         units:
@@ -479,7 +479,7 @@ paths:
                     type: string
                     description: The unique identifier of the balance
                   amount:
-                    type: integer
+                    type: number
                     default: 0
                     description: The amount of the balance
                   units:
@@ -499,7 +499,7 @@ paths:
           $ref: '#/components/responses/authentication_failed'
         '404':
           $ref: '#/components/responses/project_not_found'
-  /v1/projects/{project}/models:
+  /v1/projects/{project_id}/models:
     description: Manage your project models
     get:
       externalDocs:
@@ -527,7 +527,7 @@ paths:
                       $ref: '#/components/schemas/tts_models'
         '400':
           $ref: '#/components/responses/projects_bad_request'
-  /v1/projects/{project}/models/{model_id}:
+  /v1/projects/{project_id}/models/{model_id}:
     description: Manage your project models
     get:
       externalDocs:
@@ -535,6 +535,7 @@ paths:
         url: https://developers.deepgram.com/reference/get-project-model
       summary: Returns metadata for a specific model.
       parameters:
+        - $ref: '#/components/parameters/project_id'
         - $ref: '#/components/parameters/model_id'
     responses:
       '200':
@@ -542,10 +543,10 @@ paths:
         content:
           application/json:
             oneOf:
-              - $ref: #/components/schemas/models/stt_models
-              - $ref: #/components/schemas/models/tts_models
+              - $ref: ./components/schemas/models/stt_models.yml
+              - $ref: ./components/schemas/models/tts_models.yml
       '400':
-        $ref: #/components/responses/projects/projects_bad_request
+        $ref: ./components/responses/projects/projects_bad_request.yml
   /v1/projects/{project_id}/keys:
     description: Manage your project keys
     get:
@@ -556,91 +557,91 @@ paths:
       parameters:
         - $ref: '#/components/parameters/project_id'
     responses:
-      '200': null
+      '200':
+        description: A list of API keys
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type: array
+                items:
+                  $ref: ./components/schemas/keys/keys.yml
       '403':
-        $ref: #/components/responses/projects/authentication_failed
+        $ref: ./components/responses/projects/authentication_failed.yml
       '404':
-        $ref: #/components/responses/projects/project_not_found
-      description: A list of API keys
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              type: array
-              items:
-                $ref: #/components/schemas/keys/keys
+        $ref: ./components/responses/projects/project_not_found.yml
       post:
         externalDocs:
           description: Create a Project Key
           url: https://developers.deepgram.com/reference/create-key
         summary: Creates a new API key for a specific project.
         parameters:
-          - $ref: #/components/parameters/projects/project_id
-      requestBody:
-        description: The API key settings
-        content:
-          application/json:
-            schema: null
-            type: object
-            properties:
-              comment:
-                type: string
-                description: A comment for the API key
-              scopes:
-                type: array
-                description: The scopes for the API key
-                items:
-                  type: string
-              tags:
-                type: array
-                description: The tags for the API key
-                items:
-                  type: string
-              expiration_date:
-                type: date
-                description: The expiration date for the API key
-              time_to_live_in_seconds:
-                type: integer
-                description: The time to live in seconds for the API key
-            example:
-              comment: A comment
-              scopes: admin
-              tags: tag-1
-              expiration_date: '2024-05-01T00:00:00.000000Z'
-              time_to_live_in_seconds: '3600'
-      responses:
-        '200':
-          $ref: #/components/responses/keys/key_created
-        '403':
-          $ref: #/components/responses/projects/authentication_failed
-        '404':
-          $ref: #/components/responses/projects/project_not_found
+          - $ref: ./components/parameters/projects/project_id.yml
+        requestBody:
+          description: The API key settings
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  comment:
+                    type: string
+                    description: A comment for the API key
+                  scopes:
+                    type: array
+                    description: The scopes for the API key
+                    items:
+                      type: string
+                  tags:
+                    type: array
+                    description: The tags for the API key
+                    items:
+                      type: string
+                  expiration_date:
+                    type: date
+                    description: The expiration date for the API key
+                  time_to_live_in_seconds:
+                    type: integer
+                    description: The time to live in seconds for the API key
+                example:
+                  comment: A comment
+                  scopes: admin
+                  tags: tag-1
+                  expiration_date: '2024-05-01T00:00:00.000000Z'
+                  time_to_live_in_seconds: '3600'
+        responses:
+          '200':
+            $ref: ./components/responses/keys/key_created.yml
+          '403':
+            $ref: ./components/responses/projects/authentication_failed.yml
+          '404':
+            $ref: ./components/responses/projects/project_not_found.yml
       delete:
         externalDocs:
           description: Delete a Project Key
           url: https://developers.deepgram.com/reference/delete-key
         summary: Deletes an API key for a specific project.
         parameters:
-          - $ref: #/components/parameters/projects/project_id
-          - $ref: #/components/parameters/projects/key_id
+          - $ref: ./components/parameters/projects/project_id.yml
+          - $ref: ./components/parameters/projects/key_id.yml
         responses:
           '200':
             description: API key deleted
-            content: null
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    description: A message indicating that the API key was deleted
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    message:
+                      type: string
+                      description: A message indicating that the API key was deleted
                 example:
                   message: Successfully deleted the API key!
           '403':
-            $ref: #/components/responses/projects/authentication_failed
+            $ref: ./components/responses/projects/authentication_failed.yml
           '404':
-            $ref: #/components/responses/projects/project_not_found
+            $ref: ./components/responses/projects/project_not_found.yml
   /v1/projects/{project_id}/keys/{key_id}/keys:
     description: Manage your project keys
     get:
@@ -652,19 +653,19 @@ paths:
         - $ref: '#/components/parameters/project_id'
         - $ref: '#/components/parameters/key_id'
     responses:
-      '200': null
+      '200':
+        description: A specific API key
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                item:
+                  $ref: ./components/schemas/keys/key.yml
       '403':
-        $ref: #/components/responses/projects/authentication_failed
+        $ref: ./components/responses/projects/authentication_failed.yml
       '404':
-        $ref: #/components/responses/projects/project_not_found
-      description: A specific API key
-      content:
-        application/json:
-          schema:
-            type: object
-            properties:
-              item:
-                $ref: #/components/schemas/keys/key
+        $ref: ./components/responses/projects/project_not_found.yml
   /v1/projects/{project_id}/members:
     description: Manage your project members
     get:
@@ -672,6 +673,8 @@ paths:
         description: Get Project Members
         url: https://developers.deepgram.com/reference/get-members
       summary: Retrieves a list of account objects for a specific project.
+      parameters:
+        - $ref: '#/components/parameters/project_id'
       responses:
         '200':
           description: A list of account objects
@@ -680,23 +683,23 @@ paths:
               schema:
                 type: object
                 properties:
-                  members: null
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      member_id:
-                        type: string
-                        description: The unique identifier of the member
-                        scopes:
-                          type: array
-                          description: The API scopes of the member
-                        email:
+                  members:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        member_id:
                           type: string
-                          first_name:
+                          description: The unique identifier of the member
+                          scopes:
+                            type: array
+                            description: The API scopes of the member
+                          email:
                             type: string
-                          last_name:
-                            type: string
+                            first_name:
+                              type: string
+                            last_name:
+                              type: string
         '403':
           $ref: '#/components/responses/authentication_failed'
         '404':
@@ -714,9 +717,9 @@ paths:
       responses:
         '200':
           '403':
-            $ref: #/components/responses/projects/authentication_failed
+            $ref: ./components/responses/projects/authentication_failed.yml
           '404':
-            $ref: #/components/responses/projects/project_not_found
+            $ref: ./components/responses/projects/project_not_found.yml
           description: Delete the specific member from the project
           content:
             application/json:
@@ -745,10 +748,10 @@ paths:
             application/json:
               schema:
                 type: object
-                properties: null
-                scopes:
-                  type: array
-                  description: The API scopes of the member
+                properties:
+                  scopes:
+                    type: array
+                    description: The API scopes of the member
         '403':
           $ref: '#/components/responses/authentication_failed'
         '404':
@@ -771,23 +774,23 @@ paths:
                 scope:
                   type: string
                   description: A scope to update
-                example: admin
+              example: admin
       responses:
-        '200': null
-        description: Updated the scopes for a specific member
-        content: null
-        application/json:
-          '403':
-            $ref: #/components/responses/projects/authentication_failed
-          '404':
-            $ref: #/components/responses/projects/project_not_found
-          schema:
-            type: object
-            properties:
-              message:
-                type: string
-                description: confirmation message
-            example: Successfully updated the account scopes.
+        '200':
+          description: Updated the scopes for a specific member
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: confirmation message
+                example: Successfully updated the account scopes.
+        '403':
+          $ref: '#/components/responses/authentication_failed'
+        '404':
+          $ref: '#/components/responses/project_not_found'
   /v1/projects/{project_id}/invites:
     description: Manage your project invites
     get:
@@ -807,41 +810,43 @@ paths:
                 properties:
                   invites:
                     type: array
-                    properties:
-                      email:
-                        type: string
-                        description: The email address of the invitee
-                      scope: null
-                      type: string
-                      description: The scope of the invitee
+                    items:
+                      type: object
+                      properties:
+                        email:
+                          type: string
+                          description: The email address of the invitee
+                        scope:
+                          type: string
+                          description: The scope of the invitee
       post:
         '400':
-          $ref: #/components/responses/projects/invalid_request
+          $ref: ./components/responses/projects/invalid_request.yml
         '401':
-          $ref: #/components/responses/projects/unauthorized
+          $ref: ./components/responses/projects/unauthorized.yml
         '403':
-          $ref: #/components/responses/projects/authentication_failed
+          $ref: ./components/responses/projects/authentication_failed.yml
         '404':
-          $ref: #/components/responses/projects/project_not_found
+          $ref: ./components/responses/projects/project_not_found.yml
         externalDocs:
           description: Send a Project Invite
           url: https://developers.deepgram.com/reference/send-invites
         summary: Generates an invite for a specific project
         parameters:
-          - $ref: #/components/parameters/projects/project_id
+          - $ref: ./components/parameters/projects/project_id.yml
         requestBody:
           description: email to invite to the project
           content:
             application/json:
               schema:
                 type: object
-              properties: null
-              email:
-                type: string
-                description: The email address of the invitee
-              scope:
-                type: string
-                description: The scope of the invitee
+              properties:
+                email:
+                  type: string
+                  description: The email address of the invitee
+                scope:
+                  type: string
+                  description: The scope of the invitee
         responses:
           '200':
             description: The invite was successfully generated
@@ -871,9 +876,9 @@ paths:
               schema:
                 type: object
                 properties:
-                  message: null
-                  type: string
-                  description: confirmation message
+                  message:
+                    type: string
+                    description: confirmation message
         '400':
           $ref: '#/components/responses/invalid_request'
         '401':
@@ -899,9 +904,9 @@ paths:
               schema:
                 type: object
                 properties:
-                  message: null
-                  type: string
-                  description: confirmation message
+                  message:
+                    type: string
+                    description: confirmation message
         '400':
           $ref: '#/components/responses/invalid_request'
         '401':
@@ -923,28 +928,28 @@ paths:
         - $ref: '#/components/parameters/end'
         - $ref: '#/components/parameters/limit'
         - $ref: '#/components/parameters/page'
-    responses:
-      '200':
-        description: A list of requests for a specific project
-        content: null
-        application/json:
-          schema:
-            type: object
-            properties:
-              page:
-                type: int
-                description: The page number of the paginated response
-              limit:
-                type: int
-                description: The number of results per page
-              requests:
-                type: array
-                items:
-                  $ref: #/components/responses/request
-      '400':
-        $ref: #/components/responses/projects/projects_bad_request
-      '403':
-        $ref: #/components/responses/projects/authentication_failed
+      responses:
+        '200':
+          description: A list of requests for a specific project
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  page:
+                    type: integer
+                    description: The page number of the paginated response
+                  limit:
+                    type: integer
+                    description: The number of results per page
+                  requests:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/request'
+        '400':
+          $ref: '#/components/responses/projects_bad_request'
+        '403':
+          $ref: '#/components/responses/authentication_failed'
   /v1/projects/{project_id}/requests/{request_id}:
     description: Manage your project requests
     get:
@@ -958,14 +963,14 @@ paths:
     responses:
       '200':
         description: A specific request for a specific project
-        content: null
-        application/json:
-          schema:
-            type: object
-            properties:
-              request:
-                type: object
-                $ref: #/components/responses/request
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                request:
+                  type: object
+                  $ref: ./components/responses/request.yml
   /v1/projects/{project_id}/usage:
     description: Manage your project usage
     get:
@@ -1019,26 +1024,26 @@ paths:
         - $ref: '#/components/parameters/version'
     responses:
       '200':
-        $ref: #/components/responses/projects/usage
+        $ref: ./components/responses/projects/usage.yml
       '400':
-        $ref: #/components/responses/projects/invalid_request
+        $ref: ./components/responses/projects/invalid_request.yml
       '401':
-        $ref: #/components/responses/projects/unauthorized
+        $ref: ./components/responses/projects/unauthorized.yml
       '403':
-        $ref: #/components/responses/projects/authentication_failed
+        $ref: ./components/responses/projects/authentication_failed.yml
       '404':
-        $ref: #/components/responses/projects/project_not_found
+        $ref: ./components/responses/projects/project_not_found.yml
   /v1/projects/{project_id}/usage/fields:
     description: Manage your project usage
     get:
       '400':
-        $ref: #/components/responses/projects/invalid_request
+        $ref: ./components/responses/projects/invalid_request.yml
       '401':
-        $ref: #/components/responses/projects/unauthorized
+        $ref: ./components/responses/projects/unauthorized.yml
       '403':
-        $ref: #/components/responses/projects/authentication_failed
+        $ref: ./components/responses/projects/authentication_failed.yml
       '404':
-        $ref: #/components/responses/projects/project_not_found
+        $ref: ./components/responses/projects/project_not_found.yml
       externalDocs:
         description: Get Project Usage Fields
         url: https://developers.deepgram.com/reference/get-fields
@@ -1083,10 +1088,10 @@ paths:
         url: https://developers.deepgram.com/reference/get-model
       summary: Returns metadata for a specific model
       parameters:
-        - $ref: '#/components/parameters/model_uuid'
+        - $ref: '#/components/parameters/model_id'
       responses:
         '200':
-          - $ref: #/components/responses/models/model
+          - $ref: ./components/responses/models/model.yml
         '400':
           $ref: '#/components/responses/projects_bad_request'
   /v1/projects/{project_id}/self-hosted/distribution/credentials:
@@ -1115,10 +1120,10 @@ paths:
         security:
           - Authorization: []
         parameters:
-          - $ref: #/components/parameters/projects/project_id
-          - $ref: #/components/parameters/projects/distribution_comment
-          - $ref: #/components/parameters/projects/distribution_scopes
-          - $ref: #/components/parameters/projects/distribution_provider
+          - $ref: ./components/parameters/projects/project_id.yml
+          - $ref: ./components/parameters/projects/distribution_comment.yml
+          - $ref: ./components/parameters/projects/distribution_scopes.yml
+          - $ref: ./components/parameters/projects/distribution_provider.yml
         requestBody:
           description: The set of distribution credentials to create
           content:
@@ -1157,13 +1162,13 @@ paths:
       parameters:
         - $ref: '#/components/parameters/project_id'
         - $ref: '#/components/parameters/distribution_credentials_id'
-      responses:responses:
+      responses:
         '200':
-          $ref: #/components/responses/projects/credential
+          $ref: '#/components/responses/credential'
         '403':
-          $ref: #/components/responses/projects/authentication_failed
+          $ref: '#/components/responses/authentication_failed'
         '404':
-          $ref: #/components/responses/projects/project_not_found
+          $ref: '#/components/responses/project_not_found'
 components:
   securitySchemes:
     Authorization:
@@ -1842,8 +1847,7 @@ components:
       schema:
         default: 0.8
         type: number
-      example:
-        - 1.2
+      example: 1.2
     version:
       name: version
       in: query
@@ -2512,9 +2516,9 @@ components:
               summary:
                 type: object
                 properties:
-                  text: null
-                  type: string
-                  example: The summary of the text submitted.
+                  text:
+                    type: string
+                    example: The summary of the text submitted.
     text_results:
       type: object
       properties:
@@ -2623,6 +2627,44 @@ components:
                   example:
                     - masculine
                     - neutral
+    request:
+      components:
+        responses:
+          request:
+            description: A single request
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    request_id:
+                      type: string
+                      description: The unique identifier of the request
+                    project_uuid:
+                      type: string
+                      description: The unique identifier of the project
+                    created:
+                      type: string
+                      format: date-time
+                      description: The date and time the request was created
+                    path:
+                      type: string
+                      description: The API path of the request
+                    api_key_id:
+                      type: string
+                      description: The unique identifier of the API key
+                    response:
+                      type: object
+                      description: The response of the request
+                    code:
+                      type: integer
+                      description: The response code of the request
+                    deployment:
+                      type: string
+                      description: The deployment type
+                    callback:
+                      type: string
+                      description: The callback URL for the request
   responses:
     bad_request:
       components:
@@ -2648,70 +2690,73 @@ components:
                   request_id: 123456-7890-1234-5678-901234
     insufficient_permissions:
       components:
-        responses: null
-        description: Insufficient permissions, Model not found
-        content:
-          application/json:
-            schema: null
-            type: object
-            properties:
-              err_code:
-                type: string
-                description: The error code
-              err_msg:
-                type: string
-                description: The error message
-              request_id:
-                type: string
-                description: The request ID
-            example:
-              err_code: INSUFFICIENT_PERMISSIONS
-              err_msg: Project does not have access to the requested model.
-              request_id: 123456-7890-1234-5678-901234
+        responses:
+          insufficient_permissions:
+            description: Insufficient permissions, Model not found
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    err_code:
+                      type: string
+                      description: The error code
+                    err_msg:
+                      type: string
+                      description: The error message
+                    request_id:
+                      type: string
+                      description: The request ID
+                  example:
+                    err_code: INSUFFICIENT_PERMISSIONS
+                    err_msg: Project does not have access to the requested model.
+                    request_id: 123456-7890-1234-5678-901234
     payload_too_large:
       components:
-        responses: null
-        description: Payload too large
-        content:
-          application/json:
-            schema: null
-            type: object
-            properties:
-              err_code:
-                type: string
-                description: The error code
-              err_msg:
-                type: string
-                description: The error message
-              request_id:
-                type: string
-                description: The request ID
-            example:
-              err_code: Payload too large
-              err_msg: Input text exceeds maximum character limit of 2000.
-              request_id: 123456-7890-1234-5678-901234
+        responses:
+          payload_too_large:
+            description: Payload too large
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    err_code:
+                      type: string
+                      description: The error code
+                    err_msg:
+                      type: string
+                      description: The error message
+                    request_id:
+                      type: string
+                      description: The request ID
+                  example:
+                    err_code: Payload too large
+                    err_msg: Input text exceeds maximum character limit of 2000.
+                    request_id: 123456-7890-1234-5678-901234
     unsupported_media_type:
       components:
-        responses: null
-        description: Unsupported media type
-        content:
-          application/json:
-            schema: null
-            type: object
-            properties:
-              err_code:
-                type: string
-                description: The error code
-              err_msg:
-                type: string
-                description: The error message
-              request_id:
-                type: string
-                description: The request ID
-            example:
-              err_code: UNSUPPORTED_MEDIA_TYPE
-              err_msg: Content-Type header is not supported. Content-Type must be either text/plain or application/json."
-              request_id: 123456-7890-1234-5678-901234
+        responses:
+          unsupported_media_type:
+            description: Unsupported media type
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    err_code:
+                      type: string
+                      description: The error code
+                    err_msg:
+                      type: string
+                      description: The error message
+                    request_id:
+                      type: string
+                      description: The request ID
+                  example:
+                    err_code: UNSUPPORTED_MEDIA_TYPE
+                    err_msg: Content-Type header is not supported. Content-Type must be either text/plain or application/json.
+                    request_id: 123456-7890-1234-5678-901234
     projects_bad_request:
       components:
         responses:
