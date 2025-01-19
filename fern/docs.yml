@@ -72,7 +72,7 @@ navigation:
   - tab: voice-agent
     layout:
       - page: Getting Started
-        path: pages/test-page.mdx
+        path: pages/voice-agent.mdx
       - page: Overview
         path: pages/test-page.mdx
       - page: Starter apps

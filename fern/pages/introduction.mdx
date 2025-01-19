@@ -1,55 +1,164 @@
 ---
-title: ""
-og:title: "Welcome to Deepgram Docs!"
+title: "Welcome to Deepgram Docs!"
+hide-toc: true
 layout: overview
 ---
 
+<style>
+{`
+  .fern-page-heading {
+    display: none;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  
+  .col .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  
+  .right img {
+    width: 60% !important;
+    float: right;
+  }
+  
+  .banner .fern-card {
+    width: 100%;
+    text-align: left;
+    padding: 24px;
+  }
+  
+  .fern-card {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .fern-card p {
+    margin-bottom: 12px !important;
+  }
+  
+  .center {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 24px;
+  }
+  
+  .fern-card img {
+    width: 100%;
+  }
+  
+  h4 {
+    color: white !important;
+    padding-bottom: 8px !important;
+  }
+  
+  .badge {
+    border: 1px solid #232329;
+    padding: 8px;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+  }
+`}
+</style>
+
 <div class="banner">
-# Welcome to Deepgram Docs!
+<div class="badge">Introducing a /read endpoint for text inputs! →</div>
+<h1>Welcome to Deepgram Docs!</h1>
 Empower your products with out Voice AI APIs.
 
 Use them separately or combine them to **easily build low latency and realistic** Voice AI solutions!
+
+<div class="fern-card p-6 center">
+  <div class="col">
+    <h3>Voice agent API</h3>
+    <p class="t-muted">
+      Create agents for contact centers, teaching, drive thrus and more
+    </p>
+    
+    - [Getting started](/docs/getting-started-with-voice-agent-api)
+    - [Function calling](/reference/voice-agent-api)
+  </div>
+  
+  <div class="col right">
+    <img src="../assets/images/purple.svg" />
+  </div>
 </div>
-### Deepgram APIs
+</div>
+
 <CardGroup cols={3}>
+  <Card>
+    <img src="../assets/images/blue.svg" />
+  
+    <h4>Speech to text API</h4>
+    <p class="t-muted">
+      Transcribe audio for contact centers, medical audio, wearables and more
+    </p>
+    
+    - [Pre-recorded](/docs/getting-started-with-speech-to-text)
+    - [Streaming](/docs/getting-started-with-speech-to-text#streaming)
+    - [Models and Languages](/docs/getting-started-with-speech-to-text#models-and-languages)
+  </Card>
+  <Card>
+    <img src="../assets/images/pink.svg" />
+  
+    <h4>Text to speech API</h4>
+    <p class="t-muted">
+      Generate audio for contact centers, IVRs, drive thrus and more
+    </p>
+    
+    - [Getting started](/docs/getting-started-with-speech-to-text)
+    - [Voices](/docs/getting-started-with-speech-to-text#streaming)
+  </Card>
+  <Card>
+    <img src="../assets/images/yellow.svg" />
+  
+    <h4>Intelligence API</h4>
+    <p class="t-muted">
+      Gain insights for phone calls and transcripts
+    </p>
+    
+    - [Audio inputs](/docs/getting-started-with-intelligence-api)
+    - [Text inputs](/docs/getting-started-with-intelligence-api)
+  </Card>
+</CardGroup>
+
+### SDKs
+<CardGroup cols={4}>
 <Card 
-  title="Speech to Text"
-  icon={<img src='https://fern-image-hosting.s3.us-east-1.amazonaws.com/demos/speech-to-text.svg' />}
->
-Transcribe audio
-<br />
-- [Pre-recorded](/)
-- [Streaming](/)
-- [Models and Languages](/)
-</Card>
+  title="Python"
+  iconPosition="left"
+  icon="brands python"
+/>
 <Card 
-  title="Text to Speech"
-  icon={<img src='https://fern-image-hosting.s3.us-east-1.amazonaws.com/demos/text-to-speech.svg' />}
->
-Generate voice 
-<br />
-- [Pre-recorded](/)
-- [Streaming](/)
-- [Models and Languages](/)
-</Card>
+  title="JavaScript"
+  iconPosition="left"
+  icon="brands node"
+/>
 <Card 
-  title="Intelligence"
-  icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/demos/brain.svg" />}
->
-Gain insights
-<br />
-- [Pre-recorded](/)
-- [Streaming](/)
-- [Models and Languages](/)
-</Card>
+  title=".Net"
+  iconPosition="left"
+  icon="brands microsoft"
+/>
+<Card 
+  title="Go"
+  iconPosition="left"
+  icon="brands golang"
+/>
 </CardGroup>
 
 ### Resources
-<div class="gradient">
+<div class="white">
 <CardGroup cols={3}>
 <Card 
   title="Explore"
   icon="rocket"
+  iconPosition="left"
 >
 - [API Playground](/)
 - [API Reference](/)
@@ -57,6 +166,7 @@ Gain insights
 <Card 
   title="Self Host"
   icon="tools"
+  iconPosition="left"
 >
 - [Get started with self-hosting](/)
 - [Self-hosted add-ons](/)
@@ -64,10 +174,12 @@ Gain insights
 <Card 
   title="Community"
   icon="users"
+  iconPosition="left"
 >
 - [Discord](/)
 - [Discussion Forums](/)
 </Card>
 </CardGroup>
 </div>
+
 

@@ -16,8 +16,8 @@
 	text-decoration: none;
 }
 
-.gradient .fern-card span {
-	background: linear-gradient(90deg, #201CFF -91.5%, #13EF95 80.05%) !important;
+.white .fern-card span {
+	background: white !important;
 }
 
 .fern-header-right-menu {
@@ -29,6 +29,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
 }
 
 .banner p {
@@ -189,7 +190,8 @@ div[class*="callout"] .mt-0\.5.w-4 {
 	border-radius: 0px !important;
 }
 
-span[data-badge-type="http-method"] {
+span[data-badge-type="http-method"],
+span[data-badge-type="status-code"] {
 	border-radius: 50px !important;
 }
 
@@ -207,4 +209,27 @@ span[data-badge-type="http-method"] {
 	background-color: #1A1A1F !important;
 	padding: 8px 16px !important;
 	border-radius: 4px !important;
+}
+
+.fern-card {
+	background-color: #0B0B0C !important;
+	border-radius: 4px !important;
+}
+
+ol li {
+	margin-top: 2rem !important;
+}
+
+.small .fern-card {
+	padding-bottom: 1rem !important;
+	padding-top: 1rem !important;
+}
+
+.small .fern-card .items-start {
+	align-items: center !important;
+}
+
+.small .fern-card .text-base {
+	color: #BBBBBF !important;
+	font-weight: 600 !important;
 }
