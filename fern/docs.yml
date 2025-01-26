@@ -19,10 +19,14 @@ colors:
     dark: "#A1F9D4"
   background:
     dark: "#0B0B0C"
+  sidebar-background:
+    dark: "#0B0B0C"
   header-background:
     dark: "#1A1A1F"
   card-background:
     dark: "#1A1A1F"
+  border:
+    dark: "#2C2C33"
 typography: 
   bodyFont: 
     name: Inter
