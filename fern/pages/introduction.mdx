@@ -23,15 +23,30 @@ layout: overview
     justify-content: flex-end;
   }
   
+  .col h3 {
+    margin-top: 12px !important;
+  }
+  
   .right img {
     width: 60% !important;
     float: right;
+  }
+  
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   
   .banner .fern-card {
     width: 100%;
     text-align: left;
     padding: 24px;
+  }
+  
+  .banner .fern-card ul {
+    margin-top: 4px !important;
   }
   
   .fern-card {
@@ -53,7 +68,7 @@ layout: overview
     width: 100%;
   }
   
-  h4 {
+  h3 {
     color: white !important;
     padding-bottom: 8px !important;
   }
@@ -63,6 +78,39 @@ layout: overview
     padding: 8px;
     border-radius: 50px;
     margin-bottom: 2rem;
+  }
+  
+  .white .fern-card ul {
+    margin-top: .75rem !important;
+    position: relative;
+    left: -2.5rem !important;
+  }
+  
+  .white .fern-card .overflow-hidden {
+    overflow: visible !important;
+  }
+  
+  h2 {
+    margin-top: 80px !important;
+  }
+  
+  @media (max-width: 768px) {
+    .fern-card {
+      flex-direction: column !important;
+    }
+    
+    .col {
+      width: 100% !important;
+    }
+    
+    .col.right {
+      margin-top: 24px;
+      order: -1;
+    }
+    
+    .right img {
+      width: 100% !important;
+    }
   }
 `}
 </style>
@@ -95,7 +143,7 @@ Use them separately or combine them to **easily build low latency and realistic*
   <Card>
     <img src="../assets/images/blue.svg" />
   
-    <h4>Speech to text API</h4>
+    <h3>Speech to text API</h3>
     <p class="t-muted">
       Transcribe audio for contact centers, medical audio, wearables and more
     </p>
@@ -107,7 +155,7 @@ Use them separately or combine them to **easily build low latency and realistic*
   <Card>
     <img src="../assets/images/pink.svg" />
   
-    <h4>Text to speech API</h4>
+    <h3>Text to speech API</h3>
     <p class="t-muted">
       Generate audio for contact centers, IVRs, drive thrus and more
     </p>
@@ -118,7 +166,7 @@ Use them separately or combine them to **easily build low latency and realistic*
   <Card>
     <img src="../assets/images/yellow.svg" />
   
-    <h4>Intelligence API</h4>
+    <h3>Intelligence API</h3>
     <p class="t-muted">
       Gain insights for phone calls and transcripts
     </p>
@@ -128,7 +176,7 @@ Use them separately or combine them to **easily build low latency and realistic*
   </Card>
 </CardGroup>
 
-### SDKs
+## SDKs
 <CardGroup cols={4}>
 <Card 
   title="Python"
@@ -152,7 +200,7 @@ Use them separately or combine them to **easily build low latency and realistic*
 />
 </CardGroup>
 
-### Resources
+## Resources
 <div class="white">
 <CardGroup cols={3}>
 <Card 

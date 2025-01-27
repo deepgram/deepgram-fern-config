@@ -20,8 +20,10 @@
 	background: white !important;
 }
 
-.fern-header-right-menu {
-	display: none !important;
+@media (min-width: 1024px) {
+	.fern-header-right-menu {
+		display: none !important;
+	}
 }
 
 .banner {
@@ -39,7 +41,7 @@
 
 .banner h1 {
 	margin-top: .5rem;
-	margin-bottom: .5rem;
+	margin-bottom: 16px;
 }
 
 .fern-sidebar-link-container[data-state="active"] {
@@ -105,6 +107,7 @@
 
 .fern-search-bar {
 	--tw-ring-color: #4E4E52 !important;
+	background-color: #0B0B0C !important;
 }
 
 .fern-sidebar-heading-content {
@@ -153,7 +156,7 @@ div[class*="callout"] {
 .callout-outlined,
 .fern-card
 .fern-button {
-	border-radius: 4px !important;
+	border-radius: 8px !important;
 }
 
 .bg-tag-default-soft {
@@ -162,14 +165,6 @@ div[class*="callout"] {
 
 .code-block-root span[style*="color: rgb(194, 195, 197);"] {
 	--shiki-dark: #949498 !important;
-}
-
-.group\/cb-container {
-	border-radius: 0px !important;
-}
-
-.bg-card {
-	border-radius: 0px !important;
 }
 
 .callout-outlined {
@@ -182,12 +177,28 @@ div[class*="callout"] {
 	--tw-ring-color: #FEC84B !important;
 }
 
-div[class*="callout"] .mt-0\.5.w-4 {
-	align-self: center !important;
+.callout-outlined p, 
+.callout-outlined h5,
+.callout-outlined-warning p,
+.callout-outlined-warning h5,
+.callout-outlined-success p,
+.callout-outlined-success h5,
+.callout-outlined-danger p,
+.callout-outlined-danger h5,
+.callout-outlined-info p,
+.callout-outlined-info h5,
+.callout-outlined-tip p,
+.callout-outlined-tip h5,
+.callout-outlined-primary p,
+.callout-outlined-primary h5,
+.callout-outlined-check p,
+.callout-outlined-check h5,
+.callout-outlined-secondary p {
+	color: var(--grayscale-a11) !important;
 }
 
-.bg-card .rounded-t-xl {
-	border-radius: 0px !important;
+div[class*="callout"] .mt-0\.5.w-4 {
+	align-self: center !important;
 }
 
 span[data-badge-type="http-method"],
@@ -213,7 +224,7 @@ span[data-badge-type="status-code"] {
 
 .fern-card {
 	background-color: #0B0B0C !important;
-	border-radius: 4px !important;
+	border-radius: 8px !important;
 }
 
 ol li {
@@ -232,4 +243,13 @@ ol li {
 .small .fern-card .text-base {
 	color: #BBBBBF !important;
 	font-weight: 600 !important;
+}
+
+
+h3 {
+	margin-top: 80px !important;
+}
+
+h2 {
+	margin-top: 40px !important;
 }
