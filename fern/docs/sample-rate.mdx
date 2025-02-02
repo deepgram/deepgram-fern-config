@@ -1,0 +1,35 @@
+---
+title: Sample Rate
+subtitle: Sample Rate allows you to specify the sample rate of your submitted audio.
+slug: docs/sample-rate
+---
+
+
+`sample_rate` *int32*
+
+Pre-recorded [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+
+## Enable Feature
+
+<Info>
+  If you are using the Sample Rate feature [Encoding](/docs/encoding) is also required.
+</Info>
+
+To enable Sample Rate, when you call Deepgram’s API, add a `sample_rate` parameter in the query string and set it to the sample rate of your submitted audio.
+
+`sample_rate=SAMPLE_RATE_VALUE`
+
+<CodeGroup>
+  ```curl cURL
+  url \
+    --request POST \
+    --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
+    --header 'Content-Type: audio/mp3' \
+    --data-binary @youraudio.mp3 \
+    --url 'https://api.deepgram.com/v1/listen?sample_rate=8000&encoding=linear16'
+  ```
+</CodeGroup>
+
+<Warning>
+  When submitting audio encoded with the Adaptive Multi-Rate (AMR) codec, you must submit specific Sample Rate values:
+</Warning>
