@@ -344,6 +344,10 @@ h2 {
 	border-bottom-width: 0px !important;
 }
 
+.fern-header-tabs-list-item span {
+	font-family: 'Roobert' !important;
+}
+
 .fern-header-tabs-list,
 .fern-header-tabs-list-item {
 	height: 100% !important;
