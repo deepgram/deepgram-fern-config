@@ -60,6 +60,9 @@ tabs:
   guides:
     display-name: Guides
     slug: docs
+  sdks:
+    display-name: SDKs
+    slug: sdks
   self-hosted:
     display-name: Self-Hosted Deployments
     slug: self-hosted
@@ -73,75 +76,6 @@ navigation:
         path: docs/landing.mdx
       - page: Getting Started
         path: docs/getting-started.mdx
-      - section: SDKs
-        slug: sdks
-        contents:
-          - page: Deepgram SDKs
-            path: docs/deepgram-sdks.mdx
-          - page: SDK Feature Matrix
-            path: docs/sdk-feature-matrix.mdx
-          - page: Using Custom Add On Parameters with SDKs
-            path: docs/using-custom-parameters-sdks.mdx
-          - page: Using Custom Headers with SDKs
-            path: docs/using-custom-headers-and-sdks.mdx
-          - page: Using Client Options with SDKs
-            path: docs/using-client-options-with-sdks.mdx
-          - section: JavaScript SDK
-            path: docs/js-sdk.mdx
-            contents:
-              - page: JavaScript SDK V2 to V3 Migration Guide
-                path: docs/js-sdk-v2-to-v3-migration-guide.mdx
-              - page: Pre-Recorded Audio Transcription
-                path: docs/node-sdk-pre-recorded-transcription.mdx
-              - page: Live Streaming Audio Transcription
-                path: docs/node-sdk-streaming-transcription.mdx
-              - page: Text to Speech REST
-                path: docs/js-sdk-text-to-speech.mdx
-              - page: Text to Speech Streaming
-                path: docs/js-sdk-streaming-text-to-speech.mdx
-          - section: Python SDK
-            path: docs/python-sdk.mdx
-            contents:
-              - page: Python SDK V2 to V3 Migration Guide
-                path: docs/python-sdk-v2-to-v3-migration-guide.mdx
-              - page: Threaded and Async IO Task Support
-                path: docs/threaded-and-async-io-task-support.mdx
-              - page: Pre-Recorded Audio Transcription
-                path: docs/python-sdk-pre-recorded-transcription.mdx
-              - page: Live Streaming Audio Transcription
-                path: docs/python-sdk-streaming-transcription.mdx
-              - page: Text To Speech REST
-                path: docs/python-sdk-text-to-speech.mdx
-              - page: Text To Speech Streaming
-                path: docs/python-sdk-streaming-text-to-speech.mdx
-              - page: Python Notebooks
-                path: docs/python-notebooks.mdx
-          - section: .NET SDK
-            path: docs/dotnet-sdk.mdx
-            contents:
-              - page: .NET SDK V3 to V4 Migration Guide
-                path: docs/dotnet-sdk-v3-to-v4-migration-guide.mdx
-              - page: Pre-Recorded Audio Transcription
-                path: docs/dotnet-sdk-pre-recorded-transcription.mdx
-              - page: Live Streaming Audio Transcription
-                path: docs/dotnet-sdk-streaming-transcription.mdx
-              - page: Text to Speech REST
-                path: docs/dotnet-sdk-text-to-speech.mdx
-              - page: Text to Speech Streaming
-                path: docs/dotnet-sdk-streaming-text-to-speech.mdx
-          - section: Go SDK
-            path: docs/go-sdk.mdx
-            contents:
-              - page: Go SDK v1.2 to v1.3 Interface Change
-                path: docs/go-sdk-v12-to-v136-migration-guide.mdx
-              - page: Pre-Recorded Audio Transcription
-                path: docs/pre-recorded-audio-transcription.mdx
-              - page: Live Streaming Audio Transcription
-                path: docs/live-streaming-audio-transcription.mdx
-              - page: Text-to-Speech REST
-                path: docs/go-sdk-text-to-speech.mdx
-              - page: Text-to-Speech Streaming
-                path: docs/go-sdk-streaming-text-to-speech.mdx
       - page: Support
         path: docs/support.mdx
   - tab: voice-agent
@@ -528,6 +462,74 @@ navigation:
             path: docs/zapier-integration.mdx
           - page: Zoom and Deepgram
             path: docs/integrate-deepgram-with-zoom.mdx
+  - tab: sdks
+    layout:
+      - page: Deepgram SDKs
+        path: docs/deepgram-sdks.mdx
+      - page: SDK Feature Matrix
+        path: docs/sdk-feature-matrix.mdx
+      - page: Using Custom Add On Parameters with SDKs
+        path: docs/using-custom-parameters-sdks.mdx
+      - page: Using Custom Headers with SDKs
+        path: docs/using-custom-headers-and-sdks.mdx
+      - page: Using Client Options with SDKs
+        path: docs/using-client-options-with-sdks.mdx
+      - section: JavaScript SDK
+        path: docs/js-sdk.mdx
+        contents:
+          - page: JavaScript SDK V2 to V3 Migration Guide
+            path: docs/js-sdk-v2-to-v3-migration-guide.mdx
+          - page: Pre-Recorded Audio Transcription
+            path: docs/node-sdk-pre-recorded-transcription.mdx
+          - page: Live Streaming Audio Transcription
+            path: docs/node-sdk-streaming-transcription.mdx
+          - page: Text to Speech REST
+            path: docs/js-sdk-text-to-speech.mdx
+          - page: Text to Speech Streaming
+            path: docs/js-sdk-streaming-text-to-speech.mdx
+      - section: Python SDK
+        path: docs/python-sdk.mdx
+        contents:
+          - page: Python SDK V2 to V3 Migration Guide
+            path: docs/python-sdk-v2-to-v3-migration-guide.mdx
+          - page: Threaded and Async IO Task Support
+            path: docs/threaded-and-async-io-task-support.mdx
+          - page: Pre-Recorded Audio Transcription
+            path: docs/python-sdk-pre-recorded-transcription.mdx
+          - page: Live Streaming Audio Transcription
+            path: docs/python-sdk-streaming-transcription.mdx
+          - page: Text To Speech REST
+            path: docs/python-sdk-text-to-speech.mdx
+          - page: Text To Speech Streaming
+            path: docs/python-sdk-streaming-text-to-speech.mdx
+          - page: Python Notebooks
+            path: docs/python-notebooks.mdx
+      - section: .NET SDK
+        path: docs/dotnet-sdk.mdx
+        contents:
+          - page: .NET SDK V3 to V4 Migration Guide
+            path: docs/dotnet-sdk-v3-to-v4-migration-guide.mdx
+          - page: Pre-Recorded Audio Transcription
+            path: docs/dotnet-sdk-pre-recorded-transcription.mdx
+          - page: Live Streaming Audio Transcription
+            path: docs/dotnet-sdk-streaming-transcription.mdx
+          - page: Text to Speech REST
+            path: docs/dotnet-sdk-text-to-speech.mdx
+          - page: Text to Speech Streaming
+            path: docs/dotnet-sdk-streaming-text-to-speech.mdx
+      - section: Go SDK
+        path: docs/go-sdk.mdx
+        contents:
+          - page: Go SDK v1.2 to v1.3 Interface Change
+            path: docs/go-sdk-v12-to-v136-migration-guide.mdx
+          - page: Pre-Recorded Audio Transcription
+            path: docs/pre-recorded-audio-transcription.mdx
+          - page: Live Streaming Audio Transcription
+            path: docs/live-streaming-audio-transcription.mdx
+          - page: Text-to-Speech REST
+            path: docs/go-sdk-text-to-speech.mdx
+          - page: Text-to-Speech Streaming
+            path: docs/go-sdk-streaming-text-to-speech.mdx
   - tab: self-hosted
     layout:
       - page: Introduction
