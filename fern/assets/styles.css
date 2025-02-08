@@ -111,7 +111,7 @@
   }
 }
 
-.fern-header-tab-button span{
+.fern-header-tab-button span {
 	text-transform: uppercase !important;
 	font-weight: 700 !important;
 	font-size: 14px !important;
@@ -124,7 +124,8 @@
 	background-color: #0B0B0C !important;
 }
 
-.fern-sidebar-heading-content {
+.fern-sidebar-heading-content,
+.fern-sidebar-link-container .font-semibold .fern-sidebar-link-text {
 	text-transform: uppercase !important;
 	font-weight: 700 !important;
 	font-size: 14px !important;
