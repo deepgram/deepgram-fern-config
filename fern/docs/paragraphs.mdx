@@ -7,11 +7,13 @@ slug: docs/paragraphs
 
 `paragraphs` *boolean* Default: `false`
 
-[Pre-recorded](/docs/getting-started-with-pre-recorded-audio) Streaming [All in which words are delimited by spaces](/docs/models-languages-overview)
+<Markdown src="../snippets/pre-recorded.mdx" /> Streaming [All in which words are delimited by spaces](/docs/models-languages-overview)
 
-<Info>
-  Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&paragraphs=true\&language=en\&model=nova-2)!
-</Info>
+<div class="api-playground-call">
+<span>
+<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&paragraphs=true\&language=en\&model=nova-2)!
+</span>
+</div>
 
 * When Paragraphs is enabled, [Punctuation](/docs/punctuation/) feature is enabled by default, and paragraphs are identified based on the transcript's punctuation.
 * When the Diarization feature is enabled and multiple speakers are present, paragraphs breaks are influenced by speaker changes.

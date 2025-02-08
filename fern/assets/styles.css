@@ -223,17 +223,30 @@ span[data-badge-type="status-code"] {
 .dg-badge {
 	margin-right: 6px !important;
 	color: #bbbbbf !important;
-	padding: 9px 1px !important;
+	padding: 1px 1px !important;
 	text-decoration: none !important;
 	border-radius: 4px !important;
 	background-origin: border-box !important;
   background-image: linear-gradient(90deg, #201cff -91.5%, #13ef95 80.05%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+	height: fit-content;
 }
 
 .dg-badge span {
 	background-color: #1A1A1F !important;
-	padding: 8px 16px !important;
+	padding: 4px 12px !important;
 	border-radius: 4px !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.dg-badge .fa-icon {
+	background: linear-gradient(90deg, #201cff -91.5%, #13ef95 80.05%);
+	margin-right: 4px !important;
 }
 
 .fern-card {
@@ -280,31 +293,40 @@ h2 {
 	padding-left: 28px !important;
 }
 
-.api-playground-call .w-4 {
+.api-playground-call {
 	width: fit-content !important;
 	height: fit-content !important;
 	display: flex !important;
 	align-items: center !important;
 	justify-content: center !important;
+	padding: 2px !important;
+	border-radius: 4px !important;
+	background-image: linear-gradient(82.38deg, #ff2eea -99.24%, #4b3cff 99.26%) !important;
+	width: 100% !important;
 }
 
-.api-playground-call .callout-icon {
-	width: fit-content !important;
-	height: fit-content !important;
+.api-playground-call span {
+	background-color: #1A1A1F !important;
+	padding: 8px 24px !important;
+	border-radius: 4px !important;
+	width: 100% !important;
+}
+
+.api-playground-call p {
+	margin-top: 0px !important;
+	margin-bottom: 0px !important;
+}
+
+.api-playground-call p div:first-child {
+	display: inline-block !important;
 }
 
 .api-playground-call img {
+	width: 2.5rem !important;
+	height: 2.5rem !important;
+	display: inline-block !important;
 	margin-top: 4px !important;
 	margin-bottom: 4px !important;
-}
-
-.api-playground-call .items-start {
-	align-items: center;
-}
-
-.api-playground-call .callout-icon > div {
-	margin-top: auto !important;
-	margin-bottom: auto !important;
 }
 
 .invert-white {
