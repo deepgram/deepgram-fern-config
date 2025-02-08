@@ -61,7 +61,7 @@ Transcribe a local file on the same filesystem as the app is running.
               "audio/wav"),
           new PrerecordedTranscriptionOptions()
           {
-              Model = "nova-2",
+              Model = "nova-3",
           });
   }
   ```
@@ -75,7 +75,7 @@ Transcribe a local file on the same filesystem as the app is running.
     audioData,
     new PreRecordedSchema()
     {
-      Model = "nova-2",
+      Model = "nova-3",
     });
 
   Console.WriteLine(JsonSerializer.Serialize(response, options));
@@ -94,7 +94,7 @@ Transcribe a remote file by sending a publicly accessible URL.
   var response = await deepgramClient.Transcription.Prerecorded.GetTranscriptionAsync(
     new UrlSource("https://dpgr.am/bueller.wav"),
     new PrerecordedTranscriptionOptions(){
-      Tier = "nova-2",
+      Tier = "nova-3",
     }
   );
 
@@ -109,7 +109,7 @@ Transcribe a remote file by sending a publicly accessible URL.
     new UrlSource("https://dpgr.am/bueller.wav"),
     new PreRecordedSchema()
     {
-      Model = "nova-2",
+      Model = "nova-3",
     });
 
   Console.WriteLine(JsonSerializer.Serialize(response, options));
@@ -162,7 +162,7 @@ The Live Client abstracts the underlying WebSocket implementation from the user 
 
       var options = new LiveTranscriptionOptions()
     	{
-        Model = "nova-2"
+        Model = "nova-3"
       };
       await deepgramLive.StartConnectionAsync(options);
 
@@ -183,7 +183,7 @@ The Live Client abstracts the underlying WebSocket implementation from the user 
   // Start the connection
   var liveSchema = new LiveSchema()
   {
-    Model = "nova-2",
+    Model = "nova-3",
   };
   await liveClient.Connect(liveSchema);
 

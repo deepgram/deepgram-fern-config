@@ -67,7 +67,7 @@ Creating a Live Client can be done by using the following code:
 A common config option would be to enable the KeepAlive option with `EnableKeepAlive`:
 
 <CodeGroup>
-  ```go Go
+  ```go go
   ctx := context.Background()
   	apiKey := "DEEPGRAM_API_KEY"
   	clientOptions := interfaces.ClientOptions{
@@ -76,7 +76,7 @@ A common config option would be to enable the KeepAlive option with `EnableKeepA
 
   	transcriptOptions := interfaces.LiveTranscriptionOptions{
   		Language:    "en-US",
-  		Model:       "nova-2",
+  		Model:       "nova-3",
   		SmartFormat: true,
   	}
 
@@ -145,7 +145,7 @@ What this ends up looking like on the client side is:
 When finished with the Live stream, you can safely close the stream by calling the following function on the client.
 
 <CodeGroup>
-  ```js JS
+  ```js js
   deepgramLive.finish();
   ```
 </CodeGroup>

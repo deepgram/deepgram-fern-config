@@ -24,13 +24,13 @@ To enable the SpeechStarted event, include the parameter `vad_events=true` in yo
 You'll then begin receiving messages upon speech starting.
 
 <CodeGroup>
-  ```python Python
+  ```python python
 
   # see https://github.com/deepgram/deepgram-python-sdk/blob/main/examples/streaming/async_microphone/main.py
   # for complete example code
 
      options: LiveOptions = LiveOptions(
-              model="nova-2",
+              model="nova-3",
               language="en-US",
               # Apply smart formatting to the output
               smart_format=True,
@@ -53,7 +53,7 @@ You'll then begin receiving messages upon speech starting.
 The JSON message sent when the start of speech is detected looks similar to this:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "type": "SpeechStarted",
     "channel": [

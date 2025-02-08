@@ -12,7 +12,7 @@ Pre-recorded [Streaming](/docs/getting-started-with-live-streaming-audio) [All a
 Encoding is required when raw, headerless audio packets are sent to the streaming service. If containerized audio packets are sent to the streaming service, this feature should not be used.
 
 <Info>
-  If you are using the Encoding feature, the [Sample Rate](/docs/sample-rate/) feature is also required.
+  If you are using the Encoding feature, the [Sample Rate](/docs/sample-rate) feature is also required.
 </Info>
 
 ## Enable Feature
@@ -22,7 +22,7 @@ To enable Encoding, when you call Deepgram’s API, add an `encoding` parameter 
 `encoding=OPTION`
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   url \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

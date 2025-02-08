@@ -47,7 +47,7 @@ In the `linear16` audio encoding case, you will need to prepend a [`WAV` contain
 In many cases, file-based playback is not desired, and you may want to play the audio directly by streaming to the media device. For those cases, you may need to manipulate the audio stream and create the header bytes directly in front of the audio stream segments:
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   // Add a wav audio container header to the file if you want to play the audio
   // using the AudioContext or media player like VLC, Media Player, or Apple Music
   // Without this header in the Chrome browser case, the audio will not play.
@@ -71,7 +71,7 @@ In many cases, file-based playback is not desired, and you may want to play the 
   const audio = Buffer.concat([wavHeader, audioBuffer]);
   ```
 
-  ```python Python
+  ```python python
   # Add a wav audio container header to the file if you want to play the audio
   # using the AudioContext or media player like VLC, Media Player, or Apple Music
   # Without this header in the Chrome browser case, the audio will not play.
@@ -146,7 +146,7 @@ In many cases, file-based playback is not desired, and you may want to play the 
   	}
   ```
 
-  ```csharp C#
+  ```csharp csharp
   // Add a wav audio container header to the file if you want to play the audio
   // using the AudioContext or media player like VLC, Media Player, or Apple Music
   // Without this header in the Chrome browser case, the audio will not play.
@@ -177,9 +177,34 @@ In many cases, file-based playback is not desired, and you may want to play the 
 
 Depending on the application you are attempting to build, a possible scenario that could occur is the LLM's speech/audio output is triggering itself. In other words, the LLM begins responding to itself.
 
-There are numerous ways to mitigate this. Some of the more simple ways are to:
+There are numerous ways to mitigate this. Some of these include:
 
 1. Programmatically mute the microphone input.
 2. Keep the microphone input enabled, but use a local VAD to disengage/engage sending audio through the Websocket
+3. Enable echo cancellation in your `getUserMedia` audio constraints to help prevent the microphone from picking up the agent’s speech.
 
-There are numerous to handle this particular problem. Pick the method that best suits your use case.
+### Using Echo Cancellation
+
+Some browsers provide built-in **echo cancellation** that can help reduce cases where the agent hears its own voice. You can enable this when capturing microphone input:
+
+<CodeGroup>
+  ```javascript javascript
+  navigator.mediaDevices
+      .getUserMedia({
+        audio: {
+          sampleRate: 16000,
+          channelCount: 1,
+          echoCancellation: true,  // Helps suppress the agent's voice being re-captured
+          noiseSuppression: false, // Optional, depends on use case
+        },
+      })
+      .then(stream => {
+        // Use the audio stream
+      })
+      .catch(error => {
+        console.error("Error accessing microphone:", error);
+      });
+  ```
+</CodeGroup>
+
+Read more in the guide [Voice Agent Adaptive Echo Cancellation](/docs/voice-agent-echo-cancellation)

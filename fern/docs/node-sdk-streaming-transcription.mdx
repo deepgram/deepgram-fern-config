@@ -36,7 +36,7 @@ Connecting to Deepgram returns an instance of `LiveClient`.
 
 <CodeGroup>
   ```typescript typescript
-  const live = deepgram.listen.live({ model: "nova" });
+  const live = deepgram.listen.live({ model: "nova-3" });
   ```
 </CodeGroup>
 
@@ -114,7 +114,7 @@ You can send Deepgram a keep alive if you intend for deliberate moments of non-b
 The `getReadyState` function returns the [ready state of the web socket connection](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/readyState) to Deepgram.
 
 <CodeGroup>
-  ```js JS
+  ```js js
   live.getReadyState();
   ```
 </CodeGroup>
@@ -124,7 +124,7 @@ The `getReadyState` function returns the [ready state of the web socket connecti
 The `configure` function gives the ability to toggle different features. Currently, only the `numerals` feature is supported. This function is a shorthand way of sending the following data to the web socket connection:
 
 <CodeGroup>
-  ```js JS
+  ```js js
   live.configure({numerals: true}); // enable numerals
   ```
 </CodeGroup>
@@ -134,7 +134,7 @@ The `configure` function gives the ability to toggle different features. Current
 The `requestClose` function closes the web socket connection to Deepgram.
 
 <CodeGroup>
-  ```js JS
+  ```js js
   live.requestClose();
   ```
 </CodeGroup>

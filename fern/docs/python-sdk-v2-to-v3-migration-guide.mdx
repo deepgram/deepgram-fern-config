@@ -174,7 +174,7 @@ Transcribe live audio streams. Previously only Async/Await class and methods wer
       'smart_format': True,
       'interim_results': False,
       'language': 'en-US',
-      'model': 'nova-2',
+      'model': 'nova-3',
     })
   except Exception as e:
     print(f'Could not open socket: {e}')
@@ -220,7 +220,7 @@ Transcribe live audio streams. Previously only Async/Await class and methods wer
       dg_connection.on(LiveTranscriptionEvents.Transcript, on_message)
 
       # connect to websocket
-      options = LiveOptions(model="nova-2", interim_results=False, language="en-US")
+      options = LiveOptions(model="nova-3", interim_results=False, language="en-US")
       dg_connection.start(options)
 
       lock_exit = threading.Lock()

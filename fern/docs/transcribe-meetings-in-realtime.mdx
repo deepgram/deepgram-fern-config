@@ -50,7 +50,7 @@ To run this project on your local computer you will need to clone the repository
 Either clone or download the [GitHub repository](https://github.com/deepgram-devs/video-chat) to your local machine in a new directory:
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   # Clone this repo
   git clone https://github.com/deepgram-devs/video-chat.git
 
@@ -71,7 +71,7 @@ Your application will need to know more about you before it can run. Copy the `.
 In the directory where you downloaded the code, run the following command to bring in the dependencies needed for this project:
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   npm install
   ```
 </CodeGroup>
@@ -81,7 +81,7 @@ In the directory where you downloaded the code, run the following command to bri
 Now that you have configured your application and put the dependencies in place, your application is ready to go! Run it with:
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   npm start
   ```
 </CodeGroup>
@@ -113,7 +113,7 @@ To negotiate the peer connection, we call the `createAndSetupPeerConnection` fun
 </Info>
 
 <CodeGroup>
-  ```js JS
+  ```js js
   function createAndSetupPeerConnection(peerSocketId, localStream, remoteVideoNode, socket, allPeerConnections) {
   	// Create an RTC peer connection and add the connection to `allPeer Connections`.
   	const peerConnection = new RTCPeerConnection({
@@ -150,7 +150,7 @@ To negotiate the peer connection, we call the `createAndSetupPeerConnection` fun
 </CodeGroup>
 
 <CodeGroup>
-  ```js JS
+  ```js js
   function setupWebRTCSignaling(socket) {
   	// Handle the WebRTC "signaling", which means forwarding the necessary data
   	// to establish a peer-to-peer connection.
@@ -176,7 +176,7 @@ When your browser sends the audio stream to the server, we call the `setupRealti
 When connecting to the Deepgram server, you can configure options by appending query string parameters to the URL. To learn more about available options, check out our docs on the [Deepgram Live API](/reference/listen-live).
 
 <CodeGroup>
-  ```js JS
+  ```js js
   const { Deepgram } = require("@deepgram/sdk");
   function setupRealtimeTranscription(socket, room) {
   	/** The sampleRate must match what the client uses. */

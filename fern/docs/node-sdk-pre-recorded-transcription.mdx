@@ -41,7 +41,7 @@ Any public audio or video file can be used.
       url: "https://dpgr.am/spacewalk.wav"
     },
     {
-      model: "nova-2"
+      model: "nova-3"
     }
   );
   ```
@@ -56,7 +56,7 @@ Any `ArrayBufferLike` can be sent as the body. This includes file buffers from N
   const { result, error } = await deepgram.listen.prerecorded.transcribeFile(
     fs.readFileSync("./examples/spacewalk.wav"),
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -71,7 +71,7 @@ Any `ReadStream` can be sent as the body. This includes a stream from Node's `fs
   const { result, error } = await deepgram.listen.prerecorded.transcribeFile(
     fs.createReadStream("./examples/spacewalk.wav"),
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -88,7 +88,7 @@ In the latest SDK version, caption formatting has been has been published as a [
 ### Formatting as WebVTT
 
 <CodeGroup>
-  ```js JS
+  ```js js
   import { createClient } from "@deepgram/sdk";
   import { webvtt } from "@deepgram/captions";
   // - or -
@@ -101,7 +101,7 @@ In the latest SDK version, caption formatting has been has been published as a [
       url: "https://dpgr.am/spacewalk.wav"
     },
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
 
@@ -116,7 +116,7 @@ In the latest SDK version, caption formatting has been has been published as a [
 ### Formatting as SRT
 
 <CodeGroup>
-  ```js JS
+  ```js js
   import { createClient } from "@deepgram/sdk";
   import { srt } from "@deepgram/captions";
   // - or -
@@ -129,7 +129,7 @@ In the latest SDK version, caption formatting has been has been published as a [
       url: "https://dpgr.am/spacewalk.wav"
     },
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
 

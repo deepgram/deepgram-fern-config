@@ -29,7 +29,7 @@ Use a TCP check on the open port (port 8080 by default).
 Query the status of the `/v1/status/engine`endpoint and check whether it is in a `"Connected"` state with at least one Engine container.
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   curl --silent http://localhost:PORT/v1/status/engine | grep --quiet -e '^{\"engine_connection_status\"\:\"Connected\".*}$'
   ```
 </CodeGroup>
@@ -43,7 +43,7 @@ Query the status of the `/v1/status/engine`endpoint and check whether it is in a
 Make a GET request to list all models the Engine has loaded, along with their metadata. For broader information, see the [Model Metadata endpoint documentation](/docs/model-metadata). When pointed at a self-hosted deployment, this endpoint is helpful to confirm that models present in your models directory are being loaded by the container as expected.
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   curl --location 'http://localhost:8080/v1/models'
   ```
 </CodeGroup>
@@ -67,7 +67,7 @@ Choose a host port `HOST_PORT` where external queries can be made, and choose a 
 Within your `docker-compose.yml` file you must publish the internal container port to the external host port, as shown below. See [Published Ports](https://docs.docker.com/network/#published-ports) in the official Docker documentation for more details.
 
 <CodeGroup>
-  ```yaml YAML
+  ```yaml yaml
   services:
     engine:
       # other definitions
@@ -223,7 +223,7 @@ Use a TCP check on the open status port (port 8080 by default).
 Query the status of the `/v1/status`endpoint and check the connection state.
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   curl --silent http://localhost:8080/v1/status | grep --quiet -e '^{.*\"state\"\:\"\(Connected\|TrustBased\)\".*}$'
   ```
 </CodeGroup>

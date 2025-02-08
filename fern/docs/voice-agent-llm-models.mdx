@@ -21,13 +21,12 @@ Defines the LLM (*Large Language Model*) to be used with your Agent.
 | ------------------- | ------------------------- | -------------------------- | ----------------------------------------------- |
 | `open_ai`           | `gpt-4o-mini`             | none                       | none                                            |
 | `anthropic`         | `claude-3-haiku-20240307` | none                       | none                                            |
-| `groq`              | `Coming Soon!`            | none                       | none                                            |
 | `custom`            | `YOUR_MODEL_NAME`         | `YOUR_LLM_COMPLETIONS_URL` | `Array of Headers to pass with your auth token` |
 
 ## Example
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "think": {
       "provider": {
@@ -45,7 +44,7 @@ Defines the LLM (*Large Language Model*) to be used with your Agent.
 You can pass a custom chat completions URL and headers to set your authorization or api-key etc
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "think": {
       "provider": {

@@ -171,7 +171,7 @@ In your terminal, create a new `index.js` or `index.py` file in your project's l
 Initialise your dependencies:
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   import "fs" from "fs";
   import { createClient, webvtt, srt } from "@deepgram/sdk";
 
@@ -196,7 +196,7 @@ Initialise your dependencies:
 To receive timestamps of phrases to include in your caption files, ask Deepgram to include [utterances](/docs/utterances/) (a chain of words or, more simply, a phrase):
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const { result, error } =  deepgram.listen.prerecorded.transcribeUrl(
     {
   	  url: "YOUR_FILE_LOCATION",
@@ -225,7 +225,7 @@ To receive timestamps of phrases to include in your caption files, ask Deepgram 
 With JavaScript, open a writable stream, so you will be able to insert text directly into your file. When you open your stream, you should pass in the `a` flag, so that any time you write data to the stream, it will be appended to the end. Add inside the `.then()` block.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   // WebVTT Filename
   const stream = fs.createWriteStream("output.vtt", { flags: "a" });
 
@@ -239,7 +239,7 @@ With JavaScript, open a writable stream, so you will be able to insert text dire
 The WebVTT and SRT formats are very similar, and each requires a block of text per utterance.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const captions = webvtt(result);
 
   stream.write(captions);
@@ -262,7 +262,7 @@ The WebVTT and SRT formats are very similar, and each requires a block of text p
 Deepgram provides seconds back as a number (`15.4` means 15.4 seconds), but both formats require times as `HH:MM:SS.milliseconds` and getting the end of a `Date().toISOString()` will achieve this for us.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const captions = srt(result);
 
   stream.write(captions);

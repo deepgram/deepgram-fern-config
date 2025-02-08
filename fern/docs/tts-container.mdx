@@ -22,7 +22,7 @@ Choosing the appropriate container format for the audio output is essential for 
 To enable the Container feature, include the `container` parameter in the query string with the desired container format value.
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   https://api.deepgram.com/v1/speak?encoding=linear16&container=wav
   ```
 </CodeGroup>
@@ -38,7 +38,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **WAV container format**:
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=linear16&container=wav" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \

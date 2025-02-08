@@ -26,7 +26,7 @@ A common situation is needing to keep a connection open without constantly sendi
 To send the` KeepAlive` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "type": "KeepAlive" 
   }
@@ -54,7 +54,7 @@ Following are code examples to help you get started.
 These snippets demonstrate how to construct a JSON message containing the `KeepAlive` type and send it over the WebSocket connection in each respective language.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const WebSocket = require("ws");
 
   // Assuming 'headers' is already defined for authorization
@@ -65,7 +65,7 @@ These snippets demonstrate how to construct a JSON message containing the `KeepA
   ws.send(keepAliveMsg);
   ```
 
-  ```python Python
+  ```python python
   import json
   import websocket
 
@@ -113,7 +113,7 @@ These snippets demonstrate how to construct a JSON message containing the `KeepA
   }
   ```
 
-  ```csharp C#
+  ```csharp csharp
   using System;
   using System.Net.WebSockets;
   using System.Text;
@@ -157,7 +157,7 @@ These snippets demonstrate how to construct a JSON message containing the `KeepA
 Here are more complete examples that make a streaming request and use `KeepAlive`. Try running these examples to see how `KeepAlive` is sent periodically.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const WebSocket = require("ws");
 
   const authToken = "DEEPGRAM_API_KEY"; // Replace 'DEEPGRAM_API_KEY' with your actual authorization token
@@ -210,7 +210,7 @@ Here are more complete examples that make a streaming request and use `KeepAlive
   // closeWebSocket();
   ```
 
-  ```python Python
+  ```python python
   import websocket
   import json
   import time
@@ -270,7 +270,7 @@ Here are more complete examples that make a streaming request and use `KeepAlive
 Deepgram's SDKs make it easier to build with Deepgram in your preferred language. To learn more about getting started with the SDKs, visit Deepgram's [SDKs documentation.](/docs/deepgram-sdks)
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const { createClient, LiveTranscriptionEvents } = require("@deepgram/sdk");
 
   const live = async () => {
@@ -280,7 +280,7 @@ Deepgram's SDKs make it easier to build with Deepgram in your preferred language
 
     const setupDeepgram = () => {
       connection = deepgram.listen.live({
-        model: "nova-2",
+        model: "nova-3",
         utterance_end_ms: 1500,
         interim_results: true,
       });
@@ -327,7 +327,7 @@ Deepgram's SDKs make it easier to build with Deepgram in your preferred language
   live();
   ```
 
-  ```python Python
+  ```python python
   from deepgram import DeepgramClient, DeepgramClientOptions, LiveTranscriptionEvents, LiveOptions
 
   API_KEY = "DEEPGRAM_API_KEY"
@@ -359,7 +359,7 @@ Deepgram's SDKs make it easier to build with Deepgram in your preferred language
           dg_connection.on(LiveTranscriptionEvents.Error, on_error)
 
           options = LiveOptions(
-              model="nova-2", 
+              model="nova-3", 
               language="en-US", 
               smart_format=True,
           )
@@ -373,7 +373,7 @@ Deepgram's SDKs make it easier to build with Deepgram in your preferred language
       main()
   ```
 
-  ```go Go
+  ```go go
   package main
 
   import (
@@ -395,7 +395,8 @@ Deepgram's SDKs make it easier to build with Deepgram in your preferred language
 
   	// set the Transcription options
   	tOptions := interfaces.LiveTranscriptionOptions{
-  		Language:  "en-US",
+  		Model="nova-3",
+      Language:  "en-US",
   		Punctuate: true,
   	}
 

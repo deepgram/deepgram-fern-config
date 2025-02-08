@@ -9,18 +9,14 @@ slug: docs/text-summarization
 
 [English (all available regions)](/docs/models-languages-overview)
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=read\&summarize=v2\&language=en)!
 </Info>
-</div>
 
 Summarization accepts an input text and analyzes the text. It then summarizes the content of the submitted text and returns a brief summary in the JSON response.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
    "results": {
       "summary": {
         "text": "Jake calls the Honda dealership and speaks with Josh about the new Honda Civic 2023. Jake schedules a test drive for the hybrid model on Friday and provides his contact information.Josh confirms the appointment and tells Jake to call if he has any further questions."
@@ -40,7 +36,7 @@ To enable Summarization, use the following parameter in the query string when yo
 To analyze text from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
    curl -vX POST \
   	-H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
   	-H "Content-Type: application/json" \
@@ -58,7 +54,7 @@ To analyze text from a file on your computer, run the following curl command in 
 To analyze text from a hosted file, run the following curl command in a terminal or your favorite API client. (Try testing it out with the hosted file [https://static.deepgram.com/examples/aura.txt](https://static.deepgram.com/examples/aura.txt))
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -83,7 +79,7 @@ To analyze text from a hosted file, run the following curl command in a terminal
 When the file is finished processing, you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "metadata": {
       "request_id": "6ab1afe9-da49-4688-86f5-ae2fde420ad4",
@@ -121,7 +117,7 @@ The `summary` object contains:
 If you request Summarization with an unsupported language by specifying a language code such as `summarize=true&language=es` or `summarize=true&detect_language=true` where the detected language is unsupported, you will get the error message below.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "err_code":"INVALID_QUERY_PARAMETER",
     "err_msg":"Request specified unsupported language: <language_name>. Only English is supported.",
@@ -137,7 +133,7 @@ If you request Summarization with an unsupported language by specifying a langua
 If the request's input length exceeded the 150k token rate limit per request, you will get the error message below.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "err_code": "TOKEN_LIMIT_EXCEEDED",
     "err_msg": "Text input for <api_name> currently supports up to 150K tokens. Please revise your text input to fit within the defined token limit. For more information, please visit our API documentation.",
@@ -153,7 +149,7 @@ If the request's input length exceeded the 150k token rate limit per request, yo
 If the request sent contained only the feature parameter (`summarize`) but not the `language` parameter, you will receive this error.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "err_code":"INVALID_QUERY_PARAMETER",
     "err_msg":"Failed to deserialize query parameters: missing field `language`",

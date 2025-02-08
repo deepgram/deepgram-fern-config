@@ -32,7 +32,7 @@ To enable Encoding, include the `encoding` parameter in the query string with th
 **Example**:
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/speak?encoding=linear16
   ```
 </CodeGroup>
@@ -44,7 +44,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **Linear16 encoding**:
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=linear16" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
@@ -60,7 +60,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **MP3 encoding with bitrate of 32 kbits/second**:
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=mp3&bit_rate=32000" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \

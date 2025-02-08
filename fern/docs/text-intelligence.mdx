@@ -26,13 +26,9 @@ Deepgram's Text Intelligence API lets users send a text source to Deepgram, and 
 
 First, quickly explore Deepgram Text Intelligence in our API Playground.
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=read\&summarize=v2\&topics=true\&intents=true\&sentiment=true\&language=en)!
 </Info>
-</div>
 
 ## Make the Request
 
@@ -47,7 +43,7 @@ A text source can be sent to Deepgram as text (a text string or local text file)
 This example shows how to analyze a **local text file** as your text source.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const { createClient } = require("@deepgram/sdk");
   const fs = require("fs");
 
@@ -131,7 +127,7 @@ This example shows how to analyze a **local text file** as your text source.
       main()
   ```
 
-  ```go Go
+  ```go go
   package main
 
   import (
@@ -205,7 +201,7 @@ This example shows how to analyze a **local text file** as your text source.
 This example shows how to analyze a **hosted url file** as your text source.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const { createClient } = require("@deepgram/sdk");
 
   const analyzeUrl = async () => {
@@ -279,7 +275,7 @@ This example shows how to analyze a **hosted url file** as your text source.
       main()
   ```
 
-  ```go Go
+  ```go go
   package main
 
   import (
@@ -601,7 +597,7 @@ Here are a few constraints to keep in mind when making your request.
 At this time, text analysis features only work for English language texts. You must add a language parameter and set it to English when you make a text analysis request.
 
 <CodeGroup>
-  ```python Python
+  ```python python
   options = AnalyzeOptions(
               language="en",
               summarize=True,
@@ -614,7 +610,7 @@ At this time, text analysis features only work for English language texts. You m
 The input token limit is 150K tokens. When that limit is exceeded, a `400` error will be thrown.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "err_code": "TOKEN_LIMIT_EXCEEDED",
     "err_msg": "Text input currently supports up to 150K tokens. Please revise your text input to fit within the defined token limit. For more information, please visit our API documentation.",

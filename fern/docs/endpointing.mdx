@@ -34,13 +34,13 @@ This will wait until 500 milliseconds of silence has passed to finalize and retu
 Endpointing may be disabled by setting `endpointing=false`. If endpointing is disabled, transcriptions will be returned at a cadence determined by Deepgram's chunking algorithms.
 
 <CodeGroup>
-  ```python Python
+  ```python python
 
   # see https://github.com/deepgram/deepgram-python-sdk/blob/main/examples/streaming/async_microphone/main.py
   # for complete example code
 
      options: LiveOptions = LiveOptions(
-              model="nova-2",
+              model="nova-3",
               language="en-US",
               # Apply smart formatting to the output
               smart_format=True,
@@ -63,7 +63,7 @@ Endpointing may be disabled by setting `endpointing=false`. If endpointing is di
 When enabled, the transcript for each received streaming response shows a key called `speech_final`.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "channel_index":[
       0,

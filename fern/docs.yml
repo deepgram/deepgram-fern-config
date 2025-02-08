@@ -70,10 +70,11 @@ navigation:
   - tab: home
     layout:
       - page: Introduction
-        path: pages/introduction.mdx
+        path: docs/landing.mdx
       - page: Getting Started
         path: docs/getting-started.mdx
       - section: SDKs
+        slug: sdks
         contents:
           - page: Deepgram SDKs
             path: docs/deepgram-sdks.mdx
@@ -86,9 +87,8 @@ navigation:
           - page: Using Client Options with SDKs
             path: docs/using-client-options-with-sdks.mdx
           - section: JavaScript SDK
+            path: docs/js-sdk.mdx
             contents:
-              - page: JavaScript SDK
-                path: docs/js-sdk.mdx
               - page: JavaScript SDK V2 to V3 Migration Guide
                 path: docs/js-sdk-v2-to-v3-migration-guide.mdx
               - page: Pre-Recorded Audio Transcription
@@ -100,9 +100,8 @@ navigation:
               - page: Text to Speech Streaming
                 path: docs/js-sdk-streaming-text-to-speech.mdx
           - section: Python SDK
+            path: docs/python-sdk.mdx
             contents:
-              - page: Python SDK
-                path: docs/python-sdk.mdx
               - page: Python SDK V2 to V3 Migration Guide
                 path: docs/python-sdk-v2-to-v3-migration-guide.mdx
               - page: Threaded and Async IO Task Support
@@ -118,9 +117,8 @@ navigation:
               - page: Python Notebooks
                 path: docs/python-notebooks.mdx
           - section: .NET SDK
+            path: docs/dotnet-sdk.mdx
             contents:
-              - page: .NET SDK
-                path: docs/dotnet-sdk.mdx
               - page: .NET SDK V3 to V4 Migration Guide
                 path: docs/dotnet-sdk-v3-to-v4-migration-guide.mdx
               - page: Pre-Recorded Audio Transcription
@@ -132,9 +130,8 @@ navigation:
               - page: Text to Speech Streaming
                 path: docs/dotnet-sdk-streaming-text-to-speech.mdx
           - section: Go SDK
+            path: docs/go-sdk.mdx
             contents:
-              - page: Go SDK
-                path: docs/go-sdk.mdx
               - page: Go SDK v1.2 to v1.3 Interface Change
                 path: docs/go-sdk-v12-to-v136-migration-guide.mdx
               - page: Pre-Recorded Audio Transcription
@@ -145,16 +142,10 @@ navigation:
                 path: docs/go-sdk-text-to-speech.mdx
               - page: Text-to-Speech Streaming
                 path: docs/go-sdk-streaming-text-to-speech.mdx
-              - link: Go SDK Docs
-                href: https://pkg.go.dev/github.com/deepgram/deepgram-go-sdk@main
-          - link: Rust SDK [community]
-            href: https://github.com/deepgram/deepgram-rust-sdk
-          - link: Flutter SDK [community]
-            href: https://pub.dev/packages/deepgram_speech_to_text
       - page: Support
         path: docs/support.mdx
   - tab: voice-agent
-    layout:
+    layout: 
       - page: Getting Started
         path: docs/voice-agent.mdx
       - page: Feature Overview
@@ -163,9 +154,13 @@ navigation:
         path: docs/voice-agent-starter-apps.mdx
       - page: Configure the Voice Agent
         path: docs/configure-voice-agent.mdx
-      - page: Function Calling
+      - section: Function Calling
         path: docs/voice-agents-function-calling.mdx
+        contents:
+          - page: Build A Function Call
+            path: docs/build-a-function-call.mdx
       - section: 'Inputs: Client Messages'
+        path: docs/voice-agent-inputs.mdx
         contents:
           - page: Settings Configuration
             path: docs/voice-agent-settings-configuration.mdx
@@ -180,6 +175,7 @@ navigation:
           - page: Agent Keep Alive
             path: docs/agent-keep-alive.mdx
       - section: 'Outputs: Server Events'
+        path: docs/voice-agent-outputs.mdx
         contents:
           - page: Welcome
             path: docs/voice-agent-welcome-message.mdx
@@ -214,9 +210,7 @@ navigation:
           - page: Voice Agent Adaptive Echo Cancellation
             path: docs/voice-agent-echo-cancellation.mdx
   - tab: speech-to-text
-    layout:
-      - page: Getting Started
-        path: docs/pre-recorded-audio.mdx
+    layout: 
       - section: Pre-Recorded Audio
         contents:
           - page: Getting Started
@@ -305,7 +299,7 @@ navigation:
             path: docs/language.mdx
           - page: Language Detection
             path: docs/language-detection.mdx
-          - page: Multilingual Code-Switching
+          - page: Multilingual Codeswitching
             path: docs/multilingual-code-switching.mdx
           - page: Model Options
             path: docs/model.mdx
@@ -343,14 +337,15 @@ navigation:
         contents:
           - page: Find and Replace
             path: docs/find-and-replace.mdx
+          - page: Keyterm Prompting
+            path: docs/keyterm.mdx
           - page: Keywords
             path: docs/keywords.mdx
           - page: Search
             path: docs/search.mdx
       - section: Media Input Settings
+        path: docs/media-input-settings.mdx
         contents:
-          - page: Media Input Settings
-            path: docs/media-input-settings.mdx
           - page: Channels
             path: docs/channels.mdx
           - page: Encoding
@@ -381,13 +376,10 @@ navigation:
           - page: Migrating from AssemblyAI Speech-to-Text to Deepgram
             path: docs/migrating-from-assembly-ai-speech-to-text-to-deepgram.mdx
   - tab: text-to-speech
-    layout:
-      - page: Text-to-Speech REST
-        path: docs/tts-rest.mdx
+    layout: 
       - section: Text-to-Speech REST
+        path: docs/tts-rest.mdx
         contents:
-          - page: Text-to-Speech REST
-            path: docs/tts-rest.mdx
           - page: Getting Started
             path: docs/text-to-speech.mdx
           - page: Feature Overview
@@ -397,9 +389,8 @@ navigation:
           - page: Audio Output Streaming
             path: docs/streaming-the-audio-output.mdx
       - section: Text-to-Speech Streaming
+        path: docs/tts-websocket.mdx
         contents:
-          - page: Text-to-Speech Streaming
-            path: docs/tts-websocket.mdx
           - page: Getting Started
             path: docs/streaming-text-to-speech.mdx
           - page: Feature Overview
@@ -417,9 +408,8 @@ navigation:
       - page: Voice Selection
         path: docs/tts-models.mdx
       - section: Media Output Settings
+        path: docs/tts-media-output-settings.mdx
         contents:
-          - page: Media Output Settings
-            path: docs/tts-media-output-settings.mdx
           - page: Encoding
             path: docs/tts-encoding.mdx
           - page: Bit Rate
@@ -443,9 +433,7 @@ navigation:
           - page: Text to Speech Prompting
             path: docs/text-to-speech-prompting.mdx
   - tab: intelligence
-    layout:
-      - page: Getting Started
-        path: docs/audio-intelligence.mdx
+    layout: 
       - section: Audio Intelligence
         contents:
           - page: Getting Started
@@ -480,8 +468,6 @@ navigation:
             path: docs/text-intelligence-callback.mdx
   - tab: guides
     layout:
-      - page: Make Your First API Request
-        path: docs/make-your-first-api-request.mdx
       - section: Fundamentals
         contents:
           - page: Make Your First API Request
@@ -549,9 +535,8 @@ navigation:
       - page: Deployment Environments
         path: docs/self-hosted-deployment-environments.mdx
       - section: Docker/Podman
+        path: docs/dockerpodman.mdx
         contents:
-          - page: Docker/Podman
-            path: docs/dockerpodman.mdx
           - section: Platform Options
             contents:
               - page: Amazon Web Services
@@ -569,9 +554,8 @@ navigation:
           - page: Deploy Deepgram Services
             path: docs/deploy-deepgram-services.mdx
       - section: Kubernetes
+        path: docs/kubernetes.mdx
         contents:
-          - page: Kubernetes
-            path: docs/kubernetes.mdx
           - section: Platform Options
             contents:
               - page: Amazon Web Services
@@ -585,9 +569,8 @@ navigation:
       - page: Self Service Licensing & Credentials
         path: docs/self-hosted-self-service-tutorial.mdx
       - section: Scaling and Deployment Strategies
+        path: docs/scaling-and-deployment-strategies.mdx
         contents:
-          - page: Scaling and Deployment Strategies
-            path: docs/scaling-and-deployment-strategies.mdx
           - page: System Maintenance
             path: docs/maintaining.mdx
           - page: Auto-Scaling
@@ -599,9 +582,8 @@ navigation:
           - page: Using Private Container Registries
             path: docs/using-private-container-registries.mdx
       - section: Self-Hosted Add Ons
+        path: docs/self-hosted-add-ons.mdx
         contents:
-          - page: Self-Hosted Add Ons
-            path: docs/self-hosted-add-ons.mdx
           - page: License Proxy
             path: docs/license-proxy.mdx
           - page: Self-Hosted Text to Speech

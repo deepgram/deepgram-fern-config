@@ -12,7 +12,7 @@ The `.NET SDK` implements a LiveClient at the root of the `Deepgram` namespace. 
 ## Installing the SDK
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   # Install the Deepgram .NET SDK
   # https://github.com/deepgram/deepgram-dotnet-sdk
 
@@ -28,14 +28,14 @@ The `.NET SDK` implements a LiveClient at the root of the `Deepgram` namespace. 
 The `Connect()` method initiates a connection with the Deepgram API via websocket. You may pass in options for the transcription as well.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   // Set "DEEPGRAM_API_KEY" environment variable to your Deepgram API Key
   var liveClient = ClientFactory.CreateListenWebSocketClient();
 
   // Start the connection
   var liveSchema = new LiveSchema()
   {
-    Model = "nova-2",
+    Model = "nova-3",
   };
   await liveClient.Connect(liveSchema);
   ```
@@ -61,7 +61,7 @@ The following events are fired by the `LiveTranscriptionClient`:
 Subscribe to the OpenResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<OpenResponse>((sender, e) =>
   {
   	Console.WriteLine($"\n\n----> OpenResponse received");
@@ -74,7 +74,7 @@ Subscribe to the OpenResponse event by calling the `Subscribe()` function.
 Subscribe to the ResultResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<ResultResponse>((sender, e) =>
   {
   	Console.WriteLine($"----> Speaker: {e.Channel.Alternatives[0].Transcript}");
@@ -87,7 +87,7 @@ Subscribe to the ResultResponse event by calling the `Subscribe()` function.
 Subscribe to the MetadataResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<MetadataResponse>((sender, e) =>
   {
   	Console.WriteLine($"----> MetadataResponse received");
@@ -100,7 +100,7 @@ Subscribe to the MetadataResponse event by calling the `Subscribe()` function.
 Subscribe to the SpeechStartedResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<SpeechStartedResponse>((sender, e) =>
   {
   	Console.WriteLine($"----> SpeechStartedResponse received");
@@ -113,7 +113,7 @@ Subscribe to the SpeechStartedResponse event by calling the `Subscribe()` functi
 Subscribe to the UtteranceEndResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<UtteranceEndResponse>((sender, e) =>
   {
   	Console.WriteLine($"----> UtteranceEndResponse received");
@@ -126,7 +126,7 @@ Subscribe to the UtteranceEndResponse event by calling the `Subscribe()` functio
 Subscribe to the CloseResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<CloseResponse>((sender, e) =>
   {
   	Console.WriteLine($"----> CloseResponse received");
@@ -139,7 +139,7 @@ Subscribe to the CloseResponse event by calling the `Subscribe()` function.
 Subscribe to the ErrorResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<ErrorResponse>((sender, e) =>
   {
   	Console.WriteLine($"----> ErrorResponse received");
@@ -152,7 +152,7 @@ Subscribe to the ErrorResponse event by calling the `Subscribe()` function.
 Subscribe to the UnhandledResponse event by calling the `Subscribe()` function.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Subscribe(new EventHandler<UnhandledResponse>((sender, e) =>
   {
   	Console.WriteLine($"----> UnhandledResponse received");
@@ -169,7 +169,7 @@ These functions provide capabilities that make up the LiveClient API.
 The `Send` method sends raw audio data to the Deepgram API.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   liveClient.Send(AUDIO_STREAM_DATA);
   ```
 </CodeGroup>
@@ -179,7 +179,7 @@ The `Send` method sends raw audio data to the Deepgram API.
 The `State` method returns the ready state of the websocket connection to Deepgram.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   var websocketState = liveClient.State();
   ```
 </CodeGroup>
@@ -189,7 +189,7 @@ The `State` method returns the ready state of the websocket connection to Deepgr
 The `Stop` method sends a signal to the Deepgram API that you have finished streaming audio, and it should conclude its transcription efforts. Upon sending the final transcript back, it will close the websocket connection.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   await liveClient.Stop()
   ```
 </CodeGroup>

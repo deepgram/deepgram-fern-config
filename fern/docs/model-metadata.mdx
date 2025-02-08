@@ -24,7 +24,7 @@ Returns metadata on all the latest public models. If multiple versions exist, th
 #### Request
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --location 'https://api.deepgram.com/v1/models' \
   ```
 </CodeGroup>
@@ -36,53 +36,48 @@ Returns metadata on all the latest public models. If multiple versions exist, th
 #### Result
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
-      "stt": [
-          {
-              "name": "2-medical",
-              "canonical_name": "nova-2-medical",
-              "architecture": "nova-2",
-              "languages": [
-                  "en",
-                  "en-au",
-                  "en-ca",
-                  "en-gb",
-                  "en-ie",
-                  "en-in",
-                  "en-my",
-                  "en-nz",
-                  "en-ph",
-                  "en-us",
-                  "en-za"
-              ],
-              "version": "2024-06-11.4692",
-              "uuid": "46658e06-4884-4582-9bc2-e92ef7baa396",
-              "batch": false,
-              "streaming": true,
-              "formatted_output": true
-
-          },
-          ... additional SST Models.
-      ],
-      "tts": [
-          {
-              "name": "angus",
-              "canonical_name": "aura-angus-en",
-              "architecture": "aura",
-              "language": "en",
-              "version": "2024-03-28.0",
-              "uuid": "af6e9977-99f6-4d8f-b6f5-dfdf6fb6e291",
-              "metadata": {
-                  "accent": "Irish",
-                  "color": "#BA80F5",
-                  "tags": ["masculine"],
-                  "image": "https://static.deepgram.com/examples/avatars/angus.jpg",
-                  "sample": "https://static.deepgram.com/examples/voices/angus.wav"
-              }
-          },
-          ... additional TTS Models.       
-      ]
+    "stt": [
+    	{
+        "name": "general",
+        "canonical_name": "nova-3-general",
+        "architecture": "nova3",
+        "languages": [
+          "en",
+          "en-US"
+        ],
+        "version": "2025-01-09.0",
+        "uuid": "bf05427e-a1f1-4ced-a976-38b2f3533d8d",
+        "batch": false,
+        "streaming": true,
+        "formatted_output": false
+      },
+      // ... other STT models
+    ],
+    "tts": [
+      {
+        "name": "angus",
+        "canonical_name": "aura-angus-en",
+        "architecture": "aura",
+        "languages": [
+          "en",
+          "en-IE"
+        ],
+        "version": "2024-11-19.0",
+        "uuid": "b50880e3-4e2e-4e53-ba27-ea0472bf2cf4",
+        "metadata": {
+          "accent": "Irish",
+          "color": "#BA80F5",
+          "image": "https://static.deepgram.com/examples/avatars/angus.jpg",
+          "sample": "https://static.deepgram.com/examples/voices/angus.wav",
+          "tags": [
+            "masculine"
+          ]
+        }
+      },
+      // ... other TTS models
+    ]
   }
   ```
 </CodeGroup>
@@ -94,7 +89,7 @@ Returns metadata on all the latest models that a specific project has access to,
 #### Request
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --location 'https://api.deepgram.com/v1/projects/YOUR_PROJECT_ID/models' \
   --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY'
   ```
@@ -107,53 +102,48 @@ Returns metadata on all the latest models that a specific project has access to,
 #### Result
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
-      "stt": [
-          {
-              "name": "2-medical",
-              "canonical_name": "nova-2-medical",
-              "architecture": "nova-2",
-              "languages": [
-                  "en",
-                  "en-au",
-                  "en-ca",
-                  "en-gb",
-                  "en-ie",
-                  "en-in",
-                  "en-my",
-                  "en-nz",
-                  "en-ph",
-                  "en-us",
-                  "en-za"
-              ],
-              "version": "2024-06-11.4692",
-              "uuid": "46658e06-4884-4582-9bc2-e92ef7baa396",
-              "batch": false,
-              "streaming": true,
-              "formatted_output": true
-
-          },
-          ... additional SST Models.
-      ],
-      "tts": [
-          {
-              "name": "angus",
-              "canonical_name": "aura-angus-en",
-              "architecture": "aura",
-              "language": "en",
-              "version": "2024-03-28.0",
-              "uuid": "af6e9977-99f6-4d8f-b6f5-dfdf6fb6e291",
-              "metadata": {
-                  "accent": "Irish",
-                  "color": "#BA80F5",
-                  "tags": ["masculine"],
-                  "image": "https://static.deepgram.com/examples/avatars/angus.jpg",
-                  "sample": "https://static.deepgram.com/examples/voices/angus.wav"
-              }
-          },
-          ... additional TTS Models.       
-      ]
+    "stt": [
+      {
+        "name": "general",
+        "canonical_name": "nova-3-general",
+        "architecture": "nova3",
+        "languages": [
+          "en",
+          "en-US"
+        ],
+        "version": "2025-01-09.0",
+        "uuid": "bf05427e-a1f1-4ced-a976-38b2f3533d8d",
+        "batch": false,
+        "streaming": true,
+        "formatted_output": false
+      },
+  		... additional STT Models.
+    ],
+    "tts": [
+      {
+        "name": "angus",
+        "canonical_name": "aura-angus-en",
+        "architecture": "aura",
+        "languages": [
+          "en",
+          "en-IE"
+        ],
+        "version": "2024-11-19.0",
+        "uuid": "b50880e3-4e2e-4e53-ba27-ea0472bf2cf4",
+        "metadata": {
+          "accent": "Irish",
+          "color": "#BA80F5",
+          "image": "https://static.deepgram.com/examples/avatars/angus.jpg",
+          "sample": "https://static.deepgram.com/examples/voices/angus.wav",
+          "tags": [
+            "masculine"
+          ]
+        }
+      },
+  		... additional TTS Models.
+    ]
   }
   ```
 </CodeGroup>
@@ -165,7 +155,7 @@ Returns the metadata for a specific model. If the model is not found a `404` err
 #### Request
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --location 'https://api.deepgram.com/v1/models/MODEL_UUID' \
   ```
 </CodeGroup>
@@ -177,7 +167,7 @@ Returns the metadata for a specific model. If the model is not found a `404` err
 #### Results
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
       "name": "angus",
       "canonical_name": "aura-angus-en",
@@ -203,7 +193,7 @@ Returns the metadata for a specific model that a particular project has access t
 #### Request
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --location 'https://api.deepgram.com/v1/projects/YOUR_PROJECT_ID/models/MODEL_UUID' \
   --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY'
   ```
@@ -216,7 +206,7 @@ Returns the metadata for a specific model that a particular project has access t
 #### Results
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
       "name": "angus",
       "canonical_name": "aura-angus-en",

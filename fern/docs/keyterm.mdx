@@ -1,0 +1,57 @@
+---
+title: Keyterm Prompting
+subtitle: >-
+  Keyterm Prompting allows you improve Keyword Recall Rate (KRR) for important
+  keyterms or phrases up to 90%.
+slug: docs/keyterm
+---
+
+
+`keyterm` *string*
+
+[Pre-recorded](/docs/getting-started-with-pre-recorded-audio) [Streaming](/docs/getting-started-with-live-streaming-audio) [English Only](/docs/models-languages-overview)
+
+Instantly increase accuracy and recognition of up to 100 important terminology, product and company names, industry jargon, phrases and more.
+
+<Info>
+  Keyterm Prompting is only available for English transcription using the [Nova-3 Model](/docs/model#nova-3). To boost recognition of keywords using another Deepgram model, use the [Keywords](/docs/keywords) feature.
+</Info>
+
+## Enable Feature
+
+To enable Keyterm Prompting, add a `keyterm` parameter in the query string and set it to your chosen key term:
+
+`keyterm=KEYTERM`
+
+To transcribe audio from a file on your computer, run the following cURL command in a terminal or your favorite API client.
+
+<CodeGroup>
+  ```curl curl
+  curl \
+    --request POST \
+    --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
+    --header 'Content-Type: audio/wav' \
+    --data-binary @youraudio.wav \
+    --url 'https://api.deepgram.com/v1/listen?model=nova-3&keyterm=KEYTERM'
+  ```
+</CodeGroup>
+
+<Warning>
+  Replace `YOUR_DEEPGRAM_API_KEY` with your [Deepgram API Key](/docs/create-additional-api-keys).
+</Warning>
+
+## Using Multiple Keyterms
+
+You can pass in multiple keywords in you query string:
+
+`keyterm=KEYTERM1&keyterm=KEYTERM2`
+
+## Example Using Key Terms
+
+| Source                         | Confidence Score before                     | Confidence Score after                      |
+| ------------------------------ | ------------------------------------------- | ------------------------------------------- |
+| nacho stack double crunch taco | `"word": "macho", "confidence": 0.88728034` | `"word": "nacho", "confidence": 0.99029267` |
+
+## Key Term Limits
+
+Key Terms are limited to 100 keywords per request.

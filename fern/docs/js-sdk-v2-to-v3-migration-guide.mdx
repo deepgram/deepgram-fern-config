@@ -131,7 +131,7 @@ Transcribe a local file on the same filesystem as the app is running.
       mimetype: MIMETYPE_OF_FILE,
     },
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -140,7 +140,7 @@ Transcribe a local file on the same filesystem as the app is running.
   const { result, error } = await deepgram.listen.prerecorded.transcribeFile(
     fs.createReadStream("./examples/spacewalk.wav"),
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -156,7 +156,7 @@ or
       mimetype: MIMETYPE_OF_FILE,
     },
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -182,7 +182,7 @@ Transcribe a remote file by sending us a publicly accessible URL to it.
       url: "https://dpgr.am/spacewalk.wav"
     },
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -193,7 +193,7 @@ Transcribe a remote file by sending us a publicly accessible URL to it.
       url: "https://dpgr.am/spacewalk.wav"
     },
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -223,7 +223,7 @@ Transcribe a local file on the same filesystem as the app is running.
       mimetype: MIMETYPE_OF_FILE,
     },
     {
-      model: "nova-2",
+      model: "nova-3",
       callback: "http://callback/endpoint"
     }
   );
@@ -254,7 +254,7 @@ or
       mimetype: MIMETYPE_OF_FILE,
     },
     {
-      model: "nova-2",
+      model: "nova-3",
       callback: "http://callback/endpoint"
     }
   );
@@ -269,7 +269,7 @@ or
     fs.readFileSync("./examples/spacewalk.wav"),
     new CallbackUrl("http://callback/endpoint"),
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -286,7 +286,7 @@ Transcribe a remote file by sending us a publicly accessible URL to it.
       url: "https://dpgr.am/spacewalk.wav"
     },
     {
-      model: "nova-2",
+      model: "nova-3",
       callback: "http://callback/endpoint"
     }
   );
@@ -299,7 +299,7 @@ Transcribe a remote file by sending us a publicly accessible URL to it.
     },
     new CallbackUrl("http://callback/endpoint"),
     {
-      model: "nova-2",
+      model: "nova-3",
     }
   );
   ```
@@ -316,7 +316,7 @@ Transcribe live audio streams.
 <CodeGroup>
   ```typescript Before
   const dgConnection = await deepgram.transcription.live({
-    model: "nova-2",
+    model: "nova-3",
   });
 
   source.addListener('got-some-audio', async (event) => {

@@ -28,7 +28,7 @@ To enable Entity Detection, when you call Deepgram’s API, add a `detect_entiti
 To transcribe audio from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -47,7 +47,7 @@ To transcribe audio from a file on your computer, run the following curl command
 When the file is finished processing (often after only a few seconds), you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "metadata": {
       "transaction_key": "string",
@@ -70,7 +70,7 @@ When the file is finished processing (often after only a few seconds), you’ll 
 Let's look more closely at the `alternatives` object:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   "alternatives":[
     {
       "transcript":"Welcome to the Ai show. I'm Scott Stephenson, cofounder of Deepgram...",

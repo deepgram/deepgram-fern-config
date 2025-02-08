@@ -26,13 +26,9 @@ Deepgram's Audio Intelligence API lets users send an audio source to Deepgram, a
 
 First, quickly explore Deepgram Audio Intelligence in our API Playground.
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&summarize=v2\&topics=true\&intents=true\&smart_format=true\&sentiment=true\&language=en\&model=nova-2)!
 </Info>
-</div>
 
 ## Make the Request
 
@@ -51,7 +47,7 @@ An audio source can be sent to Deepgram as an audio file or as a url of a hosted
 This example shows how to analyze a **local audio file** as your audio source.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const { createClient } = require("@deepgram/sdk");
   const fs = require("fs");
 
@@ -64,7 +60,7 @@ This example shows how to analyze a **local audio file** as your audio source.
       fs.readFileSync("callcenter.wav"),
       // STEP 3: Configure Deepgram options for audio analysis
       {
-        model: "nova-2",
+        model: "nova-3",
         sentiment: true,
         // intents: true,
         // summarize: "v2",
@@ -131,7 +127,7 @@ This example shows how to analyze a **local audio file** as your audio source.
       main()
   ```
 
-  ```go Go
+  ```go go
   package main
 
   import (
@@ -204,7 +200,7 @@ This example shows how to analyze a **local audio file** as your audio source.
 This example shows how to analyze a **remote audio file** (a URL that hosts your audio file).
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const { createClient } = require("@deepgram/sdk");
 
   const transcribeUrl = async () => {
@@ -218,7 +214,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
       },
       // STEP 3: Configure Deepgram options for audio analysis
       {
-        model: "nova-2",
+        model: "nova-3",
         sentiment: true,
         // intents: true,
         // summarize: "v2",
@@ -279,7 +275,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
       main()
   ```
 
-  ```go Go
+  ```go go
   package main
 
   import (
@@ -379,7 +375,7 @@ Your results will appear in your shell.
 When the file is finished processing (often after only a few seconds), you’ll receive a JSON response. (Note that some sections are omitted in order to demonstrate relevant properties.)
 
 <CodeGroup>
-  ```json Summarization
+  ```json summarization
   {
     "metadata": {
       ...
@@ -417,7 +413,7 @@ When the file is finished processing (often after only a few seconds), you’ll 
   }
   ```
 
-  ```json Topic Detection
+  ```json topic detection
   {
     "metadata": {
       ...
@@ -470,7 +466,7 @@ When the file is finished processing (often after only a few seconds), you’ll 
   }
   ```
 
-  ```json Intent Recognition
+  ```json intent recognition
   {
     "metadata": {
       ...
@@ -520,7 +516,7 @@ When the file is finished processing (often after only a few seconds), you’ll 
   }
   ```
 
-  ```json Sentiment Analysis
+  ```json sentiment analysis
   {
     "metadata": {
       ...
@@ -668,7 +664,7 @@ At this time, audio analysis features only work for English language transcripti
 The input token limit is 150K tokens. When that limit is exceeded, a `400` error will be thrown
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "err_code": "TOKEN_LIMIT_EXCEEDED",
     "err_msg": "Text input currently supports up to 150K tokens. Please revise your text input to fit within the defined token limit. For more information, please visit our API documentation.",

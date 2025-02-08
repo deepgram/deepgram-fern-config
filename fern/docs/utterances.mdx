@@ -9,13 +9,9 @@ slug: docs/utterances
 
 [Pre-recorded](/docs/getting-started-with-pre-recorded-audio) Streaming [All available languages](/docs/models-languages-overview)
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&utterances=true\&language=en\&model=nova-2)!
 </Info>
-</div>
 
 Deepgram’s Utterances feature allows the chosen model to interact more naturally and effectively with speakers' spontaneous speech patterns. For example, when humans speak to each other conversationally, they often pause mid-sentence to reformulate their thoughts, or stop and restart a badly-worded sentence.
 
@@ -28,7 +24,7 @@ To enable utterances, use the following parameter in the query string when you c
 To transcribe audio from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -47,7 +43,7 @@ To transcribe audio from a file on your computer, run the following curl command
 When the file is finished processing, you’ll receive a JSON response. Let’s look more closely at the `utterances` object:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   ...
   "utterances":[
     {
@@ -102,7 +98,7 @@ To transcribe audio from a file on your computer, run the following curl command
 When the file is finished processing, you’ll receive a JSON response that has the same basic structure as before. Let’s take a closer look at the new `utterances` object:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   ...
   "utterances":[
     {

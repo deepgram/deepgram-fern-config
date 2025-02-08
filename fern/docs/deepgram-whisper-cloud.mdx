@@ -18,7 +18,7 @@ Using Deepgram's fully hosted Whisper Cloud instead of running your own version 
 Deepgram hosts and maintains these Whisper models; they aren’t hosted or run by Open AI. Therefore, data sent through API requests for our Whisper models will not be sent to OpenAI.
 
 <Warning>
-  Live streaming is not available with Deepgram Whisper Cloud. If you would like to transcribe live streamed audio, we recommend using our Nova-2 model. [This guide](/docs/getting-started-with-live-streaming-audio) can help you get started.
+  Live streaming is not available with Deepgram Whisper Cloud. If you would like to transcribe live streamed audio, we recommend using our Nova-3 model. [This guide](/docs/getting-started-with-live-streaming-audio) can help you get started.
 </Warning>
 
 ## Getting Started
@@ -42,7 +42,7 @@ In this guide, you’ll learn how to transcribe pre-recorded audio using Deepgra
 Transcribe a remote file using Deepgram's Whisper API with the following request.
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -61,7 +61,7 @@ If you would like to use a Deepgram SDK to make the request, follow the steps in
 ### Analyze Response
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "metadata": {
       "transaction_key": "deprecated",
@@ -123,7 +123,7 @@ If you would like to use a Deepgram SDK to make the request, follow the steps in
 To enable Deepgram’s Whisper API, add a model parameter in the query string and set it to `model=whisper`
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   https://api.deepgram.com/v1/listen?model=whisper
   ```
 </CodeGroup>
@@ -131,7 +131,7 @@ To enable Deepgram’s Whisper API, add a model parameter in the query string an
 To enable a specific size of the Whisper model, set the model parameter to `model=whisper-size`.
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   https://api.deepgram.com/v1/listen?model=whisper-SIZE
   ```
 </CodeGroup>

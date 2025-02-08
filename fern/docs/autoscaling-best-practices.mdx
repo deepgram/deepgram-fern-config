@@ -39,7 +39,7 @@ Please note some metrics will not be exposed until a request has been submitted 
 Out-of-the-box Kubernetes does not provide any metrics for use with auto-scaling. It is incumbent upon the operator or engineer deploying Kubernetes to also deploy something to capture and serve metrics pertinent to their needs. Kubernetes provides an optional metrics server that is compatible with Prometheus-style metrics which may be deployed for this purpose. If deployed it will automatically monitor your clusters for standard metrics such as CPU, memory, and I/O.
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   # Via `helm`
   helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
   helm upgrade --install metrics-server metrics-server/metrics-server

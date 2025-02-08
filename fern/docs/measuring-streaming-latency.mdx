@@ -28,7 +28,7 @@ Measuring non-transcription legacy is a complicated process that relies heavily 
 For security purposes, Deepgram blocks pings; instead, for a more realistic measurement, you can measure the time it takes to connect to Deepgram's servers:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   curl -sSf -w "latency: %{time_connect}\n" -so /dev/null https://api.deepgram.com
   # latency: {number in decimal seconds}
   ```
@@ -61,7 +61,7 @@ Transcription Latency = Total Latency - Non-Transcription Latency
 Let’s look at an example. [Download our latency Python example script](https://res.cloudinary.com/deepgram/raw/upload/v1681940340/devex/latency_zetbdo.py), prepare an audio file (or [use our sample WAV file](https://res.cloudinary.com/deepgram/video/upload/v1681921235/devex/interview_speech-analytics_phntpw.wav)), and run the example code. (If you're measuring latency for a self-hosted Deepgram deployment, you'll need to edit the API endpoint on line 43 to point to your installation's URL.)
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   python3 latency.py -k 'YOUR_DEEPGRAM_API_KEY' /PATH/TO/AUDIO.wav
   ```
 </CodeGroup>
@@ -69,7 +69,7 @@ Let’s look at an example. [Download our latency Python example script](https:/
 When run, the script submits the identified audio file to Deepgram in real time and prints the total latency to the screen:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   Channels = 2, Sample Rate = 48000 Hz, Sample width = 2 bytes, Size = 18540124 bytes
   Measuring... Audio cursor = 2.580, Transcript cursor = 0.220
   Measuring... Audio cursor = 2.580, Transcript cursor = 0.420

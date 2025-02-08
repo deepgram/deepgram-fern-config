@@ -22,7 +22,7 @@ To send the `KeepAlive` message, you need to send the following JSON message to 
 This message should only be used during a period of time when the client is not sending audio. During such a period, the client can send a `KeepAlive` message every `8` seconds to keep the connection open.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "type": "KeepAlive" 
   }

@@ -19,25 +19,25 @@ In this guide, you'll learn how to develop applications using Deepgram's Agent A
 
 First, quickly explore Deepgram's Voice Agent in our API Playground.
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=agent)!
 </Info>
-</div>
 
-## Transcribe Audio From an Audio Stream
+## Interact with Deepgram's Voice Agent API
 
-Follow these steps to transcribe audio from an audio stream using one of Deepgram's SDKs.
+Follow these steps to connect to Deepgram's Voice Agent API and enable real-time, interactive voice interactions:
 
 1. Open a websocket connection to `wss://agent.deepgram.com/agent`.
 2. Include the HTTP header `Authorization: Token YOUR_DEEPGRAM_API_KEY`.
 3. Send a [SettingsConfiguration](/docs/voice-agent-settings-configuration) message over the websocket with your desired settings.
 4. Start streaming audio from your device, microphone, or audio source of your choice. Audio should be sent as binary messages over the websocket.
 5. Play the audio stream that the server sends back, which will be binary messages containing the agent's speech.
-6. Whenever you receive a [UserStartedSpeaking](/docs/voice-agent-server-messages#userstartedspeaking) message from the server we recommend you discard any queued agent speech. This is important because a `UserStartedSpeaking` message from the server indicates that the user has started speaking and you should cancel or ignore any responses that the bot or agent has queued up but hasn't yet spoken.
-7. The system is designed to allow "barge-in" functionality, where the user can interrupt the bot while it's speaking. By discarding the queued response, you ensure that the bot immediately stops talking and starts listening, creating a more natural, interactive experience for the user.
+6. Exchange real-time messages with the server, including [Server Events](/docs/voice-agent-outputs) (e.g., `ConversationText` when the agent hears speech, `UserStartedSpeaking` when the user begins speaking) and [Client Messages](/docs/voice-agent-inputs) (e.g., `UpdateInstructions` to modify behavior, `InjectAgentMessage` to trigger an immediate response).
+
+### FYI
+
+1. Whenever you receive a [UserStartedSpeaking](/docs/voice-agent-server-messages#userstartedspeaking) message from the server, we recommend you discard any queued agent speech. This is important because a `UserStartedSpeaking` message from the server indicates that the user has started speaking and you should cancel or ignore any responses that the bot or agent has queued up but hasn't yet spoken.
+2. The system is designed to allow "barge-in" functionality, where the user can interrupt the bot while it's speaking. By discarding the queued response, you ensure that the bot immediately stops talking and starts listening, creating a more natural, interactive experience for the user.
 
 ## Implementation Examples
 
@@ -107,7 +107,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
 ### Make the Request with the SDK
 
 <CodeGroup>
-  ```python Python
+  ```python python
   from deepgram.utils import verboselogs
 
   from deepgram import (
@@ -225,7 +225,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
       main()
   ```
 
-  ```javascript JavaScript
+  ```javascript javascript
   const { writeFile, appendFile } = require("fs/promises");
   const { createClient, AgentEvents } = require("../../dist/main/index");
   const fetch = require("cross-fetch");
@@ -330,7 +330,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   void agent();
   ```
 
-  ```csharp C#
+  ```csharp csharp
   using Deepgram.Logger;
   using Deepgram.Microphone;
   using Deepgram.Models.Authenticate.v1;
@@ -536,7 +536,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   }
   ```
 
-  ```go Go
+  ```go go
   // Copyright 2024 Deepgram SDK contributors. All Rights Reserved.
   // Use of this source code is governed by a MIT license that can be found in the LICENSE file.
   // SPDX-License-Identifier: MIT
@@ -970,7 +970,9 @@ If you would like to try out making a Deepgram Voice Agent request in a specific
 
 ## Rate Limits
 
-EA projects start at 1 concurrent connection for testing. This can be raised upon request or with a contract.
+<Info>
+  For information on Deepgram's Concurrency Rate Limits, refer to our [API Rate Limits Documentation](/reference/api-rate-limits).
+</Info>
 
 ## Usage Tracking
 

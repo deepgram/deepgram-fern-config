@@ -54,7 +54,7 @@ To run this project on your local computer you will need to clone the repository
 Either clone or download the [GitHub repository](https://github.com/deepgram-devs/recorded-call-transcription) to your local machine in a new directory:
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   # Clone this repo
   git clone https://github.com/deepgram-devs/recorded-call-transcription.git
 
@@ -76,7 +76,7 @@ Your application will need to know more about you before it can run. Copy the`.e
 Create a virtual Python environment to run the server in isolation and prevent version collisions with other projects. (You can skip this part if you don't mind installing things system-wide.)
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   # Create the virtual environment
   # (Must be run only once.)
   python3 -m venv dg-twilio-ve
@@ -96,7 +96,7 @@ Create a virtual Python environment to run the server in isolation and prevent v
 In the directory where you downloaded the code, run the following command to bring in the dependencies needed for this project:
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   pip3 install -r requirements.txt
   ```
 </CodeGroup>
@@ -106,7 +106,7 @@ In the directory where you downloaded the code, run the following command to bri
 Now that you have configured your application and put the dependencies in place, your application is ready to go! Run it with:
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   FLASK_APP=server.py FLASK_ENV=development flask run
   ```
 </CodeGroup>
@@ -120,7 +120,7 @@ The application uses Flask to serve a website that generates a phone call to a p
 When a call ends, the application calls the `/transcribe/` endpoint, passing a URL that was provided by Twilio to the call's recording. The server then sends that URL to Deepgram to transcribe. Once the transcription is complete, the application returns it to the front-end as a JSON object.
 
 <CodeGroup>
-  ```python Python
+  ```python python
   @app.route('/transcribe/', methods=['POST'])
   def transcribe() -> dict:
       body = json.loads(request.data)

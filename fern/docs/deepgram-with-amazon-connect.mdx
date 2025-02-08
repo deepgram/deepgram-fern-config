@@ -54,7 +54,7 @@ The core of this integration is a CloudFormation template, which spins up the La
 1. Create these two ECR repos in your AWS environment:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      aws ecr create-repository --repository-name kvs-dg-trigger
      aws ecr create-repository --repository-name kvs-dg-integrator
      ```
@@ -63,7 +63,7 @@ The core of this integration is a CloudFormation template, which spins up the La
 2. Log in to ECR with the Docker CLI. This will enable you to push images to the repos.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      aws ecr get-login-password --region <YOUR-REGION> | docker login --username AWS --password-stdin <YOUR-ACCOUNT-NUMBER>.dkr.ecr.<YOUR-REGION>.amazonaws.com 
      ```
    </CodeGroup>
@@ -71,7 +71,7 @@ The core of this integration is a CloudFormation template, which spins up the La
 3. In the `kvs_dg_trigger` folder in the integration repo, build the Docker image for the trigger Lambda:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      docker build --platform linux/amd64 -t <YOUR-ACCOUNT-NUMBER>.dkr.ecr.<YOUR-REGION>.amazonaws.com/kvs-dg-trigger:latest .
      ```
    </CodeGroup>
@@ -79,7 +79,7 @@ The core of this integration is a CloudFormation template, which spins up the La
 4. In the `kvs_dg_integrator` folder, build the Docker image for the integrator task:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      docker build --platform linux/amd64 -t <YOUR-ACCOUNT-NUMBER>.dkr.ecr.<YOUR-REGION>.amazonaws.com/kvs-dg-integrator:latest .
      ```
    </CodeGroup>
@@ -87,7 +87,7 @@ The core of this integration is a CloudFormation template, which spins up the La
 5. Push the new Docker images to ECR:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      docker push <YOUR-ACCOUNT-NUMBER>.dkr.ecr.<YOUR-REGION>.amazonaws.com/kvs-dg-trigger:latest
      docker push <YOUR-ACCOUNT-NUMBER>.dkr.ecr.<YOUR-REGION>.amazonaws.com/kvs-dg-integrator:latest
      ```

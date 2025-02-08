@@ -33,7 +33,7 @@ Before proceeding, ensure that you have the following:
 Add the target to the Prometheus configuration file in the `prometheus.yml` file. Locate the `scrape_configs` section, and add a new job with the Engine container instance as a target:
 
 <CodeGroup>
-  ```yaml YAML
+  ```yaml yaml
   scrape_configs:
     - job_name: "dg_self_hosted_instance"
       static_configs:
@@ -48,7 +48,7 @@ Replace `<ENGINE_INSTANCE_URI>` with the IP address or hostname of the Engine co
 To apply the changes made to the `prometheus.yml` file, you need to reload the Prometheus configuration. You can do this by restarting the Prometheus service:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   sudo systemctl restart prometheus
   ```
 </CodeGroup>

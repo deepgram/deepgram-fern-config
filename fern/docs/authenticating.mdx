@@ -20,7 +20,7 @@ Once you have created an API key, you can use it as credentials to call Deepgram
 Send requests to the API with an `Authorization` header that references your project's API key:
 
 <CodeGroup>
-  ```text Text
+  ```text text
   Authorization: Token YOUR_DEEPGRAM_API_KEY
   ```
 </CodeGroup>
@@ -32,7 +32,7 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 A quick test to see if your key is validating correctly, is to make a request to the `/auth/token` endpoint on our API. This will return an `invalid credentials` error if your key is invalid, and a `JSON` response with details about your key if it's valid.
 
 <CodeGroup>
-  ```bash cURL
+  ```bash CURL
   curl https://api.deepgram.com/v1/auth/token \
     -H "Authorization: Token dc43fc74612ec2cb065315663f25c34a958aa895"
   ```

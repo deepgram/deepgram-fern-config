@@ -61,7 +61,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 2. Create a new Kubernetes cluster in Amazon EKS using the `ClusterConfig` manifest. This `eksctl` command will create several [AWS CloudFormation Stacks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html), which manage the inter-connected creation of a cluster, dedicated VPC, dedicated IAM, node groups, and other necessary resources.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      eksctl create cluster -f PATH_TO_CLUSTER_CONFIG_YAML
      ```
    </CodeGroup>
@@ -73,7 +73,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 3. Record metadata from your new cluster in shell variables for use in future steps.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      CLUSTER_NAME="deepgram-self-hosted-cluster" # Replace name if modified in your ClusterConfig under `metadata.name`
      CLUSTER_REGION="us-west-2" # Replace name if modified in your ClusterConfig under `metadata.region`
      EFS_CSI_DRIVER_ROLE_NAME="efs-csi-driver-role" # Replace name if modified in your ClusterConfig under `iam.serviceAccounts`
@@ -91,7 +91,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 4. Create an [Amazon Elastic File System](https://aws.amazon.com/efs/) (EFS) to store Deepgram model files and share them across multiple Deepgram Engine pods.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      FS_ID=$(
          aws efs create-file-system \
              --encrypted \
@@ -108,7 +108,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 5. Install the Amazon EFS CSI driver to allow nodes within your cluster to access the EFS you created. Use the service account role we created via our `ClusterConfig` file, and wait until installation is complete.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      csi_svc_acct_role_arn=$(
         aws iam get-role \
            --role-name $EFS_CSI_DRIVER_ROLE_NAME \
@@ -130,7 +130,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 6. `eksctl` automatically creates several [security groups](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-security-groups.html) when it provisions your cluster. One of these security groups facilitates communication between AWS-managed nodes and other AWS resources. Find this security group and record its ID for the next step.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      ng_name=$(
          aws eks list-nodegroups \
          --cluster-name $CLUSTER_NAME \
@@ -168,7 +168,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 7. Create mount targets on the EFS with the proper security group. This will allow all Deepgram Engine pods shared access to the EFS to read the model files that will be stored there.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      subnet_ids=$(
          aws eks describe-cluster \
              --name $CLUSTER_NAME \
@@ -189,7 +189,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 8. Record the Role ARN that will be used later to Install the [Kubernetes Autoscaler](https://github.com/kubernetes/autoscaler/tree/master), a component that automatically adjusts the size of a Kubernetes Cluster so that all pods have a place to run and there are no unneeded nodes.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      CAS_SVC_ACCT_ROLE_ARN=$(
          aws iam get-role \
              --role-name $CAS_ROLE_NAME \
@@ -202,7 +202,7 @@ Amazon Elastic Kubernetes Service (Amazon EKS) is a managed Kubernetes service t
 9. Create a dedicated namespace for Deepgram resources.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      kubectl create namespace dg-self-hosted
      kubectl config set-context --current --namespace=dg-self-hosted
      ```
@@ -223,7 +223,7 @@ The `deepgram-self-hosted` Helm chart takes two Secret references. One is a set 
    1. Using the distribution credentials username and password generated in the Deepgram Console, create a Kubernetes Secret named `dg-regcred`.
 
       <CodeGroup>
-        ```shell Shell
+        ```shell shell
         kubectl create secret docker-registry dg-regcred \
             --docker-server=quay.io \
             --docker-username='QUAY_DG_USER' \
@@ -238,7 +238,7 @@ The `deepgram-self-hosted` Helm chart takes two Secret references. One is a set 
    2. Create a Kubernetes Secret named `dg-self-hosted-api-key` to store your self-hosted API key.
 
       <CodeGroup>
-        ```shell Shell
+        ```shell shell
         kubectl create secret generic dg-self-hosted-api-key \
             --from-literal=DEEPGRAM_API_KEY='YOUR_API_KEY_HERE'
         ```
@@ -255,7 +255,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
 1. [Fetch the repository info](https://github.com/deepgram/self-hosted-resources/blob/main/charts/deepgram-self-hosted/README.md#get-repository-info).
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      helm repo add deepgram https://deepgram.github.io/self-hosted-resources
      helm repo update
      ```
@@ -272,13 +272,13 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
 4. In your `values.yaml` file, insert your Amazon EFS ID into the `engine.modelManager.volumes.aws.efs.fileSystemId` value. You can get the ID from the shell variable you created previously.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      echo $FS_ID
      ```
    </CodeGroup>
 
    <CodeGroup>
-     ```yaml YAML
+     ```yaml yaml
      engine:
        modelManager:
          volumes:
@@ -292,7 +292,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
 5. Your Deepgram Account Representative will have provided you with a list of links to models for inference (file extension `.dg`). In your `values.yaml` file, insert each of these model links in the `engine.modelManager.models.links` list.
 
    <CodeGroup>
-     ```yaml YAML
+     ```yaml yaml
      engine:
        modelManager:
          models:
@@ -307,14 +307,14 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
 6. In your `values.yaml` file, insert the AWS Role ARN to be used by the Cluster Autoscaler. If needed, adjust the cluster name and region as well.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      echo $CAS_SVC_ACCT_NAME
      echo $CAS_SVC_ACCT_ROLE_ARN
      echo $CLUSTER_NAME
      echo $CLUSTER_REGION
      ```
 
-     ```yaml YAML
+     ```yaml yaml
      cluster-autoscaler:
        enabled: true
        rbac:
@@ -335,7 +335,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
 7. Install the Helm Chart with your `values.yaml` file.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      helm install deepgram deepgram/deepgram-self-hosted \
          -f my-values.yaml \
          --namespace dg-self-hosted \
@@ -356,7 +356,7 @@ Test your environment and container setup with a local file.
 
 1. Get the name of one of the Deepgram API Pods.
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      API_POD_NAME=$(
          kubectl get pods \
              --selector app=deepgram-api \
@@ -368,7 +368,7 @@ Test your environment and container setup with a local file.
 
 2. Launch an ephemeral container to send your test request from.
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      kubectl debug $API_POD_NAME \
          -it \
          --image=curlimages/curl \
@@ -378,7 +378,7 @@ Test your environment and container setup with a local file.
 
 3. Inside the ephemeral container, download a sample file from Deepgram (or supply your own file).
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      wget https://dpgr.am/bueller.wav
      ```
    </CodeGroup>
@@ -386,11 +386,11 @@ Test your environment and container setup with a local file.
 4. Send your audio file to your local Deepgram setup for transcription.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      curl \
          -X POST \
          --data-binary @bueller.wav \
-         "http://deepgram-api-external.dg-self-hosted.svc.cluster.local:8080/v1/listen?model=nova-2&smart_format=true"
+         "http://deepgram-api-external.dg-self-hosted.svc.cluster.local:8080/v1/listen?model=nova-3&smart_format=true"
      ```
    </CodeGroup>
 

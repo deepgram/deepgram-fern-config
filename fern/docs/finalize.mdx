@@ -21,7 +21,7 @@ The `Finalize` message is a JSON command that you send to the Deepgram server, i
 To send the `Finalize` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "type": "Finalize"
   }
@@ -31,7 +31,7 @@ To send the `Finalize` message, you need to send the following JSON message to t
 You can optionally specify a `channel` field to finalize a specific channel. If the `channel` field is omitted, all channels in the audio will be finalized. Note that channel indexing starts at 0, so to finalize only the *first* channel you need to send:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "type": "Finalize",
      "channel": 0
@@ -46,7 +46,7 @@ Upon receiving the Finalize message, the server will process all remaining audio
 If you specified a `channel` to be finalized, use the response's `channel_index` field to check which channel was finalized.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "from_finalize": true
   }
@@ -66,7 +66,7 @@ Following are code examples to help you get started.
 These snippets demonstrate how to construct a JSON message containing the "Finalize" type and send it over the WebSocket connection in each respective language.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const WebSocket = require("ws");
 
   // Assuming 'headers' is already defined for authorization
@@ -81,7 +81,7 @@ These snippets demonstrate how to construct a JSON message containing the "Final
   });
   ```
 
-  ```python Python
+  ```python python
   import json
   import websocket
 
@@ -95,7 +95,7 @@ These snippets demonstrate how to construct a JSON message containing the "Final
   ws.send(finalize_msg)
   ```
 
-  ```go Go
+  ```go go
   package main
 
   import (
@@ -131,7 +131,7 @@ These snippets demonstrate how to construct a JSON message containing the "Final
   }
   ```
 
-  ```csharp C#
+  ```csharp csharp
   using System;
   using System.Net.WebSockets;
   using System.Text;
@@ -175,7 +175,7 @@ These snippets demonstrate how to construct a JSON message containing the "Final
 Here are more complete examples that make a streaming request and use Finalize. Try running these examples to see how Finalize can be sent to Deepgram, forcing the API to process all unprocessed audio data and immediately return the results.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const WebSocket = require("ws");
   const axios = require("axios");
   const { PassThrough } = require("stream");
@@ -263,7 +263,7 @@ Here are more complete examples that make a streaming request and use Finalize. 
   });
   ```
 
-  ```python Python
+  ```python python
   from websocket import WebSocketApp
   import websocket
   import json

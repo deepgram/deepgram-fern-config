@@ -17,13 +17,9 @@ This guide will walk you through how to transcribe pre-recorded audio with the D
 
 First, quickly explore Deepgram Speech to Text in our API Playground.
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen)!
 </Info>
-</div>
 
 ## CURL
 
@@ -38,7 +34,7 @@ If you run the "Local file CURL Example," be sure to change `@youraudio.wav` to 
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
     --header 'Content-Type: application/json' \
     --data '{"url":"https://dpgr.am/spacewalk.wav"}' \
-    --url 'https://api.deepgram.com/v1/listen?model=nova-2&smart_format=true'
+    --url 'https://api.deepgram.com/v1/listen?model=nova-3&smart_format=true'
   ```
 
   ```curl Local File CURL Example
@@ -52,7 +48,7 @@ If you run the "Local file CURL Example," be sure to change `@youraudio.wav` to 
 </CodeGroup>
 
 <Info>
-  The above example includes the parameter `model=nova-2`, which tells the API to use Deepgram's most powerful and affordable model. Removing this parameter will result in the API using the default model, which is currently `model=base`.
+  The above example includes the parameter `model=nova-3`, which tells the API to use Deepgram's most latest model. Removing this parameter will result in the API using the default model, which is currently `model=base`.
 
   It also includes Deepgram's [Smart Formatting](/docs/smart-format) feature, `smart_format=true`. This will format currency amounts, phone numbers, email addresses, and more for enhanced transcript readability.
 </Info>
@@ -110,7 +106,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   pip install python-dotenv
   ```
 
-  ```csharp C#
+  ```csharp csharp
   // In your .csproj file, add the Package Reference:
 
   <ItemGroup>
@@ -128,7 +124,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
 This example shows how to analyze a **remote audio file** (a URL that hosts your audio file) using Deepgram's SDKs. In your terminal, create a new file in your project's location, and populate it with the code.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   // index.js (node example)
 
   const { createClient } = require("@deepgram/sdk");
@@ -145,7 +141,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
       },
       // STEP 3: Configure Deepgram options for audio analysis
       {
-        model: "nova-2",
+        model: "nova-3",
         smart_format: true,
       }
     );
@@ -181,7 +177,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
 
           # STEP 2 Call the transcribe_url method on the rest class
           options: PrerecordedOptions = PrerecordedOptions(
-              model="nova-2",
+              model="nova-3",
               smart_format=True,
           )
           response = deepgram.listen.rest.v("1").transcribe_url(AUDIO_URL, options)
@@ -194,7 +190,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
       main()
   ```
 
-  ```csharp C#
+  ```csharp csharp
   // Program.cs (.NET example)
 
   using Deepgram.Models.Listen.v1.REST;
@@ -217,7 +213,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
                   new UrlSource("https://dpgr.am/bueller.wav"),
                   new PreRecordedSchema()
                   {
-                      Model = "nova-2",
+                      Model = "nova-3",
                   });
 
               Console.WriteLine(response);
@@ -230,7 +226,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
   }
   ```
 
-  ```go Go
+  ```go go
   // main.go (Go example)
 
   package main
@@ -262,7 +258,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
 
   	// STEP 3: define options for the request
   	options := interfaces.PreRecordedTranscriptionOptions{
-  		Model:       "nova-2",
+  		Model:       "nova-3",
   		SmartFormat: true,
   	}
 
@@ -302,7 +298,7 @@ This example shows how to analyze a **remote audio file** (a URL that hosts your
 This example shows how to analyze a **local audio file** (an audio file on your computer) using Deepgram's SDKs. In your terminal, create a new file in your project's location, and populate it with the code. (Be sure to replace the audio filename with a path/filename of an audio file on your computer.)
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   // index.js (node example)
 
   const { createClient } = require("@deepgram/sdk");
@@ -318,7 +314,7 @@ This example shows how to analyze a **local audio file** (an audio file on your 
       fs.readFileSync("spacewalk.mp3"),
       // STEP 3: Configure Deepgram options for audio analysis
       {
-        model: "nova-2",
+        model: "nova-3",
         smart_format: true,
       }
     );
@@ -359,7 +355,7 @@ This example shows how to analyze a **local audio file** (an audio file on your 
 
           #STEP 2: Configure Deepgram options for audio analysis
           options = PrerecordedOptions(
-              model="nova-2",
+              model="nova-3",
               smart_format=True,
           )
 
@@ -376,7 +372,7 @@ This example shows how to analyze a **local audio file** (an audio file on your 
       main()
   ```
 
-  ```csharp C#
+  ```csharp csharp
   // Program.cs (.NET example)
 
   using Deepgram.Models.Listen.v1.REST;
@@ -406,7 +402,7 @@ This example shows how to analyze a **local audio file** (an audio file on your 
                   audioData,
                   new PreRecordedSchema()
                   {
-                      Model = "nova-2",
+                      Model = "nova-3",
                   });
 
               Console.WriteLine($"\n\n{response}\n\n");
@@ -420,7 +416,7 @@ This example shows how to analyze a **local audio file** (an audio file on your 
   }
   ```
 
-  ```go Go
+  ```go go
   // main.go (Go example)
 
   package main
@@ -452,7 +448,7 @@ This example shows how to analyze a **local audio file** (an audio file on your 
 
   	// STEP 3: define options for the request
   	options := interfaces.PreRecordedTranscriptionOptions{
-  		Model:       "nova-2",
+  		Model:       "nova-3",
   		SmartFormat: true,
   	}
 
@@ -534,7 +530,7 @@ In order to see the results from Deepgram, you must run the application. Run you
 When the file is finished processing (often after only a few seconds), you’ll receive a JSON response:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "metadata": {
       "transaction_key": "deprecated",
@@ -550,7 +546,7 @@ When the file is finished processing (often after only a few seconds), you’ll 
         "30089e05-99d1-4376-b32e-c263170674af": {
           "name": "2-general-nova",
           "version": "2024-01-09.29447",
-          "arch": "nova-2"
+          "arch": "nova-3"
         }
       }
     },

@@ -18,7 +18,7 @@ The `AgentAudioDone`Message will communicate the last audio message has been sen
 The server will send an `AgentAudioDone` message immediately after it sends the last audio message. In some cases even though no more audio messages are being received, the agent may still be speaking, because previously sent audio may still be queued for playback.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "type": "AgentAudioDone"
   }

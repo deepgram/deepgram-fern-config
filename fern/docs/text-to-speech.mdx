@@ -19,20 +19,16 @@ This guide will walk you through how to turn text into speech with Deepgram's te
 
 First, quickly explore Deepgram Text to Speech in our API Playground.
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=speak)!
 </Info>
-</div>
 
 ## CURL
 
 Next, try it with CURL. Add your own API key where it says `YOUR_DEEPGRAM_API_KEY` and then run the following example in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
@@ -57,7 +53,7 @@ If your request results in an error, the error message can be seen by opening th
 To see the error message in your terminal, add this to your CURL request:
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   --fail-with-body \
   --silent \
   || (jq . your_output_file.mp3 && rm your_output_file.mp3)
@@ -67,7 +63,7 @@ To see the error message in your terminal, add this to your CURL request:
 This example will capture the error message using `jq` and remove the output file (tts.mp3) automatically.
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \

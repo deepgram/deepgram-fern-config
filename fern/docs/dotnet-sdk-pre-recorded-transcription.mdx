@@ -10,7 +10,7 @@ The `.NET SDK` implements a PreRecordedClient at the root of the `Deepgram` name
 ## Installing the SDK
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   # Install the Deepgram .NET SDK
   # https://github.com/deepgram/deepgram-dotnet-sdk
 
@@ -30,7 +30,7 @@ Two types of sources can be provided for transcription:
 Provides a URL to the file to transcribe.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   // Set "DEEPGRAM_API_KEY" environment variable to your Deepgram API Key
   var deepgramClient = ClientFactory.CreateListenRESTClient();
 
@@ -38,7 +38,7 @@ Provides a URL to the file to transcribe.
     new UrlSource("https://static.deepgram.com/examples/Bueller-Life-moves-pretty-fast.wav"),
     new PreRecordedSchema()
     {
-      Model = "nova-2",
+      Model = "nova-3",
     });
 
   Console.WriteLine(response);
@@ -50,7 +50,7 @@ Provides a URL to the file to transcribe.
 Provide a stream containing the file to transcribe.
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   // Set "DEEPGRAM_API_KEY" environment variable to your Deepgram API Key
   var deepgramClient = ClientFactory.CreateListenRESTClient();
 
@@ -59,7 +59,7 @@ Provide a stream containing the file to transcribe.
     audioData,
     new PreRecordedSchema()
     {
-      Model = "nova-2",
+      Model = "nova-3",
       Punctuate = true,
     });
 
@@ -74,7 +74,7 @@ For larger files, you might need to increase the default HTTP Timeout setting se
 For `TranscribeUrl`, that would look like:
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   # 10 minute timeout: 600,000ms = 10mins
   CancellationTokenSource cancelToken = new CancellationTokenSource(600000);
 
@@ -82,7 +82,7 @@ For `TranscribeUrl`, that would look like:
     new UrlSource("https://static.deepgram.com/examples/Bueller-Life-moves-pretty-fast.wav"),
     new PreRecordedSchema()
     {
-      Model = "nova-2",
+      Model = "nova-3",
     },
   	cancelToken);
   ```
@@ -91,7 +91,7 @@ For `TranscribeUrl`, that would look like:
 For `TranscribeFile`, that would look like:
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   # 10 minute timeout: 600,000ms = 10mins
   CancellationTokenSource cancelToken = new CancellationTokenSource(600000);
 
@@ -100,7 +100,7 @@ For `TranscribeFile`, that would look like:
     audioData,
     new PreRecordedSchema()
     {
-      Model = "nova-2",
+      Model = "nova-3",
       Punctuate = true,
     },
   	cancelToken);
@@ -112,7 +112,7 @@ For `TranscribeFile`, that would look like:
 For larger files, you might need to increase the default HTTP Timeout setting, which is 300 seconds (or 5 mins).
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   var deepgram = new DeepgramClient(credentials);
   deepgram.SetHttpClientTimeout(TimeSpan.FromSeconds(300)); // 300 = 5 mins
   ```

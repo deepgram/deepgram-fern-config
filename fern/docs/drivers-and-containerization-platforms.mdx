@@ -36,7 +36,7 @@ This guide will contain instructions that should be adaptable for many Linux dis
 Update your server’s operating system package manager to get information on updated versions of packages and their dependencies, and upgrade these packages as needed.
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   # Ubuntu
   sudo apt update
   sudo apt upgrade -y
@@ -50,7 +50,7 @@ Update your server’s operating system package manager to get information on up
 Install the GNU Compiler Collection (`gcc`) , GNU Make (`make`), and GNU Web Get (`wget`) tool:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   # Ubuntu
   sudo apt install -y gcc make wget
   # RHEL or Oracle Linux
@@ -67,7 +67,7 @@ The Nouveau kernel driver is incompatible with NVIDIA drivers, so you will need 
 1. In your terminal, create a new configuration file at `/etc/modprobe.d/blacklist-nouveau.conf` to blacklist the Nouveau drivers.
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      sudo sh -c 'printf "blacklist nouveau\noptions nouveau modeset=0\n" > /etc/modprobe.d/blacklist-nouveau.conf'
      ```
    </CodeGroup>
@@ -75,7 +75,7 @@ The Nouveau kernel driver is incompatible with NVIDIA drivers, so you will need 
 2. Regenerate the kernel with the new conf file added:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      # Ubuntu
      sudo update-initramfs -u
      # RHEL or Oracle Linux
@@ -86,7 +86,7 @@ The Nouveau kernel driver is incompatible with NVIDIA drivers, so you will need 
 3. Unload the Nouveau drivers:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      sudo rmmod nouveau
      ```
    </CodeGroup>
@@ -94,7 +94,7 @@ The Nouveau kernel driver is incompatible with NVIDIA drivers, so you will need 
 4. Verify that Nouveau has been removed:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      lsmod | grep nouveau
      ```
    </CodeGroup>
@@ -106,7 +106,7 @@ The Nouveau kernel driver is incompatible with NVIDIA drivers, so you will need 
 Many Linux distributions require Linux kernel development tools to be installed to support installing the NVIDIA drivers.
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   # Ubuntu
   sudo apt-get install -y linux-headers-`uname -r`
   # RHEL
@@ -155,7 +155,7 @@ Many Linux distributions require Linux kernel development tools to be installed 
 8. Download the latest driver for your GPU on your deployment environment:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      wget LINK_TO_LATEST_NVIDIA_GPU_DRIVER
      ```
    </CodeGroup>
@@ -167,7 +167,7 @@ Many Linux distributions require Linux kernel development tools to be installed 
 9. Install the drivers:
 
    <CodeGroup>
-     ```shell Shell
+     ```shell shell
      # Ubuntu
      chmod +x ./{DOWNLOADED_FILE_NAME}
      sudo ./{DOWNLOADED_FILE_NAME} --silent
@@ -192,7 +192,7 @@ Many Linux distributions require Linux kernel development tools to be installed 
 10. Test that the NVIDIA drivers are installed. The following command should produce output describing the available GPU:
 
     <CodeGroup>
-      ```shell Shell
+      ```shell shell
       nvidia-smi
       ```
     </CodeGroup>
@@ -212,7 +212,7 @@ For ease of use, Deepgram provides its products in container images, so you must
    2. To install Podman, use your distribution's native package list. For more details, read their [installation instructions](https://podman.io/docs/installation).
 
       <CodeGroup>
-        ```shell Shell
+        ```shell shell
         # Ubuntu
         sudo apt install podman
         # RHEL or Oracle Linux
@@ -241,7 +241,7 @@ Container Composition tools allow users to define and manage multi-container app
 Docker Compose V2 is now included with Docker. The plugin for CLI use should be installed with the [Install Container Runtime](#install-container-runtime) steps. If not, you can install it independently:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   # Ubuntu
   sudo apt install -y docker-compose-plugin
   ```
@@ -250,7 +250,7 @@ Docker Compose V2 is now included with Docker. The plugin for CLI use should be 
 Test the installation:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   docker compose version
   ```
 </CodeGroup>
@@ -262,7 +262,7 @@ You should expect the command output to return version 2.X.X.
 The open source community maintains a `podman-compose` tool that seeks to be compatible with Docker Compose. You can install this with their [instructions on GitHub](https://github.com/containers/podman-compose#installation), and test your installation:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   podman-compose version
   ```
 </CodeGroup>
@@ -284,7 +284,7 @@ CUDA is NVIDIA's library for interacting with its GPU. CUDA support is made avai
 After you've setup the NVIDIA Docker runtime, you can test it with the following command:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   docker run --runtime=nvidia --rm --gpus all ubuntu nvidia-smi
   ```
 </CodeGroup>
@@ -300,7 +300,7 @@ Podman has implemented support for the Container Device Interface (CDI) standard
 After you've setup the NVIDIA container toolkit with CDI, you can test it with the following command:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
    podman run --rm --device nvidia.com/gpu=all ubuntu nvidia-smi
   ```
 </CodeGroup>

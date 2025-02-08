@@ -9,13 +9,9 @@ slug: docs/punctuation
 
 [Pre-recorded](/docs/getting-started-with-pre-recorded-audio) [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&punctuate=true\&language=en\&model=nova-2)!
 </Info>
-</div>
 
 ## Enable Feature
 
@@ -26,7 +22,7 @@ To enable punctuation, use the following parameter in the query string when you 
 To transcribe audio from a file on your computer, run the following cURL command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

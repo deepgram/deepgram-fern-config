@@ -60,7 +60,7 @@ Here are some examples of opting out.
 </Info>
 
 <CodeGroup>
-  ```curl cURL
+  ```curl curl
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -69,7 +69,7 @@ Here are some examples of opting out.
     --url 'https://api.deepgram.com/v1/listen?mip_opt_out=true'
   ```
 
-  ```javascript JavaScript
+  ```javascript javascript
   // Install the SDK: npm -i @deepgram/sdk
 
   import { createClient } from "@deepgram/sdk";
@@ -81,13 +81,13 @@ Here are some examples of opting out.
       url: "https://dpgr.am/spacewalk.wav",
     },
     {
-      model: "nova-2",
+      model: "nova-3",
       mip_opt_out: true
     }
   );
   ```
 
-  ```python Python
+  ```python python
   #  Install the SDK: pip install deepgram-sdk
 
   import asyncio
@@ -104,7 +104,7 @@ Here are some examples of opting out.
   }
 
   options: PrerecordedOptions = PrerecordedOptions(
-      model="nova-2",
+      model="nova-3",
   )
 
   # To demonstrate using the custom addon parameters, you could enable it like this
@@ -129,7 +129,7 @@ Here are some examples of opting out.
       asyncio.run(main())
   ```
 
-  ```go Go
+  ```go go
   // Install the SDK: go get github.com/deepgram/deepgram-go-sdk
 
   package main
@@ -159,7 +159,7 @@ Here are some examples of opting out.
   	ctx := context.Background()
 
   	options := &interfaces.PreRecordedTranscriptionOptions{
-  		Model:       "nova-2",
+  		Model:       "nova-3",
   	}
 
   	// create a Deepgram client
@@ -211,7 +211,7 @@ Here are some examples of opting out.
   }
   ```
 
-  ```csharp C#
+  ```csharp csharp
   //Install the SDK: dotnet add package Deepgram
 
   using System.Text.Json;
@@ -246,7 +246,7 @@ Here are some examples of opting out.
                   audioData,
                   new PreRecordedSchema()
                   {
-                      Model = "nova-2",
+                      Model = "nova-3",
                   },
                   null, // Don't want to specify a cancellation token, use the default
                   customOptions

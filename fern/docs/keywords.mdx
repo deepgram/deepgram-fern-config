@@ -7,21 +7,19 @@ slug: docs/keywords
 
 `keywords` *string*
 
-[Pre-recorded](/docs/getting-started-with-pre-recorded-audio) [Streaming](/docs/getting-started-with-live-streaming-audio) Beta [All available languages](/docs/models-languages-overview)
+[Pre-recorded](/docs/getting-started-with-pre-recorded-audio) [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&keywords=test%3A1\&language=en\&model=nova-2)!
 </Info>
-</div>
 
 When using Deepgram’s API to transcribe audio with specialized terminology or uncommon proper nouns, you can provide those words to the model for it to incorporate as possible predictions. This is known as keyword boosting.
 
 Keywords will not increase the likelihood that common words or proper nouns are predicted. Keywords are designed as a quick way to provide our models with new vocabulary they have not previously encountered.
 
 <Info>
+  Keywords is only available for use with Nova-2, Nova-1, Enhanced, and Base speech to text models. For Nova-3, use [Keyterm Prompting](/docs/keyterm).
+
   Training a custom model is always the most effective and accurate way to recognize keywords and context in your transcripts. If you require more than 100 keywords, please [contact us](https://deepgram.com/contact-us) to discuss custom model training which is available on our [Enterprise Plan](https://deepgram.com/pricing).
 </Info>
 
@@ -64,7 +62,7 @@ To use keyword boosting, send one or more instances of the `keywords` parameter 
 
 `keywords=snuffleupagus:5`
 
-| Truth                                                                       | Before boosting                                                     | After boosting                                                              |
+| Source                                                                      | Before boosting                                                     | After boosting                                                              |
 | --------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | and then big bird said to *snuffleupagus* why aren’t you eating that banana | and then big bird said to *sniff* why aren’t you eating that banana | and then big bird said to *snuffleupagus* why aren’t you eating that banana |
 
@@ -88,7 +86,7 @@ To use keyword suppression, send one or more instances of the `keywords` paramet
 
 `keywords=kansas:-10`
 
-| Truth                                               | Before suppression                                  | After suppression                            |
+| Source                                              | Before suppression                                  | After suppression                            |
 | --------------------------------------------------- | --------------------------------------------------- | -------------------------------------------- |
 | i was born in nineteen twenty one in wichita kansas | i was born in nineteen twenty one in wichita kansas | i was born in nineteen twenty one in wichita |
 

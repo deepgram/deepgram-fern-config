@@ -16,7 +16,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
 ## Example
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   // install our SDK @deepgram/sdk
 
   import { createClient } from "@deepgram/sdk";
@@ -28,7 +28,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
       url: "https://dpgr.am/spacewalk.wav",
     },
     {
-      model: "nova-2",
+      model: "nova-3",
       // To demonstrate using the custom addon parameters, you could enable it like this
       custom_parameter: option
     }
@@ -61,7 +61,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
 
   def main():
       options: PrerecordedOptions = PrerecordedOptions(
-          model="nova-2"
+          model="nova-3"
       )
 
       # To demonstrate using the custom addon parameters, you could enable it like this
@@ -100,7 +100,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
 
   async def main():
       options: PrerecordedOptions = PrerecordedOptions(
-          model="nova-2",
+          model="nova-3",
       )
 
       # but to demonstrate using the custom addon parameters, you could enable it like this
@@ -132,7 +132,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
 ## Example
 
 <CodeGroup>
-  ```csharp C#
+  ```csharp csharp
   //Install the SDK: dotnet add package Deepgram
 
   using Deepgram.Models.Listen.v1.REST;
@@ -152,7 +152,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
             
               var prerecordedOptions = new PreRecordedSchema()
               {
-                  Model = "nova-2"
+                  Model = "nova-3"
               };
             
               // but to demonstrate using the custom addon parameters, you could enable it like this
@@ -185,7 +185,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
 ## Example
 
 <CodeGroup>
-  ```go Go
+  ```go go
   // Install the SDK: go get github.com/deepgram/deepgram-go-sdk
 
   package main
@@ -216,7 +216,7 @@ This is useful if you want to use a feature of the Deepgram API that isn't offic
 
   	// set the Transcription options
   	options := &interfaces.PreRecordedTranscriptionOptions{
-  		Model: "nova-2",
+  		Model: "nova-3",
   	}
 
   	// create a Deepgram client

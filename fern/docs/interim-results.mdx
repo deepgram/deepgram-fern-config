@@ -28,13 +28,13 @@ To enable Interim Results, when you call Deepgram’s API, add an `interim_resul
 `interim_results=true`
 
 <CodeGroup>
-  ```python Python
+  ```python python
 
   # see https://github.com/deepgram/deepgram-python-sdk/blob/main/examples/streaming/async_microphone/main.py
   # for complete example code
 
      options: LiveOptions = LiveOptions(
-              model="nova-2",
+              model="nova-3",
               language="en-US",
               # Apply smart formatting to the output
               smart_format=True,
@@ -59,7 +59,7 @@ Let’s look at some interim transcripts and analyze their content.
 Our first interim result has the following content:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "channel_index": [
       0,
@@ -104,7 +104,7 @@ In this response, we see that:
 The next interim response has the following content:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "channel_index": [
       0,

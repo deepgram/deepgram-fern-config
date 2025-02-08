@@ -11,13 +11,9 @@ slug: docs/diarization
 
 [Pre-recorded](/docs/getting-started-with-pre-recorded-audio) [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&diarize=true\&language=en\&model=nova-2)!
 </Info>
-</div>
 
 ## Enable Feature
 
@@ -55,7 +51,7 @@ When the file is finished processing, you’ll receive a JSON response. Let's lo
 When using diarization for pre-recorded audio, both `speaker` and `speaker_confidence` values will be returned:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   ...
   "alternatives":[
     {
@@ -81,7 +77,7 @@ When using diarization for pre-recorded audio, both `speaker` and `speaker_confi
 When using diarization for live streaming audio, only the `speaker` value will be returned:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   ...
   "alternatives":[
     {

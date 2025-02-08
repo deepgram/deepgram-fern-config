@@ -64,7 +64,7 @@ For Node, we use [ws](https://github.com/websockets/ws).
 Prior to running the scripts, you must replace the authentication with your Deepgram username and password.
 
 <CodeGroup>
-  ```python Python
+  ```python python
   'Authorization': 'Token YOUR_DEEPGRAM_API_KEY'
   ```
 
@@ -122,7 +122,7 @@ Sample TwiML Bin files are as follows:
 **Mono**
 
 <CodeGroup>
-  ```xml XML
+  ```xml xml
   <?xml version="1.0" encoding="UTF-8"?>
   <Response>
       <Start>
@@ -138,7 +138,7 @@ Sample TwiML Bin files are as follows:
 For stereo, an additional `track` parameter exists.
 
 <CodeGroup>
-  ```xml XML
+  ```xml xml
   <?xml version="1.0" encoding="UTF-8"?>
   <Response>
       <Start>
@@ -154,7 +154,7 @@ For stereo, an additional `track` parameter exists.
 Alternatively, you can initiate a call between two people and forward the call data to the Twilio-Deepgram proxy (as seen in the Twilio + Deepgram demo) using the script in [`twilio/twilio-api-scripts/stream`](https://github.com/deepgram/public-code-examples/blob/master/twilio/python/twilio-api-scripts/stream.py):
 
 <CodeGroup>
-  ```python Python
+  ```python python
   # twilio helper library
   from twilio.rest import Client
 
@@ -241,7 +241,7 @@ To deploy the Twilio proxy server to a self-hosted Deepgram environment using Do
 </Info>
 
 <CodeGroup>
-  ```yaml YAML
+  ```yaml yaml
   services:
     api:
       ...
@@ -285,7 +285,7 @@ To deploy the Twilio proxy server to a Deepgram-Hosted installation using Docker
 </Info>
 
 <CodeGroup>
-  ```yaml YAML
+  ```yaml yaml
   version: '2.4'
 
   services:
@@ -334,7 +334,7 @@ Sample TwiML Bin files are as follows:
 **Mono**
 
 <CodeGroup>
-  ```xml XML
+  ```xml xml
   <?xml version="1.0" encoding="UTF-8"?>
   <Response>
       <Start>
@@ -350,7 +350,7 @@ Sample TwiML Bin files are as follows:
 For stereo, an additional `track` parameter exists.
 
 <CodeGroup>
-  ```xml XML
+  ```xml xml
   <?xml version="1.0" encoding="UTF-8"?>
   <Response>
       <Start>
@@ -366,7 +366,7 @@ For stereo, an additional `track` parameter exists.
 Alternatively, you can initiate a call between two people and forward the call data to the Twilio-Deepgram proxy (as seen in the Twilio + Deepgram demo) using the script in [`twilio/twilio-api-scripts/stream.py`](https://github.com/deepgram/public-code-examples/tree/master/twilio/twilio-api-scripts):
 
 <CodeGroup>
-  ```python Python
+  ```python python
   # twilio helper library
   from twilio.rest import Client
 

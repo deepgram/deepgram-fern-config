@@ -69,7 +69,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   pip install python-dotenv
   ```
 
-  ```csharp C#
+  ```csharp csharp
   // In your .csproj file, add the Package Reference:
 
   <ItemGroup>
@@ -104,7 +104,7 @@ The following code shows how to transcribe audio from a remote audio stream. If 
 
     // STEP 2: Create a live transcription connection
     const connection = deepgram.listen.live({
-      model: "nova-2",
+      model: "nova-3",
       language: "en-US",
       smart_format: true,
     });
@@ -176,7 +176,7 @@ The following code shows how to transcribe audio from a remote audio stream. If 
           dg_connection.on(LiveTranscriptionEvents.Transcript, on_message)
 
           # connect to websocket
-          options = LiveOptions(model="nova-2")
+          options = LiveOptions(model="nova-3")
 
           print("\n\nPress Enter to stop recording...\n\n")
           if dg_connection.start(options) is False:
@@ -223,7 +223,7 @@ The following code shows how to transcribe audio from a remote audio stream. If 
       main()
   ```
 
-  ```csharp C#
+  ```csharp csharp
   // Example filename: Program.cs
 
   using Deepgram.Models.Listen.v2.WebSocket;
@@ -255,7 +255,7 @@ The following code shows how to transcribe audio from a remote audio stream. If 
                   // Start the connection
                   var liveSchema = new LiveSchema()
                   {
-                      Model = "nova-2",
+                      Model = "nova-3",
                       SmartFormat = true,
                   };
                   bool bConnected = await liveClient.Connect(liveSchema);
@@ -331,7 +331,7 @@ The following code shows how to transcribe audio from a remote audio stream. If 
 
   	// STEP 3: define options for the request
   	transcriptOptions := interfaces.LiveTranscriptionOptions{
-  		Model:       "nova-2",
+  		Model:       "nova-3",
   		Language:    "en-US",
   		SmartFormat: true,
   	}
@@ -386,7 +386,7 @@ The following code shows how to transcribe audio from a remote audio stream. If 
 </CodeGroup>
 
 <Info>
-  The above example includes the parameter `model=nova-2`, which tells the API to use Deepgram's most powerful and affordable model. Removing this parameter will result in the API using the default model, which is currently `model=base`.
+  The above example includes the parameter `model=nova-3`, which tells the API to use Deepgram's latest model. Removing this parameter will result in the API using the default model, which is currently `model=base`.
 
   It also includes Deepgram's [Smart Formatting](/docs/smart-format) feature, `smart_format=true`. This will format currency amounts, phone numbers, email addresses, and more for enhanced transcript readability.
 </Info>
@@ -438,7 +438,7 @@ In order to see the results from Deepgram, you must run the application. Run you
 The responses that are returned will look similar to this:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "type": "Results",
     "channel_index": [

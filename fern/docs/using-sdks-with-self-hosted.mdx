@@ -28,7 +28,7 @@ Below is an example of how to make your first API request to your self-hosted de
 Note that the `api_key` field cannot be a blank string as it is a required parameter for the Python SDK, but it does not need to be a valid Deepgram API key, as authorization with Deepgram for self-hosted deployments is configured through the container, not at the individual request level.
 
 <CodeGroup>
-  ```python Python
+  ```python python
   from deepgram import DeepgramClient, ClientOptionsFromEnv, PrerecordedOptions
 
   deepgram = DeepgramClient(config=ClientOptionsFromEnv(api_key="a", url="http://localhost:8080"))
@@ -37,7 +37,7 @@ Note that the `api_key` field cannot be a blank string as it is a required param
       "url": "https://static.deepgram.com/examples/Bueller-Life-moves-pretty-fast.wav"
     },
     PrerecordedOptions(
-      model="nova-2",
+      model="nova-3",
       smart_format=True
     ),
   )
@@ -62,7 +62,7 @@ The .NET SDK provides `DeepgramHttpClientOptions `(pre-recorded) and `DeepgramWs
 If you encounter the following error message, note that you are receiving a 400 (bad request) when a 101 (successful stream) is expected.
 
 <CodeGroup>
-  ```text Text
+  ```text text
   Error: "The server returned status code \u0027400\u0027 when status code \u0027101\u0027 was expected."
   ```
 </CodeGroup>
@@ -73,7 +73,7 @@ Ensure that your request parameters are specifying a model that you have availab
   ```csharp C#
   var liveSchema = new LiveSchema()
   {
-    Model = "nova-2",
+    Model = "nova-3",
     SmartFormat = true,
   };
   ```
@@ -86,7 +86,7 @@ If that model is not present in your `models/` directory, the above error will o
 To modify the `Host` option in [type-client.go](https://github.com/deepgram/deepgram-go-sdk/blob/v1.3.6/pkg/client/interfaces/types-client.go):
 
 <CodeGroup>
-  ```go Go
+  ```go go
   // ClientOptions defines any options for the client
   type ClientOptions struct {
   	...
@@ -101,7 +101,7 @@ To modify the `Host` option in [type-client.go](https://github.com/deepgram/deep
 You can create an object of type `ClientOptions` and then set the `Host` value.
 
 <CodeGroup>
-  ```go Go
+  ```go go
   	// create a Deepgram client
   	c := client.New("", interfaces.ClientOptions{
   		Host: "http://localhost:8080",
@@ -115,7 +115,7 @@ You can create an object of type `ClientOptions` and then set the `Host` value.
 To modify the URL, you can pass the `url` property within the global object to a new client.
 
 <CodeGroup>
-  ```javascript JavaScript
+  ```javascript javascript
   const options: DeepgramClientOptions = {
     global: {
       url: "http://localhost:8080", // Set the desired URL here

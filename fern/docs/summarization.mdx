@@ -9,13 +9,9 @@ slug: docs/summarization
 
 [Pre-recorded](/docs/getting-started-with-pre-recorded-audio) Streaming [English (all available regions)](/docs/models-languages-overview)
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&summarize=v2\&language=en\&model=nova-2)!
 </Info>
-</div>
 
 Deepgram’s Summarization feature summarizes the content of the submitted audio and returns a brief summary in the JSON response.
 
@@ -55,7 +51,7 @@ To transcribe audio from a file on your computer, run the following curl command
 When the file is finished processing, you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "metadata": {...},
     "results": {
@@ -95,7 +91,7 @@ This summarization feature produces one summary across all channels so that the 
 If you request Summarization V2 with an unsupported language by specifying a language code such as `summarize=v2&language=es`, you will get an error message like the one below.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
       "err_code": "Bad Request",
       "err_msg": "Summarization v2 not supported for non-English languages",
@@ -109,7 +105,7 @@ If you request Summarization V2 with an unsupported language by specifying a lan
 If you request Summarization V2 with automatic language detection such as `summarize=v2&detect_language=true`, where the detected language is unsupported (Spanish, for example), you will get the response, including a transcript and a warning object.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   "warnings": [
       {
         "parameter": "TEXT",
@@ -129,7 +125,7 @@ If you request Summarization V2 with automatic language detection such as `summa
 Here is an example of the JSON structure of a request with warning object:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
    "metadata": {
   ...

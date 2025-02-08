@@ -36,7 +36,7 @@ First, you will need to set up a `TwiML Bin`. You can refer to the docs on how t
 </Info>
 
 <CodeGroup>
-  ```xml XML
+  ```xml xml
   <?xml version="1.0" encoding="UTF-8"?>
 
   <Response>
@@ -85,7 +85,7 @@ At this point you'll want to start up a virtual environment for Python. Please r
 Depending on your situation you may also need to install specific packages used in this code.
 
 <CodeGroup>
-  ```python Python
+  ```python python
   pip install package_name
   ```
 </CodeGroup>
@@ -93,7 +93,7 @@ Depending on your situation you may also need to install specific packages used 
 If your `TwiML Bin` is setup correctly, you can now navigate to this files location in your terminal and run the server with the following command:
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   python twilio.py
   ```
 </CodeGroup>
@@ -101,7 +101,7 @@ If your `TwiML Bin` is setup correctly, you can now navigate to this files locat
 OR
 
 <CodeGroup>
-  ```shell Shell
+  ```shell shell
   python3 twilio.py
   ```
 </CodeGroup>
@@ -115,7 +115,7 @@ Let's dive into the code used in the [twilio.py](https://github.com/deepgram-dev
 First, we have some import statements:
 
 <CodeGroup>
-  ```python Python
+  ```python python
   import asyncio
   import base64
   import json
@@ -134,7 +134,7 @@ First, we have some import statements:
 Next we have:
 
 <CodeGroup>
-  ```python Python
+  ```python python
   async def twilio_handler(twilio_ws):
       streamsid_queue = asyncio.Queue()
   ```
@@ -147,7 +147,7 @@ Next we have:
 The `twilio_receiver` task is defined next:
 
 <CodeGroup>
-  ```python Python
+  ```python python
       async def twilio_receiver(twilio_ws):
           async for message in twilio_ws:
               try:
@@ -165,7 +165,7 @@ The `twilio_receiver` task is defined next:
 Next we have the `twilio_sender` task:
 
 <CodeGroup>
-  ```python Python
+  ```python python
       async def twilio_sender(twilio_ws):
           print('twilio_sender started')
 
@@ -177,7 +177,7 @@ Next we have the `twilio_sender` task:
 * We first wait to receive the stream sid.
 
 <CodeGroup>
-  ```python Python
+  ```python python
           # make a Deepgram Aura TTS request specifying that we want raw mulaw audio as the output
           url = 'https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=mulaw&sample_rate=8000&container=none'
           headers = {
@@ -200,7 +200,7 @@ Next we have the `twilio_sender` task:
 Next we have:
 
 <CodeGroup>
-  ```python Python
+  ```python python
           if tts_response.status_code == 200:
               raw_mulaw = tts_response.content
 
@@ -226,7 +226,7 @@ Next we have:
 Additionally, if your application requires the bot to stop speaking at any point, you can do that simply by sending a "clear" message to Twilio.
 
 <CodeGroup>
-  ```python Python
+  ```python python
   await twilio_ws.send(json.dumps({"event": "clear", "streamSid": streamsid}))
   ```
 </CodeGroup>
@@ -234,7 +234,7 @@ Additionally, if your application requires the bot to stop speaking at any point
 To close out our websocket handler, we run these two asynchronous tasks with `asyncio`:
 
 <CodeGroup>
-  ```python Python
+  ```python python
       await asyncio.wait([
           asyncio.ensure_future(twilio_receiver(twilio_ws)),
           asyncio.ensure_future(twilio_sender(twilio_ws))
@@ -247,7 +247,7 @@ To close out our websocket handler, we run these two asynchronous tasks with `as
 Finally, for some scaffolding to spin up the server and pointing requests to get handled by the above function, we have:
 
 <CodeGroup>
-  ```python Python
+  ```python python
   async def router(websocket, path):
       if path == '/twilio':
           print('twilio connection incoming')

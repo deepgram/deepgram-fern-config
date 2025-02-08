@@ -15,22 +15,34 @@ Deepgram’s Model feature allows you to supply a model to use when processing s
 
 Below are a list of all model and model options that can be used with the Deepgram API.
 
-<Warning>
-  The concept of Tiers is now deprecated but still available in the Deepgram API. Please see our documentation on [Tiers](/docs/tier) for how they still can be used.
-</Warning>
+### Nova-3 (Early Access)
+
+**Examples**
+
+```
+https://api.deepgram.com/v1/listen?model=nova-3
+```
+
+Nova-3 represents a significant leap forward in speech AI technology, featuring substantial improvements in accuracy and real-world application capabilities. The model delivers industry-leading performance with a 53.4% reduction in word error rate (WER) for streaming and 47.4% for batch processing compared to competitors. Nova-3 introduces groundbreaking features including real-time multilingual conversation transcription, enhanced comprehension of domain-specific terminology, and optional personal information redaction. Notably, it's the first voice AI model to offer self-serve customization, enabling instant vocabulary adaptation without model retraining. In multilingual testing, Nova-3 demonstrated superior performance across all seven tested languages, with particularly strong results showing up to 8:1 preference ratios in certain languages.
+
+<Info>
+  Nova-3 has the following model options which can be called by using the following syntax: `model=nova-3-{option}`
+</Info>
+
+* `general`: Optimized for everyday audio processing.
 
 ### Nova-2
 
 **Examples**
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=nova-2
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=nova-2-phonecall
   ```
 </CodeGroup>
@@ -58,13 +70,13 @@ Nova-2 expands on Nova-1's advancements with speech-specific optimizations to th
 **Examples**
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=nova
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=nova-phonecall
   ```
 </CodeGroup>
@@ -84,13 +96,13 @@ Nova is the predecessor to Nova-2. Training on this model spans over 100 domains
 **Examples**
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=enhanced
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=enhanced-phonecall
   ```
 </CodeGroup>
@@ -116,13 +128,13 @@ The Enhanced models can be called with the following syntax:
 **Examples**
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=base
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=base-phonecall
   ```
 </CodeGroup>
@@ -154,13 +166,13 @@ You may also use a custom, trained model associated with your account by includi
 **Examples**
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=whisper
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text Text
+  ```text text
   https://api.deepgram.com/v1/listen?model=whisper-SIZE
   ```
 </CodeGroup>
@@ -188,7 +200,7 @@ Deepgram's Whisper models have the following size options:
 To transcribe audio from a file on your computer using a particular model, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash cURL
+  ```bash CURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

@@ -45,7 +45,7 @@ To transcribe audio from a file on your computer, run the following cURL command
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
     --header 'Content-Type: audio/wav' \
     --data-binary @youraudio.wav \
-    --url 'https://api.deepgram.com/v1/listen?model=nova-2-general&detect_language=true'
+    --url 'https://api.deepgram.com/v1/listen?model=nova-3-general&detect_language=true'
   ```
 </CodeGroup>
 
@@ -58,7 +58,7 @@ To transcribe audio from a file on your computer, run the following cURL command
 When the file is finished processing (often after only a few seconds), you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
     "metadata": {
       "transaction_key": "string",
@@ -98,9 +98,9 @@ In this response, we see that each channel contains:
 
 If you specify both `detect_language=true` and a `model` in your query parameter, Deepgram will attempt to use the specified model for the language that is detected. However, if the detected language is not available for that model, Deepgram will automatically select the next highest model to complete the request.
 
-To use the best Deepgram model available, use `model=nova-2-general&detect_language=true`. The order of preference will be Nova-2 -> Nova-1 -> Enhanced -> Base.
+To use the best Deepgram model available, use `model=nova-3-general&detect_language=true`. The order of preference will be Nova-3 -> Nova-2 -> Nova-1 -> Enhanced -> Base.
 
-For example, you may send an ASR request with the parameters `detect_language=true&model=nova-2-general`. If the detected language is supported by Base and Enhanced models, but not a Nova-2 model, Deepgram will process the request with the Enhanced model since that is the next highest model available for that language.
+For example, you may send an ASR request with the parameters `detect_language=true&model=nova-3-general`. If the detected language is supported by Base and Enhanced models, but not a Nova-3 model, Deepgram will process the request with the Enhanced model since that is the next highest model available for that language.
 
 ### Interaction with `language` query parameter
 

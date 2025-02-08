@@ -9,13 +9,9 @@ slug: docs/sentiment-analysis
 
 [Pre-recorded](/docs/getting-started-with-pre-recorded-audio) Streaming [English (all available regions)](/docs/models-languages-overview)
 
-<div class="api-playground-call">
-<Info
-  icon={<img src="https://res.cloudinary.com/deepgram/image/upload/v1717523786/devex/codey-greeting_rekqe1.svg" alt="Deepgram API Playground"/>}
->
+<Info>
   Try this feature out in our [API Playground](https://playground.deepgram.com/?endpoint=listen\&sentiment=true\&language=en\&model=nova-2)!
 </Info>
-</div>
 
 Deepgram's Sentiment Analysis feature recognizes the sentiment of the entire transcript and detects shifts in sentiment throughout the transcript.
 
@@ -62,7 +58,7 @@ To transcribe audio from a file on your computer, run the following curl command
 When the file is finished processing, you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   "metadata": {...},
     "results": {
       "channels": [
@@ -125,7 +121,7 @@ The `sentiment` values added to objects are:
 If you request Sentiment Analysis with an unsupported language by specifying a language code such as `sentiment=true&language=es` or `sentiment=true&detect_language=true` where the detected language is unsupported, you will get the warning message below.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   "warnings": [
     {
       "parameter": "sentiment",
@@ -145,7 +141,7 @@ If you request Sentiment Analysis with an unsupported language by specifying a l
 Here is an example of the JSON structure of a request with warning object.
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
    "metadata": {
   ...

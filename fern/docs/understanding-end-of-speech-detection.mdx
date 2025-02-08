@@ -30,7 +30,7 @@ In a quiet room with little background noise, Deepgram's Endpointing feature wor
 To address the limitations described above, Deepgram offers the [UtteranceEnd](/docs/utterance-end) feature. The UtteranceEnd feature looks at the word timings of both finalized and interim results to determine if a sufficiently long gap in words has occurred. If it has, Deepgram will send a JSON message over the websocket with following shape:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {"type":"UtteranceEnd", "channel": [0,2], "last_word_end": 3.1}
   ```
 </CodeGroup>

@@ -69,7 +69,7 @@ Your Compose file should be updated to include a License Proxy service. See the 
 Download the default [License Proxy TOML configuration file](https://github.com/deepgram/self-hosted-resources/blob/main/common/license_proxy_deploy/license-proxy.toml) to your environment. Make sure to update the placeholder path (left side of the colon) for the configuration file volume in your Compose file to point to this file.
 
 <CodeGroup>
-  ```yaml YAML
+  ```yaml yaml
   ...
   services:
     ...
@@ -90,7 +90,7 @@ Now, modify your API and Engine configuration files to utilize the License Proxy
 Restart existing containers to begin directing licensing requests through the proxy, as well as starting the License Proxy itself:
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   docker compose up -d
   ```
 </CodeGroup>
@@ -112,7 +112,7 @@ The License Proxy provides a status endpoint that indicates whether the proxy su
 You can reach the status endpoint via port `8080` at the default `/v1/status` route. You can test this with a simple `curl` command (optionally formatting the output with `jq`):
 
 <CodeGroup>
-  ```bash Bash
+  ```bash bash
   curl http://localhost:8080/v1/status | jq
   ```
 </CodeGroup>
@@ -120,7 +120,7 @@ You can reach the status endpoint via port `8080` at the default `/v1/status` ro
 You should receive a response similar to:
 
 <CodeGroup>
-  ```json JSON
+  ```json json
   {
   	"state": "Connected",
   	"last_successful_checkin": "20XX-XX-XXTXX:XX:XX:XXXXXXXXXZ",
