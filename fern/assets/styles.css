@@ -373,3 +373,17 @@ h2 {
 	--tw-prose-headings: #FBFBFF !important;
 	color: #E1E1E5 !important;
 }
+
+img.large {
+	width: 3rem !important;
+	height: 3rem !important;
+}
+
+.badge a {
+	text-decoration: none !important;
+	color: unset !important;
+}
+
+.badge svg {
+	display: none !important;
+}
