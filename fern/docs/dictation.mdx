@@ -6,8 +6,9 @@ subtitle: >-
 slug: docs/dictation
 ---
 
-
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [English (all available regions)](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/english.mdx" />
+</div>
 
 Dictation is a feature of Deepgram’s Speech-to-Text API that converts spoken dictation commands into their corresponding punctuation marks.
 
@@ -26,7 +27,7 @@ To enable Dictation, set the `dictation` parameter to `true` in your API request
 To transcribe audio with dictation enabled, run the following cURL command in a terminal or your favorite API client:
 
 <CodeGroup>
-  ```bash bash
+  ```bash Bash
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -52,7 +53,7 @@ Once dictation is enabled, the results will appear in the transcript with the sp
 #### Before Dictation
 
 <CodeGroup>
-  ```text text
+  ```text Text
   Patient presents with a headache comma nausea comma and vomiting period They report the headache started two days ago period Vital signs are within normal limits period
   ```
 </CodeGroup>
@@ -60,7 +61,7 @@ Once dictation is enabled, the results will appear in the transcript with the sp
 #### After Dictation
 
 <CodeGroup>
-  ```text text
+  ```text Text
   Patient presents with a headache, nausea, and vomiting. They report the headache started two days ago. Vital signs are within normal limits.
   ```
 </CodeGroup>

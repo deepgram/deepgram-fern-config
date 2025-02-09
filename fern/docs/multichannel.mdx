@@ -7,7 +7,9 @@ slug: docs/multichannel
 
 `multichannel` *boolean* Default: `false`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 When set to `true`, you will receive separate transcripts for each channel.
 
@@ -49,7 +51,7 @@ Note that the response structure differs depending on whether audio is submitted
 ### Pre-Recorded Response
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
   	"metadata": {
   		...
@@ -71,7 +73,7 @@ For this response, the `channels` property under `metadata` will be set to `2` b
 Let's look more closely at the `channels` object under `results`:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   ...
   "channels":[
     {
@@ -116,7 +118,7 @@ This makes sense because our sample audio file is a split stereo file with speak
 ### Streaming Response
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       ...
@@ -137,7 +139,7 @@ For this response, the `channel_index` property will be set to `[0, 2]` . The se
 Let's look more closely at the results of the stream. Deepgram will send back separate messages for each channel, like so:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       ...
@@ -233,7 +235,7 @@ Let's look more closely at the results of the stream. Deepgram will send back se
 This first message represents the transcription of the first channel. It will be followed by another message representing the transcription of the second channel, marked with `channel_index: [1, 2]`
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       ...

@@ -7,7 +7,9 @@ slug: docs/intent-recognition
 
 `intents` *boolean*   Default: `false`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> Streaming [English (all available regions)](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx"/> <Markdown src="../snippets/dep-streaming.mdx" /> <Markdown src="../snippets/english.mdx" />
+</div>
 
 <div class="api-playground-call">
 <span>
@@ -28,7 +30,7 @@ To enable Intent Recognition, use the following parameter in the query string wh
 To transcribe audio from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -41,7 +43,7 @@ To transcribe audio from a file on your computer, run the following curl command
 ### Enable Feature with Custom Intents
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -69,7 +71,7 @@ To transcribe audio from a file on your computer, run the following curl command
 When the file is finished processing, you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {},
     "results": {
@@ -114,7 +116,7 @@ The response object values for `intents` are:
 If you request Intent Recognition with an unsupported language by specifying a language code such as `intents=true&language=es` or `intents=true&detect_language=true` where the detected language is unsupported, you will get the warning message below.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   "warnings": [
     {
       "parameter": "intents",
@@ -134,7 +136,7 @@ If you request Intent Recognition with an unsupported language by specifying a l
 Here is an example of the JSON structure of a request with warning object.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
    "metadata": {
   ...

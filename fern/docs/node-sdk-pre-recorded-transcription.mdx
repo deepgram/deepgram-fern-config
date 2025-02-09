@@ -12,7 +12,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments. A
 ## Installing the SDK
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   # Install the Deepgram JS SDK
   # https://github.com/deepgram/deepgram-js-sdk
 
@@ -23,7 +23,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments. A
 ## Initializing the SDK
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   import { createClient } from "@deepgram/sdk";
 
   const deepgram = createClient("DEEPGRAM_API_KEY");
@@ -35,7 +35,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments. A
 Any public audio or video file can be used.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const { result, error } = await deepgram.listen.prerecorded.transcribeUrl(
     {
       url: "https://dpgr.am/spacewalk.wav"
@@ -52,7 +52,7 @@ Any public audio or video file can be used.
 Any `ArrayBufferLike` can be sent as the body. This includes file buffers from Node's `fs.readFile`/`fs.readFileSync`, or a `Blob.arrayBuffer()` in a browser client.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const { result, error } = await deepgram.listen.prerecorded.transcribeFile(
     fs.readFileSync("./examples/spacewalk.wav"),
     {
@@ -67,7 +67,7 @@ Any `ArrayBufferLike` can be sent as the body. This includes file buffers from N
 Any `ReadStream` can be sent as the body. This includes a stream from Node's `fs.createReadStream`.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const { result, error } = await deepgram.listen.prerecorded.transcribeFile(
     fs.createReadStream("./examples/spacewalk.wav"),
     {

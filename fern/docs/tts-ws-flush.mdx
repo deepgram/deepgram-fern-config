@@ -5,7 +5,7 @@ slug: docs/tts-ws-flush
 ---
 
 
-[Text to Speech WS](/docs/streaming-text-to-speech)
+<Markdown src="../snippets/tts-ws.mdx" />
 
 When you are sending text to our TTS websocket from an LLM, you will need to send a Flush message whenever the LLM finishes a response to indicate the end of the conversation. This allows Deepgram to generate the audio from its existing text buffer without waiting for additional text.
 
@@ -24,7 +24,7 @@ In other cases in real-time text-to-speech processing, there are scenarios where
 To send the `Flush` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "Flush"
   }
@@ -38,7 +38,7 @@ Upon receiving the `Flush` message, the server will process all remaining text d
 ### Example Response
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
    
   "type": "Flushed",

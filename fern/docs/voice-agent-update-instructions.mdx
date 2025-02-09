@@ -18,7 +18,7 @@ The `UpdateInstructions` message is a JSON command that you can use to give addi
 To send the `UpdateInstructions` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "UpdateInstructions",
     "instructions": "" // The new instructions to give  
@@ -31,7 +31,7 @@ To send the `UpdateInstructions` message, you need to send the following JSON me
 Upon receiving the `UpdateInstructions` message, the server will process all remaining audio data and return the following:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "InstructionsUpdated"
   }

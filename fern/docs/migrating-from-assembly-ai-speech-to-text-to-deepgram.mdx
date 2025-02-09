@@ -101,7 +101,7 @@ For Deepgram:
 **AssemblyAI Initialization**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   import { AssemblyAI } from "assemblyai";
   import dotenv from "dotenv";
 
@@ -112,7 +112,7 @@ For Deepgram:
   });
   ```
 
-  ```python python
+  ```python Python
   import assemblyai as aai
   import os
   from dotenv import load_dotenv
@@ -126,7 +126,7 @@ For Deepgram:
 **Deepgram Initialization**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   import { Deepgram } from "@deepgram/sdk";
   import dotenv from "dotenv";
 
@@ -135,7 +135,7 @@ For Deepgram:
   const deepgram = new Deepgram(process.env.DEEPGRAM_API_KEY);
   ```
 
-  ```python python
+  ```python Python
   import os
   from dotenv import load_dotenv
 
@@ -158,7 +158,7 @@ For Deepgram:
 **AssemblyAI**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const data = {
     audio_url: "https://dpgr.am/spacewalk.wav", // the audio_url for the audio being transcribed is included
     speech_model: "nano",
@@ -166,7 +166,7 @@ For Deepgram:
   };
   ```
 
-  ```python python
+  ```python Python
   config = aai.TranscriptionConfig(speech_model="nano", speaker_labels= True)
   ```
 </CodeGroup>
@@ -174,7 +174,7 @@ For Deepgram:
 **Deepgram**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const options = {
     model: "nova-3",
     smart_format: true,
@@ -182,7 +182,7 @@ For Deepgram:
   };
   ```
 
-  ```python python
+  ```python Python
   options = PrerecordedOptions(
               model="nova-3",
               smart_format=True,
@@ -197,7 +197,7 @@ Here is the entire code sample that shows how to transcribe audio using a remote
 **AssemblyAI**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   import { AssemblyAI } from "assemblyai";
   import dotenv from "dotenv";
   dotenv.config();
@@ -222,7 +222,7 @@ Here is the entire code sample that shows how to transcribe audio using a remote
   run();
   ```
 
-  ```python python
+  ```python Python
   import os
   from dotenv import load_dotenv
 
@@ -249,7 +249,7 @@ Here is the entire code sample that shows how to transcribe audio using a remote
 **Deepgram**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   import { createClient } from "@deepgram/sdk";
   import dotenv from "dotenv";
   dotenv.config();
@@ -276,7 +276,7 @@ Here is the entire code sample that shows how to transcribe audio using a remote
   run();
   ```
 
-  ```python python
+  ```python Python
   import os
   from dotenv import load_dotenv
 
@@ -321,7 +321,7 @@ Here is the entire code sample that shows how to transcribe audio using a local 
 **AssemblyAI**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   import { AssemblyAI } from "assemblyai";
   import dotenv from "dotenv";
   dotenv.config();
@@ -346,7 +346,7 @@ Here is the entire code sample that shows how to transcribe audio using a local 
   run();
   ```
 
-  ```python python
+  ```python Python
   import assemblyai as aai
   import os
   from dotenv import load_dotenv
@@ -378,7 +378,7 @@ Here is the entire code sample that shows how to transcribe audio using a local 
 **Deepgram**:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   import { createClient } from "@deepgram/sdk";
   import fs from "fs";
   import dotenv from "dotenv";
@@ -404,7 +404,7 @@ Here is the entire code sample that shows how to transcribe audio using a local 
   run();
   ```
 
-  ```python python
+  ```python Python
   import os
   from dotenv import load_dotenv
 
@@ -454,7 +454,7 @@ Here is the entire code sample that shows how to transcribe audio using a local 
 **AssemblyAI**:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "id": "some_id",
     "status": "completed",
@@ -476,7 +476,7 @@ Here is the entire code sample that shows how to transcribe audio using a local 
 **Deepgram**:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       "transaction_key": "deprecated",

@@ -121,7 +121,7 @@ When a call is received, use Deepgram to transcribe it:
 2. Replace the boilerplate code with the following code:
 
    <CodeGroup>
-     ```javascript javascript
+     ```javascript JavaScript
      import { createClient } from "@deepgram/sdk";
      const deepgram = createClient(process.env.DEEPGRAM_API_KEY);
 
@@ -144,7 +144,7 @@ When a call is received, use Deepgram to transcribe it:
 3. Generate a transcription of the call using Deepgram’s Node.js SDK:
 
    <CodeGroup>
-     ```javascript javascript
+     ```javascript JavaScript
      const options = { punctuate: true, tier: "enhanced", summarize: true };
      const { result, error } = await deepgram.listen.prerecorded.transcribeUrl({ url: RecordingUrl }, options);
      ```
@@ -155,7 +155,7 @@ When a call is received, use Deepgram to transcribe it:
 From Deepgram's transcription, isolate the summary:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const { summaries } = result.results.channels[0].alternatives[0];
   ```
 </CodeGroup>
@@ -169,7 +169,7 @@ Now that you have a summary of the call, you can send it to both the caller and 
 Because `summaries` is an array of objects (containing summary text and the time period being summarized), you will need to turn `summaries` into one string that can be sent via SMS:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const summary = summaries.map((s) => s.summary).join("\n\n");
   ```
 </CodeGroup>
@@ -181,7 +181,7 @@ Finally, you can send Deepgram's summary via SMS:
 1. Just below the previous `summary` code, add the following:
 
    <CodeGroup>
-     ```javascript javascript
+     ```javascript JavaScript
      for (let number of [process.env.FORWARD_NUMBER, caller]) {
      	await twilioClient.messages.create({
      		body: summary,
@@ -203,7 +203,7 @@ To test your implementation, call your Twilio number, pick it up on your "agent 
 In case you need it for reference, we provide the full sample code used in this tutorial below:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   // /inbound
   exports.handler = function (context, event, callback) {
   	let twiml = new Twilio.twiml.VoiceResponse();

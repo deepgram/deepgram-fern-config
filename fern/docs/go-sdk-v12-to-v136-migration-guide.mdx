@@ -127,7 +127,7 @@ Should you build your application after migrating to `v1.3+`and you find that th
 Before running any of these commands, save a copy of your current code base elsewhere to ensure all the intended changes happen correctly. You should be under some kind of source control; if not, start by checking into your application code somewhere.
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   # struct property linting updates
   find ./ -type f -iname "*.go" -not -path "./.git" -exec sed -i.bak 's/Url/URL/g' "{}" +;
   find ./ -type f -iname "*.go" -not -path "./.git" -exec sed -i.bak 's/Api/API/g' "{}" +;

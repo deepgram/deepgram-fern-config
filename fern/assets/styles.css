@@ -304,6 +304,7 @@ h2 {
 	border-radius: 4px !important;
 	background-image: linear-gradient(82.38deg, #ff2eea -99.24%, #4b3cff 99.26%) !important;
 	width: 100% !important;
+	margin-top: 1rem !important;
 }
 
 .api-playground-call span {
@@ -375,11 +376,6 @@ h2 {
 	color: #E1E1E5 !important;
 }
 
-img.large {
-	width: 3rem !important;
-	height: 3rem !important;
-}
-
 .badge a {
 	text-decoration: none !important;
 	color: unset !important;
@@ -387,4 +383,24 @@ img.large {
 
 .badge svg {
 	display: none !important;
+}
+
+.dep {
+	background: #bbbbbf !important;
+}
+
+.dep .fa-icon {
+	background: #bbbbbf !important;
+}
+
+.dep span {
+	text-decoration: line-through !important;
+}
+
+.pink {
+	background-image: linear-gradient(85deg, #ee028b 5.66%, #ae29ff 99.14%) !important;
+}	
+
+.pink .fa-icon {
+	background: linear-gradient(85deg, #ee028b 5.66%, #ae29ff 99.14%) !important;
 }

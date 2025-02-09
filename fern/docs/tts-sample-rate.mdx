@@ -7,7 +7,9 @@ slug: docs/tts-sample-rate
 
 `sample_rate` *string*
 
-[Text To Speech REST](/docs/text-to-speech) [Text To Speech WS](/docs/text-to-speech) [English](/docs/tts-models)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/tts-rest.mdx" /> <Markdown src="../snippets/tts-ws.mdx" /> <Markdown src="../snippets/tts-english.mdx" />
+</div>
 
 The Sample Rate feature allows users to specify the desired sample rate of the resulting text-to-speech audio output. Sample rate refers to the number of samples of audio carried per second, measured in Hertz (Hz).
 
@@ -26,7 +28,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **Sample rate of 24 kHz**:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=linear16&sample_rate=24000" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \

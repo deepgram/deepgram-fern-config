@@ -7,7 +7,7 @@ slug: docs/text-topic-detection
 
 `topics` *boolean*   Default: `false`
 
-[English (all available regions)](/docs/models-languages-overview)
+<Markdown src="../snippets/english.mdx" />
 
 <div class="api-playground-call">
 <span>
@@ -18,7 +18,7 @@ slug: docs/text-topic-detection
 Topic Detection accepts an input text, divides it into a list of segments comprised of sections of the text, and identifies key topics found within each segment.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
    "results": {
       "topics": {
         "segments": [
@@ -60,7 +60,7 @@ To enable Topic Detection, use the following parameter in the query string when 
 To analyze text from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -84,7 +84,7 @@ To tell the model to only return topics from your own custom list of topics, add
 If you want to return your own custom list of topics *in addition* to Deegpram's list of topics, set `custom_intent_mode=extended` and add your custom list.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -111,7 +111,7 @@ If you want to return your own custom list of topics *in addition* to Deegpram's
 When the file is finished processing, you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       "request_id": "c313ae16-2c3b-4c51-87a6-920a8aa1d899",
@@ -167,7 +167,7 @@ The response object values for `topics` are:
 If you request Topic Detection with an unsupported language by specifying a language code such as `topics=true&language=es` or `topics=true&detect_language=true` where the detected language is unsupported, you will get the error message below.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "err_code":"INVALID_QUERY_PARAMETER",
     "err_msg":"Request specified unsupported language: <language_name>. Only English is supported.",
@@ -183,7 +183,7 @@ If you request Topic Detection with an unsupported language by specifying a lang
 If the request's input length exceeded the 150k token rate limit per request, you will get the error message below.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "err_code": "TOKEN_LIMIT_EXCEEDED",
     "err_msg": "Text input for <api_name> currently supports up to 150K tokens. Please revise your text input to fit within the defined token limit. For more information, please visit our API documentation.",
@@ -199,7 +199,7 @@ If the request's input length exceeded the 150k token rate limit per request, yo
 If the request sent contained only the feature parameter (`topics`) but not the `language` parameter, you will receive this error.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "err_code":"INVALID_QUERY_PARAMETER",
     "err_msg":"Failed to deserialize query parameters: missing field `language`",

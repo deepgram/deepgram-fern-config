@@ -7,7 +7,7 @@ slug: docs/text-to-speech
 ---
 
 
-[Text to Speech REST](/docs/text-to-speech)
+<Markdown src="../snippets/tts-rest.mdx" />
 
 This guide will walk you through how to turn text into speech with Deepgram's text-to-speech REST API.
 
@@ -30,7 +30,7 @@ First, quickly explore Deepgram Text to Speech in our API Playground.
 Next, try it with CURL. Add your own API key where it says `YOUR_DEEPGRAM_API_KEY` and then run the following example in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
@@ -55,7 +55,7 @@ If your request results in an error, the error message can be seen by opening th
 To see the error message in your terminal, add this to your CURL request:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   --fail-with-body \
   --silent \
   || (jq . your_output_file.mp3 && rm your_output_file.mp3)
@@ -65,7 +65,7 @@ To see the error message in your terminal, add this to your CURL request:
 This example will capture the error message using `jq` and remove the output file (tts.mp3) automatically.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \

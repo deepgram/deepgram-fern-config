@@ -47,7 +47,7 @@ In the `linear16` audio encoding case, you will need to prepend a [`WAV` contain
 In many cases, file-based playback is not desired, and you may want to play the audio directly by streaming to the media device. For those cases, you may need to manipulate the audio stream and create the header bytes directly in front of the audio stream segments:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   // Add a wav audio container header to the file if you want to play the audio
   // using the AudioContext or media player like VLC, Media Player, or Apple Music
   // Without this header in the Chrome browser case, the audio will not play.
@@ -71,7 +71,7 @@ In many cases, file-based playback is not desired, and you may want to play the 
   const audio = Buffer.concat([wavHeader, audioBuffer]);
   ```
 
-  ```python python
+  ```python Python
   # Add a wav audio container header to the file if you want to play the audio
   # using the AudioContext or media player like VLC, Media Player, or Apple Music
   # Without this header in the Chrome browser case, the audio will not play.
@@ -146,7 +146,7 @@ In many cases, file-based playback is not desired, and you may want to play the 
   	}
   ```
 
-  ```csharp csharp
+  ```csharp C#
   // Add a wav audio container header to the file if you want to play the audio
   // using the AudioContext or media player like VLC, Media Player, or Apple Music
   // Without this header in the Chrome browser case, the audio will not play.
@@ -188,7 +188,7 @@ There are numerous ways to mitigate this. Some of these include:
 Some browsers provide built-in **echo cancellation** that can help reduce cases where the agent hears its own voice. You can enable this when capturing microphone input:
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   navigator.mediaDevices
       .getUserMedia({
         audio: {

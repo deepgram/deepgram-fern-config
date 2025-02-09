@@ -7,7 +7,7 @@ slug: docs/close-stream
 ---
 
 
-[Streaming](/docs/getting-started-with-live-streaming-audio)
+<Markdown src="../snippets/streaming.mdx" />
 
 In real-time audio processing, there are scenarios where you may need to force the server to close. Deepgram supports a `CloseStream` message to handle such situations. This message will send a shutdown command to the server instructing it to finish processing any cached data, send the response to the client, send a summary metadata object, and then terminate the WebSocket connection.
 
@@ -20,7 +20,7 @@ The `CloseStream` message is a JSON command that you send to the Deepgram server
 To send the `CloseStream` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   { 
     "type": "CloseStream" 
   }
@@ -32,7 +32,7 @@ To send the `CloseStream` message, you need to send the following JSON message t
 Upon receiving the `CloseStream` message, the server will process all remaining audio data and return the following:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "Metadata",
       "transaction_key": "deprecated",
@@ -48,7 +48,7 @@ Upon receiving the `CloseStream` message, the server will process all remaining 
 # Language-Specific Implementations
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const WebSocket = require("ws");
 
   // Assuming 'headers' is already defined for authorization
@@ -63,7 +63,7 @@ Upon receiving the `CloseStream` message, the server will process all remaining 
   });
   ```
 
-  ```python python
+  ```python Python
   import json
   import websocket
 
@@ -77,7 +77,7 @@ Upon receiving the `CloseStream` message, the server will process all remaining 
   ws.send(closestream_msg)
   ```
 
-  ```go go
+  ```go Go
   package main
 
   import (
@@ -114,7 +114,7 @@ Upon receiving the `CloseStream` message, the server will process all remaining 
   }
   ```
 
-  ```csharp csharp
+  ```csharp C#
   using System;
   using System.Net.WebSockets;
   using System.Text;

@@ -7,7 +7,7 @@ slug: docs/streaming-text-to-speech
 ---
 
 
-[Text to Speech WS](/docs/streaming-text-to-speech)
+<Markdown src="../snippets/tts-ws.mdx" />
 
 This guide will walk you through how to turn streaming text into speech with Deepgram's text-to-speech Websocket API.
 
@@ -654,7 +654,7 @@ To establish a connection, you must provide a few parameters on the URL to descr
 Send the desired text to transform to audio using the WebSocket message below:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "Speak",
     "text": "Your text to transform to speech",
@@ -665,7 +665,7 @@ Send the desired text to transform to audio using the WebSocket message below:
 When you have queued enough text, you can obtain the corresponding audio by sending a `Flush` command.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "Flush"
   }
@@ -679,7 +679,7 @@ Upon successfully sending the `Flush`, you will receive an audio byte stream fro
 When you are finished with the WebSocket, you can close the connection by sending the following `Close` command.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "Close"
   }

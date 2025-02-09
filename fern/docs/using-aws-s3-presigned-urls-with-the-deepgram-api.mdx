@@ -80,7 +80,7 @@ The presigned URL will be copied to your clipboard, and if you paste it into you
 We will use the [AWS Python SDK](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) (installed via `pip install boto3`) to programmatically create presigned URLs. The below code creates a presigned URL that retrieves a file from S3:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   from botocore.client import Config
   import boto3
 
@@ -111,7 +111,7 @@ Nice work! Now you can include the `get_url` in your Deepgram API call to send t
 To programmatically create a presigned URL that uploads a file to S3, use the code below:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   TRANSCRIPT_FILE_PATH_IN_S3 = "transcripts/NASA-first-all-female-space-walk.json"
   EXPIRATION_TIME_IN_SECONDS = 10 * 60  # 10 minutes
   # Create a presigned PUT URL
@@ -134,7 +134,7 @@ The presigned `PUT` URL's expiration time must take into account the time it tak
 Finally, you can combine the GET and PUT URLs in an API request to Deepgram to perform the transcription:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   import os
 
   DEEPGRAM_API_KEY = os.environ["DEEPGRAM_API_KEY"]  # Your Deepgram API Key
@@ -161,7 +161,7 @@ Finally, you can combine the GET and PUT URLs in an API request to Deepgram to p
 Below is the full code for 1) generating presigned URLs, 2) sending your audio data to Deepgram, and 3) uploading transcripts directly into S3:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   from typing import Tuple
   from botocore.client import Config
   from deepgram import Deepgram
@@ -236,7 +236,7 @@ AWS Lambda functions are popular in serverless architectures and integrate seaml
 If you are using a serverless infrastructure, you may want to use AWS Lambda functions to generate presigned URLs. Make sure the Lambda's Execution Role contains permissions for the `S3:PutObject` and `S3:GetObject` actions. Below is an example policy statement:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
   	"Sid": "allow-presigned-url-access",
   	"Effect": "Allow",
@@ -259,7 +259,7 @@ AWS Lambda functions do not have access to most Python packages, including the D
 Alternatively, if you just need to make simple requests to Deepgram, you can use the `requests` package to make calls to Deepgram. Below is the full code that can be used in a Lambda function (using Python 3.10).
 
 <CodeGroup>
-  ```python python
+  ```python Python
   import pip._vendor.requests as requests  # Import a pre-installed `requests` module
   from botocore.client import Config
   from typing import Tuple
@@ -346,7 +346,7 @@ Event notifications can trigger a Lambda function, and the event notification wi
 If you are receiving `AccessDenied` messages such as the one below, it's likely the presigned URL has expired. Try setting a longer expiration time when creating the URL. Note that the presigned `PUT` URL's expiration time must take into account the time it takes for the audio to be transcribed.
 
 <CodeGroup>
-  ```xml xml
+  ```xml XML
   <?xml version="1.0" encoding="UTF-8"?>
   <Error>
       <Code>AccessDenied</Code>

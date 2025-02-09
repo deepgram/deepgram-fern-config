@@ -29,7 +29,7 @@ Create a file called `functions.py` and at the top of the file:
 **Set Up the dependencies and Import the business logic**
 
 <CodeGroup>
-  ```python python
+  ```python Python
   import json
   from datetime import datetime, timedelta
   import asyncio
@@ -61,7 +61,7 @@ This function handles:
 * Email address parsing
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def find_customer(params):
       """Look up a customer by phone, email, or ID."""
       phone = params.get("phone")
@@ -80,7 +80,7 @@ This function handles:
 * retrieving all appointments for a specific customer using their customer ID.
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def get_appointments(params):
       """Get appointments for a customer."""
       customer_id = params.get("customer_id")
@@ -101,7 +101,7 @@ This function handles:
 * Retrieving existing appointments
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def get_orders(params):
       """Get orders for a customer."""
       customer_id = params.get("customer_id")
@@ -121,7 +121,7 @@ This function handles:
 * Order status checking
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def create_appointment(params):
       """Schedule a new appointment."""
       customer_id = params.get("customer_id")
@@ -145,7 +145,7 @@ This function handles:
 * Responding to "When can I come in?" queries
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def check_availability(params):
       """Check available appointment slots."""
       start_date = params.get("start_date")
@@ -167,7 +167,7 @@ This function handles:
 * Proper conversation closure handling
 
 <CodeGroup>
-  ```python python
+  ```python Python
 
   async def agent_filler(websocket, params):
       """
@@ -186,7 +186,7 @@ This function handles:
 * Adding appropriate farewell messages
 
 <CodeGroup>
-  ```python python
+  ```python Python
 
   async def end_call(websocket, params):
       """
@@ -211,7 +211,7 @@ Each function definition follows a JSON Schema format with:
 * Enumerated values where applicable
 
 <CodeGroup>
-  ```python python
+  ```python Python
   # Function definitions that will be sent to the Voice Agent API
   FUNCTION_DEFINITIONS = [
       {
@@ -404,7 +404,7 @@ Each function definition follows a JSON Schema format with:
 Finally we'll need to create a`FUNCTION_MAP` which is a dictionary that maps function names to their corresponding implementation functions. It serves as a routing mechanism to connect the function definitions with their actual implementations.
 
 <CodeGroup>
-  ```python python
+  ```python Python
   # Map function names to their implementations
   FUNCTION_MAP = {
       "find_customer": find_customer,
@@ -425,7 +425,7 @@ Finally we'll need to create a`FUNCTION_MAP` which is a dictionary that maps fun
 </Info>
 
 <CodeGroup>
-  ```python python
+  ```python Python
   # Example of the Voice Agent Settings Configuration used the Demo app
 
   SETTINGS = {

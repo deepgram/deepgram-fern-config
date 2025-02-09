@@ -9,7 +9,9 @@ slug: docs/diarization
 
 `diarize` *boolean* Default: `false`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 <div class="api-playground-call">
 <span>
@@ -26,7 +28,7 @@ To enable Diarization, use the following parameter in the query string when you 
 To transcribe audio from a file on your computer, run the following cURL command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -53,7 +55,7 @@ When the file is finished processing, you’ll receive a JSON response. Let's lo
 When using diarization for pre-recorded audio, both `speaker` and `speaker_confidence` values will be returned:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   ...
   "alternatives":[
     {
@@ -79,7 +81,7 @@ When using diarization for pre-recorded audio, both `speaker` and `speaker_confi
 When using diarization for live streaming audio, only the `speaker` value will be returned:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   ...
   "alternatives":[
     {
@@ -106,7 +108,7 @@ Use the [API reference](/reference/pre-recorded) or the [API Playground](https:/
 To improve readability, you can use a JSON processor to parse the JSON. In this example, we use [JQ](https://stedolan.github.io/jq/) and further improve readability by turning on Deepgram’s [punctuation](/docs/punctuation/) and [utterances](/docs/utterances/) features:
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --url 'https://api.deepgram.com/v1/listen?diarize=true&punctuate=true&utterances=true' \

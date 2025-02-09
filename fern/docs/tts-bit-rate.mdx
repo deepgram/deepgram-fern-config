@@ -7,7 +7,9 @@ slug: docs/tts-bit-rate
 
 `bit_rate` *string*
 
-[Text To Speech REST](/docs/text-to-speech) Text to Speech WS [English](/docs/tts-models)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/tts-rest.mdx" /> <Markdown src="../snippets/dep-tts-ws.mdx" /> <Markdown src="../snippets/tts-english.mdx" />
+</div>
 
 The Bit Rate feature gives users the ability to specify the desired bitrate of the resulting text-to-speech audio output.
 
@@ -24,7 +26,7 @@ To enable the Bit Rate feature, include the `bit_rate` parameter in the query st
 ### Example:
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/speak?encoding=mp3&bit_rate=32000
   ```
 </CodeGroup>
@@ -36,7 +38,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **MP3 encoding with bitrate of 32 kbits/second:**:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \

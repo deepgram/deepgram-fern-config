@@ -50,7 +50,7 @@ Before setting up your private registry, you need to pull the necessary Deepgram
 2. Login to Quay:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      docker login quay.io
      ```
    </CodeGroup>
@@ -60,7 +60,7 @@ Before setting up your private registry, you need to pull the necessary Deepgram
 4. Pull the relevant container images. This guide will focus on the API container:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      export RELEASE_TAG=<LATEST_RELEASE_TAG>
      docker pull quay.io/deepgram/self-hosted-api:$RELEASE_TAG
      ```
@@ -85,7 +85,7 @@ Complete one of the following subsections, depending on your cloud platform of c
 3. On the main ECR page, copy the URI of your newly created registry, and export it in your local terminal:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      export API_REPO_URI=<YOUR_API_REPO_URI>
      ```
    </CodeGroup>
@@ -101,7 +101,7 @@ Complete one of the following subsections, depending on your cloud platform of c
 2. Once authenticated, get your AWS Account ID:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
      ```
    </CodeGroup>
@@ -109,7 +109,7 @@ Complete one of the following subsections, depending on your cloud platform of c
 3. Export the AWS region for your self-hosted environment:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      export AWS_REGION="us-west-2" # Replace if using a different region
      ```
    </CodeGroup>
@@ -117,7 +117,7 @@ Complete one of the following subsections, depending on your cloud platform of c
 4. Authenticate to your default registry:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      aws ecr get-login-password --region "$AWS_REGION" | \
      docker login \
         --username AWS \
@@ -129,7 +129,7 @@ Complete one of the following subsections, depending on your cloud platform of c
 5. Create a repository for each container image you pulled from Quay:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      API_REPO_NAME="deepgram-self-hosted-api"
      API_REPO_URI=$(aws ecr create-repository \
         --repository-name "$API_REPO_NAME" \
@@ -148,7 +148,7 @@ The following steps are a summary of [this official GCP documentation](https://c
 2. [Create a container image repository](https://cloud.google.com/artifact-registry/docs/docker/store-docker-container-images#create):
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      export GCP_REGION="us-west1"
      export GCP_PROJECT="<YOUR_GCP_PROJECT_ID>"
      gcloud artifacts repositories create deepgram \
@@ -166,7 +166,7 @@ The following steps are a summary of [this official GCP documentation](https://c
 3. Authenticate your local Docker agent with your new GCP container registry:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      gcloud auth configure-docker "$GCP_REGION-docker.pkg.dev"
      # If you use `root` to access docker, i.e. `sudo docker...`, make sure
      # to run this command with `sudo` as well
@@ -181,7 +181,7 @@ The following steps are a summary of [this official GCP documentation](https://c
 Push your local copy of the Deepgram container, previously pulled from Quay, to your private registry.
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   docker tag \
      "quay.io/deepgram/self-hosted-api:$RELEASE_TAG" \
      "$API_REPO_URI:$RELEASE_TAG"
@@ -211,7 +211,7 @@ Complete one of the following subsections, depending on your cloud platform of c
 4. Configure Docker to use the credential helper by setting the contents of `~/.docker/config.json`:
 
    <CodeGroup>
-     ```json json
+     ```json JSON
      {
        "credsStore": "ecr-login"
      }
@@ -231,7 +231,7 @@ Complete one of the following subsections, depending on your cloud platform of c
 2. Authenticate Docker with your Artifact Registry on your Google Compute Engine instance:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      gcloud auth configure-docker "$GCP_REGION-docker.pkg.dev"
      ```
    </CodeGroup>
@@ -268,7 +268,7 @@ GKE clusters with default IAM settings should have access to pull images from yo
 2. Restart your containers to use the new container image:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      # Docker
      docker compose up -d
      # Podman
@@ -296,7 +296,7 @@ GKE clusters with default IAM settings should have access to pull images from yo
 2. Upgrade your Helm installation to use the new container images:
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      helm upgrade -f my-values.yaml [RELEASE_NAME] deepgram/deepgram-self-hosted --atomic --timeout 60m
      ```
    </CodeGroup>

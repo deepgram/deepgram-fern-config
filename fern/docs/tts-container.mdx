@@ -7,7 +7,7 @@ slug: docs/tts-container
 
 `container` *string*
 
-[Text To Speech REST](/docs/text-to-speech) Text to Speech WS [English](/docs/tts-models)
+<Markdown src="../snippets/tts-rest.mdx" /> <Markdown src="../snippets/dep-tts-ws.mdx" /> <Markdown src="../snippets/tts-english.mdx" />
 
 The Container feature allows users to specify the desired file format wrapper for the output audio generated through text-to-speech synthesis.
 
@@ -22,7 +22,7 @@ Choosing the appropriate container format for the audio output is essential for 
 To enable the Container feature, include the `container` parameter in the query string with the desired container format value.
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   https://api.deepgram.com/v1/speak?encoding=linear16&container=wav
   ```
 </CodeGroup>
@@ -38,7 +38,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **WAV container format**:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=linear16&container=wav" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \

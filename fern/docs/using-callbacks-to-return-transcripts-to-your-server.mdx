@@ -69,7 +69,7 @@ To send a request to Deepgram and receive the transcript on your server, you nee
 To transcribe audio from a file on your computer, for example, run the following cURL command in a terminal or your favorite API client:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -88,7 +88,7 @@ To transcribe audio from a file on your computer, for example, run the following
 When you supply a callback URL in your request to Deepgram's API, we will immediately respond with a `request_id`:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   { "request_id": "c22bea24-ecd3-4b53-bcbf-8ef087d905a5" }
   ```
 </CodeGroup>

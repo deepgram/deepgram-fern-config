@@ -5,7 +5,7 @@ slug: docs/tts-ws-close
 ---
 
 
-[Text to Speech WS](/docs/streaming-text-to-speech)
+<Markdown src="../snippets/tts-ws.mdx" />
 
 To close the websocket connection, you can either send an websocket `Close` frame, or send the optional `close` message.
 
@@ -18,7 +18,7 @@ In real-time text-to-speech processing, there are scenarios where you may need t
 To send the `Close` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "Close"
   }

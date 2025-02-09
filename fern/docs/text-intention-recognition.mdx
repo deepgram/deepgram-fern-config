@@ -7,7 +7,7 @@ slug: docs/text-intention-recognition
 
 `intents` *boolean*   Default: `false`
 
-[English (all available regions)](/docs/models-languages-overview)
+<Markdown src="../snippets/english.mdx" />
 
 <div class="api-playground-call">
 <span>
@@ -18,7 +18,7 @@ slug: docs/text-intention-recognition
 Intent Recognition accepts an input text, divides it into a list of segments comprised of sections of the text, and assigns a description of intent to each text segment.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   "results": {
       "intents": {
         "segments": [
@@ -64,7 +64,7 @@ To enable Intent Recognition, use the following parameter in the query string wh
 To analyze text from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -82,7 +82,7 @@ To analyze text from a file on your computer, run the following curl command in 
 To analyze text from a hosted file, run the following curl command in a terminal or your favorite API client. (Try testing it out with the hosted file [https://static.deepgram.com/examples/aura.txt](https://static.deepgram.com/examples/aura.txt))
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -98,7 +98,7 @@ To tell the model to only return intents from your own custom list of intents, a
 If you want to return your own custom list of intents *in addition* to Deegpram's list of intents, set `custom_intent_mode=extended` and add your custom list.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -126,7 +126,7 @@ If you want to return your own custom list of intents *in addition* to Deegpram'
 When the file is finished processing, you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       "request_id": "65be7382-9d92-4373-bf5e-ef3a3d0cf56c",
@@ -188,7 +188,7 @@ The response object values for `intents` are:
 If you request Intent Recognition with an unsupported language by specifying a language code such as `intents=true&language=es` or `intents=true&detect_language=true` where the detected language is unsupported, you will get the error message below.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "err_code":"INVALID_QUERY_PARAMETER",
     "err_msg":"Request specified unsupported language: <language_name>. Only English is supported.",
@@ -204,7 +204,7 @@ If you request Intent Recognition with an unsupported language by specifying a l
 If the request's input length exceeded the 150k token rate limit per request, you will get the error message below.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "err_code": "TOKEN_LIMIT_EXCEEDED",
     "err_msg": "Text input for <api_name> currently supports up to 150K tokens. Please revise your text input to fit within the defined token limit. For more information, please visit our API documentation.",
@@ -220,7 +220,7 @@ If the request's input length exceeded the 150k token rate limit per request, yo
 If the request sent contained only the feature parameter (`intents`) but not the `language` parameter, you will receive this error.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "err_code":"INVALID_QUERY_PARAMETER",
     "err_msg":"Failed to deserialize query parameters: missing field `language`",

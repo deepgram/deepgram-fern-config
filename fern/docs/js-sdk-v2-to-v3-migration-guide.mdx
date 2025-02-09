@@ -106,7 +106,7 @@ You can now use type="module" `<script>`s to import deepgram from CDNs, like:
 A new feature is scoped configuration. You'll be able to configure various aspects of the SDK from the initialization.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   import { createClient } from "@deepgram/sdk";
   // - or -
   // const { createClient } = require("@deepgram/sdk");
@@ -204,7 +204,7 @@ Transcribe a remote file by sending us a publicly accessible URL to it.
 The below are examples of using a callback endpoint with our new SDK. You'll need additionally need the `CallbackUrl` class from the Deepgram SDK.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   import { createClient, CallbackUrl } from "@deepgram/sdk";
   // - or -
   // const { createClient, CallbackUrl } = require("@deepgram/sdk");
@@ -688,7 +688,7 @@ Transcribe live audio streams.
 Newly available functionality.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const { result, error } = await deepgram.onprem.listCredentials(projectId);
   ```
 </CodeGroup>
@@ -700,7 +700,7 @@ Newly available functionality.
 Newly available functionality.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const { result, error } = await deepgram.onprem.getCredentials(
     projectId,
     credentialId
@@ -715,7 +715,7 @@ Newly available functionality.
 Newly available functionality.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const { result, error } = await deepgram.onprem.createCredentials(projectId, options);
   ```
 </CodeGroup>
@@ -727,7 +727,7 @@ Newly available functionality.
 Newly available functionality.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const { result, error } = await deepgram.onprem.deleteCredentials(
     projectId,
     credentialId

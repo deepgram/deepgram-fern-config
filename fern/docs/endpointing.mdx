@@ -7,7 +7,9 @@ slug: docs/endpointing
 
 `endpointing` *string*.
 
-Pre-recorded [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/dep-pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 Deepgram’s Endpointing feature can be used for speech detection by monitoring incoming streaming audio and relies on a Voice Activity Detector (VAD), which monitors the incoming audio and triggers when a sufficiently long pause is detected.
 
@@ -34,7 +36,7 @@ This will wait until 500 milliseconds of silence has passed to finalize and retu
 Endpointing may be disabled by setting `endpointing=false`. If endpointing is disabled, transcriptions will be returned at a cadence determined by Deepgram's chunking algorithms.
 
 <CodeGroup>
-  ```python python
+  ```python Python
 
   # see https://github.com/deepgram/deepgram-python-sdk/blob/main/examples/streaming/async_microphone/main.py
   # for complete example code
@@ -63,7 +65,7 @@ Endpointing may be disabled by setting `endpointing=false`. If endpointing is di
 When enabled, the transcript for each received streaming response shows a key called `speech_final`.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "channel_index":[
       0,

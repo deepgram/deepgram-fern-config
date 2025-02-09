@@ -7,7 +7,9 @@ slug: docs/language-detection
 
 `detect_language` *boolean* Default: `false`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> Streaming
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx"/> <Markdown src="../snippets/dep-streaming.mdx" />
+</div>
 
 Deepgram’s Language Detection feature identifies the dominant language spoken in submitted audio, transcribes the audio in the identified language, and returns the detected language code in the JSON response.
 
@@ -39,7 +41,7 @@ To enable Language Detection, when you call Deepgram’s API, add a `detect_lang
 To transcribe audio from a file on your computer, run the following cURL command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -58,7 +60,7 @@ To transcribe audio from a file on your computer, run the following cURL command
 When the file is finished processing (often after only a few seconds), you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       "transaction_key": "string",

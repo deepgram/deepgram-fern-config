@@ -7,7 +7,9 @@ slug: docs/keywords
 
 `keywords` *string*
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 <div class="api-playground-call">
 <span>
@@ -34,7 +36,7 @@ To enable Keywords, when you call Deepgram’s API, add a `keywords` parameter i
 To transcribe audio from a file on your computer, run the following cURL command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

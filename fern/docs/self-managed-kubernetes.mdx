@@ -37,7 +37,7 @@ Additionally this guide refers frequently to `kubectl`, the [command line tool](
 Update your package repositories and install dependencies for the Kubernetes repository: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   sudo apt-get update
   sudo apt-get install -y apt-transport-https ca-certificates curl
   ```
@@ -46,7 +46,7 @@ Update your package repositories and install dependencies for the Kubernetes rep
 ​ Download the public signing key from Google: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
   ```
 </CodeGroup>
@@ -54,7 +54,7 @@ Update your package repositories and install dependencies for the Kubernetes rep
 *Note: Distributions prior to 22.04 may not have the `/etc/apt/keyrings` folder. You can create this directory, making it world-readable and writeable only by admins.* ​ Add the Kubernetes official repository: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
   ```
 </CodeGroup>
@@ -62,7 +62,7 @@ Update your package repositories and install dependencies for the Kubernetes rep
 ​ Update packages and install Kubernetes tools: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   sudo apt-get update
   sudo apt-get install -y kubelet kubeadm kubectl
   sudo apt-mark hold kubelet kubeadm kubectl
@@ -82,7 +82,7 @@ Update your package repositories and install dependencies for the Kubernetes rep
 In order to run nodes and pods you must first create a cluster. This is done using the `kubeadm` command:
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubeadm init --ignore-preflight-errors Swap
   ```
 </CodeGroup>
@@ -92,7 +92,7 @@ Kubeadm will run verification checks and report any errors, then it will downloa
 Once the control-plane is initialized you will receive instructions to store the cluster configuration and deploy a pod network. Examples below (instructions may differ based on your system):
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   mkdir -p $HOME/.kube
   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
   sudo chown $(id -u):$(id -g) $HOME/.kube/config
@@ -102,7 +102,7 @@ Once the control-plane is initialized you will receive instructions to store the
 You will also be presented with a `kubeadm join` command which should be saved for later use joining worker nodes to the master node. ​ Upon completion you should now be able to query your control-plan and see the standard Kubernetes pods running: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubectl get pod -n kube-system
   ```
 </CodeGroup>
@@ -112,7 +112,7 @@ You will also be presented with a `kubeadm join` command which should be saved f
 By default Kubernetes does not deploy a CNI for pod communication. Before cluster DNS will start and pods be able to communicate you must install an add-on for the CNI you wish to deploy in your cluster as follows: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubectl apply -f <add-on.yaml>
   ```
 </CodeGroup>
@@ -120,7 +120,7 @@ By default Kubernetes does not deploy a CNI for pod communication. Before cluste
 As an example, if you were to deploy the [Calico network](https://www.tigera.io/project-calico/) in your cluster you would install the add-on as follows: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubectl apply -f https://raw.githubusercontent.com/projectcalico/calico/v3.25.0/manifests/calico.yaml
   ```
 </CodeGroup>
@@ -132,7 +132,7 @@ A comprehensive though not exhaustive list of common network add-ons is availabl
 Once the master node is setup you can begin joining worker nodes to the cluster. If you copied the join command output when the cluster was initialized this can be used on each worker node directly. In the event that you did not save the join command you may recover it using `kubeadm` as follows: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubeadm token create --print-join-command
   ```
 </CodeGroup>
@@ -140,7 +140,7 @@ Once the master node is setup you can begin joining worker nodes to the cluster.
 After joining nodes to the cluster you can utilize the `kubectl` command to verify the status of the cluster nodes: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubectl get nodes
   ```
 </CodeGroup>
@@ -150,7 +150,7 @@ After joining nodes to the cluster you can utilize the `kubectl` command to veri
 Kubernets supports metric aggregates from nodes within the cluster, however this is not setup by default upon cluster initialization. If you wish to utilize the Kubernetes [metrics server](https://github.com/kubernetes-sigs/metrics-server) you may deploy the latest version using `kubectl`: ​
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
   ```
 </CodeGroup>
@@ -158,7 +158,7 @@ Kubernets supports metric aggregates from nodes within the cluster, however this
 ​ After deployment you may then query the compute utilization of nodes using the `top` command from the CLI:
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   kubectl top nodes
   ```
 </CodeGroup>
@@ -180,7 +180,7 @@ The `deepgram-self-hosted` Helm chart takes two Secret references. One is a set 
    1. Using the distribution credentials username and password generated in the Deepgram Console, create a Kubernetes Secret named `dg-regcred`.
 
       <CodeGroup>
-        ```shell shell
+        ```shell Shell
         kubectl create secret docker-registry dg-regcred \
             --docker-server=quay.io \
             --docker-username=QUAY_DG_USER \
@@ -191,7 +191,7 @@ The `deepgram-self-hosted` Helm chart takes two Secret references. One is a set 
    2. Create a Kubernetes Secret named `dg-self-hosted-api-key` to store your self-hosted API key. /
 
       <CodeGroup>
-        ```shell shell
+        ```shell Shell
         kubectl create secret generic dg-self-hosted-api-key \
             --from-literal=DEEPGRAM_API_KEY='YOUR_API_KEY_HERE'
         ```
@@ -206,7 +206,7 @@ The `deepgram-self-hosted` Helm chart takes two Secret references. One is a set 
 ​Your Deepgram Account Representative should provide you with download links to at least one voice AI model. Copy the provided model files into a dedicated directory on the host machine.
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   mkdir deepgram-models
   cd deepgram-models
   wget DOWNLOAD_LINK_TO_DEEPGRAM_MODEL
@@ -222,7 +222,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
 1. [Fetch the repository info](https://github.com/deepgram/self-hosted-resources/blob/main/charts/deepgram-self-hosted/README.md#get-repository-info).
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      helm repo add deepgram https://deepgram.github.io/self-hosted-resources
      helm repo update
      ```
@@ -249,7 +249,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
 5. Install the Helm Chart with your `values.yaml` file.
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      helm install deepgram deepgram/deepgram-self-hosted \
          -f my-values.yaml \
          --namespace dg-self-hosted \
@@ -270,7 +270,7 @@ Test your environment and container setup with a local file.
 
 1. Get the name of one of the Deepgram API Pods.
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      API_POD_NAME=$(
          kubectl get pods \
              --selector app=deepgram-api \
@@ -282,7 +282,7 @@ Test your environment and container setup with a local file.
 
 2. Launch an ephemeral container to send your test request from.
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      kubectl debug $API_POD_NAME \
          -it \
          --image=curlimages/curl \
@@ -292,7 +292,7 @@ Test your environment and container setup with a local file.
 
 3. Inside the ephemeral container, download a sample file from Deepgram (or supply your own file).
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      wget https://dpgr.am/bueller.wav
      ```
    </CodeGroup>
@@ -300,7 +300,7 @@ Test your environment and container setup with a local file.
 4. Send your audio file to your local Deepgram setup for transcription.
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      curl \
          -X POST \
          --data-binary @bueller.wav \

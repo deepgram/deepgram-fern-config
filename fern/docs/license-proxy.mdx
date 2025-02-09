@@ -90,7 +90,7 @@ Now, modify your API and Engine configuration files to utilize the License Proxy
 Restart existing containers to begin directing licensing requests through the proxy, as well as starting the License Proxy itself:
 
 <CodeGroup>
-  ```bash bash
+  ```bash Bash
   docker compose up -d
   ```
 </CodeGroup>
@@ -112,7 +112,7 @@ The License Proxy provides a status endpoint that indicates whether the proxy su
 You can reach the status endpoint via port `8080` at the default `/v1/status` route. You can test this with a simple `curl` command (optionally formatting the output with `jq`):
 
 <CodeGroup>
-  ```bash bash
+  ```bash Bash
   curl http://localhost:8080/v1/status | jq
   ```
 </CodeGroup>
@@ -120,7 +120,7 @@ You can reach the status endpoint via port `8080` at the default `/v1/status` ro
 You should receive a response similar to:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
   	"state": "Connected",
   	"last_successful_checkin": "20XX-XX-XXTXX:XX:XX:XXXXXXXXXZ",

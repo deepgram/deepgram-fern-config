@@ -7,7 +7,9 @@ slug: docs/smart-format
 
 `smart_format` *boolean* Default: `false`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 <div class="api-playground-call">
 <span>
@@ -44,7 +46,7 @@ To enable Smart Formatting, when you call Deepgram's API, add a `smart_format` p
 To transcribe audio from a file on your computer, run the following cURL command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -71,7 +73,7 @@ Once applied, results will appear in the transcript.
 When using Smart Format with live-streamed audio, if a speaker begins saying a number, Deepgram will wait to return a transcription until the speaker has finished and continues on to non-numerical speech. This behavior ensures numbers have the best possible formatting and are not broken up over multiple chunks. To override this behavior and return results immediately, add the parameter `no_delay=true` to your streaming API request.
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

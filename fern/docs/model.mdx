@@ -7,7 +7,9 @@ slug: docs/model
 
 `model` *string* Default: `base-general`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" />
+</div>
 
 Deepgram’s Model feature allows you to supply a model to use when processing submitted audio. To learn more about the pricing for our different models, see [Deepgram Pricing & Plans](https://deepgram.com/pricing/).
 
@@ -36,13 +38,13 @@ Nova-3 represents a significant leap forward in speech AI technology, featuring 
 **Examples**
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=nova-2
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=nova-2-phonecall
   ```
 </CodeGroup>
@@ -70,13 +72,13 @@ Nova-2 expands on Nova-1's advancements with speech-specific optimizations to th
 **Examples**
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=nova
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=nova-phonecall
   ```
 </CodeGroup>
@@ -96,13 +98,13 @@ Nova is the predecessor to Nova-2. Training on this model spans over 100 domains
 **Examples**
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=enhanced
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=enhanced-phonecall
   ```
 </CodeGroup>
@@ -128,13 +130,13 @@ The Enhanced models can be called with the following syntax:
 **Examples**
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=base
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=base-phonecall
   ```
 </CodeGroup>
@@ -166,13 +168,13 @@ You may also use a custom, trained model associated with your account by includi
 **Examples**
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=whisper
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=whisper-SIZE
   ```
 </CodeGroup>

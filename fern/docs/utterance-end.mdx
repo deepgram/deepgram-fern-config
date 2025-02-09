@@ -9,7 +9,9 @@ slug: docs/utterance-end
 
 `utterance_end_ms` *string*.
 
-Pre-recorded [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/dep-pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 The UtteranceEnd feature can be used for speech detection and can be enabled to help detect the end of speech while transcribing live streaming audio.
 
@@ -32,7 +34,7 @@ UtteranceEnd relies on Deepgram's `interim_results` feature and Deepgram's Inter
 </Info>
 
 <CodeGroup>
-  ```python python
+  ```python Python
 
   # see https://github.com/deepgram/deepgram-python-sdk/blob/main/examples/streaming/async_microphone/main.py
   # for complete example code
@@ -61,7 +63,7 @@ UtteranceEnd relies on Deepgram's `interim_results` feature and Deepgram's Inter
 The UtteranceEnd JSON message will look similar to this:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "channel": [
       0,
@@ -82,7 +84,7 @@ If you compare this to the Results response below, you will see that the `last_w
 In addition, you can see `is_final=true`, which is sent because of the `interim_results` feature.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "channel": {
       "alternatives": [

@@ -94,7 +94,7 @@ Prior to running the script, you must replace the authentication with your Deepg
 On line 17 of `stream.py`, replace `YOUR_DEEPGRAM_API_KEY` with the API Key you created earlier in this tutorial:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   17        'Authorization': 'Token YOUR_DEEPGRAM_API_KEY'
   ```
 </CodeGroup>
@@ -134,7 +134,7 @@ We'll use [RTMPDump](https://rtmpdump.mplayerhq.hu/) to fork Zoom's audio to Dee
 To do this, run `stream_rtmp.sh`, found in our [Deepgram + Zoom repo](https://github.com/deepgram-devs/deepgram-zoom/blob/main/stream_rtmp.sh). The shell script contains the following:
 
 <CodeGroup>
-  ```bash bash
+  ```bash Bash
   rtmpdump -r $1/$2 --live -o - | python3 stream.py
   ```
 </CodeGroup>
@@ -154,7 +154,7 @@ To run the script, from the command line, open a new terminal window. Navigate t
 Then, run the following command:
 
 <CodeGroup>
-  ```bash bash
+  ```bash Bash
   source stream_rtmp.sh url keyname
   ```
 </CodeGroup>

@@ -7,7 +7,7 @@ slug: docs/audio-keep-alive
 ---
 
 
-[Streaming](/docs/getting-started-with-live-streaming-audio)
+<Markdown src="../snippets/streaming.mdx" />
 
 `KeepAlive` serves as a crucial mechanism for maintaining an uninterrupted connection with Deepgram's servers, allowing you to optimize your audio streaming experience while minimizing costs.
 
@@ -26,7 +26,7 @@ A common situation is needing to keep a connection open without constantly sendi
 To send the` KeepAlive` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "KeepAlive" 
   }
@@ -54,7 +54,7 @@ Following are code examples to help you get started.
 These snippets demonstrate how to construct a JSON message containing the `KeepAlive` type and send it over the WebSocket connection in each respective language.
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const WebSocket = require("ws");
 
   // Assuming 'headers' is already defined for authorization
@@ -65,7 +65,7 @@ These snippets demonstrate how to construct a JSON message containing the `KeepA
   ws.send(keepAliveMsg);
   ```
 
-  ```python python
+  ```python Python
   import json
   import websocket
 
@@ -113,7 +113,7 @@ These snippets demonstrate how to construct a JSON message containing the `KeepA
   }
   ```
 
-  ```csharp csharp
+  ```csharp C#
   using System;
   using System.Net.WebSockets;
   using System.Text;
@@ -157,7 +157,7 @@ These snippets demonstrate how to construct a JSON message containing the `KeepA
 Here are more complete examples that make a streaming request and use `KeepAlive`. Try running these examples to see how `KeepAlive` is sent periodically.
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const WebSocket = require("ws");
 
   const authToken = "DEEPGRAM_API_KEY"; // Replace 'DEEPGRAM_API_KEY' with your actual authorization token
@@ -210,7 +210,7 @@ Here are more complete examples that make a streaming request and use `KeepAlive
   // closeWebSocket();
   ```
 
-  ```python python
+  ```python Python
   import websocket
   import json
   import time
@@ -270,7 +270,7 @@ Here are more complete examples that make a streaming request and use `KeepAlive
 Deepgram's SDKs make it easier to build with Deepgram in your preferred language. To learn more about getting started with the SDKs, visit Deepgram's [SDKs documentation.](/docs/deepgram-sdks)
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   const { createClient, LiveTranscriptionEvents } = require("@deepgram/sdk");
 
   const live = async () => {
@@ -327,7 +327,7 @@ Deepgram's SDKs make it easier to build with Deepgram in your preferred language
   live();
   ```
 
-  ```python python
+  ```python Python
   from deepgram import DeepgramClient, DeepgramClientOptions, LiveTranscriptionEvents, LiveOptions
 
   API_KEY = "DEEPGRAM_API_KEY"
@@ -373,7 +373,7 @@ Deepgram's SDKs make it easier to build with Deepgram in your preferred language
       main()
   ```
 
-  ```go go
+  ```go Go
   package main
 
   import (

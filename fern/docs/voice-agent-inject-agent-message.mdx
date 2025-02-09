@@ -21,7 +21,7 @@ The`InjectAgentMessage` message is a JSON command you can send to immediately tr
 To send the `InjectAgentMessage` message, you need to send the following JSON message to the server:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "InjectAgentMessage",
     "message": "" // The statement the agent should say
@@ -34,7 +34,7 @@ To send the `InjectAgentMessage` message, you need to send the following JSON me
 The server will send an AgentAudioDone message immediately after it sends the last audio message in a piece of agent speech. See [Agent Audio Done](/docs/voice-agent-agent-audio-done) for more details.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "AgentAudioDone"
   }
@@ -46,7 +46,7 @@ The server will send an AgentAudioDone message immediately after it sends the la
 The server will send an `InjectionRefused` message when an `InjectAgentMessage` request is ignored because it arrived while the user was speaking or while the server was sending audio for an agent response.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "InjectionRefused"
   }

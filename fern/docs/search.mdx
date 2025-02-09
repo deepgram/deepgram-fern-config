@@ -7,7 +7,9 @@ slug: docs/search
 
 `search` *string*
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 <div class="api-playground-call">
 <span>
@@ -34,7 +36,7 @@ To enable Search, when you call Deepgram’s API, add a `search` parameter in th
 To transcribe audio from a file on your computer, run the following cURL command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -73,7 +75,7 @@ The term "epistemology" in this audio file is sufficiently technical that our mo
 In our terminal, we run the following cURL command:
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -90,7 +92,7 @@ In our terminal, we run the following cURL command:
 When the file is finished processing (often after only a few seconds), you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
   	"metadata": {
   		"transaction_key": "string",
@@ -115,7 +117,7 @@ When the file is finished processing (often after only a few seconds), you’ll 
 Let's look more closely at the `alternatives` object:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   ...
   "alternatives":[
     {
@@ -135,7 +137,7 @@ The audio file contains multiple occurrences of the word "epistemology". Nova 2 
 Now, let's take a look at the `search` object:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   ...
   "search": [
     {

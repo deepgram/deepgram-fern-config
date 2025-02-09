@@ -7,7 +7,9 @@ slug: docs/streaming-the-audio-output
 ---
 
 
-[Text To Speech REST](/docs/text-to-speech) [English](/docs/tts-models)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/tts-rest.mdx" /> <Markdown src="../snippets/tts-english.mdx" />
+</div>
 
 Upon successful processing of a Deepgram text-to-speech request, you will receive an audio file containing the synthesized text-to-speech output.
 
@@ -26,7 +28,7 @@ The following two examples demonstrate how to play the audio as soon as the firs
 ### Single Text Source Payload
 
 <CodeGroup>
-  ```python python
+  ```python Python
   import requests
 
   DEEPGRAM_URL = "https://api.deepgram.com/v1/speak?model=aura-asteria-en"
@@ -52,7 +54,7 @@ The following two examples demonstrate how to play the audio as soon as the firs
   print("Audio download complete")
   ```
 
-  ```javascript javascript
+  ```javascript JavaScript
   const fs = require("fs");
   const https = require("https");
 
@@ -94,7 +96,7 @@ The following two examples demonstrate how to play the audio as soon as the firs
   req.end();
   ```
 
-  ```go go
+  ```go Go
   package main
 
   import (
@@ -153,7 +155,7 @@ The following two examples demonstrate how to play the audio as soon as the firs
 ### Chunked Text Source Payload
 
 <CodeGroup>
-  ```python python
+  ```python Python
   import re
   import requests
 
@@ -199,7 +201,7 @@ The following two examples demonstrate how to play the audio as soon as the firs
       main()
   ```
 
-  ```javascript javascript
+  ```javascript JavaScript
   const https = require("https");
   const fs = require("fs");
 
@@ -267,7 +269,7 @@ The following two examples demonstrate how to play the audio as soon as the firs
   main();
   ```
 
-  ```go go
+  ```go Go
   package main
 
   import (
@@ -372,7 +374,7 @@ This adaptive buffering approach helps optimize audio playback performance, ensu
 **Buffer Prediction Algorithm Example**:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   class BufferPredictor:
       def __init__(self):
           self.buffer_size = DEFAULT_BUFFER_SIZE
@@ -390,7 +392,7 @@ This adaptive buffering approach helps optimize audio playback performance, ensu
   print("Adjusted buffer size:", buffer_predictor.buffer_size)
   ```
 
-  ```javascript javascript
+  ```javascript JavaScript
   class BufferPredictor {
     constructor() {
       this.bufferSize = DEFAULT_BUFFER_SIZE;
@@ -411,7 +413,7 @@ This adaptive buffering approach helps optimize audio playback performance, ensu
   console.log("Adjusted buffer size:", bufferPredictor.bufferSize);
   ```
 
-  ```go go
+  ```go Go
   package main
 
   import (

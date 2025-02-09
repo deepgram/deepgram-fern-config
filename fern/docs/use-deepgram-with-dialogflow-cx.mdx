@@ -50,7 +50,7 @@ At any given time, `server.js` is in one of two states. In the **awaiting uttera
 This is the code that runs when `server.js` receives a transcription result from Deepgram (note the two states):
 
 <CodeGroup>
-  ```javascript javascript
+  ```javascript JavaScript
   function handleDgResults(start, duration, isFinal, speechFinal, transcript, words) {
     switch (voicebotState) {
       case STATES.AwaitingUtterance:

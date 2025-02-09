@@ -9,7 +9,9 @@ slug: docs/measurements
 
 `measurements` *boolean*Default: `false`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> Streaming [English (all available regions)](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx"/> <Markdown src="../snippets/dep-streaming.mdx" /> <Markdown src="../snippets/english.mdx" />
+</div>
 
 The Measurements feature in Deepgram's Speech-to-Text API allows for the automatic conversion of spoken measurement units into their respective abbreviations.
 
@@ -26,7 +28,7 @@ To enable the Measurements feature, you need to set the `measurements` parameter
 To transcribe audio with the Measurements feature enabled, use the following cURL command:
 
 <CodeGroup>
-  ```bash bash
+  ```bash Bash
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -53,7 +55,7 @@ When the Measurements feature is enabled, the transcribed text will contain abbr
 ### Response Example
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "metadata": {
       "transaction_key": "your-transaction-key",

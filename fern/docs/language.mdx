@@ -7,7 +7,9 @@ slug: docs/language
 
 `language` *string* Default: `en`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" />
+</div>
 
 ## Enable Feature
 
@@ -22,7 +24,7 @@ To enable Language in your API request you can add the `language` parameter in t
 To transcribe audio from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

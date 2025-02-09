@@ -28,7 +28,7 @@ To send the `SettingsConfiguration` message, you need to send the following JSON
 This example uses a very basic `SettingConfiguration` to establish a connection.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "SettingsConfiguration",
     "audio": {
@@ -68,7 +68,7 @@ This example uses a very basic `SettingConfiguration` to establish a connection.
 Upon receiving the `SettingsConfiguration` message, the server will process all remaining audio data and return the following [Settings Applied](/docs/voice-agent-setting-applied-message) message.
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "SettingsApplied"
   }

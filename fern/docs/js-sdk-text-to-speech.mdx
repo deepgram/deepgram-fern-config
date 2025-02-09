@@ -10,7 +10,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments. A
 ## Installing the SDK
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   # Install the Deepgram JS SDK
   # https://github.com/deepgram/deepgram-js-sdk
 
@@ -21,7 +21,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments. A
 ## Initializing the SDK
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   import { createClient } from "@deepgram/sdk";
   import fs from "fs";
 
@@ -34,7 +34,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments. A
 Once the SDK is initialized, you can make a request to convert text into speech.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const text = "Hello, how can I help you today?";
 
   const getAudio = async () => {
@@ -104,7 +104,7 @@ Deepgram's TTS API allows you to start playing the audio as soon as the first by
 The following example demonstrates how to stream the audio as soon as the first byte arrives for a single text source.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const DEEPGRAM_API_KEY = 'YOUR_DEEPGRAM_API_KEY';
   const deepgram = createClient(DEEPGRAM_API_KEY);
 
@@ -164,7 +164,7 @@ The following example demonstrates how to stream the audio as soon as the first 
 This example shows how to chunk the text source by sentence boundaries and stream the audio for each chunk consecutively.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   import fs from 'fs';
   import { createClient } from '@deepgram/sdk';
 

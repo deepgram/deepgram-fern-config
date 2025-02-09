@@ -7,7 +7,9 @@ slug: docs/multilingual-code-switching
 
 `language` *string* Option: `multi`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [en & es only](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/en-and-es.mdx" />
+</div>
 
 The Multilingual Codeswitching feature in Deepgram's API allows you to transcribe conversations where speakers switch between multiple languages. This guide will walk you through enabling this feature, how to use it with cURL, and how to analyze and interpret the response.
 
@@ -26,7 +28,7 @@ To enable Multilingual Codeswitching, use the following language parameter in th
 To transcribe audio from a file on your computer that contains multiple languages, run the following cURL command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```bash bash
+  ```bash Bash
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -59,7 +61,7 @@ wss://api.deepgram.com/v1/listen?language=multi&model=nova-2&sample_rate=44100&e
 When the file is finished processing, you’ll receive a JSON response that has the following basic structure:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
 
   {
       "metadata": {
@@ -151,7 +153,7 @@ In this response, we see that each channel contains:
 When streaming audio, a Results JSON message has the following structure:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "type": "Results",
       "channel_index": [

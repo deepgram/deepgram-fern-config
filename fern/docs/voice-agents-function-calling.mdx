@@ -30,7 +30,7 @@ A process flow of the Voice Agent API with function calling.
 Here is an incomplete Settings Configuration object showing what properties can be added to configure function calling with Deepgram's Voice Agent API. (See a more complete Settings Configuration object in the [relevant documentation](/docs/voice-agents-function-calling).)
 
 <CodeGroup>
-  ```json json
+  ```json JSON
 
   {
     "type": "SettingsConfiguration",
@@ -70,7 +70,7 @@ Here is an incomplete Settings Configuration object showing what properties can 
 Not all of the fields are required in every function calling example. If the function will run client-side and you do not need to make a request to your server, you may not need fields such as `url`, `headers`, or `method`, for example. To help visualize this, here is the configuration settings for the client-side weather example:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   functions: [
           {
             name: 'get_weather',
@@ -93,7 +93,7 @@ Not all of the fields are required in every function calling example. If the fun
 The function itself would be called when the user interacting with the LLM requests weather information for a specific location:
 
 <CodeGroup>
-  ```javascript typescript
+  ```javascript TypeScript
   export const getWeather = async (location: string): Promise<string | null> => {
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
@@ -130,7 +130,7 @@ Function calling messages are exchanged between the client and Deepgram's Voice 
 **Example:**
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "FunctionCallRequest",
     "function_name": "do_math",
@@ -147,7 +147,7 @@ Function calling messages are exchanged between the client and Deepgram's Voice 
 **Example:**
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "FunctionCallResponse",
     "function_call_id": "7433439b-c4b6-4369-8ce8-4124f6a98a1d",

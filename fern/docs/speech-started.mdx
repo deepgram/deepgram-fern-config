@@ -9,7 +9,9 @@ slug: docs/speech-started
 
 `vad_events` *boolean*.
 
-Pre-recorded [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/dep-pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 Deepgram's Speech Started feature can be used for speech detection and can be used to detect the start of speech while transcribing live streaming audio.
 
@@ -24,7 +26,7 @@ To enable the SpeechStarted event, include the parameter `vad_events=true` in yo
 You'll then begin receiving messages upon speech starting.
 
 <CodeGroup>
-  ```python python
+  ```python Python
 
   # see https://github.com/deepgram/deepgram-python-sdk/blob/main/examples/streaming/async_microphone/main.py
   # for complete example code
@@ -53,7 +55,7 @@ You'll then begin receiving messages upon speech starting.
 The JSON message sent when the start of speech is detected looks similar to this:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "SpeechStarted",
     "channel": [

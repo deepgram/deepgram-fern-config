@@ -32,7 +32,7 @@ You will need:
 First, you will need to set up a `TwiML Bin`. You can refer to the docs on how to do that in the [Twilio Console](https://www.twilio.com/docs/serverless/twiml-bins).
 
 <CodeGroup>
-  ```xml xml
+  ```xml XML
   <?xml version="1.0" encoding="UTF-8"?>
 
   <Response>
@@ -79,7 +79,7 @@ At this point you'll want to start up a virtual environment for Python. Please r
 Depending on your situation you may also need to install specific packages used in this code. You can install the packages you need manually or use the `requirements.txt` file.
 
 <CodeGroup>
-  ```python python
+  ```python Python
   pip install -r requirements.txt
   ```
 </CodeGroup>
@@ -87,7 +87,7 @@ Depending on your situation you may also need to install specific packages used 
 You can set your Deepgram API key in the `sts_connect` function to run the server:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   subprotocols=["token", "YOUR_DEEPGRAM_API_KEY"]
   ```
 </CodeGroup>
@@ -95,7 +95,7 @@ You can set your Deepgram API key in the `sts_connect` function to run the serve
 If your `TwiML Bin` is setup correctly, you can now navigate to the correct file location in your terminal and run the server with the following command:
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   python server.py
   ```
 </CodeGroup>
@@ -103,7 +103,7 @@ If your `TwiML Bin` is setup correctly, you can now navigate to the correct file
 OR
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   python3 server.py
   ```
 </CodeGroup>
@@ -119,7 +119,7 @@ Let's dive into the code used in the [server.py](https://github.com/deepgram-dev
 First, we have some `import` statements:
 
 <CodeGroup>
-  ```python python
+  ```python Python
   import asyncio
   import base64
   import json
@@ -140,7 +140,7 @@ First, we have some `import` statements:
 The next block of code `sts_connect`defines a function that establishes a WebSocket connection to Deepgram's agent service.
 
 <CodeGroup>
-  ```python python
+  ```python Python
   def sts_connect():
       sts_ws = websockets.connect(
       "wss://agent.deepgram.com/agent", subprotocols=["token", "YOUR_DEEPGRAM_API_KEY"]
@@ -168,7 +168,7 @@ The next block of code, `twilio_handler` does several things:
 In this first code block, we set up an asynchronous function to handle WebSocket messages from Twilio. We define additional asynchronous functions to manage messages received from Twilio, messages sent to Deepgram, and responses from Deepgram. To facilitate data sharing between tasks, we use two queues: one for audio from Twilio and another for Twilio's stream SID (*a unique identifier*).
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def twilio_handler(twilio_ws):
       audio_queue = asyncio.Queue()
       streamsid_queue = asyncio.Queue()
@@ -182,7 +182,7 @@ Also included in `twilio_handler` is the [Setting Configuration](/docs/voice-age
 </Info>
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async with sts_connect() as sts_ws:
           config_message = {
               "type": "SettingsConfiguration",
@@ -221,7 +221,7 @@ Also included in `twilio_handler` is the [Setting Configuration](/docs/voice-age
 The next block of code is `sts_sender`. This function waits for audio from Twilio (*via the audio queue)* and continuously reads audio chunks from the queue forwarding the chunks to the Deepgram Voice Agent API.
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def sts_sender(sts_ws):
               print("sts_sender started")
               while True:
@@ -239,7 +239,7 @@ Other audio messages should be binary messages containing the text-to-speech (TT
 </Info>
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def sts_receiver(sts_ws):
               print("sts_receiver started")
               # we will wait until the twilio ws connection figures out the streamsid
@@ -279,7 +279,7 @@ The next block of code is `twilio_reciever`and loops over messages Twilio is sen
 Be aware there can be throughput issues when sending lots of tiny chunks, so that's why we are doing this buffering approach.
 
 <CodeGroup>
-  ```python python
+  ```python Python
     async def twilio_receiver(twilio_ws):
               print("twilio_receiver started")
               # twilio sends audio data as 160 byte messages containing 20ms of audio each
@@ -332,7 +332,7 @@ await asyncio.wait(
 Finally the last block of code sets up and runs the server, making sure all incoming websocket connections get handled by `twilio_handler`.
 
 <CodeGroup>
-  ```python python
+  ```python Python
   async def router(websocket, path):
       print(f"Incoming connection on path: {path}")
       if path == "/twilio":

@@ -7,7 +7,9 @@ slug: docs/interim-results
 
 `interim_results` *boolean*. Default: `false`
 
-Pre-recorded [Streaming](/docs/getting-started-with-live-streaming-audio) [All available languages](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/dep-pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
+</div>
 
 Deepgram’s Interim Results monitors streaming audio and provides interim transcripts, which are preliminary results provided during the real-time streaming process which can help with speech detection.
 
@@ -28,7 +30,7 @@ To enable Interim Results, when you call Deepgram’s API, add an `interim_resul
 `interim_results=true`
 
 <CodeGroup>
-  ```python python
+  ```python Python
 
   # see https://github.com/deepgram/deepgram-python-sdk/blob/main/examples/streaming/async_microphone/main.py
   # for complete example code
@@ -59,7 +61,7 @@ Let’s look at some interim transcripts and analyze their content.
 Our first interim result has the following content:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "channel_index": [
       0,
@@ -104,7 +106,7 @@ In this response, we see that:
 The next interim response has the following content:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "channel_index": [
       0,

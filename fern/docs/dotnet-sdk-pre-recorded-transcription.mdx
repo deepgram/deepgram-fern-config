@@ -10,7 +10,7 @@ The `.NET SDK` implements a PreRecordedClient at the root of the `Deepgram` name
 ## Installing the SDK
 
 <CodeGroup>
-  ```csharp csharp
+  ```csharp C#
   # Install the Deepgram .NET SDK
   # https://github.com/deepgram/deepgram-dotnet-sdk
 
@@ -30,7 +30,7 @@ Two types of sources can be provided for transcription:
 Provides a URL to the file to transcribe.
 
 <CodeGroup>
-  ```csharp csharp
+  ```csharp C#
   // Set "DEEPGRAM_API_KEY" environment variable to your Deepgram API Key
   var deepgramClient = ClientFactory.CreateListenRESTClient();
 
@@ -50,7 +50,7 @@ Provides a URL to the file to transcribe.
 Provide a stream containing the file to transcribe.
 
 <CodeGroup>
-  ```csharp csharp
+  ```csharp C#
   // Set "DEEPGRAM_API_KEY" environment variable to your Deepgram API Key
   var deepgramClient = ClientFactory.CreateListenRESTClient();
 
@@ -74,7 +74,7 @@ For larger files, you might need to increase the default HTTP Timeout setting se
 For `TranscribeUrl`, that would look like:
 
 <CodeGroup>
-  ```csharp csharp
+  ```csharp C#
   # 10 minute timeout: 600,000ms = 10mins
   CancellationTokenSource cancelToken = new CancellationTokenSource(600000);
 
@@ -91,7 +91,7 @@ For `TranscribeUrl`, that would look like:
 For `TranscribeFile`, that would look like:
 
 <CodeGroup>
-  ```csharp csharp
+  ```csharp C#
   # 10 minute timeout: 600,000ms = 10mins
   CancellationTokenSource cancelToken = new CancellationTokenSource(600000);
 
@@ -112,7 +112,7 @@ For `TranscribeFile`, that would look like:
 For larger files, you might need to increase the default HTTP Timeout setting, which is 300 seconds (or 5 mins).
 
 <CodeGroup>
-  ```csharp csharp
+  ```csharp C#
   var deepgram = new DeepgramClient(credentials);
   deepgram.SetHttpClientTimeout(TimeSpan.FromSeconds(300)); // 300 = 5 mins
   ```

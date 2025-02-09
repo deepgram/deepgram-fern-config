@@ -5,7 +5,9 @@ slug: docs/models-languages-overview
 ---
 
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" />
+</div>
 
 ## Models
 
@@ -19,7 +21,7 @@ slug: docs/models-languages-overview
 To request any Deepgram Model, change `MODEL_OPTION` to the Model you want to use.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl \  --request POST \  
   --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \  
   --header 'Content-Type: audio/wav' \  
@@ -118,13 +120,13 @@ Deepgram Whisper Cloud is a fully managed API that gives you access to Deepgramâ
 Deepgram's Whisper Cloud models can be called with the following syntax:
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=whisper
   ```
 </CodeGroup>
 
 <CodeGroup>
-  ```text text
+  ```text Text
   https://api.deepgram.com/v1/listen?model=whisper-SIZE
   ```
 </CodeGroup>

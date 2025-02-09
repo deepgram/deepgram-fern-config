@@ -9,7 +9,7 @@ slug: docs/tts-callback
 
 `callback` *string*
 
-[Text To Speech REST](/docs/text-to-speech) [English](/docs/tts-models)
+<Markdown src="../snippets/tts-rest.mdx" /> <Markdown src="../snippets/tts-english.mdx" />
 
 Deepgram’s Callback feature allows you to supply a callback URL to which generated text-to-speech audio can be returned. When passed, Deepgram will immediately respond with a `request_id` before processing your text asynchronously.
 
@@ -22,7 +22,7 @@ To enable Callback, when you call Deepgram’s API, add a `callback` parameter i
 To synthesize text-to-speech and generate an audio file, run the following cURL command in a terminal or your favorite API client:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

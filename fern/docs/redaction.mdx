@@ -7,7 +7,9 @@ slug: docs/redaction
 
 `redact` *boolean* Default: `false`
 
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [EN only](/docs/models-languages-overview)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/en-only.mdx" />
+</div>
 
 <div class="api-playground-call">
 <span>
@@ -46,7 +48,7 @@ You can enable redaction by adding `redact=OPTION` as a query parameter.
 To transcribe audio and remove `PCI` data from an audio file run the following cURL command:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -59,7 +61,7 @@ To transcribe audio and remove `PCI` data from an audio file run the following c
 Multiple types of entities can be redacted with the syntax `redact=option_1&redact=option_2`. To transcribe audio and remove `PCI` and `PII` data from an audio file run the following cURL command:
 
 <CodeGroup>
-  ```bash curl
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

@@ -6,8 +6,9 @@ subtitle: >-
 slug: docs/model-metadata
 ---
 
-
-<Markdown src="../snippets/pre-recorded.mdx" /> [Streaming](/docs/getting-started-with-live-streaming-audio) [Text to Speech](/docs/text-to-speech)
+<div class="flex flex-row gap-2">
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/text-to-speech.mdx" />
+</div>
 
 The Models endpoint allows users to efficiently query all available public models or private models and determine which models they have access to.
 
@@ -24,7 +25,7 @@ Returns metadata on all the latest public models. If multiple versions exist, th
 #### Request
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --location 'https://api.deepgram.com/v1/models' \
   ```
 </CodeGroup>
@@ -36,7 +37,7 @@ Returns metadata on all the latest public models. If multiple versions exist, th
 #### Result
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "stt": [
     	{
@@ -89,7 +90,7 @@ Returns metadata on all the latest models that a specific project has access to,
 #### Request
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --location 'https://api.deepgram.com/v1/projects/YOUR_PROJECT_ID/models' \
   --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY'
   ```
@@ -102,7 +103,7 @@ Returns metadata on all the latest models that a specific project has access to,
 #### Result
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "stt": [
       {
@@ -155,7 +156,7 @@ Returns the metadata for a specific model. If the model is not found a `404` err
 #### Request
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --location 'https://api.deepgram.com/v1/models/MODEL_UUID' \
   ```
 </CodeGroup>
@@ -167,7 +168,7 @@ Returns the metadata for a specific model. If the model is not found a `404` err
 #### Results
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "name": "angus",
       "canonical_name": "aura-angus-en",
@@ -193,7 +194,7 @@ Returns the metadata for a specific model that a particular project has access t
 #### Request
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl --location 'https://api.deepgram.com/v1/projects/YOUR_PROJECT_ID/models/MODEL_UUID' \
   --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY'
   ```
@@ -206,7 +207,7 @@ Returns the metadata for a specific model that a particular project has access t
 #### Results
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
       "name": "angus",
       "canonical_name": "aura-angus-en",

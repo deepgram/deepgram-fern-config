@@ -20,7 +20,7 @@ You will also need to complete the [Self Service Licensing & Credentials](/docs/
 Use the image repository credentials you generated in the [self-service licensing and credentials](/docs/on-prem-self-service-tutorial#create-a-set-of-container-image-distribution-credentials) guide to login to Quay on your deployment environment. Once your credentials are cached locally, you should not have to log in again (until after you manually log out).
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   # Complete with login information generated in Deepgram Console
   docker login quay.io
   ```
@@ -41,7 +41,7 @@ Before you can run your self-hosted deployment, you must configure the required 
 1. In your home directory, create the following directories. This is where you will save your Docker Compose files, Deepgram configuration files, and Deepgram model files.
 
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      mkdir config
      mkdir models
      ```
@@ -52,7 +52,7 @@ Before you can run your self-hosted deployment, you must configure the required 
    1. Choose to use either a standard deployment, or a deployment with the [License Proxy](/docs/license-proxy) if it is enabled for your project. Execute one of the following lines accordingly:
 
       <CodeGroup>
-        ```shell shell
+        ```shell Shell
         # If using a deployment with the License Proxy, execute this line in your shell
         DEPLOY_TYPE="license-proxy"
 
@@ -64,7 +64,7 @@ Before you can run your self-hosted deployment, you must configure the required 
    2. Download the appropriate files from the self-hosted resources repository.
 
       <CodeGroup>
-        ```shell shell
+        ```shell Shell
         BASE_URL="https://raw.githubusercontent.com/deepgram/self-hosted-resources/refs/heads/main"
         COMPOSE_FILES=("docker/docker-compose" "podman/podman-compose")
         CONFIG_FILES=("api.toml" "engine.toml")
@@ -86,7 +86,7 @@ Before you can run your self-hosted deployment, you must configure the required 
    3. Modify the Docker/Podman templates to point to the correct paths.
 
       <CodeGroup>
-        ```shell shell
+        ```shell Shell
         sed -i 's#/path/to/\(api\|engine\|license-proxy\).toml#./\1.toml#' config/*.yml
         ```
       </CodeGroup>
@@ -96,7 +96,7 @@ Before you can run your self-hosted deployment, you must configure the required 
    2. Create a fresh text file and copy over the list of links to the provided models.
 
       <CodeGroup>
-        ```bash bash
+        ```bash Bash
         touch model_links.txt
         # Edit this file with `vim`, `nano` or the editor of your choice
         ```
@@ -105,7 +105,7 @@ Before you can run your self-hosted deployment, you must configure the required 
       After editing, your `model_links.txt` file should look like this:
 
       <CodeGroup>
-        ```text text
+        ```text Text
         https://LINK_TO_MODEL_1.dg
         https://LINK_TO_MODEL_2.dg
         https://LINK_TO_MODEL_3.dg
@@ -117,7 +117,7 @@ Before you can run your self-hosted deployment, you must configure the required 
    3. Download all the models specified in your `model_links.txt` file.
 
       <CodeGroup>
-        ```bash bash
+        ```bash Bash
         wget --directory-prefix models --input-file model_links.txt
         ```
       </CodeGroup>
@@ -125,7 +125,7 @@ Before you can run your self-hosted deployment, you must configure the required 
    4. Modify the Compose file templates to point to your models directory.
 
       <CodeGroup>
-        ```shell shell
+        ```shell Shell
         sed -i 's#/path/to/models#../models#' config/*.yml
         ```
       </CodeGroup>
@@ -173,7 +173,7 @@ To make sure your Deepgram self-hosted deployment is properly configured and run
 Now that you have your configuration files and AI models set up and in the correct location to be used by the container, use Docker Compose to run the container:
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   cd config
 
   # Running without elevated privileges
@@ -193,7 +193,7 @@ Now that you have your configuration files and AI models set up and in the corre
 You can then view the running containers with the container process status command, and optionally view the logs of each container to verify their status.
 
 <CodeGroup>
-  ```shell shell
+  ```shell Shell
   docker ps
   # Take note of the "Container ID" for each Deepgram container
   docker logs CONTAINER_ID
@@ -216,13 +216,13 @@ Test your environment and container setup with a local file.
 
 1. Download a sample file from Deepgram (or supply your own file).
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      wget https://dpgr.am/bueller.wav
      ```
    </CodeGroup>
 2. Send your audio file to your local Deepgram setup for transcription.
    <CodeGroup>
-     ```shell shell
+     ```shell Shell
      # If needed, adjust the query parameters to match the directions from your Deepgram Account Representative
      curl -X POST --data-binary @bueller.wav "http://localhost:8080/v1/listen?model=nova-3&smart_format=true"
      ```

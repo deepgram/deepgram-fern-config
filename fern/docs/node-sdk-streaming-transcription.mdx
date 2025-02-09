@@ -12,7 +12,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments.
 ## Installing the SDK
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   # Install the Deepgram JS SDK
   # https://github.com/deepgram/deepgram-js-sdk
 
@@ -23,7 +23,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments.
 ## Initialising the SDK
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   import { createClient } from "@deepgram/sdk";
 
   const deepgram = createClient("DEEPGRAM_API_KEY");
@@ -35,7 +35,7 @@ The Deepgram JavaScript SDK now works in both server and browser environments.
 Connecting to Deepgram returns an instance of `LiveClient`.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   const live = deepgram.listen.live({ model: "nova-3" });
   ```
 </CodeGroup>
@@ -49,7 +49,7 @@ Transcription options are provided as an object to the `live(...options)` method
 Event's are available from the SDK as an enum.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   import { LiveTranscriptionEvents } from "@deepgram/sdk";
   ```
 </CodeGroup>
@@ -72,7 +72,7 @@ The following events are returned by the SDK.
 The events occur as native JS `EventListener` events. Please note, `.on()` is an alias of [addEventListener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) on an `EventEmitter`.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   live.on(LiveTranscriptionEvents.Open, () => {
     live.on(LiveTranscriptionEvents.Transcript, (data) => {
       console.log(data);
@@ -90,7 +90,7 @@ An instance of `LiveClient` has the following functionality.
 You can send raw audio data or text to the web socket without a content type. We will determine the appropriate encoding from the data.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
    live.send(data); 
   ```
 </CodeGroup>
@@ -100,7 +100,7 @@ You can send raw audio data or text to the web socket without a content type. We
 You can send Deepgram a keep alive if you intend for deliberate moments of non-billable silence while the socket remains open. The connection will close after 12 seconds if no data is sent, but you will still be billed for an active connection if you're sending data, even if no audible words are included in the data.
 
 <CodeGroup>
-  ```typescript typescript
+  ```typescript TypeScript
   live.keepAlive()
   ```
 </CodeGroup>

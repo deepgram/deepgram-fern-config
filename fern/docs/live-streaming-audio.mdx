@@ -7,7 +7,7 @@ slug: docs/live-streaming-audio
 ---
 
 
-[Streaming](/docs/getting-started-with-live-streaming-audio)
+<Markdown src="../snippets/streaming.mdx" />
 
 In this guide, you'll learn how to automatically transcribe live streaming audio in real time using Deepgram's SDKs, which are supported for use with the [Deepgram API](/reference/). (If you prefer not to use a Deepgram SDK, jump to the section [Non-SDK Code Examples](/docs/getting-started-with-live-streaming-audio#non-sdk-code-examples).)
 
@@ -69,7 +69,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   pip install python-dotenv
   ```
 
-  ```csharp csharp
+  ```csharp C#
   // In your .csproj file, add the Package Reference:
 
   <ItemGroup>
@@ -223,7 +223,7 @@ The following code shows how to transcribe audio from a remote audio stream. If 
       main()
   ```
 
-  ```csharp csharp
+  ```csharp C#
   // Example filename: Program.cs
 
   using Deepgram.Models.Listen.v2.WebSocket;
@@ -438,7 +438,7 @@ In order to see the results from Deepgram, you must run the application. Run you
 The responses that are returned will look similar to this:
 
 <CodeGroup>
-  ```json json
+  ```json JSON
   {
     "type": "Results",
     "channel_index": [

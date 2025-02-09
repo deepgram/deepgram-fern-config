@@ -26,7 +26,7 @@ Total latency is an aggregation of several separate sources, including time to f
 Run the following CURL command to measure the total latency it takes to make a complete request to Deepgram’s TTS endpoint. This will run the calculation for you, so you are given a total latency value.
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   time curl -H "Authorization: token $DEEPGRAM_API_KEY" \
    -o "out.mp3" \
   -w "dns_resolution: %{time_namelookup}, tcp_established: %{time_connect}, ssl_handshake_done: %{time_appconnect}, TTFB: %{time_starttransfer}\n" \
@@ -52,7 +52,7 @@ Network latency is the amount of time it takes for your request to leave your co
 You can measure the time it takes to connect to Deepgram’s servers:
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   curl -sSf -w "latency: %{time_connect}\\n" -so /dev/null https://api.deepgram.com  
   # latency: 0.203186
   ```
@@ -165,7 +165,7 @@ You can also run timing experiments yourself via CURL by modifying the number of
 #### Experiment 1
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   # 300 characters - 756 ms latency
 
   time curl -H "Authorization: token $DEEPGRAM_API_KEY" \
@@ -192,7 +192,7 @@ You can also run timing experiments yourself via CURL by modifying the number of
 #### Experiment 2
 
 <CodeGroup>
-  ```curl curl
+  ```curl cURL
   # 900 characters - 879 ms latency
 
   time curl \
