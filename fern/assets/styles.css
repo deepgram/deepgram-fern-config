@@ -35,6 +35,10 @@
 	text-decoration: none;
 }
 
+.fern-mdx-link svg {
+	color: #79affa !important;
+}
+
 .white .fern-card span {
 	background: white !important;
 }
