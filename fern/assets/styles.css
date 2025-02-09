@@ -380,6 +380,10 @@ h2 {
 	color: #E1E1E5 !important;
 }
 
+.fern-page-heading * {
+	color: #FBFBFF !important;
+}
+
 .badge a {
 	text-decoration: none !important;
 	color: unset !important;
