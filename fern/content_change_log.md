@@ -8,11 +8,11 @@ This file is temporary and will be removed after the content freeze period is ov
 
 ## 2-08-25
 
-* TBD
+* No changes
 
 ## 2-09-25
 
-* TBD
+* No changes
 
 ## 2-10-25
 
