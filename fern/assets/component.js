@@ -72,10 +72,10 @@ function insertAlgolia() {
       console.log(window['algoliasearch/lite']);
       
       const algoliasearch = window['algoliasearch/lite'].liteClient;
-      const searchClient = algoliasearch('YourApplicationID', 'YourSearchOnlyAPIKey');
+      const searchClient = algoliasearch('SKG3CU3YQM', 'e50ef768d9ac1a2b80ac6101639df429');
 
       const search = instantsearch({
-        indexName: 'INDEX_NAME',
+        indexName: 'crawler_unified',
         searchClient,
       });
 
