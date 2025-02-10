@@ -1,5 +1,6 @@
 instances:
-  - url: https://deepgram0637.docs.buildwithfern.com
+  - url: https://deepgram.docs.buildwithfern.com
+    custom-domain: developers.deepgram.com
 title: Deepgram | Documentation
 logo:
   dark: assets/logo.svg
