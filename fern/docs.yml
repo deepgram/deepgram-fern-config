@@ -422,6 +422,7 @@ navigation:
           - page: API Rate Limits
             path: docs/api-rate-limits.mdx
       - section: API Reference
+        skip-slug: true
         contents:
           - api: REST API
             skip-slug: true
