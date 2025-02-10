@@ -441,6 +441,14 @@ navigation:
                 contents:
                   - page: Transcribe - Live audio
                     path: docs/transcribe-live-audio.mdx
+              - section: Text to Speech API
+                referenced-packages: 
+                  - textToSpeech
+                contents: []
+              - section: Text Intelligence API
+                referenced-packages: 
+                  - textIntelligence
+                contents: []
           - api: WebSocket API
             api-name: wss
             layout: 
