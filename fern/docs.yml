@@ -1074,8 +1074,8 @@ redirects:
   - source: /docs/getting-started-with-live-streaming-audio
     destination: /docs/live-streaming-audio
 
-analytics: 
-  gtm: 
-    container-id: ${GTM_CONTAINER_ID}
-  fullstory:
-    org-id: ${FULLSTORY_ORG_ID}
+# analytics: 
+#   gtm: 
+#     container-id: ${GTM_CONTAINER_ID}
+#   fullstory:
+#     org-id: ${FULLSTORY_ORG_ID}
