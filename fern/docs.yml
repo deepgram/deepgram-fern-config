@@ -411,6 +411,7 @@ navigation:
   - tab: api-ref  
     layout: 
       - section: General
+        skip-slug: true
         contents: 
           - page: Deepgram API Overview
             path: docs/deepgram-api-overview.mdx  
