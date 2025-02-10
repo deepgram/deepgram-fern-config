@@ -345,6 +345,11 @@ h2 {
 	height: 2rem !important;
 }
 
+.dg-badge .fa-icon {
+	width: 1rem !important;
+	height: 1rem !important;
+}
+
 .fern-header,
 .fern-header-tabs {
 	border-bottom-width: 0px !important;

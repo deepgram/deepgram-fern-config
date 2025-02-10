@@ -1,41 +1,3 @@
-function addComponent() {
-  const gradientBorder = document.createElement("div");
-  gradientBorder.style.position = "fixed";
-  gradientBorder.style.bottom = "18px";
-  gradientBorder.style.right = "18px";
-  gradientBorder.style.height = "89px";
-  gradientBorder.style.width = "89px";
-  gradientBorder.style.background = "linear-gradient(90deg, #201CFF -91.5%, #13EF95 80.05%)";
-  gradientBorder.style.borderRadius = "100rem";
-  gradientBorder.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
-  
-  const button = document.createElement("div");
-  button.innerText = "✦ Ask AI";
-  
-  button.style.position = "fixed";
-  button.style.bottom = "20px";
-  button.style.right = "20px";
-  button.style.height = "85px";
-  button.style.width = "85px";
-  button.style.backgroundColor = "#1A1A1F";
-  button.style.color = "white";
-  button.style.borderRadius = "100rem";
-  button.style.boxShadow = "0px 4px 6px rgba(0, 0, 0, 0.1)";
-  button.style.cursor = "pointer";
-  button.style.fontSize = "16px";
-  button.style.textAlign = "center";
-  button.style.display = "flex";
-  button.style.alignItems = "center";
-  button.style.justifyContent = "center";
-  
-  button.addEventListener("click", () => {
-    alert("Opening AI chat...");
-  });
-  
-  document.body.appendChild(gradientBorder);
-  document.body.appendChild(button);
-}
-
 function insertKapaWidget() {
   const gradientBorder = document.createElement("div");
   gradientBorder.style.position = "fixed";
@@ -57,7 +19,7 @@ function insertKapaWidget() {
   script.setAttribute('data-project-name', 'Deepgram');
   script.setAttribute('data-modal-title', 'Get AI Powered Help Using Deepgram');
   script.setAttribute('data-button-text', '✦ Ask AI');
-  script.setAttribute('data-project-color', '#EB038F');
+  script.setAttribute('data-project-color', '#00f099');
   script.setAttribute('data-button-bg-color', '#1A1A1F');
   script.setAttribute('data-button-image-height', '0');
   script.setAttribute('data-button-image-width', '0');
@@ -72,11 +34,69 @@ function insertKapaWidget() {
   document.head.appendChild(script);
 }
 
+function insertAlgolia() {
+  const originalElement = document.getElementById('fern-search-button');
+  if (!originalElement) {
+      console.log(`Search container not found, skipping...`);
+      return null;
+  }
+  const clonedElement = originalElement.cloneNode(true);
+  originalElement.parentNode.replaceChild(clonedElement, originalElement);
+  
+  const algolia = document.createElement('script');
+  algolia.src = 'https://cdn.jsdelivr.net/npm/algoliasearch@5.20.1/dist/lite/builds/browser.umd.js';
+  algolia.integrity = 'sha256-eLIRmzc5Ba67u+3bMlK7lb/bND2QZe5c+uO41OadaO0=';
+  algolia.crossOrigin = 'anonymous';
+  
+  const search = document.createElement('script');
+  search.src = 'https://cdn.jsdelivr.net/npm/instantsearch.js@4.77.3/dist/instantsearch.production.min.js';
+  search.integrity = 'sha256-lOteBl/i/zTTeWI1iC+/s/eRPgFG3pNxRamGNbR5RX0=';
+  search.crossOrigin = 'anonymous';
+  
+  const algoliaCSS = document.createElement('link');
+  algoliaCSS.rel = 'stylesheet';
+  algoliaCSS.href = 'https://cdn.jsdelivr.net/npm/instantsearch.css@8.5.1/themes/reset-min.css';
+  algoliaCSS.integrity = 'sha256-KvFgFCzgqSErAPu6y9gz/AhZAvzK48VJASu3DpNLCEQ=';
+  algoliaCSS.crossOrigin = 'anonymous';
+  
+  // Add scripts to head
+  document.head.appendChild(algolia);
+  document.head.appendChild(search);
+  document.head.appendChild(algoliaCSS);
+
+  // Wait for scripts to load before initializing search
+  algolia.onload = () => {
+    search.onload = () => {
+      console.log(window.origin);
+      console.log(window);
+      console.log(window['algoliasearch/lite']);
+      
+      const algoliasearch = window['algoliasearch/lite'].liteClient;
+      const searchClient = algoliasearch('YourApplicationID', 'YourSearchOnlyAPIKey');
+
+      const search = instantsearch({
+        indexName: 'INDEX_NAME',
+        searchClient,
+      });
+
+      search.addWidgets([
+        instantsearch.widgets.searchBox({
+          container: '#fern-search-button',
+        })
+      ]);
+
+      search.start();
+    };
+  };
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
   insertKapaWidget();
+  insertAlgolia();
 });
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
   insertKapaWidget();
+  insertAlgolia();
 }
