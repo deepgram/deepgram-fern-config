@@ -424,6 +424,7 @@ navigation:
       - section: API Reference
         contents:
           - api: REST API
+            skip-slug: true
             api-name: openapi
             display-errors: true
             paginated: true
