@@ -417,3 +417,11 @@ h2 {
 .pink .fa-icon {
 	background: linear-gradient(85deg, #ee028b 5.66%, #ae29ff 99.14%) !important;
 }
+
+#fern-header {
+	padding-top: 3rem !important;
+}
+
+.fern-sidebar-container {
+	margin-top: 3rem !important;
+}
