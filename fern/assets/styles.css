@@ -425,3 +425,7 @@ h2 {
 .fern-sidebar-container {
 	margin-top: 3rem !important;
 }
+
+.fern-main {
+	margin-top: calc(var(--header-offset, 0) + 3rem) !important;
+}
