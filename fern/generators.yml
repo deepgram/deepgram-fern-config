@@ -1,19 +1,51 @@
+api:
+  - path: openapi.yml
+  - path: asyncapi.yml
 default-group: java-sdk
 groups:
-  java-sdk:
+  csharp-sdk:
     generators:
-      - name: fernapi/fern-java-sdk
-        version: 2.2.0
-        # output:
-        #   location: maven
-        #   coordinate: com.deepgram:deepgram-java
-        #   username: ${MAVEN_USERNAME}
-        #   password: ${MAVEN_PASSWORD}
-        #   signature:
-        #     keyId: ${MAVEN_CENTRAL_SECRET_KEY_KEY_ID}
-        #     password: ""
-        #     secretKey: ${MAVEN_CENTRAL_SECRET_KEY}
+      - name: fernapi/fern-csharp-sdk
+        version: 1.9.15
+        api:
+          settings:
+            unions: v1
         github:
-          repository: "fern-demo/deepgram-java-sdk"
+          repository: fern-demo/deepgram-csharp-sdk
+        output:
+          location: nuget
+          package-name: Deepgram.Net
+          # api-key: ${NUGET_TOKEN}
         config:
-          client-class-name: Deepgram
+          namespace: Deepgram.Net
+          client-class-name: DeepgramClient
+          explicit-namespaces: true
+  ts-sdk:
+    generators:
+      - name: fernapi/fern-typescript-node-sdk
+        version: 0.44.5
+        output:
+          location: npm
+          package-name: deepgram
+          # token: ${NPM_TOKEN}
+        github:
+          repository: fern-demo/deepgram-typescript-sdk
+        config:
+          namespaceExport: Deepgram
+          allowCustomFetcher: true
+          skipResponseValidation: true
+          includeApiReference: true
+          noSerdeLayer: true
+        smart-casing: true
+  python-sdk:
+    generators:
+      - name: fernapi/fern-python-sdk
+        version: 4.3.12
+        output:
+          location: pypi
+          package-name: deepgram
+          # token: ${PYPI_TOKEN}
+        github:
+          repository: fern-demo/deepgram-python-sdk
+        config:
+          client_class_name: Deepgram
