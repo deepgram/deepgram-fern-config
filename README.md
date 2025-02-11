@@ -29,23 +29,11 @@ To run a local development server with hot-reloading you can run the following c
 fern docs dev
 ```
 
-### Preview URL
-
-To generate a shareable but un-indexed staging link, you can run the following command
-
-```sh
-npm install -g fern-api # only required once
-
-fern generate --docs --preview
-```
-
 ### Hosted URL
 
 Documentation is automatically updated when you push to main via the `fern generate` command.
 
 ```sh
 npm install -g fern-api # only required once
-fern login # only required once
-# then reach out to the Fern team to be added as an authenticated user
 fern generate --docs
 ```

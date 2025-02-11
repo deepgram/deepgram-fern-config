@@ -15,64 +15,64 @@ layout: overview
     flex-direction: column;
     width: 40%;
   }
-
+  
   .col .right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
   }
-
+  
   .col h3 {
     margin-top: 12px !important;
   }
-
+  
   .right img {
     width: 60% !important;
     float: right;
   }
-
+  
   .right {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-
+  
   .banner .fern-card {
     width: 100%;
     text-align: left;
     padding: 24px;
   }
-
+  
   .banner .fern-card ul {
     margin-top: 4px !important;
   }
-
+  
   .fern-card {
     display: flex;
     flex-direction: row;
   }
-
+  
   .fern-card p {
     margin-bottom: 12px !important;
   }
-
+  
   .center {
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 24px;
   }
-
+  
   .fern-card img {
     width: 100%;
   }
-
+  
   h3 {
     color: white !important;
     padding-bottom: 8px !important;
   }
-
+  
   .badge {
     border: 1px solid #232329;
     padding: 8px 12px;
@@ -80,39 +80,39 @@ layout: overview
     margin-bottom: 2rem;
     color: #BBBBBF !important;
   }
-
+  
   .badge:hover {
     color: #FBFBFF !important;
   }
-
+  
   .white .fern-card ul {
     margin-top: .75rem !important;
     position: relative;
     left: -2.5rem !important;
   }
-
+  
   .white .fern-card .overflow-hidden {
     overflow: visible !important;
   }
-
+  
   h2 {
     margin-top: 80px !important;
   }
-
+  
   @media (max-width: 768px) {
     .fern-card {
       flex-direction: column !important;
     }
-
+    
     .col {
       width: 100% !important;
     }
-
+    
     .col.right {
       margin-top: 24px;
       order: -1;
     }
-
+    
     .right img {
       width: 100% !important;
     }
@@ -121,7 +121,7 @@ layout: overview
 </style>
 
 <div class="banner">
-<div class="badge">[Introducing Nova-3 with significant transcription improvements! <span style={{ color: "#13EF95" }}>→</span>](/docs/models-languages-overview)</div>
+<div class="badge">[Introducing nova-3 with significant transcription improvements! →](/docs/models-languages-overview)</div>
 <h1>Welcome to Deepgram Docs!</h1>
 Empower your products with out Voice AI APIs.
 
@@ -133,11 +133,11 @@ Use them separately or combine them to **easily build low latency and realistic*
     <p class="t-muted">
       Create agents for contact centers, teaching, drive thrus and more
     </p>
-
-    - [Getting started](/docs/voice-agent)
-    - [Function calling](/docs/voice-agents-function-calling)
+    
+    - [Getting started](/docs/getting-started-with-voice-agent-api)
+    - [Function calling](/reference/voice-agent-api)
   </div>
-
+  
   <div class="col right">
     <img src="../assets/images/purple.svg" />
   </div>
@@ -147,94 +147,90 @@ Use them separately or combine them to **easily build low latency and realistic*
 <CardGroup cols={3}>
   <Card>
     <img src="../assets/images/blue.svg" />
-
+  
     <h3>Speech to text API</h3>
     <p class="t-muted">
       Transcribe audio for contact centers, medical audio, wearables and more
     </p>
-
-    - [Pre-recorded](/docs/pre-recorded-audio)
-    - [Streaming](/docs/live-streaming-audio)
-    - [Models and Languages](/docs/models-languages-overview)
+    
+    - [Pre-recorded](/docs/getting-started-with-speech-to-text)
+    - [Streaming](/docs/getting-started-with-speech-to-text#streaming)
+    - [Models and Languages](/docs/getting-started-with-speech-to-text#models-and-languages)
   </Card>
   <Card>
     <img src="../assets/images/pink.svg" />
-
+  
     <h3>Text to speech API</h3>
     <p class="t-muted">
       Generate audio for contact centers, IVRs, drive thrus and more
     </p>
-
-    - [Getting started](/docs/text-to-speech)
-    - [Voices](/docs/tts-models)
+    
+    - [Getting started](/docs/getting-started-with-speech-to-text)
+    - [Voices](/docs/getting-started-with-speech-to-text#streaming)
   </Card>
   <Card>
     <img src="../assets/images/yellow.svg" />
-
+  
     <h3>Intelligence API</h3>
     <p class="t-muted">
       Gain insights for phone calls and transcripts
     </p>
-
-    - [Audio inputs](/docs/audio-intelligence)
-    - [Text inputs](/docs/text-intelligence)
+    
+    - [Audio inputs](/docs/getting-started-with-intelligence-api)
+    - [Text inputs](/docs/getting-started-with-intelligence-api)
   </Card>
 </CardGroup>
 
 ## SDKs
 <CardGroup cols={4}>
-<Card
+<Card 
   title="Python"
   iconPosition="left"
   icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/python.svg" />}
-  href="/docs/python-sdk"
 />
-<Card
+<Card 
   title="JavaScript"
   iconPosition="left"
   icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/js-yellow.svg" />}
-  href="/docs/js-sdk"
 />
-<Card
+<Card 
   title=".Net"
   iconPosition="left"
   icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/net.svg" />}
-  href="/docs/dotnet-sdk"
 />
-<Card
+<Card 
   title="Go"
   iconPosition="left"
   icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/go.svg" />}
-  href="/docs/go-sdk"
 />
 </CardGroup>
 
 ## Resources
 <div class="white">
 <CardGroup cols={3}>
-<Card
+<Card 
   title="Explore"
   icon="rocket"
   iconPosition="left"
 >
-- [API Playground](https://playground.deepgram.com)
-- [API Reference](/reference/deepgram-api-overview)
+- [API Playground](/)
+- [API Reference](/)
 </Card>
-<Card
+<Card 
   title="Self Host"
   icon="tools"
   iconPosition="left"
 >
-- [Get started with self-hosting](/docs/self-hosted-introduction)
-- [Self-hosted add-ons](/docs/self-hosted-add-ons)
+- [Get started with self-hosting](/)
+- [Self-hosted add-ons](/)
 </Card>
-<Card
+<Card 
   title="Community"
   icon="users"
   iconPosition="left"
 >
-- [Discord](https://dpgr.am/discord)
-- [Discussion Forums](https://github.com/orgs/deepgram/discussions)
+- [Discord](/)
+- [Discussion Forums](/)
 </Card>
 </CardGroup>
 </div>

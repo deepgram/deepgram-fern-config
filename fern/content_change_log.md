@@ -8,17 +8,15 @@ This file is temporary and will be removed after the content freeze period is ov
 
 ## 2-08-25
 
-* No changes
+* TBD
 
 ## 2-09-25
 
-* No changes
+* TBD
 
 ## 2-10-25
 
-* change voice agent SDK reference to use stable release instead of beta. [existing site page](https://developers.deepgram.com/docs/voice-agent)
-* Update to Voice Agent Getting Started Guide pricing section. [existing site page](https://developers.deepgram.com/docs/voice-agent)
-* resolved in [PR 5](https://github.com/fern-demo/deepgram-fern-config/pull/5)
+* TBD
 
 ## 2-11-25
 

@@ -66,22 +66,43 @@ Open your terminal, navigate to the location on your drive where you want to cre
 
 <CodeGroup>
   ```shell Python
-  pip install deepgram-sdk
+  # EA  Beta Branch
+  # https://github.com/deepgram/deepgram-python-sdk/tree/sts-agent-api-ea
+
+  # currently only available via unstable builds
+
+  pip install deepgram-unstable-sdk==3.8.0.dev4
   ```
 
   ```shell JavaScript
-  npm install @deepgram/sdk
-  - or -
-  yarn add @deepgram/sdk
+  # EA  Beta Branch
+  # https://github.com/deepgram/deepgram-js-sdk/releases/tag/v3.9.0-beta.1
+
+  # currently only available via unstable builds
+
+  npm install @deepgram/[email protected]
   ```
 
   ```shell C#
-  dotnet add package Deepgram
+  # EA  Beta Branch
+  # https://github.com/deepgram/deepgram-dotnet-sdk/tree/sts-agent-api-ea
+
+  # currently only available via unstable builds
+
+  dotnet add package Deepgram.Unstable.SDK.Builds --version 4.5.0-dev.2
+
+  # If you are using the Microphone use:
+
+  dotnet add package Deepgram.Unstable.Microphone.Builds --version 4.5.0-dev.2
   ```
 
   ```shell Go
-  go get github.com/deepgram/deepgram-go-sdk
+  # EA  Beta Branch
+  # https://github.com/deepgram/deepgram-go-sdk/tree/sts-agent-api-ea
 
+  # currently only available via unstable builds
+
+  go get github.com/deepgram/[email protected]
   ```
 </CodeGroup>
 
@@ -963,7 +984,6 @@ Usage is calculated based on websocket connection time. 1 hour of websocket conn
 
 * Pay-as-you-go pricing for the standard tier of the voice agent api is $4.50 per hour
 * If you bring your own LLM, standard tier pricing is $3.90 per hour.
-* The time calculation we use is the amount of time from when you open a web socket to when the socket closes.
 
 ## What's Next?
 
