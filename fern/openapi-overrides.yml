@@ -167,6 +167,13 @@ paths:
         - managementApi
       x-fern-sdk-method-name: deleteSelfHostedDistCreds
 components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      x-fern-header: 
+        prefix: Token
   schemas:
     speak_request: 
       type: object
