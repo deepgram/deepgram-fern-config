@@ -4,7 +4,7 @@ This repo contains the configuration files for Terra's API documentation and SDK
 
 ## Validating your OpenAPI spec
 
-To validate your API, run: 
+To validate your API, run:
 ```sh
 npm install -g fern-api # only required once
 fern check
@@ -12,7 +12,7 @@ fern check
 
 ## Updating your SDKs
 
-To update your SDKs, simply run the `Release Java SDK` GitHub Action with the desired version for the release. Under the hood, this leverages the Fern CLI: 
+To update your SDKs, simply run the `Release Java SDK` GitHub Action with the desired version for the release. Under the hood, this leverages the Fern CLI:
 
 ```sh
 npm install -g fern-api # only required once
@@ -49,3 +49,9 @@ fern login # only required once
 # then reach out to the Fern team to be added as an authenticated user
 fern generate --docs
 ```
+
+## Contributing
+
+To contribute to the Docs, you can create a new branch, make your changes, and then create a pull request. See the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
+
+
