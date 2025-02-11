@@ -1,3 +1,11 @@
+function insertHeap() {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.async = true;
+  script.src = 'https://cdn.heapanalytics.com/js/heap-765739241.js';
+  document.body.appendChild(script);
+}
+
 function insertKapaWidget() {
   const gradientBorder = document.createElement("div");
   gradientBorder.style.position = "fixed";
@@ -452,9 +460,11 @@ function insertAlgolia() {
 document.addEventListener('DOMContentLoaded', () => {
   insertKapaWidget();
   insertAlgolia();
+  insertHeap();
 });
 
 if (document.readyState === 'complete' || document.readyState === 'interactive') {
   insertKapaWidget();
   insertAlgolia();
+  insertHeap();
 }
