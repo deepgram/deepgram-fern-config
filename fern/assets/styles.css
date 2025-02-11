@@ -318,7 +318,7 @@ h2 {
 	margin-top: 1rem !important;
 }
 
-.api-playground-call span {
+.api-playground-call span:first-child {
 	background-color: #1A1A1F !important;
 	padding: 8px 24px !important;
 	border-radius: 4px !important;
