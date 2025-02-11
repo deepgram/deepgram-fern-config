@@ -36,13 +36,47 @@ function insertKapaWidget() {
 
 function insertAlgolia() {
   const originalElement = document.getElementById('fern-search-button');
-  if (!originalElement) {
-      console.log(`Search container not found, skipping...`);
-      return null;
-  }
   const clonedElement = originalElement.cloneNode(true);
   originalElement.parentNode.replaceChild(clonedElement, originalElement);
   
+  const newElement = document.getElementById('fern-search-button');
+  newElement.disabled = false;
+  
+  // Create modal container
+  const modalContainer = document.createElement('div');
+  modalContainer.id = 'search-modal';
+  modalContainer.style.display = 'none';
+  modalContainer.style.position = 'fixed';
+  modalContainer.style.top = '0';
+  modalContainer.style.left = '0';
+  modalContainer.style.width = '100%';
+  modalContainer.style.height = '100%';
+  modalContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+  modalContainer.style.zIndex = '1000';
+
+  // Create modal content
+  const modalContent = document.createElement('div');
+  modalContent.style.position = 'relative';
+  modalContent.style.margin = '60px auto';
+  modalContent.style.padding = '20px';
+  modalContent.style.backgroundColor = 'white';
+  modalContent.style.borderRadius = '8px';
+  modalContent.style.width = '90%';
+  modalContent.style.maxWidth = '600px';
+
+  // Create search container
+  const searchContainer = document.createElement('div');
+  searchContainer.id = 'modal-search-box';
+  
+  // Create results container
+  const resultsContainer = document.createElement('div');
+  resultsContainer.id = 'modal-search-results';
+  
+  modalContent.appendChild(searchContainer);
+  modalContent.appendChild(resultsContainer);
+  modalContainer.appendChild(modalContent);
+  document.body.appendChild(modalContainer);
+
   const algolia = document.createElement('script');
   algolia.src = 'https://cdn.jsdelivr.net/npm/algoliasearch@5.20.1/dist/lite/builds/browser.umd.js';
   algolia.integrity = 'sha256-eLIRmzc5Ba67u+3bMlK7lb/bND2QZe5c+uO41OadaO0=';
@@ -67,10 +101,6 @@ function insertAlgolia() {
   // Wait for scripts to load before initializing search
   algolia.onload = () => {
     search.onload = () => {
-      console.log(window.origin);
-      console.log(window);
-      console.log(window['algoliasearch/lite']);
-      
       const algoliasearch = window['algoliasearch/lite'].liteClient;
       const searchClient = algoliasearch('SKG3CU3YQM', 'e50ef768d9ac1a2b80ac6101639df429');
 
@@ -78,12 +108,105 @@ function insertAlgolia() {
         indexName: 'crawler_unified',
         searchClient,
       });
+      
+      const customSearchBox = {
+        container: '#modal-search-box',
+        placeholder: 'Search documentation...',
+        cssClasses: {
+          form: 'relative',
+          input: 'w-full px-4 py-2 text-[#FBFBFF] bg-[#1A1A1F] border border-[#2C2C33] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A1F9D4] focus:border-transparent',
+          submit: 'absolute right-0 top-0 mt-2 mr-3',
+          reset: 'absolute right-8 top-0 mt-2 mr-3'
+        }
+      };
+      
+      const customHits = {
+        container: '#modal-search-results',
+        templates: {
+          item: (hit) => `
+            <div class="p-4 hover:bg-[#232329] cursor-pointer border-b border-[#2C2C33]">
+              <a href="${hit.url}" class="block">
+                <h4 class="text-lg font-semibold text-[#FBFBFF] mb-1">${instantsearch.highlight({ hit, attribute: 'title' })}</h4>
+                <p class="text-sm text-[#E1E1E5]">${instantsearch.highlight({ hit, attribute: 'content' })}</p>
+              </a>
+            </div>
+          `,
+          empty: `
+            <div class="p-4 text-center">
+              <p class="text-[#949498]">No results found.</p>
+            </div>
+          `
+        },
+        cssClasses: {
+          list: 'divide-y divide-[#2C2C33]',
+          item: 'transition duration-150 ease-in-out'
+        }
+      };
+      
+      const styleSheet = document.createElement('style');
+      styleSheet.textContent = `
+        .ais-SearchBox-input::placeholder {
+          color: #949498;
+        }
+        
+        .ais-SearchBox-submitIcon,
+        .ais-SearchBox-resetIcon {
+          width: 20px;
+          height: 20px;
+          fill: #949498;
+        }
+        
+        .ais-Hits-item mark {
+          background: #232329;
+          color: #A1F9D4;
+        }
+        
+        .ais-SearchBox-reset {
+          display: none;
+        }
+        
+        .ais-SearchBox-input[value] ~ .ais-SearchBox-reset {
+          display: block;
+        }
+
+        #search-modal {
+          background-color: rgba(11, 11, 12, 0.8);
+        }
+
+        #modal-search-results {
+          max-height: 60vh;
+          overflow-y: auto;
+        }
+
+        #modal-content {
+          background-color: #0B0B0C;
+          border: 1px solid #2C2C33;
+        }
+      `;
+      document.head.appendChild(styleSheet);
+      
 
       search.addWidgets([
-        instantsearch.widgets.searchBox({
-          container: '#fern-search-button',
-        })
+        instantsearch.widgets.searchBox(customSearchBox),
+        instantsearch.widgets.hits(customHits),
       ]);
+
+      // Add click handler to the search button
+      newElement.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalContainer.style.display = 'block';
+      });
+
+      // Close modal when clicking outside
+      modalContainer.addEventListener('click', (e) => {
+        if (e.target === modalContainer) {
+          modalContainer.style.display = 'none';
+        }
+      });
+
+      // Update modal content background
+      modalContent.style.backgroundColor = '#0B0B0C';
+      modalContent.style.border = '1px solid #2C2C33';
 
       search.start();
     };
