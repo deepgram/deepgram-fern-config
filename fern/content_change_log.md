@@ -22,7 +22,8 @@ This file is temporary and will be removed after the content freeze period is ov
 
 ## 2-11-25
 
-* TBD
+* update to voice agent pricing section. [existing site page](https://developers.deepgram.com/docs/voice-agent)
+* resolved in [PR 6](https://github.com/fern-demo/deepgram-fern-config/pull/6)
 
 ## 2-12-25
 
