@@ -6,7 +6,7 @@ logo:
   dark: assets/logo.svg
   height: 24
   href: /
-css: 
+css:
   - assets/styles.css
   - dist/output.css
 js:
@@ -34,8 +34,8 @@ colors:
     dark: "#1A1A1F"
   border:
     dark: "#2C2C33"
-typography: 
-  bodyFont: 
+typography:
+  bodyFont:
     name: Inter
     weight: 400
     style: normal
@@ -64,7 +64,7 @@ tabs:
   intelligence:
     display-name: Intelligence
     slug: intelligence
-  api-ref: 
+  api-ref:
     display-name: API Ref
     slug: reference
   guides:
@@ -89,7 +89,7 @@ navigation:
       - page: Support
         path: docs/support.mdx
   - tab: voice-agent
-    layout: 
+    layout:
       - page: Getting Started
         path: docs/voice-agent.mdx
       - page: Feature Overview
@@ -154,7 +154,7 @@ navigation:
           - page: Voice Agent Adaptive Echo Cancellation
             path: docs/voice-agent-echo-cancellation.mdx
   - tab: speech-to-text
-    layout: 
+    layout:
       - section: Pre-Recorded Audio
         contents:
           - page: Getting Started
@@ -320,7 +320,7 @@ navigation:
           - page: Migrating from AssemblyAI Speech-to-Text to Deepgram
             path: docs/migrating-from-assembly-ai-speech-to-text-to-deepgram.mdx
   - tab: text-to-speech
-    layout: 
+    layout:
       - section: Text-to-Speech REST
         path: docs/tts-rest.mdx
         contents:
@@ -377,7 +377,7 @@ navigation:
           - page: Text to Speech Prompting
             path: docs/text-to-speech-prompting.mdx
   - tab: intelligence
-    layout: 
+    layout:
       - section: Audio Intelligence
         contents:
           - page: Getting Started
@@ -410,13 +410,13 @@ navigation:
             path: docs/text-topic-detection.mdx
           - page: Text Intelligence Callback
             path: docs/text-intelligence-callback.mdx
-  - tab: api-ref  
-    layout: 
+  - tab: api-ref
+    layout:
       - section: General
         skip-slug: true
-        contents: 
+        contents:
           - page: Deepgram API Overview
-            path: docs/deepgram-api-overview.mdx  
+            path: docs/deepgram-api-overview.mdx
           - page: Authentication
             path: docs/authentication.mdx
           - page: Errors
@@ -428,35 +428,53 @@ navigation:
         contents:
           - api: REST API
             skip-slug: true
-            api-name: openapi
             display-errors: true
             paginated: true
             flattened: true
-            layout: 
+            layout:
               - section: Voice Agent API
-                contents: 
+                contents:
                   - page: Build a Voice Agent
                     path: docs/build-a-voice-agent.mdx
               - section: Speech to Text API
-                referenced-packages: 
+                referenced-packages:
                   - speechToText
                 contents:
+                  - endpoint: POST /v1/listen
+                    title: Transcribe - Pre-recorded audio
                   - page: Transcribe - Live audio
                     path: docs/transcribe-live-audio.mdx
               - section: Text to Speech API
-                referenced-packages: 
+                referenced-packages:
                   - textToSpeech
-                contents: []
+                contents:
+                  - endpoint: POST /v1/speak
+                    title: Text to Speech - REST
+                  - page: Text to Speech - Streaming
+                    path: docs/transform-text-to-speech.mdx
               - section: Text Intelligence API
-                referenced-packages: 
+                referenced-packages:
                   - textIntelligence
+                contents:
+                  - endpoint: POST /v1/read
+                    title: Analyze Text
+              - section: Management API
+                referenced-packages:
+                  - managementApi
+                contents:
+                  - managementApi.models
+                  - managementApi.projects
+                  - managementApi.keys
+                  - managementApi.members
+                  - managementApi.scopes
+                  - managementApi.invitations
+                  - managementApi.usage
+                  - managementApi.purchases
+                  - managementApi.balances
+              - section: Self-Hosted API
+                referenced-packages:
+                  - selfHostedApi
                 contents: []
-          - api: WebSocket API
-            api-name: wss
-            layout: 
-              - page: Text to Speech - Streaming
-                path: docs/transform-text-to-speech.mdx
-              - GET /v1/speak
   - tab: guides
     layout:
       - section: Fundamentals
@@ -661,7 +679,7 @@ navigation:
         path: docs/data-privacy-compliance.mdx
       - page: Information Security & Privacy Statement
         path: docs/information-security-privacy-statement.mdx
-redirects: 
+redirects:
   - source: /api-reference
     destination: /reference
   - source: /api-reference/authentication
@@ -1104,8 +1122,87 @@ redirects:
     destination: /docs/live-streaming-audio
   - source: /docs/introduction
     destination: /home/introduction
+## this section will need to be updated to use the new API navigation
+  - source: /reference/analyze-text
+    destination: /reference/text-intelligence-api/text-read
+  - source: /reference/build-a-voice-agent
+    destination: /reference/voice-agent-api/build-a-voice-agent
+  - source: /reference/create-credentials
+    destination: /reference/management-api/create-self-hosted-dist-creds
+  - source: /reference/create-key
+    destination: /reference/management-api/create-project-key
+  - source: /reference/delete-credentials
+    destination: /reference/management-api/delete-self-hosted-dist-creds
+  - source: /reference/delete-invite
+    destination: /reference/management-api/delete-project-invite
+  - source: /reference/delete-key
+    destination: /reference/management-api/delete-project-key
+  - source: /reference/delete-project
+    destination: /reference/management-api/delete-project
+  - source: /reference/get-all-balances
+    destination: /reference/management-api/get-project-balances
+  - source: /reference/get-all-requests
+    destination: /reference/management-api/list-project-requests
+  - source: /reference/get-balance
+    destination: /reference/management-api/get-project-balance
+  - source: /reference/get-credentials
+    destination: /reference/management-api/get-self-hosted-credentials
+  - source: /reference/get-fields
+    destination: /reference/management-api/list-project-usage-fields
+  - source: /reference/get-key
+    destination: /reference/management-api/get-project-key
+  - source: /reference/get-member-scopes
+    destination: /reference/management-api/list-project-member-scopes
+  - source: /reference/get-members
+    destination: /reference/management-api/list-project-members
+  - source: /reference/get-model
+    destination: /reference/management-api/get-model
+  - source: /reference/get-models
+    destination: /reference/management-api/list-models
+  - source: /reference/get-project
+    destination: /reference/management-api/get-project
+  - source: /reference/get-project-model
+    destination: /reference/management-api/get-project-model
+  - source: /reference/get-project-models
+    destination: /reference/management-api/list-project-models
+  - source: /reference/get-projects
+    destination: /reference/management-api/list-projects
+  - source: /reference/get-purchases
+    destination: /reference/management-api/list-project-purchases
+  - source: /reference/get-request
+    destination: /reference/management-api/get-project-request
+  - source: /reference/leave-project
+    destination: /reference/management-api/delete-project-leave
+  - source: /reference/list-credentials
+    destination: /reference/management-api/list-self-hosted-dist-creds
+  - source: /reference/list-invites
+    destination: /reference/management-api/list-project-invites
+  - source: /reference/list-keys
+    destination: /reference/management-api/list-project-keys
+  - source: /reference/listen-file
+    destination: /reference/speech-to-text-api/listen
+  - source: /reference/listen-live
+    destination: /reference/speech-to-text-api/transcribe-live-audio
+  - source: /reference/listen-remote
+    destination: /reference/speech-to-text-api/listen
+  - source: /reference/remove-member
+    destination: /reference/management-api/delete-project-member
+  - source: /reference/send-invites
+    destination: /reference/management-api/create-project-invite
+  - source: /reference/summarize-usage
+    destination: /reference/management-api/get-project-usage
+  - source: /reference/text-to-speech-api
+    destination: /reference/text-to-speech-api/speak
+  - source: /reference/transform-text-to-speech-websocket
+    destination: /reference/web-socket-api/text-to-speech-streaming
+  - source: /reference/update-project
+    destination: /reference/management-api/update-project
+  - source: /reference/update-scope
+    destination: /reference/management-api/update-project-member-scopes
+  - source: /reference/usage-breakdown
+    destination: /reference/management-api/get-project-usage-breakdown
 
 
-# analytics: 
-#   gtm: 
+# analytics:
+#   gtm:
 #     container-id: ${GTM_CONTAINER_ID}

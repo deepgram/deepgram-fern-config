@@ -4,6 +4,25 @@ paths:
       x-fern-sdk-group-name:
         - speechToText
       x-fern-sdk-method-name: listen
+      responses: 
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/unauthorized'
+        '402':
+          description: Payment Required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error_shape'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/authentication_failed'
   /v1/read:
     post:
       x-fern-sdk-group-name:
@@ -18,154 +37,182 @@ paths:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjects
+        - projects
+      x-fern-sdk-method-name: list
   /v1/projects/{project_id}:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProject
+        - projects
+      x-fern-sdk-method-name: get
     delete:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: deleteProject
+        - projects
+      x-fern-sdk-method-name: delete
     patch:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: updateProject
+        - projects
+      x-fern-sdk-method-name: update
   /v1/projects/{project_id}/balances:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProjectBalances
+        - balances
+      x-fern-sdk-method-name: list
   /v1/projects/{project_id}/balances/{balance_id}:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProjectBalance
+        - balances
+      x-fern-sdk-method-name: get
   /v1/projects/{project_id}/models:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectModels
+        - projects
+      x-fern-sdk-method-name: listModels
   /v1/projects/{project_id}/models/{model_id}:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProjectModel
+        - projects
+      x-fern-sdk-method-name: getModel
   /v1/projects/{project_id}/keys:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectKeys
+        - keys
+      x-fern-sdk-method-name: list
     post:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: createProjectKey
+        - keys
+      x-fern-sdk-method-name: create
   /v1/projects/{project_id}/keys/{key_id}:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProjectKey
+        - keys
+      x-fern-sdk-method-name: get
     delete:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: deleteProjectKey
+        - keys
+      x-fern-sdk-method-name: delete
   /v1/projects/{project_id}/members:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectMembers
+        - members
+      x-fern-sdk-method-name: list
   /v1/projects/{project_id}/members/{member_id}:
     delete:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: deleteProjectMember
+        - members
+      x-fern-sdk-method-name: delete
   /v1/projects/{project_id}/members/{member_id}/scopes:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectMemberScopes
+        - scopes
+      x-fern-sdk-method-name: list
     put:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: updateProjectMemberScopes
+        - scopes
+      x-fern-sdk-method-name: update
   /v1/projects/{project_id}/invites:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectInvites
+        - invitations
+      x-fern-sdk-method-name: list
     post:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: createProjectInvite
+        - invitations
+      x-fern-sdk-method-name: create
   /v1/projects/{project_id}/invites/{email}:
     delete:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: deleteProjectInvite
+        - invitations
+      x-fern-sdk-method-name: delete
   /v1/projects/{project_id}/leave:
     delete:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: deleteProjectLeave
+        - invitations
+      x-fern-sdk-method-name: leave
   /v1/projects/{project_id}/requests:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectRequests
+        - usage
+      x-fern-sdk-method-name: listRequests
   /v1/projects/{project_id}/requests/{request_id}:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProjectRequest
+        - usage
+      x-fern-sdk-method-name: getRequest
   /v1/projects/{project_id}/usage:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProjectUsage
+        - usage
+      x-fern-sdk-method-name: get
   /v1/projects/{project_id}/usage/fields:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectUsageFields
+        - usage
+      x-fern-sdk-method-name: listFields
   /v1/projects/{project_id}/usage/breakdown:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getProjectUsageBreakdown
+        - usage
+      x-fern-sdk-method-name: getBreakdown
   /v1/projects/{project_id}/purchases:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listProjectPurchases
+        - purchases
+      x-fern-sdk-method-name: list
   /v1/models:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: listModels
+        - models
+      x-fern-sdk-method-name: list
   /v1/models/{model_id}:
     get:
       x-fern-sdk-group-name:
         - managementApi
-      x-fern-sdk-method-name: getModel
+        - models
+      x-fern-sdk-method-name: get
   /v1/projects/{project_id}/self-hosted/distribution/credentials:
     get:
       x-fern-sdk-group-name:
-        - managementApi
-      x-fern-sdk-method-name: listSelfHostedDistCreds
+        - selfHostedApi
+      x-fern-sdk-method-name: listCredentials
     post:
       x-fern-sdk-group-name:
-        - managementApi
-      x-fern-sdk-method-name: createSelfHostedDistCreds
+        - selfHostedApi
+      x-fern-sdk-method-name: createCredentials
   /v1/projects/{project_id}/self-hosted/distribution/credentials/{distribution_credentials_id}:
     get:
       x-fern-sdk-group-name:
-        - managementApi
-      x-fern-sdk-method-name: getSelfHostedCredentials
+        - selfHostedApi
+      x-fern-sdk-method-name: getCredentials
     delete:
       x-fern-sdk-group-name:
-        - managementApi
-      x-fern-sdk-method-name: deleteSelfHostedDistCreds
+        - selfHostedApi
+      x-fern-sdk-method-name: deleteCredentials
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -181,3 +228,15 @@ components:
         text:
           type: string
           description: The text to speak
+    error_shape:
+      type: object
+      properties:
+        err_code:
+          type: string
+          description: The error code
+        err_msg:
+          type: string
+          description: The error message
+        request_id:
+          type: string
+          description: The request ID
