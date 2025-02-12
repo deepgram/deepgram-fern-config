@@ -6,26 +6,32 @@ layout: overview
 
 <style>
 {`
-  /* Header and Layout */
   .fern-page-heading {
     display: none;
   }
 
-  /* Column Layout */
   .col {
     display: flex;
     flex-direction: column;
     width: 40%;
   }
 
-  .col.right {
+  .col .right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
   }
 
-  /* Specific right column styles */
+  .col h3 {
+    margin-top: 12px !important;
+  }
+
+  .right img {
+    width: 60% !important;
+    float: right;
+  }
+
   .right {
     display: flex;
     flex-direction: column;
@@ -33,16 +39,14 @@ layout: overview
     justify-content: center;
   }
 
-  .right img {
-    width: 60%;
-    float: right;
-  }
-
-  /* Card Styles */
   .banner .fern-card {
     width: 100%;
     text-align: left;
     padding: 24px;
+  }
+
+  .banner .fern-card ul {
+    margin-top: 4px !important;
   }
 
   .fern-card {
@@ -50,56 +54,70 @@ layout: overview
     flex-direction: row;
   }
 
-  /* Typography */
-  .col h3 {
-    margin-top: 12px;
+  .fern-card p {
+    margin-bottom: 12px !important;
   }
 
-  h3 {
-    color: #FFFFFF;
-    padding-bottom: 8px;
-  }
-
-  h2 {
-    margin-top: 80px;
-  }
-
-  /* Spacing and Layout Utilities */
   .center {
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 24px;
   }
 
-  .fern-card p {
-    margin-bottom: 12px;
+  .fern-card img {
+    width: 100% !important;
   }
 
-  /* Badge Styles */
+  h3 {
+    color: white !important;
+    padding-bottom: 8px !important;
+  }
+
   .badge {
     border: 1px solid #232329;
     padding: 8px 12px;
     border-radius: 50px;
     margin-bottom: 2rem;
-    color: #BBBBBF;
+    color: #BBBBBF !important;
   }
 
   .badge:hover {
-    color: #FBFBFF;
+    color: #FBFBFF !important;
   }
 
-  /* White Card Specific Styles */
   .white .fern-card ul {
-    margin-top: .75rem;
+    margin-top: .75rem !important;
     position: relative;
-    left: -2.5rem;
+    left: -2.5rem !important;
   }
 
   .white .fern-card .overflow-hidden {
-    overflow: visible;
+    overflow: visible !important;
   }
 
-  /* SDK Section Specific Styles */
+  h2 {
+    margin-top: 80px !important;
+  }
+
+  @media (max-width: 768px) {
+    .fern-card {
+      flex-direction: column !important;
+    }
+
+    .col {
+      width: 100% !important;
+    }
+
+    .col.right {
+      margin-top: 24px;
+      order: -1;
+    }
+
+    .right img {
+      width: 100% !important;
+    }
+  }
+
   .sdk-section .fern-card {
     display: flex;
     align-items: center;
@@ -118,32 +136,7 @@ layout: overview
     gap: 8px;
   }
 
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .fern-card {
-      flex-direction: column;
-    }
-
-    .col {
-      width: 100%;
-    }
-
-    .col.right {
-      margin-top: 24px;
-      order: -1;
-    }
-
-    .right img {
-      width: 100%;
-    }
-  }
-
-  /* Override styles that need !important */
-  [data-theme="dark"] .banner .fern-card ul {
-    margin-top: 4px !important;
-  }
-
-  [data-theme="dark"] .fern-card img {
+  .fern-card img {
     width: 100% !important;
   }
 `}
@@ -269,6 +262,5 @@ Enterprise grade APIs (cloud-hosted or self-hosted) with the highest accuracy, l
 </Card>
 </CardGroup>
 </div>
-
 
 
