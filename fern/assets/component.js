@@ -218,9 +218,9 @@ function insertAlgolia() {
     }
 
     .ais-Hits-item {
-      padding: 16px;
       border-color: #2C2C33;
       transition: background-color 0.2s ease;
+      margin-top: 0rem !important;
     }
 
     .ais-Hits-item:hover {
