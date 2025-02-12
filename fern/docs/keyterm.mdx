@@ -56,4 +56,10 @@ You can pass in multiple keywords in you query string:
 
 ## Key Term Limits
 
-Key Terms are limited to 100 keywords per request.
+Key Terms are limited to 500 tokens per request; anything beyond that will return an error like so:
+
+<CodeGroup>
+  ```text Error
+  Keyterm limit exceeded. The maximum number of tokens across all keyterms is 500.
+  ```
+</CodeGroup>
