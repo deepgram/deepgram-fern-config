@@ -50,3 +50,4 @@ groups:
           repository: fern-demo/deepgram-python-sdk
         config:
           client_class_name: Deepgram
+          use_typeddict_requests: true
