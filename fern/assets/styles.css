@@ -124,9 +124,8 @@
 }
 
 .fern-header-tab-button span {
-	text-transform: uppercase !important;
 	font-weight: 700 !important;
-	font-size: 14px !important;
+	font-size: 16px !important;
 	line-height: 17.5px !important;
 	letter-spacing: 2% !important;
 } 
