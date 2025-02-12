@@ -24,28 +24,28 @@ To transcribe audio from an audio stream using one of Deepgram's SDKs, follow th
 Open your terminal, navigate to the location on your drive where you want to create your project, and install the Deepgram SDK.
 
 <CodeGroup>
-  ```shell JavaScript
+  ```javascript JavaScript
   # Install the Deepgram JS SDK
   # https://github.com/deepgram/deepgram-js-sdk
 
   npm install @deepgram/sdk
   ```
 
-  ```shell Python
+  ```python Python
   # Install the Deepgram Python SDK
   # https://github.com/deepgram/deepgram-python-sdk
 
   pip install deepgram-sdk
   ```
 
-  ```shell C#
+  ```csharp C#
   # Install the Deepgram .NET SDK
   # https://github.com/deepgram/deepgram-dotnet-sdk
 
   dotnet add package Deepgram
   ```
 
-  ```shell Go
+  ```go Go
   # Install the Deepgram Go SDK
   # https://github.com/deepgram/deepgram-go-sdk
 
@@ -56,14 +56,14 @@ Open your terminal, navigate to the location on your drive where you want to cre
 ### Add Dependencies
 
 <CodeGroup>
-  ```shell JavaScript
+  ```javascript JavaScript
   # Install cross-fetch: Platform-agnostic Fetch API with typescript support, a simple interface, and optional polyfill.
   # Install dotenv to protect your api key
 
   npm install cross-fetch dotenv
   ```
 
-  ```bash Python
+  ```python Python
   # Install python-dotenv to protect your API key
 
   pip install python-dotenv
@@ -77,7 +77,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   </ItemGroup>
   ```
 
-  ```shell Go
+  ```go Go
   # Importing the Deepgram Go SDK should pull in all dependencies required
   ```
 </CodeGroup>
@@ -87,7 +87,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
 The following code shows how to transcribe audio from a remote audio stream. If you would like to learn how to stream audio from a microphone, check out our [Live Audio Starter Apps](/docs/stt-streaming-feature-overview) or specific examples in the readme of each of the [Deepgram SDKs](/docs/deepgram-sdks).
 
 <CodeGroup>
-  ```js JavaScript
+  ```javascript JavaScript
   // Example filename: index.js
 
   const { createClient, LiveTranscriptionEvents } = require("@deepgram/sdk");
@@ -400,32 +400,32 @@ If you would like to try out making a Deepgram speech-to-text request in a speci
 In order to see the results from Deepgram, you must run the application. Run your application from the terminal. Your transcripts will appear in your shell.
 
 <CodeGroup>
-  ```shell JavaScript
+  ```javascript JavaScript
   # Run your application using the file you created in the previous step
   # Example: node index.js
 
   node YOUR_PROJECT_NAME.js
   ```
 
-  ```shell Python
+  ```python Python
   # Run your application using the file you created in the previous step
   # Example: python main.py
 
   python YOUR_PROJECT_NAME.py
   ```
 
-  ```shell C#
+  ```csharp C#
   # Run your application using the file you created in the previous step
   # Example: dotnet run Program.cs
 
   dotnet run YOUR_PROJECT_NAME.cs
   ```
 
-  ```shell Go
+  ```go Go
   # Run your application using the file you created in the previous step
-  # Example: go run main.go 
+  # Example: go run main.go
 
-  go run YOUR_PROJECT_NAME.go 
+  go run YOUR_PROJECT_NAME.go
   ```
 </CodeGroup>
 

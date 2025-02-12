@@ -36,8 +36,8 @@ Topic Detection accepts an input text, divides it into a list of segments compri
             "start_word": 45,
             "end_word": 72,
             "topics": [
-              { 
-                "topic": "Online Transacation", "confidence_score": 0.741929 
+              {
+                "topic": "Online Transacation", "confidence_score": 0.741929
               }
             ]
           }
@@ -60,7 +60,7 @@ To enable Topic Detection, use the following parameter in the query string when 
 To analyze text from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -84,7 +84,7 @@ To tell the model to only return topics from your own custom list of topics, add
 If you want to return your own custom list of topics *in addition* to Deegpram's list of topics, set `custom_intent_mode=extended` and add your custom list.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \

@@ -46,7 +46,7 @@ This also enables exporting and reporting on your usage, which can be imported i
 Replace `YOUR_PROJECT_ID`with your Deepgram project id.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl --request GET \
        --url 'https://api.deepgram.com/v1/projects/YOUR_PROJECT_ID/requests?start=2023-10-01&end=2023-10-05&status=succeeded' \
        --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -58,7 +58,7 @@ A response will be returned as such:
 
 <CodeGroup>
   ```json JSON
-  {   
+  {
       "page": 0,
       "limit": 1,
       "requests": [
@@ -84,7 +84,7 @@ A response will be returned as such:
 Replace `YOUR_PROJECT_ID`with your Deepgram project id.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl --request GET \
        --url 'https://api.deepgram.com/v1/projects/YOUR_PROJECT_ID/usage?start=2023-10-01&end=2023-10-05' \
        --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \

@@ -209,7 +209,7 @@ Transcribe live audio streams. Previously only Async/Await class and methods wer
       deepgram: DeepgramClient = DeepgramClient()
 
       dg_connection = deepgram.listen.websocket.v("1")
-    
+
   		# define callbacks for transcription messages
       def on_message(self, result, **kwargs):
           sentence = result.channel.alternatives[0].transcript
@@ -322,11 +322,11 @@ This provides a transition guide from Async/Await to Sync/Threaded Manage APIs.
 ### get all project key details
 
 <CodeGroup>
-  ```typescript Before
+  ```python Before
   result = await deepgram.keys.list(PROJECT_ID)
   ```
 
-  ```typescript After
+  ```python After
   result = deepgram.manage.v("1").get_keys(projectId)
   ```
 </CodeGroup>
@@ -397,11 +397,11 @@ This provides a transition guide from Async/Await to Sync/Threaded Manage APIs.
 ### remove a project member
 
 <CodeGroup>
-  ```typescript Before
+  ```python Before
   result = await deepgram.members.remove_member(PROJECT_ID, MEMBER_ID)
   ```
 
-  ```typescript After
+  ```python After
   result = deepgram.manage.v("1").remove_member(projectId, memberId)
   ```
 </CodeGroup>

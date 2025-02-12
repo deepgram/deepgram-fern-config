@@ -46,7 +46,7 @@ Update your package repositories and install dependencies for the Kubernetes rep
 ​ Download the public signing key from Google: ​
 
 <CodeGroup>
-  ```shell Shell
+  ```bash cURL
   curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
   ```
 </CodeGroup>
@@ -254,7 +254,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
          -f my-values.yaml \
          --namespace dg-self-hosted \
          --atomic \
-         --timeout 1h 
+         --timeout 1h
      # Monitor the installation in a separate shell
      watch kubectl get all
      ```
@@ -300,7 +300,7 @@ Test your environment and container setup with a local file.
 4. Send your audio file to your local Deepgram setup for transcription.
 
    <CodeGroup>
-     ```shell Shell
+     ```bash cURL
      curl \
          -X POST \
          --data-binary @bueller.wav \

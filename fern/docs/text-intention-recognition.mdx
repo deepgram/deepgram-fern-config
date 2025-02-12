@@ -27,8 +27,8 @@ Intent Recognition accepts an input text, divides it into a list of segments com
             "start_word": 12,
             "end_word": 16,
             "intents": [
-              { 
-                "intent": "Upgrade phone", "confidence_score": 0.9750028 
+              {
+                "intent": "Upgrade phone", "confidence_score": 0.9750028
               }
             ]
           },
@@ -64,7 +64,7 @@ To enable Intent Recognition, use the following parameter in the query string wh
 To analyze text from a file on your computer, run the following curl command in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -82,7 +82,7 @@ To analyze text from a file on your computer, run the following curl command in 
 To analyze text from a hosted file, run the following curl command in a terminal or your favorite API client. (Try testing it out with the hosted file [https://static.deepgram.com/examples/aura.txt](https://static.deepgram.com/examples/aura.txt))
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
@@ -98,13 +98,13 @@ To tell the model to only return intents from your own custom list of intents, a
 If you want to return your own custom list of intents *in addition* to Deegpram's list of intents, set `custom_intent_mode=extended` and add your custom list.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl -vX POST \
    -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
    -H "Content-Type: application/json" \
    -d '{"text": "YOUR_TEXT_INPUT"}' \
    "https://api.deepgram.com/v1/read?intents=true&language=en&custom_intent_mode=strict&custom_intent=Upgrade%20Phone"
-   
+
   ```
 </CodeGroup>
 
@@ -146,8 +146,8 @@ When the file is finished processing, you’ll receive a JSON response that has 
             "start_word": 12,
             "end_word": 16,
             "intents": [
-              { 
-                "intent": "Upgrade phone", "confidence_score": 0.9750028 
+              {
+                "intent": "Upgrade phone", "confidence_score": 0.9750028
               }
             ]
           },

@@ -30,13 +30,13 @@ Currently, the Text-to-Speech WebSocket implementation does not support[ contain
 In the `linear16` audio encoding case, you will need to prepend a [`WAV` container header](https://en.wikipedia.org/wiki/WAV#WAV_file_header) to each audio segment you plan to play through the speakers. This is required for many media device implementations within a browser. In several cases for Python, this may be sufficient for a `WAV` header in the case of a file:
 
 <CodeGroup>
-  ```Text Python
+  ```javascript JavaScript
   import wave
 
-  # Generate a generic WAV container header
+  // Generate a generic WAV container header
   header = wave.open(AUDIO_FILE, "wb")
-  header.setnchannels(1)  # Mono audio
-  header.setsampwidth(2)  # 16-bit audio
+  header.setnchannels(1)  // Mono audio
+  header.setsampwidth(2)  // 16-bit audio
   header.setframerate(16000)  # Sample rate of 16000 Hz
   header.close()
 

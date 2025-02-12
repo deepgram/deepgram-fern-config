@@ -68,7 +68,7 @@ Prior to running the scripts, you must replace the authentication with your Deep
   'Authorization': 'Token YOUR_DEEPGRAM_API_KEY'
   ```
 
-  ```javascript Node
+  ```javascript JavaScript
   const deepgramApiKey = "INSERT_YOUR_API_KEY_HERE";
   ```
 </CodeGroup>
@@ -86,11 +86,11 @@ To run the scripts:
 **Mono**
 
 <CodeGroup>
-  ```shell Python
+  ```python Python
   python3 twilio-proxy-mono.py
   ```
 
-  ```shell Node
+  ```javascript JavaScript
   node twilio-proxy-mono.js
   ```
 </CodeGroup>
@@ -98,11 +98,11 @@ To run the scripts:
 **Stereo**
 
 <CodeGroup>
-  ```shell Python
+  ```python Python
   python3 twilio-proxy-stereo.py
   ```
 
-  ```shell Node
+  ```javascript JavaScript
   node twilio-proxy-stereo.js
   ```
 </CodeGroup>
@@ -178,7 +178,7 @@ Alternatively, you can initiate a call between two people and forward the call d
   )
   ```
 
-  ```javascript Node
+  ```javascript JavaScript
   // Twilio helper library
   const twilio = require("twilio");
 
@@ -245,9 +245,9 @@ To deploy the Twilio proxy server to a self-hosted Deepgram environment using Do
   services:
     api:
       ...
-    engine: 
+    engine:
      ...
-     
+
     proxy:
       image: deepgram/twilio-proxy:beta
       ports:

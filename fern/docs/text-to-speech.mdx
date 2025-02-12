@@ -30,7 +30,7 @@ First, quickly explore Deepgram Text to Speech in our API Playground.
 Next, try it with CURL. Add your own API key where it says `YOUR_DEEPGRAM_API_KEY` and then run the following example in a terminal or your favorite API client.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
@@ -55,7 +55,7 @@ If your request results in an error, the error message can be seen by opening th
 To see the error message in your terminal, add this to your CURL request:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   --fail-with-body \
   --silent \
   || (jq . your_output_file.mp3 && rm your_output_file.mp3)
@@ -65,7 +65,7 @@ To see the error message in your terminal, add this to your CURL request:
 This example will capture the error message using `jq` and remove the output file (tts.mp3) automatically.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
@@ -87,28 +87,28 @@ Deepgram has several SDKs that can make it easier to use the API. Follow these s
 Open your terminal, navigate to the location on your drive where you want to create your project, and install the Deepgram SDK.
 
 <CodeGroup>
-  ```shell JavaScript
+  ```javascript JavaScript
   # Install the Deepgram JS SDK
   # https://github.com/deepgram/deepgram-js-sdk
 
   npm install @deepgram/sdk
   ```
 
-  ```shell Python
+  ```python Python
   # Install the Deepgram Python SDK
   # https://github.com/deepgram/deepgram-python-sdk
 
   pip install deepgram-sdk
   ```
 
-  ```shell Go
+  ```go Go
   # Install the Deepgram Go SDK
   # https://github.com/deepgram/deepgram-go-sdk
 
   go get github.com/deepgram/deepgram-go-sdk
   ```
 
-  ```csharp .NET
+  ```csharp C#
   dotnet add package Deepgram
   ```
 </CodeGroup>
@@ -116,7 +116,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
 ### Add Dependencies
 
 <CodeGroup>
-  ```shell JavaScript
+  ```javascript JavaScript
   # Install dotenv to protect your api key
 
   npm install dotenv
@@ -132,7 +132,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   # Importing the Deepgram Go SDK should pull in all dependencies required
   ```
 
-  ```csharp .NET
+  ```csharp C#
   # Importing the Deepgram Go SDK should pull in all dependencies required
   ```
 </CodeGroup>
@@ -303,7 +303,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   }
   ```
 
-  ```csharp .NET
+  ```csharp C#
   using Deepgram.Models.Speak.v1.REST;
 
   namespace SampleApp
@@ -358,7 +358,7 @@ Upon successful processing of the request, you will receive an audio file contai
 ### Example Response Headers
 
 <CodeGroup>
-  ```http http
+  ```text http
   HTTP/1.1 200 OK
   < content-type: audio/mpeg
   < dg-model-name: aura-asteria-en

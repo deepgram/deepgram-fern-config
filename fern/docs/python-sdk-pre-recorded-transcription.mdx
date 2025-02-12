@@ -28,7 +28,7 @@ You can pass a Buffer or URL to a file to transcribe. Here's how to construct ea
 ### Sending a URL
 
 <CodeGroup>
-  ```py Python
+  ```python Python
   source = {'url': URL_TO_AUDIO_FILE}
   ```
 </CodeGroup>
@@ -38,7 +38,7 @@ You can pass a Buffer or URL to a file to transcribe. Here's how to construct ea
 Open a file and send the buffer returned.
 
 <CodeGroup>
-  ```py Threaded
+  ```python Threaded
   with open(PATH_TO_FILE, 'rb') as audio:
     source = {'buffer': audio}
   ```
@@ -58,7 +58,7 @@ Additional transcription options can be provided for pre-recorded transcriptions
 With the source you chose above, call the transcription function and provide any additional options as an object.
 
 <CodeGroup>
-  ```py Threaded
+  ```python Threaded
   try:
       # STEP 1 Create a Deepgram client using the DEEPGRAM_API_KEY from environment variables
       deepgram = DeepgramClient()
@@ -104,7 +104,7 @@ With the source you chose above, call the transcription function and provide any
 You might need to increase the default HTTP Timeout setting for larger files. The example increases the time to 300 seconds (or 5 mins).
 
 <CodeGroup>
-  ```csharp Threaded
+  ```python Threaded
   # this will increase the timeout to 300 seconds or 5 minutes
   response = deepgram.listen.rest.v("1").transcribe_file(
     payload, options, timeout=httpx.Timeout(300.0, connect=10.0)

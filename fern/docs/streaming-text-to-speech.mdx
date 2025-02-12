@@ -27,7 +27,7 @@ Deepgram has several SDKs that can make the API easier to use. Follow these step
   pip install pyaudio==0.2.14
   ```
 
-  ```shell JS SDK
+  ```shell JavaScript
   # Install the SDK
   npm install @deepgram/sdk
 
@@ -35,7 +35,7 @@ Deepgram has several SDKs that can make the API easier to use. Follow these step
   npm install dotenv
   ```
 
-  ```python Python SDK
+  ```python Python
   # Install the SDK
   pip install deepgram-sdk==3.*
 
@@ -43,14 +43,14 @@ Deepgram has several SDKs that can make the API easier to use. Follow these step
   pip install -r examples/requirements-examples.py
   ```
 
-  ```shell Go SDK
+  ```shell Go
   # Install the SDK
   go get github.com/deepgram/deepgram-go-sdk
 
   # Importing the Deepgram Go SDK should pull in all dependencies required
   ```
 
-  ```csharp .NET SDK
+  ```csharp .NET
   # Install the SDK
   dotnet add package Deepgram
 
@@ -341,7 +341,7 @@ Deepgram has several SDKs that can make the API easier to use. Follow these step
 
           # send the text to Deepgram
           dg_connection.send_text(TTS_TEXT)
-          
+
           # if auto_flush_speak_delta is not used, you must flush the connection by calling flush()
           dg_connection.flush()
 
@@ -444,7 +444,7 @@ Deepgram has several SDKs that can make the API easier to use. Follow these step
   func main() {
   	// print instructions
   	fmt.Print("\n\nPress ENTER to exit!\n\n")
-    
+
   	// init library
   	speak.InitWithDefault()
 
