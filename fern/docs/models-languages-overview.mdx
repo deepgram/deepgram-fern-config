@@ -22,10 +22,10 @@ To request any Deepgram Model, change `MODEL_OPTION` to the Model you want to us
 
 <CodeGroup>
   ```curl cURL
-  curl \  --request POST \  
-  --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \  
-  --header 'Content-Type: audio/wav' \  
-  --data-binary @youraudio.wav \  
+  curl \  --request POST \
+  --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
+  --header 'Content-Type: audio/wav' \
+  --data-binary @youraudio.wav \
   --url 'https://api.deepgram.com/v1/listen?model=MODEL_OPTION'
   ```
 </CodeGroup>
@@ -35,10 +35,6 @@ To request any Deepgram Model, change `MODEL_OPTION` to the Model you want to us
 </Warning>
 
 ## Nova-3
-
-<Info>
-  Nova 3 is currently in Early access.
-</Info>
 
 Nova-3 represents a significant leap forward in speech AI technology, featuring substantial improvements in accuracy and real-world application capabilities. The model delivers industry-leading performance with a 54.2% reduction in word error rate (WER) for streaming and 47.4% for batch processing compared to competitors.
 

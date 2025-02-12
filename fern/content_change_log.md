@@ -26,7 +26,7 @@ This file is temporary and will be removed after the content freeze period is ov
 * resolved in [PR 6](https://github.com/fern-demo/deepgram-fern-config/pull/6)
 
 ## 2-12-25
-
-* TBD
+* Updates to nova-3, removed early access note. [existing site page](https://developers.deepgram.com/docs/models-languages-overview) & [existing site page](https://developers.deepgram.com/docs/model)
+* updated error message for key terms limits. [existing site page](https://developers.deepgram.com/docs/keyterm)
 
 
