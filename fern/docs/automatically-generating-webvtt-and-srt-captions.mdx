@@ -151,7 +151,7 @@ Locate a hosted audio file that you would like to caption and make note of its U
 Open your terminal, navigate to the location on your drive where you want to create your project, and install the Deepgram SDK.
 
 <CodeGroup>
-  ```shell Node
+  ```shell JavaScript
   npm i @deepgram/sdk
   # captions also available as a standalone package
   # npm i @deepgram/captions
@@ -168,7 +168,7 @@ In your terminal, create a new `index.js` or `index.py` file in your project's l
 
 #### Set Up Dependencies
 
-Initialise your dependencies:
+Initialize your dependencies:
 
 <CodeGroup>
   ```javascript JavaScript
@@ -211,7 +211,7 @@ To receive timestamps of phrases to include in your caption files, ask Deepgram 
     utterances=True,
   )
   url = {"url": "YOUR_FILE_LOCATION"}
-    
+
   response = deepgram.listen.rest.v("1").transcribe_url(url, options)
   ```
 </CodeGroup>
@@ -284,7 +284,7 @@ Deepgram provides seconds back as a number (`15.4` means 15.4 seconds), but both
 
 <Warning>
   The differences between the non-SDK WebVTT and SRT code include:
-  
+
   - The WebVTT code has a `WEBVTT` line at the top, whereas the SRT code does not.
   - The millisecond separator is `.` for WebVTT whereas it is `,` for SRT.
   - In the WebVTT file, there is a `-` before the utterance, whereas in the SRT code, there is not.

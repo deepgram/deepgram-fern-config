@@ -78,7 +78,7 @@ Create a Twilio function that receives incoming call data and forwards it to you
 2. Replace the entire file with the following code:
 
    <CodeGroup>
-     ```js js
+     ```javascript JavaScript
      exports.handler = function (context, event, callback) {
      	let twiml = new Twilio.twiml.VoiceResponse();
      	const dial = twiml.dial({

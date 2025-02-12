@@ -113,7 +113,7 @@ To negotiate the peer connection, we call the `createAndSetupPeerConnection` fun
 </Info>
 
 <CodeGroup>
-  ```js js
+  ```javascript javascript
   function createAndSetupPeerConnection(peerSocketId, localStream, remoteVideoNode, socket, allPeerConnections) {
   	// Create an RTC peer connection and add the connection to `allPeer Connections`.
   	const peerConnection = new RTCPeerConnection({
@@ -150,7 +150,7 @@ To negotiate the peer connection, we call the `createAndSetupPeerConnection` fun
 </CodeGroup>
 
 <CodeGroup>
-  ```js js
+  ```javascript javascript
   function setupWebRTCSignaling(socket) {
   	// Handle the WebRTC "signaling", which means forwarding the necessary data
   	// to establish a peer-to-peer connection.
@@ -176,7 +176,7 @@ When your browser sends the audio stream to the server, we call the `setupRealti
 When connecting to the Deepgram server, you can configure options by appending query string parameters to the URL. To learn more about available options, check out our docs on the [Deepgram Live API](/reference/listen-live).
 
 <CodeGroup>
-  ```js js
+  ```javascript javascript
   const { Deepgram } = require("@deepgram/sdk");
   function setupRealtimeTranscription(socket, room) {
   	/** The sampleRate must match what the client uses. */

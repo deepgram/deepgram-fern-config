@@ -33,7 +33,7 @@ In this guide, we use `jq`, which is an excellent command-line utility that allo
 Open your terminal, and run the following curl command:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -67,7 +67,7 @@ This may look daunting, so let's look at a way to make both our curl request and
 Now that you've seen a full curl request and understand the required parameters, let's look at a more concise way to make the same request:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl https://api.deepgram.com/v1/listen?punctuate=true \
        -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
        -H "Content-Type: application/json" \
@@ -95,7 +95,7 @@ The following `jq` expression will extract just the transcript from the returned
 To use it, add it to the end of your curl request:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl https://api.deepgram.com/v1/listen?punctuate=true \
     -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
     -H "Content-Type: application/json" \
@@ -117,7 +117,7 @@ When you run this command and it is finished processing (often after only a few 
 Once you have the transcript extracted and formatted using `jq`, you can redirect the output to a new file by appending `> output.txt` to any command that prints to the terminal. For example:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl https://api.deepgram.com/v1/listen?punctuate=true \
     -H "Authorization: Token YOUR_DEEPGRAM_API_KEY" \
     -H "Content-Type: application/json" \

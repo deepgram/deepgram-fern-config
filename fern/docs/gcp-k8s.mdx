@@ -60,7 +60,7 @@ Google Kubernetes Engine (GKE) is a managed Kubernetes service to run Kubernetes
          --enable-autoscaling \
          --machine-type n1-standard-2 \
          --addons=GcePersistentDiskCsiDriver
-         
+
      CLUSTER_ZONES=$(
           gcloud container clusters describe $CLUSTER_NAME \
               --location $CLUSTER_LOCATION \
@@ -90,7 +90,7 @@ Google Kubernetes Engine (GKE) is a managed Kubernetes service to run Kubernetes
          --max-nodes 3 \
          --machine-type n1-standard-4 \
          --node-labels k8s.deepgram.com/node-type=api
-       
+
      gcloud container node-pools create engine-pool \
          --cluster $CLUSTER_NAME \
          --region $CLUSTER_LOCATION \
@@ -101,7 +101,7 @@ Google Kubernetes Engine (GKE) is a managed Kubernetes service to run Kubernetes
          --machine-type g2-standard-8 \
          --accelerator=type=nvidia-l4,count=1,gpu-driver-version=latest \
          --node-labels k8s.deepgram.com/node-type=engine
-       
+
      gcloud container node-pools create license-proxy-pool \
          --cluster $CLUSTER_NAME \
          --location $CLUSTER_LOCATION \
@@ -118,7 +118,7 @@ Google Kubernetes Engine (GKE) is a managed Kubernetes service to run Kubernetes
    <CodeGroup>
      ```shell Shell
      kubectl create namespace dg-self-hosted
-     kubectl config set-context --current --namespace=dg-self-hosted  
+     kubectl config set-context --current --namespace=dg-self-hosted
      ```
    </CodeGroup>
 
@@ -175,9 +175,9 @@ Google Kubernetes Engine (GKE) is a managed Kubernetes service to run Kubernetes
      sudo chmod a+w $MOUNT_PATH
      cd $MOUNT_PATH
 
-     # Download each model file 
+     # Download each model file
      wget https://link-to-model-1.dg
-     wget https://link-to-model-2.dg  
+     wget https://link-to-model-2.dg
      # ... continue for all model files
      ```
    </CodeGroup>
@@ -227,7 +227,7 @@ The `deepgram-self-hosted` Helm chart takes two Secret references. One is a set 
       <CodeGroup>
         ```shell Shell
         kubectl create secret generic dg-self-hosted-api-key \
-            --from-literal=DEEPGRAM_API_KEY='YOUR_API_KEY_HERE'  
+            --from-literal=DEEPGRAM_API_KEY='YOUR_API_KEY_HERE'
         ```
       </CodeGroup>
 
@@ -265,7 +265,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
      <CodeGroup>
        ```yaml yaml
        engine:
-         modelManager:  
+         modelManager:
            volumes:
              gcp:
                gpd:
@@ -282,7 +282,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
          -f my-values.yaml \
          --namespace dg-self-hosted \
          --atomic \
-         --timeout 1h 
+         --timeout 1h
      # Monitor the installation in a separate shell
      watch kubectl get all
      ```
@@ -330,7 +330,7 @@ Test your environment and container setup with a local file.
 4. Send your audio file to your local Deepgram setup for transcription.
 
    <CodeGroup>
-     ```shell Shell
+     ```bash cURL
      curl \
          -X POST \
          --data-binary @bueller.wav \

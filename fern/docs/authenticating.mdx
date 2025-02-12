@@ -32,7 +32,7 @@ All API requests must be made over HTTPS. Calls made over plain HTTP will fail. 
 A quick test to see if your key is validating correctly, is to make a request to the `/auth/token` endpoint on our API. This will return an `invalid credentials` error if your key is invalid, and a `JSON` response with details about your key if it's valid.
 
 <CodeGroup>
-  ```bash CURL
+  ```bash cURL
   curl https://api.deepgram.com/v1/auth/token \
     -H "Authorization: Token dc43fc74612ec2cb065315663f25c34a958aa895"
   ```

@@ -358,7 +358,7 @@ Here is the entire code sample that shows how to transcribe audio using a local 
 
           LOCAL_FILE = "spacewalk.wav"
           config = aai.TranscriptionConfig(speech_model="nano", speaker_labels=True)
-          
+
           transcriber = aai.Transcriber()
           transcript = transcriber.transcribe(LOCAL_FILE, config=config)
 
