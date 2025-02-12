@@ -6,32 +6,26 @@ layout: overview
 
 <style>
 {`
+  /* Header and Layout */
   .fern-page-heading {
     display: none;
   }
 
+  /* Column Layout */
   .col {
     display: flex;
     flex-direction: column;
     width: 40%;
   }
 
-  .col .right {
+  .col.right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
   }
 
-  .col h3 {
-    margin-top: 12px !important;
-  }
-
-  .right img {
-    width: 60% !important;
-    float: right;
-  }
-
+  /* Specific right column styles */
   .right {
     display: flex;
     flex-direction: column;
@@ -39,14 +33,16 @@ layout: overview
     justify-content: center;
   }
 
+  .right img {
+    width: 60%;
+    float: right;
+  }
+
+  /* Card Styles */
   .banner .fern-card {
     width: 100%;
     text-align: left;
     padding: 24px;
-  }
-
-  .banner .fern-card ul {
-    margin-top: 4px !important;
   }
 
   .fern-card {
@@ -54,58 +50,82 @@ layout: overview
     flex-direction: row;
   }
 
-  .fern-card p {
-    margin-bottom: 12px !important;
+  /* Typography */
+  .col h3 {
+    margin-top: 12px;
   }
 
+  h3 {
+    color: #FFFFFF;
+    padding-bottom: 8px;
+  }
+
+  h2 {
+    margin-top: 80px;
+  }
+
+  /* Spacing and Layout Utilities */
   .center {
     padding-left: 10px;
     padding-right: 10px;
     margin-top: 24px;
   }
 
-  .fern-card img {
-    width: 100% !important;
+  .fern-card p {
+    margin-bottom: 12px;
   }
 
-  h3 {
-    color: white !important;
-    padding-bottom: 8px !important;
-  }
-
+  /* Badge Styles */
   .badge {
     border: 1px solid #232329;
     padding: 8px 12px;
     border-radius: 50px;
     margin-bottom: 2rem;
-    color: #BBBBBF !important;
+    color: #BBBBBF;
   }
 
   .badge:hover {
-    color: #FBFBFF !important;
+    color: #FBFBFF;
   }
 
+  /* White Card Specific Styles */
   .white .fern-card ul {
-    margin-top: .75rem !important;
+    margin-top: .75rem;
     position: relative;
-    left: -2.5rem !important;
+    left: -2.5rem;
   }
 
   .white .fern-card .overflow-hidden {
-    overflow: visible !important;
+    overflow: visible;
   }
 
-  h2 {
-    margin-top: 80px !important;
+  /* SDK Section Specific Styles */
+  .sdk-section .fern-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  .sdk-section .card-icon > img {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+  }
+
+  .sdk-section .fern-card > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* Responsive Styles */
   @media (max-width: 768px) {
     .fern-card {
-      flex-direction: column !important;
+      flex-direction: column;
     }
 
     .col {
-      width: 100% !important;
+      width: 100%;
     }
 
     .col.right {
@@ -114,8 +134,17 @@ layout: overview
     }
 
     .right img {
-      width: 100% !important;
+      width: 100%;
     }
+  }
+
+  /* Override styles that need !important */
+  [data-theme="dark"] .banner .fern-card ul {
+    margin-top: 4px !important;
+  }
+
+  [data-theme="dark"] .fern-card img {
+    width: 100% !important;
   }
 `}
 </style>
@@ -124,7 +153,7 @@ layout: overview
 <div class="badge">[Introducing Nova-3 with significant transcription improvements! <span style={{ color: "#13EF95" }}>→</span>](/docs/models-languages-overview)</div>
 <h1>Welcome to Deepgram Docs!</h1>
 Build your voice AI solutions with the best voice agent, speech-to-text, and text-to-speech APIs.
-  
+
 Enterprise grade APIs (cloud-hosted or self-hosted) with the highest accuracy, low latency, and lowest cost.
 
 <div class="fern-card p-6 center">
@@ -182,6 +211,7 @@ Enterprise grade APIs (cloud-hosted or self-hosted) with the highest accuracy, l
 </CardGroup>
 
 ## SDKs
+<div class="sdk-section">
 <CardGroup cols={4}>
 <Card
   title="Python"
@@ -196,18 +226,19 @@ Enterprise grade APIs (cloud-hosted or self-hosted) with the highest accuracy, l
   href="/docs/js-sdk"
 />
 <Card
-  title=".Net"
-  iconPosition="left"
-  icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/net.svg" />}
-  href="/docs/dotnet-sdk"
-/>
-<Card
   title="Go"
   iconPosition="left"
   icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/go.svg" />}
   href="/docs/go-sdk"
 />
+<Card
+  title=".Net"
+  iconPosition="left"
+  icon={<img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/net.svg" />}
+  href="/docs/dotnet-sdk"
+/>
 </CardGroup>
+</div>
 
 ## Resources
 <div class="white">
@@ -238,5 +269,6 @@ Enterprise grade APIs (cloud-hosted or self-hosted) with the highest accuracy, l
 </Card>
 </CardGroup>
 </div>
+
 
 
