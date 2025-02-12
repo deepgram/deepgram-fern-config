@@ -42,7 +42,7 @@ Here is an incomplete Settings Configuration object showing what properties can 
             "name": "", // function name
             "description": "", // tells the agent what the function does, and how and when to use it
             "url": "", // the endpoint where your function will be called
-            "headers": [ 
+            "headers": [
               {
                 "key": "authorization",
                 "value": ""
@@ -93,7 +93,7 @@ Not all of the fields are required in every function calling example. If the fun
 The function itself would be called when the user interacting with the LLM requests weather information for a specific location:
 
 <CodeGroup>
-  ```javascript TypeScript
+  ```javascript JavaScript
   export const getWeather = async (location: string): Promise<string | null> => {
     const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
 

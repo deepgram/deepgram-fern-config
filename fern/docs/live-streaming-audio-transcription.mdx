@@ -30,7 +30,7 @@ The [Callback Interface](https://github.com/deepgram/deepgram-go-sdk/blob/main/p
 Creating a Live Client can be done by using the following code:
 
 <CodeGroup>
-  ```js Go
+  ```go Go
   // options
   transcriptOptions := interfaces.LiveTranscriptionOptions{
   	Language:    "en-US",
@@ -110,7 +110,7 @@ The live transcription client fires the following events:
 To receive transcription events, the [LiveMessageCallback interface](https://github.com/deepgram/deepgram-go-sdk/blob/main/pkg/api/listen/v1/websocket/interfaces/interfaces.go#L9-L18) needs to be implemented as defined below:
 
 <CodeGroup>
-  ```js Go
+  ```go Go
   // LiveMessageCallback is a callback used to receive notifcations for platforms messages
   type LiveMessageCallback interface {
   	Open(or *OpenResponse) error

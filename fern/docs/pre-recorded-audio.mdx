@@ -29,8 +29,10 @@ Next, try it with CURL. Add your own API key where it says `YOUR_DEEPGRAM_API_KE
 
 If you run the "Local file CURL Example," be sure to change `@youraudio.wav` to the path/filename of an audio file on your computer. (Read more about supported audio formats [here](/docs/supported-audio-formats)).
 
+### Remote File CURL Example
+
 <CodeGroup>
-  ```curl Remote File CURL Example
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -38,8 +40,11 @@ If you run the "Local file CURL Example," be sure to change `@youraudio.wav` to 
     --data '{"url":"https://dpgr.am/spacewalk.wav"}' \
     --url 'https://api.deepgram.com/v1/listen?model=nova-3&smart_format=true'
   ```
+</CodeGroup>
+### Local File CURL Example
 
-  ```curl Local File CURL Example
+<CodeGroup>
+  ```bash cURL
   curl \
     --request POST \
     --header 'Authorization: Token YOUR_DEEPGRAM_API_KEY' \
@@ -78,7 +83,7 @@ Open your terminal, navigate to the location on your drive where you want to cre
   pip install deepgram-sdk
   ```
 
-  ```shell C#
+  ```shell .NET
   # Install the Deepgram .NET SDK
   # https://github.com/deepgram/deepgram-dotnet-sdk
 
@@ -102,13 +107,13 @@ Open your terminal, navigate to the location on your drive where you want to cre
   npm install dotenv
   ```
 
-  ```bash Python
+  ```shell Python
   # Install python-dotenv to protect your API key
 
   pip install python-dotenv
   ```
 
-  ```csharp C#
+  ```shell C#
   // In your .csproj file, add the Package Reference:
 
   <ItemGroup>
@@ -517,9 +522,9 @@ In order to see the results from Deepgram, you must run the application. Run you
 
   ```shell Go
   # Run your application using the file you created in the previous step
-  # Example: go run main.go 
+  # Example: go run main.go
 
-  go run YOUR_PROJECT_NAME.go 
+  go run YOUR_PROJECT_NAME.go
   ```
 </CodeGroup>
 

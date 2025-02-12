@@ -26,7 +26,7 @@ The input parameters for the three types of Prerecorded transcription (FromFile,
 ### Sending a URL
 
 <CodeGroup>
-  ```js Go
+  ```go Go
   ctx := context.Background()
 
   URL := "https://my-domain.com/files/MyAudio.mp3"
@@ -44,7 +44,7 @@ The input parameters for the three types of Prerecorded transcription (FromFile,
 ### Sending a Local File
 
 <CodeGroup>
-  ```js Go
+  ```go Go
   ctx := context.Background()
 
   filePath := "./MyAudio.mp3"
@@ -66,7 +66,7 @@ The input parameters for the three types of Prerecorded transcription (FromFile,
 The [io.Reader](https://pkg.go.dev/io#Reader) is a standard Go interface used primarily for streaming bytes from various sources. These sources could include files, HTTP(S) endpoints, etc. Anything that implements this interface can be passed to stream bytes for transcription.
 
 <CodeGroup>
-  ```js Go
+  ```go Go
   ctx := context.Background()
 
   // myStream could be something like a file, HTTP stream, etc
@@ -90,7 +90,7 @@ Additional transcription options can be provided for pre-recorded transcriptions
 Using the transcription from a URL functionality above ([`FromURL`](https://github.com/deepgram/deepgram-go-sdk/blob/main/pkg/api/listen/v1/rest/rest.go#L44)), the required inputs are a Go Context, a URL, and [additional transcription options](#pre-recorded-transcription-options). The output will be of type [\`PreRecordedResponse'](https://github.com/deepgram/deepgram-go-sdk/blob/main/pkg/api/listen/v1/rest/interfaces/types.go#L228), which contains the conversation transcription based on the options provided.
 
 <CodeGroup>
-  ```js Go
+  ```go Go
   // context
   ctx := context.Background()
 
@@ -103,7 +103,7 @@ Using the transcription from a URL functionality above ([`FromURL`](https://gith
   	Punctuate:  true,
   	Diarize:    true,
   	Language:   "en-US",
-  }	
+  }
 
   // send URL
   URL := "https://my-domain.com/files/my-conversation.mp3"

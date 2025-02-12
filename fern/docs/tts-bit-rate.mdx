@@ -38,7 +38,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **MP3 encoding with bitrate of 32 kbits/second:**:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl --request POST \
        --header "Content-Type: application/json" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
@@ -68,7 +68,7 @@ Upon successful processing of the request, you will receive an audio file contai
 ### Response Headers Example
 
 <CodeGroup>
-  ```http http
+  ```text http
   HTTP/1.1 200 OK
   < content-type: audio/mpeg
   < dg-model-name: aura-asteria-en

@@ -44,7 +44,7 @@ You can use the following cURL command in a terminal or your favorite API client
 **Linear16 encoding**:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=linear16" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
@@ -60,13 +60,13 @@ You can use the following cURL command in a terminal or your favorite API client
 **MP3 encoding with bitrate of 32 kbits/second**:
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=mp3&bit_rate=32000" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
        --header 'Content-Type: application/json' \
        --output outputfile_mp3_32000.mp3 \
-       --data '{"text": "Hello, how can I help you today?"}'  
+       --data '{"text": "Hello, how can I help you today?"}'
        --fail-with-body \
        --silent \
        || (jq . outputfile_mp3_32000.mp3 && rm outputfile_mp3_32000.mp3)
@@ -90,7 +90,7 @@ Upon successful processing of the request, you will receive an audio file contai
 ### Response Headers Example
 
 <CodeGroup>
-  ```http http
+  ```text http
   HTTP/1.1 200 OK
   < content-type: audio/mpeg
   < dg-model-name: aura-asteria-en

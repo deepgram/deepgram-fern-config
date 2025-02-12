@@ -66,7 +66,7 @@ When utilizing custom subprotocols in WebSocket communications, several security
 To use the `Sec-WebSocket-Protocol` header with [Deepgram's Listen WebSocket endpoint,](/reference/listen-live) follow this example:
 
 <CodeGroup>
-  ```http http
+  ```text http
   GET /listen HTTP/1.1
   Host: wss://api.deepgram.com/
   Upgrade: websocket
@@ -88,7 +88,7 @@ In this example, the `Sec-WebSocket-Protocol` header specifies two subprotocols:
 To use the `Sec-WebSocket-Protocol` header with [Deepgram's Speak WebSocket endpoint](/reference/transform-text-to-speech-streaming), follow this example:
 
 <CodeGroup>
-  ```http http
+  ```text http
   GET /speak HTTP/1.1
   Host: wss://api.deepgram.com/
   Upgrade: websocket

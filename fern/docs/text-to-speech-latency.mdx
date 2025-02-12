@@ -18,7 +18,7 @@ To comprehensively assess latency, we recommend to measure the total end-to-end 
 Total latency is an aggregation of several separate sources, including time to first byte (TTFB) and audio-synthesis latency. You can think of this as the following equation:
 
 <CodeGroup>
-  ```python equation
+  ```text equation
   total_latency = network + ttfb + audio_synthesis
   ```
 </CodeGroup>
@@ -26,7 +26,7 @@ Total latency is an aggregation of several separate sources, including time to f
 Run the following CURL command to measure the total latency it takes to make a complete request to Deepgram’s TTS endpoint. This will run the calculation for you, so you are given a total latency value.
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   time curl -H "Authorization: token $DEEPGRAM_API_KEY" \
    -o "out.mp3" \
   -w "dns_resolution: %{time_namelookup}, tcp_established: %{time_connect}, ssl_handshake_done: %{time_appconnect}, TTFB: %{time_starttransfer}\n" \
@@ -39,8 +39,8 @@ Run the following CURL command to measure the total latency it takes to make a c
 In the output you can see information about the total latency, as well as its subcomponents. In this example, the total latency is 745 milliseconds.
 
 <CodeGroup>
-  ```curl output
-  dns_resolution: 0.118451, tcp_established: 0.244566, ssl_handshake_done: 0.339993, TTFB: 0.616216  
+  ```bash output
+  dns_resolution: 0.118451, tcp_established: 0.244566, ssl_handshake_done: 0.339993, TTFB: 0.616216
   curl -H "Authorization: token $DEEPGRAM_API_KEY" -o "out.mp3" -w  -X POST -d   0.02s user 0.02s system 5% cpu 0.745 total
   ```
 </CodeGroup>
@@ -52,8 +52,8 @@ Network latency is the amount of time it takes for your request to leave your co
 You can measure the time it takes to connect to Deepgram’s servers:
 
 <CodeGroup>
-  ```curl cURL
-  curl -sSf -w "latency: %{time_connect}\\n" -so /dev/null https://api.deepgram.com  
+  ```bash cURL
+  curl -sSf -w "latency: %{time_connect}\\n" -so /dev/null https://api.deepgram.com
   # latency: 0.203186
   ```
 </CodeGroup>
@@ -69,8 +69,8 @@ Time to first byte (TTFB) is the time it takes from initiating an API request to
 In the Total Latency example, we saw that time-to-first-byte (TTFB) occurred after 616 milliseconds. The first-byte latency can be calculated by subtracting the time it takes to complete the SSL handshake, i.e. `616 - 339 = 277` milliseconds.
 
 <CodeGroup>
-  ```curl output
-  dns_resolution: 0.118451, tcp_established: 0.244566, ssl_handshake_done: 0.339993, TTFB: 0.616216  
+  ```bash output
+  dns_resolution: 0.118451, tcp_established: 0.244566, ssl_handshake_done: 0.339993, TTFB: 0.616216
   curl -H "Authorization: token $DEEPGRAM_API_KEY" -o "out.mp3" -w  -X POST -d   0.02s user 0.02s system 5% cpu 0.745 total
   ```
 </CodeGroup>
@@ -85,9 +85,9 @@ Leverage the streaming output by playing audio immediately upon receiving the fi
 
 <CodeGroup>
   ```python Python
-  with requests.post("https://api.deepgram.com/v1/speak", stream=True, headers=headers, json={"text": "Hello world!"}) as r:  
-      for chunk in r.iter_content(chunk_size=1024):  
-          if chunk:  
+  with requests.post("https://api.deepgram.com/v1/speak", stream=True, headers=headers, json={"text": "Hello world!"}) as r:
+      for chunk in r.iter_content(chunk_size=1024):
+          if chunk:
               stream.write(chunk)
   ```
 </CodeGroup>
@@ -108,10 +108,10 @@ If you wait for the entire audio file to be returned to you before playing it, y
   ```python Python
   response = requests.post("https://api.deepgram.com/v1/speak", headers=headers, json={"text": "Hello world!"})
 
-  if response.status_code == 200:  
-      data = response.content  
-      with open(“out.wav”, "wb") as f:  
-          f.write(data)  
+  if response.status_code == 200:
+      data = response.content
+      with open(“out.wav”, "wb") as f:
+          f.write(data)
       play_obj = simpleaudio.play_buffer(wav_file.read())
   ```
 </CodeGroup>
@@ -145,7 +145,7 @@ Consider optimizing server deployment by strategically locating them closer to y
 Deepgram TTS accepts up to 2000 characters of text input. There is a baseline level of latency that exists with any request. Beyond that, latency scales approximately linearly with increasing character input. Think `y = mx + b` from algebra class. The y-intercept `m` includes network latency, which is relatively constant at \~600 ms for total latency without streaming. Then the slope `m` is \~40 ms per 100 characters.
 
 <CodeGroup>
-  ```python equation
+  ```text equation
   total_latency = constant_latency + latency_per_100_characters * num_characters
   ```
 </CodeGroup>
@@ -165,7 +165,7 @@ You can also run timing experiments yourself via CURL by modifying the number of
 #### Experiment 1
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   # 300 characters - 756 ms latency
 
   time curl -H "Authorization: token $DEEPGRAM_API_KEY" \
@@ -180,7 +180,7 @@ You can also run timing experiments yourself via CURL by modifying the number of
 #### Output:
 
 <CodeGroup>
-  ```curl output
+  ```bash output
    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                    Dload  Upload   Total   Spent    Left  Speed
   100 97147    0 96862  100   285   128k    385 --:--:-- --:--:-- --:--:--  129k
@@ -192,7 +192,7 @@ You can also run timing experiments yourself via CURL by modifying the number of
 #### Experiment 2
 
 <CodeGroup>
-  ```curl cURL
+  ```bash cURL
   # 900 characters - 879 ms latency
 
   time curl \
@@ -208,7 +208,7 @@ You can also run timing experiments yourself via CURL by modifying the number of
 #### Output:
 
 <CodeGroup>
-  ```curl output
+  ```bash output
    % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                    Dload  Upload   Total   Spent    Left  Speed
   100  249k    0  249k  100   787   289k    914 --:--:-- --:--:-- --:--:--  309k
