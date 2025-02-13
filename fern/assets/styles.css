@@ -447,9 +447,9 @@ h2 {
 }
 
 .fern-sidebar-fixed {
-	position: absolute;
+	position: absolute !important;
 }
 
 #fern-header {
-	position: absolute;
+	position: absolute !important;
 }
