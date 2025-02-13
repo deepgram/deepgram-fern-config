@@ -445,3 +445,11 @@ h2 {
 .fern-endpoint-content {
 	padding-top: 3rem !important;
 }
+
+.fern-sidebar-fixed {
+	position: absolute;
+}
+
+#fern-header {
+	position: absolute;
+}
