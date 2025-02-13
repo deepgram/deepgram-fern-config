@@ -49,10 +49,12 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ListenRequest'
-          audio/*:
-            schema:
-              $ref: '#/components/schemas/ListenRequestFile'
+              oneOf:
+                - $ref: '#/components/schemas/ListenRequest'
+                - $ref: '#/components/schemas/ListenRequestFile'
+          # audio/*:
+          #   schema:
+          #     $ref: '#/components/schemas/ListenRequestFile'
         required: true
       parameters:
         - $ref: '#/components/parameters/callback'
