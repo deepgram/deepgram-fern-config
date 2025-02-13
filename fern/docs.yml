@@ -14,6 +14,8 @@ js:
     strategy: lazyOnload
   - path: dist/output.js
     strategy: beforeInteractive
+experimental:
+  openapi-parser-v2: true
 favicon: assets/favicon.ico
 layout:
   tabs-placement: header
