@@ -431,3 +431,7 @@ h2 {
 .fern-main {
 	margin-top: calc(var(--header-offset, 0) + 3rem) !important;
 }
+
+.fern-header-tabs-list li:nth-child(6) {
+	display: none !important;
+}
