@@ -998,10 +998,10 @@ redirects:
     destination: /docs/on-prem-deployment-environments
   - source: /docs/enterprise-deployments
     destination: /docs/on-prem-add-ons
-  - source: /docs/node-sdk-pre-recorded-transcription
-    destination: /docs/node-sdk
-  - source: /docs/node-sdk-streaming-transcription
-    destination: /docs/node-sdk
+  # - source: /docs/node-sdk-pre-recorded-transcription
+  #   destination: /docs/node-sdk
+  # - source: /docs/node-sdk-streaming-transcription
+  #   destination: /docs/node-sdk
   - source: /docs/node-sdk-projects
     destination: /docs/node-sdk
   - source: /docs/node-sdk-keys
