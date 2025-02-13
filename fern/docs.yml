@@ -1018,8 +1018,8 @@ redirects:
     destination: /docs/node-sdk
   # - source: /docs/python-sdk-pre-recorded-transcription
   #   destination: /docs/python-sdk
-  - source: /docs/python-sdk-streaming-transcription
-    destination: /docs/python-sdk
+  # - source: /docs/python-sdk-streaming-transcription
+  #   destination: /docs/python-sdk
   - source: /docs/python-sdk-projects
     destination: /docs/python-sdk
   - source: /docs/python-sdk-keys
