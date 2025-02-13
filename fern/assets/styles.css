@@ -435,3 +435,9 @@ h2 {
 .fern-header-tabs-list li:nth-child(6) {
 	display: none !important;
 }
+
+.fern-endpoint-content-right .fa-icon,
+.fern-dropdown-item .fa-icon {
+	width: 1rem !important;
+	height: 1rem !important;
+}
