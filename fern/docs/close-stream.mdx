@@ -168,7 +168,3 @@ Upon receiving the `CloseStream` message, the server will process all remaining 
 In summary, when dealing with real-time audio processing, there are situations where it may be necessary to forcibly close the server connection. Deepgram provides the `CloseStream` message to facilitate this process. By sending this message, the server is instructed to complete processing any buffered data, return the final response along with summary metadata, and then gracefully terminate the WebSocket connection. This ensures a controlled shutdown, preserving the integrity of the data and the overall process.
 
 ***
-
-What’s Next
-
-* [Streaming Audio](/docs/streaming)

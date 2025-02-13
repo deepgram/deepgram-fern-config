@@ -122,7 +122,3 @@ If your downstream NLP processing requires complete utterances and cannot tolera
 If your downstream processing requires complete utterances but you need lower latency, then you can consider all responses, waiting until a punctuation terminator (if you are also passing `punctuate: true` to Deepgram as a parameter), a gap in timings between adjacent words, or until the time between the end of the last word to the end of the utterance exceeds a tolerance, whichever comes first. This reduces latency, but can produce false positives if an updated (interim) transcript that conflicts with this heuristic is returned.
 
 ***
-
-What’s Next
-
-* [End of Speech Detection While Live Streaming](/docs/understanding-end-of-speech-detection)

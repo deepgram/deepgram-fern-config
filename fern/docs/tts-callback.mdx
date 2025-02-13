@@ -9,7 +9,9 @@ slug: docs/tts-callback
 
 `callback` *string*
 
-<Markdown src="../snippets/tts-rest.mdx" /> <Markdown src="../snippets/tts-english.mdx" />
+<div class="flex flex-row gap-2">
+  <Markdown src="../snippets/tts-rest.mdx" /> <Markdown src="../snippets/tts-english.mdx" />
+</div>
 
 Deepgram’s Callback feature allows you to supply a callback URL to which generated text-to-speech audio can be returned. When passed, Deepgram will immediately respond with a `request_id` before processing your text asynchronously.
 
@@ -76,7 +78,3 @@ To enable the Callback Method, include the `callback_method` parameter in the qu
 </CodeGroup>
 
 ***
-
-What’s Next
-
-* [Media Output Settings](/docs/media-input-settings-1)
