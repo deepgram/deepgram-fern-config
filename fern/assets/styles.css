@@ -441,3 +441,7 @@ h2 {
 	width: 1rem !important;
 	height: 1rem !important;
 }
+
+.fern-endpoint-content {
+	padding-top: 3rem !important;
+}
