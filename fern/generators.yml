@@ -1,7 +1,9 @@
 api:
   - path: openapi.yml
     overrides: openapi-overrides.yml
+    origin: https://github.com/deepgram/deepgram-api-specs/blob/main/openapi.yml
   - path: asyncapi.yml
+    origin: https://github.com/deepgram/deepgram-api-specs/blob/main/asyncapi.yml
 default-group: java-sdk
 groups:
   csharp-sdk:
