@@ -4,25 +4,6 @@ paths:
       x-fern-sdk-group-name:
         - speechToText
       x-fern-sdk-method-name: listen
-      responses: 
-        '401':
-          description: Unauthorized
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/unauthorized'
-        '402':
-          description: Payment Required
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/error_shape'
-        '403':
-          description: Forbidden
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/authentication_failed'
   /v1/read:
     post:
       x-fern-sdk-group-name:
@@ -219,24 +200,5 @@ components:
       type: apiKey
       in: header
       name: Authorization
-      x-fern-header: 
+      x-fern-header:
         prefix: Token
-  schemas:
-    speak_request: 
-      type: object
-      properties:
-        text:
-          type: string
-          description: The text to speak
-    error_shape:
-      type: object
-      properties:
-        err_code:
-          type: string
-          description: The error code
-        err_msg:
-          type: string
-          description: The error message
-        request_id:
-          type: string
-          description: The request ID
