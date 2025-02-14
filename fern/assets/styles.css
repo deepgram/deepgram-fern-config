@@ -425,12 +425,12 @@ h2 {
 }
 
 .fern-sidebar-container {
-	position: fixed !important;
-	top: 10rem !important;
-	height: calc(100vh - 10rem) !important;
+	position: sticky !important;
+	top: 0 !important;
+  margin-top: 10rem !important;
 	overflow-y: auto !important;
 	z-index: 20 !important;
-	transition: top 0.8s linear !important;
+	height: 100vh !important;
 }
 
 .fern-main {
@@ -451,13 +451,6 @@ h2 {
 	padding-top: 3rem !important;
 }
 
-.fern-sidebar-fixed {
-	position: fixed !important;
-	top: 10rem !important;
-	height: calc(100vh - 10rem) !important;
-	z-index: 20 !important;
-	transition: top 0.8s linear !important;
-}
 #fern-header {
 	position: absolute !important;
 }
