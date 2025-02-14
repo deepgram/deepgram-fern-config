@@ -91,7 +91,7 @@
 }
 
 .fern-sidebar-link-container[data-state="active"] .fern-sidebar-link:after {
-	background: linear-gradient(177.85deg, #201CFF -102.27%, #13EF95 101.45%) !important;	
+	background: linear-gradient(177.85deg, #201CFF -102.27%, #13EF95 101.45%) !important;
 	width: 1px !important;
 	position: absolute !important;
 	content: "" !important;
@@ -128,7 +128,7 @@
 	font-size: 16px !important;
 	line-height: 17.5px !important;
 	letter-spacing: 2% !important;
-} 
+}
 
 .fern-search-bar {
 	--tw-ring-color: #4E4E52 !important;
@@ -154,7 +154,7 @@ button[role="tab"][data-state="active"] {
 }
 
 button[role="tab"][data-state="active"]:after {
-	background: linear-gradient(90deg, #201CFF -91.5%, #13EF95 80.05%) !important;	
+	background: linear-gradient(90deg, #201CFF -91.5%, #13EF95 80.05%) !important;
 	height: 2px !important;
 	position: absolute !important;
 	content: "" !important;
@@ -177,7 +177,7 @@ div[class*="callout"] {
 	border-color: var(--tw-ring-color) !important;
 }
 
-.fern-search-bar, 
+.fern-search-bar,
 .callout-outlined,
 .fern-card
 .fern-button {
@@ -202,7 +202,7 @@ div[class*="callout"] {
 	--tw-ring-color: #FEC84B !important;
 }
 
-.callout-outlined p, 
+.callout-outlined p,
 .callout-outlined h5,
 .callout-outlined-warning p,
 .callout-outlined-warning h5,
@@ -378,7 +378,7 @@ h2 {
 	color: #FBFBFF !important;
 }
 
-.t-muted:is(.dark *) { 
+.t-muted:is(.dark *) {
 	color: #949498 !important;
 }
 
@@ -414,7 +414,7 @@ h2 {
 
 .pink {
 	background-image: linear-gradient(85deg, #ee028b 5.66%, #ae29ff 99.14%) !important;
-}	
+}
 
 .pink .fa-icon {
 	background: linear-gradient(85deg, #ee028b 5.66%, #ae29ff 99.14%) !important;
@@ -425,7 +425,12 @@ h2 {
 }
 
 .fern-sidebar-container {
-	margin-top: 3rem !important;
+	position: sticky !important;
+	top: 0 !important;
+  margin-top: 10rem !important;
+	overflow-y: auto !important;
+	z-index: 20 !important;
+	height: 100vh !important;
 }
 
 .fern-main {
@@ -444,10 +449,6 @@ h2 {
 
 .fern-endpoint-content {
 	padding-top: 3rem !important;
-}
-
-.fern-sidebar-fixed {
-	position: absolute !important;
 }
 
 #fern-header {
