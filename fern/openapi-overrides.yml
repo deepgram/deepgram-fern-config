@@ -34,11 +34,10 @@ paths:
                   response = requests.post(url, headers=headers, data=audio_file)
 
                 print(response.json())
-            - language: typescript
+            - language: javascript
               code: >
-                import fs from "fs";
-                import fetch from "node-fetch";
-
+                const fs = require("fs");
+                
                 const url = "https://api.deepgram.com/v1/listen";
                 const apiKey = "DEEPGRAM_API_KEY"; // Replace with your actual API key
                 const audioFilePath = "/path/to/youraudio.wav"; // Replace with the path to your audio file
@@ -57,12 +56,15 @@ paths:
                     "Content-Type": "audio/wav",
                   };
 
-                  // Make the POST request using node-fetch
-                  fetch(url, {
+                  // Define fetch options
+                  const options = {
                     method: "POST",
                     headers: headers,
                     body: audioData,
-                  })
+                  };
+
+                  // Make the POST request using fetch
+                  fetch(url, options)
                     .then((response) => {
                       if (!response.ok) {
                         throw new Error("Failed to make request:", response.statusText);
@@ -76,66 +78,483 @@ paths:
                       console.error("Error:", error); // Handle errors
                     });
                 });
-          request: 
-            url: https://example.com/audio.mp3
-          response: 
-            body:
-              metadata:
-                request_id: a847f427-4ad5-4d67-9b95-db801e58251c
-                sha256: 154e291ecfa8be6ab8343560bcc109008fa7853eb5372533e8efdefc9b504c33
-                created: '2024-05-12T18:57:13Z'
-                duration: 25.933313
-                channels: 1
-                models:
-                - 30089e05-99d1-4376-b32e-c263170674af
-                model_info:
-                  30089e05-99d1-4376-b32e-c263170674af:
-                    name: 2-general-nova
-                    version: 2024-01-09.29447
-                    arch: nova-2
-                summary_info:
-                  model_uuid: 67875a7f-c9c4-48a0-aa55-5bdb8a91c34a
-                  input_tokens: 95
-                  output_tokens: 63
-                sentiment_info:
-                  model_uuid: 80ab3179-d113-4254-bd6b-4a2f96498695
-                  input_tokens: 105
-                  output_tokens: 105
-                topics_info:
-                  model_uuid: 80ab3179-d113-4254-bd6b-4a2f96498695
-                  input_tokens: 105
-                  output_tokens: 7
-                intents_info:
-                  model_uuid: 80ab3179-d113-4254-bd6b-4a2f96498695
-                  input_tokens: 105
-                  output_tokens: 4
-                tags:
-                - test
-                transaction_key: transaction_key
-              results:
-                channels:
-                - {}
-                utterances:
-                - {}
-                summary:
-                  result: success
-                  short: Speaker 0 discusses the significance of the first all-female spacewalk
-                    with an all-female team, stating that it is a tribute to the skilled and qualified
-                    women who were denied opportunities in the past.
-                sentiments:
-                  segments:
-                  - text: Yeah. As as much as, um, it's worth celebrating, uh, the first, uh, spacewalk,
-                      um, with an all-female team, I think many of us are looking forward to it
-                      just being normal. And, um, I think if it signifies anything, it is, uh, to
-                      honor the the women who came before us who, um, were skilled and qualified,
-                      um, and didn't get the the same opportunities that we have today.
-                    start_word: 0
-                    end_word: 69
-                    sentiment: positive
-                    sentiment_score: 0.5810546875
-                  average:
-                    sentiment: positive
-                    sentiment_score: 0.5810185185185185
+            - language: go
+              code: >
+                package main
+
+                import (
+                  "bytes"
+                  "fmt"
+                  "io"
+                  "net/http"
+                  "os"
+                )
+
+                func main() {
+                  // Specify the URL
+                  url := "https://api.deepgram.com/v1/listen"
+
+                  // Open the audio file
+                  file, err := os.Open("youraudio.wav")
+                  if err != nil {
+                    fmt.Println("Error opening file:", err)
+                    return
+                  }
+                  defer file.Close()
+
+                  // Prepare the request body
+                  body := &bytes.Buffer{}
+                  _, err = io.Copy(body, file)
+                  if err != nil {
+                    fmt.Println("Error reading file:", err)
+                    return
+                  }
+
+                  // Create a new HTTP request with the specified URL and body
+                  req, err := http.NewRequest("POST", url, body)
+                  if err != nil {
+                    fmt.Println("Error creating request:", err)
+                    return
+                  }
+
+                  // Set the request headers
+                  req.Header.Set("Authorization", "Token DEEPGRAM_API_KEY")
+                  req.Header.Set("Content-Type", "audio/wav")
+
+                  // Send the request
+                  client := &http.Client{}
+                  resp, err := client.Do(req)
+                  if err != nil {
+                    fmt.Println("Error sending request:", err)
+                    return
+                  }
+                  defer resp.Body.Close()
+
+                  // Print the response status code
+                  fmt.Println("Response status code:", resp.Status)
+
+                  // Read and print the response body
+                  var responseBody bytes.Buffer
+                  _, err = io.Copy(&responseBody, resp.Body)
+                  if err != nil {
+                    fmt.Println("Error reading response body:", err)
+                    return
+                  }
+                  fmt.Println("Response body:", responseBody.String())
+                }
+            - language: csharp
+              code: > 
+                using System;
+                using System.IO;
+                using System.Net.Http;
+                using System.Threading.Tasks;
+
+                class Program
+                {
+                    static async Task Main(string[] args)
+                    {
+                        // Path to the audio file
+                        string audioFilePath = "youraudio.wav"; // Replace with the path to your audio file
+
+                        // URL to which you want to send the request
+                        string url = "https://api.deepgram.com/v1/listen"; // Replace with your actual endpoint URL
+
+                        // API Key
+                        string apiKey = "DEEPGRAM_API_KEY"; // Replace with your actual API key
+
+                        // Create an instance of HttpClient
+                        using (HttpClient httpClient = new HttpClient())
+                        {
+                            try
+                            {
+                                // Read the audio file as binary data
+                                byte[] audioData = await File.ReadAllBytesAsync(audioFilePath);
+
+                                // Prepare the HTTP request content
+                                HttpContent content = new ByteArrayContent(audioData);
+
+                                // Set the content type header
+                                content.Headers.Add("Content-Type", "audio/wav");
+
+                                // Add Authorization header
+                                httpClient.DefaultRequestHeaders.Add("Authorization", "Token " + apiKey);
+
+                                // Send the POST request
+                                HttpResponseMessage response = await httpClient.PostAsync(url, content);
+
+                                // Check if the request was successful
+                                if (response.IsSuccessStatusCode)
+                                {
+                                    // Read the response content (transcription)
+                                    string transcription = await response.Content.ReadAsStringAsync();
+                                    Console.WriteLine("Transcription:");
+                                    Console.WriteLine(transcription);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Request failed with status code: " + response.StatusCode);
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                Console.WriteLine("Error: " + ex.Message);
+                            }
+                        }
+                    }
+                }
+            - language: java
+              code: >
+                import java.io.*;
+                import java.net.*;
+
+                public class Main {
+                  public static void main(String[] args) {
+                    try {
+                      // Specify the URL for the Deepgram API endpoint
+                      URL url = new URL("https://api.deepgram.com/v1/listen");
+
+                      // Open a connection to the URL
+                      HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
+                      // Set the request method to POST
+                      connection.setRequestMethod("POST");
+
+                      // Set request headers
+                      connection.setRequestProperty("Authorization", "Token DEEPGRAM_API_KEY"); // Replace YOUR_DEEPGRAM_API_KEY
+                                                                                                    // with your actual API key
+                      connection.setRequestProperty("Content-Type", "audio/wav");
+
+                      // Enable output (sending data to the server)
+                      connection.setDoOutput(true);
+
+                      // Get the output stream of the connection
+                      OutputStream outputStream = connection.getOutputStream();
+
+                      // Read the audio file as binary data and write it to the output stream
+                      FileInputStream fileInputStream = new FileInputStream("youraudio.wav"); // Replace "youraudio.wav" with the path
+                                                                                              // to your audio file
+                      byte[] buffer = new byte[1024];
+                      int bytesRead;
+                      while ((bytesRead = fileInputStream.read(buffer)) != -1) {
+                        outputStream.write(buffer, 0, bytesRead);
+                      }
+                      fileInputStream.close();
+
+                      // Close the output stream
+                      outputStream.close();
+
+                      // Get the response code from the server
+                      int responseCode = connection.getResponseCode();
+
+                      // Check if the request was successful (status code 200)
+                      if (responseCode == HttpURLConnection.HTTP_OK) {
+                        // Read and print the response from the server
+                        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                        String inputLine;
+                        StringBuffer response = new StringBuffer();
+                        while ((inputLine = in.readLine()) != null) {
+                          response.append(inputLine);
+                        }
+                        in.close();
+                        System.out.println("Response: " + response.toString());
+                      } else {
+                        System.out.println("HTTP request failed with status code " + responseCode);
+                      }
+
+                      // Disconnect the connection
+                      connection.disconnect();
+                    } catch (IOException e) {
+                      e.printStackTrace();
+                    }
+                  }
+                }
+            - language: php
+              code: >
+                <?php
+
+                // API endpoint URL
+                $url = "https://api.deepgram.com/v1/listen";
+
+                // API key
+                $apiKey = "DEEPGRAM_API_KEY";
+
+                // Path to the audio file
+                $audioFilePath = "youraudio.wav"; // Replace "youraudio.wav" with the path to your audio file
+
+                // Initialize cURL session
+                $ch = curl_init();
+
+                // Set cURL options
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, file_get_contents($audioFilePath));
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Authorization: Token ' . $apiKey,
+                    'Content-Type: audio/wav'
+                ));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+                // Execute cURL request
+                $response = curl_exec($ch);
+
+                // Check for errors
+                if ($response === false) {
+                    echo 'cURL error: ' . curl_error($ch);
+                } else {
+                    // Print the response
+                    echo $response;
+                }
+
+                // Close cURL session
+                curl_close($ch);
+
+                ?>
+            - language: ruby
+              code: >
+                require 'net/http'
+
+                # Define the URL for the Deepgram API endpoint
+                url = URI.parse("https://api.deepgram.com/v1/listen")
+
+                # Define the path to the audio file
+                audio_file_path = "youraudio.wav" # Replace "youraudio.wav" with the path to your audio file
+
+                # Read the audio file as binary data
+                audio_data = File.binread(audio_file_path)
+
+                # Create a new Net::HTTP object
+                http = Net::HTTP.new(url.host, url.port)
+                http.use_ssl = true
+
+                # Create a new HTTP request
+                request = Net::HTTP::Post.new(url)
+
+                # Set request headers
+                request["Authorization"] = "Token DEEPGRAM_API_KEY" # Replace YOUR_DEEPGRAM_API_KEY with your actual API key
+                request["Content-Type"] = "audio/wav"
+
+                # Set request body with audio data
+                request.body = audio_data
+
+                # Send the request and get the response
+                response = http.request(request)
+
+                # Print the response body
+                puts response.body
+            - language: swift
+              code: >
+                import Foundation
+
+                // Specify the URL for the Deepgram API endpoint
+                let url = URL(string: "https://api.deepgram.com/v1/listen")!
+
+                // Specify the path to the audio file
+                let audioFilePath = "/path/to/youraudio.wav"
+
+                // Read the audio file as binary data
+                guard let audioData = FileManager.default.contents(atPath: audioFilePath) else {
+                    print("Error: Unable to read audio file")
+                    exit(1)
+                }
+
+                // Create the URLRequest object
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+
+                // Set request headers
+                request.setValue("Token DEEPGRAM_API_KEY", forHTTPHeaderField: "Authorization") // Replace YOUR_DEEPGRAM_API_KEY with your actual API key
+                request.setValue("audio/wav", forHTTPHeaderField: "Content-Type")
+
+                // Set request body with audio data
+                request.httpBody = audioData
+
+                // Create URLSession task to perform the request
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    if let error = error {
+                        print("Error: \(error)")
+                        return
+                    }
+                    
+                    guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                        print("Error: Invalid response")
+                        return
+                    }
+                    
+                    if let data = data {
+                        if let responseBody = String(data: data, encoding: .utf8) {
+                            print("Response: \(responseBody)")
+                        } else {
+                            print("Error: Unable to parse response body")
+                        }
+                    } else {
+                        print("Error: No response data")
+                    }
+                }
+
+                // Start the URLSession task
+                task.resume()
+
+                // Keep the program running until the URLSession task completes
+                RunLoop.main.run()
+            - language: python
+              name: Local File (SDK)
+              code: >
+                # Install the Deepgram Python SDK
+                # pip install deepgram-sdk==3.*
+
+                from deepgram import (
+                    DeepgramClient,
+                    PrerecordedOptions,
+                    FileSource,
+                )
+
+                AUDIO_FILE = "YOUR_LOCAL_FILE.mp3"
+
+
+                def main():
+                    try:
+                        deepgram = DeepgramClient("DEEPGRAM_API_KEY")
+
+                        with open(AUDIO_FILE, "rb") as file:
+                            buffer_data = file.read()
+
+                        payload: FileSource = {
+                            "buffer": buffer_data,
+                        }
+
+                        options = PrerecordedOptions(
+                            model="nova-2",
+                            smart_format=True,
+                        )
+
+                        response = deepgram.listen.rest.v("1").transcribe_file(payload, options)
+
+                        print(response.to_json(indent=4))
+
+                    except Exception as e:
+                        print(f"Exception: {e}")
+
+
+                if __name__ == "__main__":
+                    main()
+            - language: javascript
+              name: Local File (SDK)
+              code: >
+                // Install the Deepgram JS SDK
+                // npm install @deepgram/sdk
+
+                const { createClient } = require("@deepgram/sdk");
+                const fs = require("fs");
+
+                const transcribeFile = async () => {
+                  const deepgram = createClient("DEEPGRAM_API_KEY");
+                  const { result, error } = await deepgram.listen.prerecorded.transcribeFile(
+                    fs.readFileSync("YOUR_LOCAL_FILE.mp3"),
+                    {
+                      model: "nova-2",
+                      smart_format: true,
+                    }
+                  );
+
+                  if (error) throw error;
+                  if (!error) console.dir(result, { depth: null });
+                };
+
+                transcribeFile();
+            - language: go
+              name: Local File (SDK)
+              code: >
+                // Install the Deepgram Go SDK
+                // go get github.com/deepgram/deepgram-go-sdk@<current version>
+
+                package main
+
+                import (
+                  "context"
+                  "encoding/json"
+                  "fmt"
+                  "os"
+
+                  prettyjson "github.com/hokaccha/go-prettyjson"
+
+                  api "github.com/deepgram/deepgram-go-sdk/pkg/api/listen/v1/rest"
+                  interfaces "github.com/deepgram/deepgram-go-sdk/pkg/client/interfaces"
+                  client "github.com/deepgram/deepgram-go-sdk/pkg/client/listen"
+                )
+
+                const (
+                  filePath string = "YOUR_AUDIO_FILE.mp3"
+                )
+
+                func main() {
+                  client.InitWithDefault()
+
+                  ctx := context.Background()
+
+                  options := interfaces.PreRecordedTranscriptionOptions{
+                    Model:       "nova-2",
+                    SmartFormat: true,
+                  }
+
+                  // NOTE: you can set your API KEY in your bash profile by typing the following line in your shell:
+                  // export DEEPGRAM_API_KEY = "YOUR_DEEPGRAM_API_KEY"
+                  c := client.NewWithDefaults()
+                  dg := api.New(c)
+
+                  res, err := dg.FromFile(ctx, filePath, options)
+                  if err != nil {
+                    fmt.Printf("FromStream failed. Err: %v\n", err)
+                    os.Exit(1)
+                  }
+
+                  data, err := json.Marshal(res)
+                  if err != nil {
+                    fmt.Printf("json.Marshal failed. Err: %v\n", err)
+                    os.Exit(1)
+                  }
+
+                  prettyJson, err := prettyjson.Format(data)
+                  if err != nil {
+                    fmt.Printf("prettyjson.Marshal failed. Err: %v\n", err)
+                    os.Exit(1)
+                  }
+                  fmt.Printf("\n\nResult:\n%s\n\n", prettyJson)
+                }
+            - language: csharp
+              name: Local File (SDK)
+              code: > 
+                // Install the Deepgram .NET SDK
+                // dotnet add package Deepgram
+
+                using Deepgram.Models.Listen.v1.REST;
+
+                Library.Initialize();
+
+                // use the client factory with a API Key set with the "DEEPGRAM_API_KEY" environment variable
+                var deepgramClient = ClientFactory.CreateListenRESTClient();
+
+                // check to see if the file exists
+                if (!File.Exists(@"Bueller-Life-moves-pretty-fast.wav"))
+                {
+                  Console.WriteLine("Error: File 'Bueller-Life-moves-pretty-fast.wav' not found.");
+                  return;
+                }
+
+                var audioData = File.ReadAllBytes(@"Bueller-Life-moves-pretty-fast.wav");
+                var response = await deepgramClient.TranscribeFile(
+                  audioData,
+                  new PreRecordedSchema()
+                  {
+                    Model = "nova-2",
+                    SmartFormat = true,
+                  });
+
+                Console.WriteLine($"\n\n{response}\n\n");
+                Console.WriteLine("Press any key to exit...");
+                Console.ReadKey();
+
+                // Teardown Library
+                Library.Terminate();
         - name: Remote File
           code-samples:
             - language: curl
@@ -166,7 +585,7 @@ paths:
                 response = requests.post(url, headers=headers, json=data)
 
                 print(response.json())
-            - language: typescript
+            - language: javascript
               code: |
                 const url = "https://api.deepgram.com/v1/listen";
                 const apiKey = "DEEPGRAM_API_KEY"; // Replace with your actual API key
@@ -197,66 +616,402 @@ paths:
                   .catch((error) => {
                     console.error("Error:", error); // Handle errors
                   });
-          request: 
-            url: https://example.com/audio.wav
-          response: 
-            body:
-              metadata:
-                request_id: a847f427-4ad5-4d67-9b95-db801e58251c
-                sha256: 154e291ecfa8be6ab8343560bcc109008fa7853eb5372533e8efdefc9b504c33
-                created: '2024-05-12T18:57:13Z'
-                duration: 25.933313
-                channels: 1
-                models:
-                - 30089e05-99d1-4376-b32e-c263170674af
-                model_info:
-                  30089e05-99d1-4376-b32e-c263170674af:
-                    name: 2-general-nova
-                    version: 2024-01-09.29447
-                    arch: nova-2
-                summary_info:
-                  model_uuid: 67875a7f-c9c4-48a0-aa55-5bdb8a91c34a
-                  input_tokens: 95
-                  output_tokens: 63
-                sentiment_info:
-                  model_uuid: 80ab3179-d113-4254-bd6b-4a2f96498695
-                  input_tokens: 105
-                  output_tokens: 105
-                topics_info:
-                  model_uuid: 80ab3179-d113-4254-bd6b-4a2f96498695
-                  input_tokens: 105
-                  output_tokens: 7
-                intents_info:
-                  model_uuid: 80ab3179-d113-4254-bd6b-4a2f96498695
-                  input_tokens: 105
-                  output_tokens: 4
-                tags:
-                - test
-                transaction_key: transaction_key
-              results:
-                channels:
-                - {}
-                utterances:
-                - {}
-                summary:
-                  result: success
-                  short: Speaker 0 discusses the significance of the first all-female spacewalk
-                    with an all-female team, stating that it is a tribute to the skilled and qualified
-                    women who were denied opportunities in the past.
-                sentiments:
-                  segments:
-                  - text: Yeah. As as much as, um, it's worth celebrating, uh, the first, uh, spacewalk,
-                      um, with an all-female team, I think many of us are looking forward to it
-                      just being normal. And, um, I think if it signifies anything, it is, uh, to
-                      honor the the women who came before us who, um, were skilled and qualified,
-                      um, and didn't get the the same opportunities that we have today.
-                    start_word: 0
-                    end_word: 69
-                    sentiment: positive
-                    sentiment_score: 0.5810546875
-                  average:
-                    sentiment: positive
-                    sentiment_score: 0.5810185185185185
+            - language: go
+              code: >
+                package main
+
+                import (
+                  "fmt"
+                  "io"
+                  "net/http"
+                  "strings"
+                )
+
+                func main() {
+
+                  url := "https://api.deepgram.com/v1/listen"
+                  method := "POST"
+
+                  payload := strings.NewReader(`{"url":"https://dpgr.am/spacewalk.wav"}`)
+
+                  client := &http.Client{}
+                  req, err := http.NewRequest(method, url, payload)
+
+                  if err != nil {
+                    fmt.Println(err)
+                    return
+                  }
+                  req.Header.Add("Content-Type", "application/json")
+                  req.Header.Add("Authorization", "Token DEEPGRAM_API_KEY")
+
+                  res, err := client.Do(req)
+                  if err != nil {
+                    fmt.Println(err)
+                    return
+                  }
+                  defer res.Body.Close()
+
+                  body, err := io.ReadAll(res.Body)
+                  if err != nil {
+                    fmt.Println(err)
+                    return
+                  }
+                  fmt.Println(string(body))
+                }
+            - language: csharp
+              code: > 
+                using System;
+                using System.Net.Http;
+                using System.Threading.Tasks;
+
+                class Program
+                {
+                    static async Task Main(string[] args)
+                    {
+                        string apiKey = "DEEPGRAM_API_KEY";
+                        string url = "https://api.deepgram.com/v1/listen";
+                        string audioUrl = "https://dpgr.am/spacewalk.wav";
+
+                        using (HttpClient client = new HttpClient())
+                        {
+                            client.DefaultRequestHeaders.Add("Accept", "application/json");
+                            client.DefaultRequestHeaders.Add("Authorization", "Token " + apiKey);
+                            
+                            var requestBody = new { url = audioUrl };
+                            var json = Newtonsoft.Json.JsonConvert.SerializeObject(requestBody);
+                            var content = new StringContent(json, System.Text.Encoding.UTF8, "application/json");
+
+                            HttpResponseMessage response = await client.PostAsync(url, content);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                string responseContent = await response.Content.ReadAsStringAsync();
+                                Console.WriteLine(responseContent);
+                            }
+                            else
+                            {
+                                Console.WriteLine($"Error: {response.StatusCode}");
+                            }
+                        }
+                    }
+                }
+            - language: java
+              code: >
+                import okhttp3.*;
+
+                import java.io.IOException;
+
+                public class Main {
+                  public static void main(String[] args) throws IOException {
+                    // Replace "YOUR_API_KEY" with your actual API key
+                    String apiKey = "DEEPGRAM_API_KEY";
+                    String url = "https://api.deepgram.com/v1/listen";
+                    String audioUrl = "https://dpgr.am/spacewalk.wav";
+
+                    // Create OkHttpClient instance
+                    OkHttpClient client = new OkHttpClient();
+
+                    // Create JSON request body
+                    MediaType mediaType = MediaType.parse("application/json");
+                    String json = "{\"url\": \"" + audioUrl + "\"}";
+                    RequestBody body = RequestBody.create(json, mediaType);
+
+                    // Create HTTP request
+                    Request request = new Request.Builder()
+                        .url(url)
+                        .post(body)
+                        .addHeader("Accept", "application/json")
+                        .addHeader("Authorization", "Token " + apiKey)
+                        .addHeader("Content-Type", "application/json")
+                        .build();
+
+                    // Execute the request and get the response
+                    Response response = client.newCall(request).execute();
+
+                    // Print the response body
+                    if (response.isSuccessful()) {
+                      System.out.println(response.body().string());
+                    } else {
+                      System.out.println("Request failed: " + response.code() + " - " + response.message());
+                    }
+
+                    // Close the response
+                    response.close();
+                  }
+                }
+            - language: php
+              code: >
+                <?php
+
+                // API endpoint URL
+                $url = "https://api.deepgram.com/v1/listen";
+
+                // API key
+                $apiKey = "DEEPGRAM_API_KEY";
+
+                // Audio file URL
+                $audioUrl = "https://dpgr.am/spacewalk.wav";
+
+                // Request body data
+                $data = array(
+                    "url" => $audioUrl
+                );
+
+                // Convert data to JSON format
+                $jsonData = json_encode($data);
+
+                // cURL initialization
+                $ch = curl_init();
+
+                // Set cURL options
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Accept: application/json',
+                    'Authorization: Token ' . $apiKey,
+                    'Content-Type: application/json'
+                ));
+
+                // Execute cURL request
+                $response = curl_exec($ch);
+
+                // Check for errors
+                if ($response === false) {
+                    echo 'cURL error: ' . curl_error($ch);
+                } else {
+                    // Print the response
+                    echo $response;
+                }
+
+                // Close cURL session
+                curl_close($ch);
+
+                ?>
+            - language: ruby
+              code: >
+                require 'uri'
+                require 'net/http'
+                require 'json'
+
+                # Parse the URI for the Deepgram API endpoint
+                uri = URI.parse('https://api.deepgram.com/v1/listen')
+
+                # Create a new HTTP POST request
+                request = Net::HTTP::Post.new(uri)
+
+                # Set the headers
+                request.content_type = 'application/json'
+                request['Accept'] = 'application/json'
+                request['Authorization'] = 'Token DEEPGRAM_API_KEY'
+
+                # Set the request body with a JSON payload containing the UR
+                request.body = JSON.dump({
+                                          'url' => 'https://dpgr.am/spacewalk.wav'
+                                        })
+                # Send the HTTP request and store the response
+                response = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
+                  http.request(request)
+                end
+
+                # Output the response body
+                puts response.body
+            - language: swift
+              code: >
+                import Foundation
+
+                // Define the URL for the Deepgram API endpoint
+                let url = URL(string: "https://api.deepgram.com/v1/listen")!
+
+                // Define the request body
+                let requestBody = ["url": "https://dpgr.am/spacewalk.wav"]
+                guard let httpBody = try? JSONSerialization.data(withJSONObject: requestBody) else {
+                    print("Error: Unable to serialize request body")
+                    exit(1)
+                }
+
+                // Define the request headers
+                var request = URLRequest(url: url)
+                request.httpMethod = "POST"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                request.setValue("application/json", forHTTPHeaderField: "Accept")
+                request.setValue("Token DEEPGRAM_API_KEY", forHTTPHeaderField: "Authorization") // Replace YOUR_DEEPGRAM_API_KEY with your actual API key
+                request.httpBody = httpBody
+
+                // Perform the HTTP request
+                let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                    guard let data = data, let httpResponse = response as? HTTPURLResponse, error == nil else {
+                        print("Error: \(error?.localizedDescription ?? "Unknown error")")
+                        return
+                    }
+
+                    // Check if the HTTP request was successful (status code 200)
+                    guard httpResponse.statusCode == 200 else {
+                        print("HTTP request failed with status code \(httpResponse.statusCode)")
+                        return
+                    }
+
+                    // Parse and print the response body
+                    if let responseBody = String(data: data, encoding: .utf8) {
+                        print("Response: \(responseBody)")
+                    } else {
+                        print("Error: Unable to parse response body")
+                    }
+                }
+
+                task.resume()
+
+                // Keep the program running until the HTTP request completes
+                RunLoop.main.run()
+            - language: python
+              name: Remote File (SDK)
+              code: >
+                # Install the Deepgram Python SDK
+                # pip install deepgram-sdk==3.*
+
+                from deepgram import (
+                    DeepgramClient,
+                    PrerecordedOptions,
+                )
+
+                load_dotenv()
+
+                AUDIO_URL = {
+                    "url": "https://dpgr.am/spacewalk.wav"
+                }
+
+
+                def main():
+                    try:
+                        deepgram = DeepgramClient("DEEPGRAM_API_KEY")
+                        options = PrerecordedOptions(
+                            model="nova-2",
+                            smart_format=True,
+                        )
+                        response = deepgram.listen.rest.v("1").transcribe_url(AUDIO_URL, options)
+                        return response
+
+                    except Exception as e:
+                        print(f"Exception: {e}")
+                        
+
+                if __name__ == "__main__":
+                    main()
+            - language: javascript
+              name: Remote File (SDK)
+              code: >
+                // Install the Deepgram JS SDK
+                // npm install @deepgram/sdk
+
+                const { createClient } = require("@deepgram/sdk");
+
+                const transcribeUrl = async () => {
+                  const deepgram = createClient("DEEPGRAM_API_KEY");
+
+                  const { result, error } = await deepgram.listen.prerecorded.transcribeUrl(
+                    {
+                      url: "https://dpgr.am/spacewalk.wav",
+                    },
+                    {
+                      model: "nova-2",
+                      smart_format: true,
+                    }
+                  );
+
+                  if (error) throw error;
+                  if (!error) return result;
+                };
+
+                transcribeUrl();
+            - language: go
+              name: Remote File (SDK)
+              code: >
+                // Install the Deepgram Go SDK
+                // go get github.com/deepgram/deepgram-go-sdk
+
+                package main
+
+                import (
+                  "context"
+                  "encoding/json"
+                  "fmt"
+                  "os"
+
+                  prettyjson "github.com/hokaccha/go-prettyjson"
+
+                  api "github.com/deepgram/deepgram-go-sdk/pkg/api/listen/v1/rest"
+                  interfaces "github.com/deepgram/deepgram-go-sdk/pkg/client/interfaces"
+                  client "github.com/deepgram/deepgram-go-sdk/pkg/client/listen"
+                )
+
+                const (
+                  url string = "https://dpgr.am/spacewalk.wav"
+                )
+
+                func main() {
+                  client.InitWithDefault()
+
+                  ctx := context.Background()
+
+                  options := interfaces.PreRecordedTranscriptionOptions{
+                    Model:       "nova-2",
+                    SmartFormat: true,
+                  }
+                  
+                  // NOTE: you can set your API KEY in your bash profile by typing the following line in your shell:
+                  // export DEEPGRAM_API_KEY = "YOUR_DEEPGRAM_API_KEY"
+                  c := client.NewWithDefaults()
+                  dg := api.New(c)
+
+                  res, err := dg.FromURL(ctx, url, options)
+                  if err != nil {
+                    fmt.Printf("FromURL failed. Err: %v\n", err)
+                    os.Exit(1)
+                  }
+
+                  data, err := json.Marshal(res)
+                  if err != nil {
+                    fmt.Printf("json.Marshal failed. Err: %v\n", err)
+                    os.Exit(1)
+                  }
+
+                  prettyJson, err := prettyjson.Format(data)
+                  if err != nil {
+                    fmt.Printf("prettyjson.Marshal failed. Err: %v\n", err)
+                    os.Exit(1)
+                  }
+                  fmt.Printf("\n\nResult:\n%s\n\n", prettyJson)
+                }
+            - language: csharp
+              name: Remote File (SDK)
+              code: >   
+                // Install the Deepgram .NET SDK
+                // dotnet add package Deepgram
+
+                using Deepgram.Models.Listen.v1.REST;
+
+                // Initialize Library with default logging
+                Library.Initialize();
+
+                // create a ListenRESTClient directly (without using the factory method) with a API Key
+                // set using the "DEEPGRAM_API_KEY" environment variable
+                var deepgramClient = new ListenRESTClient();
+
+                var response = await deepgramClient.TranscribeUrl(
+                  new UrlSource("https://dpgr.am/bueller.wav"),
+                  new PreRecordedSchema()
+                  {
+                    Model = "nova-2",
+                    SmartFormat=true,
+                  });
+
+                Console.WriteLine(response);
+                Console.ReadKey();
+
+                // Teardown Library
+                Library.Terminate();   
+        
   /v1/read:
     post:
       x-fern-sdk-group-name:
