@@ -450,6 +450,20 @@ h2 {
 	position: absolute !important;
 }
 
+div[id="/reference/speech-to-text-api/listen#request"] .flex.flex-col div:nth-of-type(4) span:nth-of-type(2) {
+	display: none !important;
+}
+
+div[id="/reference/speech-to-text-api/listen#request"] .flex.flex-col div:nth-of-type(4) span:nth-of-type(1):after {
+	content: " binary" !important;
+	color: #949498 !important;
+	font-size: .75rem;
+  line-height: 1rem;
+	font-family: 'Inter' !important;
+	text-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+	margin-left: .5rem;
+}
+
 #fern-header {
 	position: absolute !important;
 }
