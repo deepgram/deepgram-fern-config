@@ -1104,6 +1104,87 @@ redirects:
     destination: /docs/live-streaming-audio
   - source: /docs/introduction
     destination: /home/introduction
+  ## api reference restructure
+  - source: /reference/build-a-voice-agent
+    destination: 
+  - source: /reference/listen-file
+    destination: 
+  - source: /reference/listen-remote
+    destination: 
+  - source: /reference/listen-live
+    destination: 
+  - source: /reference/text-to-speech-api
+    destination: 
+  - source: /reference/transform-text-to-speech-websocket
+    destination: 
+  - source: /reference/analyze-text
+    destination: 
+  - source: /reference/models
+    destination: 
+  - source: /reference/get-models
+    destination: 
+  - source: /reference/get-model
+    destination: 
+  - source: /reference/get-projects
+    destination: 
+  - source: /reference/get-project
+    destination: 
+  - source: /reference/update-project
+    destination: 
+  - source: /reference/delete-project
+    destination: 
+  - source: /reference/get-project-models
+    destination: 
+  - source: /reference/get-project-model
+    destination: 
+  - source: /reference/list-keys
+    destination: 
+  - source: /reference/get-key
+    destination: 
+  - source: /reference/create-key
+    destination: 
+  - source: /reference/delete-key
+    destination: 
+  - source: /reference/get-members
+    destination: 
+  - source: /reference/remove-member
+    destination: 
+  - source: /reference/get-member-scopes
+    destination: 
+  - source: /reference/update-scope
+    destination: 
+  - source: /reference/list-invites
+    destination: 
+  - source: /reference/send-invites
+    destination: 
+  - source: /reference/delete-invite
+    destination: 
+  - source: /reference/leave-project
+    destination: 
+  - source: /reference/get-all-requests
+    destination: 
+  - source: /reference/get-request
+    destination: 
+  - source: /reference/summarize-usage
+    destination: 
+  - source: /reference/get-fields
+    destination: 
+  - source: /reference/usage-breakdown
+    destination: 
+  - source: /reference/get-all-balances
+    destination: 
+  - source: /reference/get-balance
+    destination: 
+  - source: /reference/get-purchases
+    destination: 
+  - source: /reference/list-credentials
+    destination: 
+  - source: /reference/get-credentials
+    destination: 
+  - source: /reference/create-credentials
+    destination: 
+  - source: /reference/delete-credentials
+    destination: 
 
 
 # analytics: 
