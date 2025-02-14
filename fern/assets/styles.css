@@ -454,3 +454,7 @@ h2 {
 #fern-header {
 	position: absolute !important;
 }
+
+.fern-sidebar-fixed+.fern-main {
+	padding-left: 0px !important;
+}
