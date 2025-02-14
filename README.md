@@ -41,7 +41,7 @@ fern generate --docs --preview
 
 ### Viewing Custom Components
 
-To view custom components in a Preview URL, you can run the following commands
+To view custom components in a Preview URL, you can run the following commands from `/deepgram-fern-config/custom-app/src` 
 
 ```sh
 npm i

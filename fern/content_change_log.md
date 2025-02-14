@@ -30,3 +30,9 @@ This file is temporary and will be removed after the content freeze period is ov
 * updated error message for key terms limits. [existing site page](https://developers.deepgram.com/docs/keyterm)
 
 
+## 2-13-25
+
+* updated SDK Matrix to include Voice Agent API. [existing site page](https://developers.deepgram.com/docs/sdk-feature-matrix)
+* Update  SDK Matrix to include keyterm option for Pre-recorded and Streaming APIs. [existing site page](https://developers.deepgram.com/docs/sdk-feature-matrix)
+* resolved in [PR 24](https://github.com/fern-demo/deepgram-fern-config/pull/24)
+
