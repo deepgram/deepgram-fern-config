@@ -310,7 +310,7 @@ h2 {
 	display: flex !important;
 	align-items: center !important;
 	justify-content: center !important;
-	padding: 2px !important;
+	padding: 1px !important;
 	border-radius: 4px !important;
 	background-image: linear-gradient(82.38deg, #ff2eea -99.24%, #4b3cff 99.26%) !important;
 	width: 100% !important;
@@ -318,19 +318,26 @@ h2 {
 }
 
 .api-playground-call span:first-child {
+	display: flex !important;
+	align-items: center !important;
+	gap: 12px !important;
 	background-color: #1A1A1F !important;
-	padding: 8px 24px !important;
+	padding: 8px !important;
 	border-radius: 4px !important;
 	width: 100% !important;
+	flex-direction: row !important;
 }
 
 .api-playground-call p {
-	margin-top: 0px !important;
-	margin-bottom: 0px !important;
+	margin: 0 !important;
+	display: flex !important;
+	align-items: center !important;
+	white-space: nowrap !important;
 }
 
 .api-playground-call p div:first-child {
-	display: inline-block !important;
+	display: inline-flex !important;
+	align-items: center !important;
 }
 
 .api-playground-call img {
@@ -339,6 +346,7 @@ h2 {
 	display: inline-block !important;
 	margin-top: 4px !important;
 	margin-bottom: 4px !important;
+	transform: scaleX(-1) !important;
 }
 
 .invert-white {
@@ -457,4 +465,11 @@ h2 {
 
 .fern-sidebar-fixed+.fern-main {
 	padding-left: 0px !important;
+}
+
+.api-playground-call a {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    color: #79affa !important;
+    text-decoration: none !important;
 }
