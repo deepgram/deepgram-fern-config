@@ -49,12 +49,10 @@ paths:
         content:
           application/json:
             schema:
-              oneOf:
-                - $ref: '#/components/schemas/ListenRequest'
-                - $ref: '#/components/schemas/ListenRequestFile'
-          # audio/*:
-          #   schema:
-          #     $ref: '#/components/schemas/ListenRequestFile'
+              $ref: '#/components/schemas/ListenRequestUrl'
+          audio/*:
+            schema:
+              $ref: '#/components/schemas/ListenRequestFile'
         required: true
       parameters:
         - $ref: '#/components/parameters/callback'
@@ -102,6 +100,12 @@ paths:
                 $ref: '#/components/schemas/response'
         '400':
           $ref: '#/components/responses/bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
+        '402':
+          $ref: '#/components/responses/payment_required'
+        '403':
+          $ref: '#/components/responses/insufficient_permissions'
       callbacks:
         transcriptionCallback:
           '{$request.query.callback}':
@@ -137,9 +141,9 @@ paths:
         - $ref: '#/components/parameters/custom_topic'
         - $ref: '#/components/parameters/custom_topic_mode'
         - $ref: '#/components/parameters/intents'
-        - $ref: '#/components/parameters/read_language'
+        - $ref: '#/components/parameters/language'
         - $ref: '#/components/parameters/sentiment'
-        - $ref: '#/components/parameters/read_summarize'
+        - $ref: '#/components/parameters/summarize'
         - $ref: '#/components/parameters/topics'
       responses:
         '200':
@@ -150,6 +154,8 @@ paths:
                 $ref: '#/components/schemas/text_response'
         '400':
           $ref: '#/components/responses/bad_request'
+        '401':
+          $ref: '#/components/responses/unauthorized'
       callbacks:
         transcriptionCallback:
           '{$request.query.callback}':
@@ -841,7 +847,7 @@ paths:
         '400':
           $ref: '#/components/responses/invalid_request'
         '401':
-          $ref: '#/components/responses/unauthorized'
+          $ref: '#/components/responses/project_unauthorized'
         '403':
           $ref: '#/components/responses/authentication_failed'
         '404':
@@ -873,7 +879,7 @@ paths:
         '400':
           $ref: '#/components/responses/invalid_request'
         '401':
-          $ref: '#/components/responses/unauthorized'
+          $ref: '#/components/responses/project_unauthorized'
         '403':
           $ref: '#/components/responses/authentication_failed'
         '404':
@@ -904,7 +910,7 @@ paths:
         '400':
           $ref: '#/components/responses/invalid_request'
         '401':
-          $ref: '#/components/responses/unauthorized'
+          $ref: '#/components/responses/project_unauthorized'
         '403':
           $ref: '#/components/responses/authentication_failed'
         '404':
@@ -994,7 +1000,7 @@ paths:
         '400':
           $ref: '#/components/responses/invalid_request'
         '401':
-          $ref: '#/components/responses/unauthorized'
+          $ref: '#/components/responses/project_unauthorized'
         '403':
           $ref: '#/components/responses/authentication_failed'
         '404':
@@ -1019,7 +1025,7 @@ paths:
         '400':
           $ref: '#/components/responses/invalid_request'
         '401':
-          $ref: '#/components/responses/unauthorized'
+          $ref: '#/components/responses/project_unauthorized'
         '403':
           $ref: '#/components/responses/authentication_failed'
         '404':
@@ -1054,7 +1060,7 @@ paths:
         '400':
           $ref: '#/components/responses/projects_bad_request'
         '401':
-          $ref: '#/components/responses/unauthorized'
+          $ref: '#/components/responses/project_unauthorized'
         '404':
           $ref: '#/components/responses/project_not_found'
   /v1/projects/{project_id}/purchases:
@@ -1408,7 +1414,7 @@ components:
       name: language
       in: query
       required: false
-      description: The [BCP-47 language tag](https://tools.ietf.org/html/bcp47) that hints at the primary spoken language. Depending on the Model you choose only certain languages are available
+      description: The [BCP-47 language tag](https://tools.ietf.org/html/bcp47) that hints at the primary spoken language. Depending on the Model and API endpoint you choose only certain languages are available
       schema:
         type: string
         default: en
@@ -1643,18 +1649,18 @@ components:
       name: summarize
       in: query
       required: false
-      description: Summarize content
+      description: Summarize content. For Listen API, supports string version option. For Read API, accepts boolean only.
       schema:
-        default: false
         oneOf:
-          - title: Versions
+          - title: Listen API Version Option
             type: string
             enum:
               - v2
               - v1
-          - title: Legacy
+          - title: Read API Boolean Option
             type: boolean
-      example: v2
+            default: false
+      example: false
     tag:
       name: tag
       in: query
@@ -1713,26 +1719,6 @@ components:
           - type: string
             description: Use a previous version of a model
             example: model-123
-    read_language:
-      name: read_language
-      in: query
-      required: false
-      description: The [BCP-47 language tag](https://tools.ietf.org/html/bcp47) that hints at the primary spoken language
-      schema:
-        type: string
-        default: en
-        enum:
-          - en
-      example: en
-    read_summarize:
-      name: read_summarize
-      in: query
-      required: false
-      description: Summarize text
-      schema:
-        default: false
-        type: boolean
-      example: true
     bit_rate:
       name: bit_rate
       in: query
@@ -2123,18 +2109,16 @@ components:
         type: string
       example: 8b36cfd0-472f-4a21-833f-2d6343c3a2f3
   schemas:
-    ListenRequest:
+    ListenRequestUrl:
+      type: object
+      description: Audio file URL to transcribe
       required:
         - url
-      type: object
-      description: Audio file to transcribe
       properties:
         url:
           type: string
           format: uri
           example: https://dpgr.am/spacewalk.wav
-      example:
-        url: https://dpgr.am/spacewalk.wav
     ListenRequestFile:
       type: string
       format: binary
@@ -2985,6 +2969,46 @@ components:
               err_code: INVALID_QUERY_PARAMETER
               err_msg: Failed to deserialize query parameters...
               request_id: 123456-7890-1234-5678-901234
+    unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              err_code:
+                type: string
+                description: The error code
+              err_msg:
+                type: string
+                description: The error message
+              request_id:
+                type: string
+                description: The request ID
+            example:
+              err_code: INVALID_AUTH
+              err_msg: Invalid credentials.
+              request_id: 123456-7890-1234-5678-901234
+    payment_required:
+      description: Payment Required
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              err_code:
+                type: string
+                description: The error code
+              err_msg:
+                type: string
+                description: The error message
+              request_id:
+                type: string
+                description: The request ID
+            example:
+              err_code: ASR_PAYMENT_REQUIRED
+              err_msg: Project does not have enough credits for an ASR request and does not have an overage agreement.
+              request_id: 123456-7890-1234-5678-901234
     insufficient_permissions:
       description: Insufficient permissions, Model not found
       content:
@@ -3124,8 +3148,8 @@ components:
           schema:
             type: string
           example: 'Invalid request: scope must be either ''member'', ''admin'' or ''owner''.'
-    unauthorized:
-      description: Unauthorized
+    project_unauthorized:
+      description: Project Unauthorized
       content:
         text/plain:
           schema:
