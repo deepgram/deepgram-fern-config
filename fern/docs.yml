@@ -14,8 +14,6 @@ js:
     strategy: lazyOnload
   - path: dist/output.js
     strategy: beforeInteractive
-experimental:
-  openapi-parser-v2: true
 favicon: assets/favicon.ico
 layout:
   tabs-placement: header
@@ -436,6 +434,8 @@ navigation:
                 contents:
                   - page: Build a Voice Agent
                     path: docs/build-a-voice-agent.mdx
+                  - endpoint: GET /agent
+                    title: Build a Voice Agent
               - section: Speech to Text API
                 referenced-packages:
                   - speechToText
@@ -444,6 +444,8 @@ navigation:
                     title: Transcribe - Pre-recorded audio
                   - page: Transcribe - Live audio
                     path: docs/transcribe-live-audio.mdx
+                  - endpoint: GET /v1/listen
+                    title: Transcribe - Live audio
               - section: Text to Speech API
                 referenced-packages:
                   - textToSpeech
@@ -452,6 +454,8 @@ navigation:
                     title: Text to Speech - REST
                   - page: Text to Speech - Streaming
                     path: docs/transform-text-to-speech.mdx
+                  - endpoint: GET /v1/speak
+                    title: Text to Speech - Streaming
               - section: Text Intelligence API
                 referenced-packages:
                   - textIntelligence
