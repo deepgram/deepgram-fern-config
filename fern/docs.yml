@@ -444,19 +444,31 @@ navigation:
                   - speechToText
                 contents:
                   - endpoint: POST /v1/listen
+<<<<<<< HEAD
                     title: Transcribe - Pre-recorded audio
+=======
+                    title: Pre-Recorded Audio
+                  - page: Transcribe - Live audio
+                    path: docs/transcribe-live-audio.mdx
+>>>>>>> b0e15fd (feat: Update docs.yml rename STT and TTS rest/live endpoints to be easier for users)
                   - endpoint: GET /v1/listen
                     slug: listen-streaming
-                    title: Transcribe - Live audio
+                    title: Live Audio
               - section: Text to Speech API
                 referenced-packages:
                   - textToSpeech
                 contents:
                   - endpoint: POST /v1/speak
+<<<<<<< HEAD
                     title: Text to Speech - REST
+=======
+                    title: Single Text Request
+                  - page: Text to Speech - Streaming
+                    path: docs/transform-text-to-speech.mdx
+>>>>>>> b0e15fd (feat: Update docs.yml rename STT and TTS rest/live endpoints to be easier for users)
                   - endpoint: GET /v1/speak
                     slug: speak-streaming
-                    title: Text to Speech - Streaming
+                    title: Continuous Text Stream
               - section: Text Intelligence API
                 referenced-packages:
                   - textIntelligence
