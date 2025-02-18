@@ -445,6 +445,7 @@ navigation:
                   - page: Transcribe - Live audio
                     path: docs/transcribe-live-audio.mdx
                   - endpoint: GET /v1/listen
+                    slug: listen-streaming
                     title: Transcribe - Live audio
               - section: Text to Speech API
                 referenced-packages:
@@ -455,6 +456,7 @@ navigation:
                   - page: Text to Speech - Streaming
                     path: docs/transform-text-to-speech.mdx
                   - endpoint: GET /v1/speak
+                    slug: speak-streaming
                     title: Text to Speech - Streaming
               - section: Text Intelligence API
                 referenced-packages:
@@ -1133,11 +1135,11 @@ redirects:
   - source: /reference/listen-remote
     destination: /reference/speech-to-text-api/listen
   - source: /reference/listen-live
-    destination: /reference/speech-to-text-api/transcribe-live-audio
+    destination: /reference/speech-to-text-api/listen-streaming
   - source: /reference/text-to-speech-api
     destination: /reference/text-to-speech-api/speak
   - source: /reference/transform-text-to-speech-websocket
-    destination: /reference/text-to-speech-api/speak
+    destination: /reference/text-to-speech-api/speak-streaming
   - source: /reference/analyze-text
     destination: /reference/text-intelligence-api/text-read
   - source: /reference/models
