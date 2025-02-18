@@ -432,8 +432,6 @@ navigation:
             layout:
               - section: Voice Agent API
                 contents:
-                  - page: Build a Voice Agent
-                    path: docs/build-a-voice-agent.mdx
                   - endpoint: GET /agent
                     title: Build a Voice Agent
               - section: Speech to Text API
@@ -442,8 +440,6 @@ navigation:
                 contents:
                   - endpoint: POST /v1/listen
                     title: Transcribe - Pre-recorded audio
-                  - page: Transcribe - Live audio
-                    path: docs/transcribe-live-audio.mdx
                   - endpoint: GET /v1/listen
                     slug: listen-streaming
                     title: Transcribe - Live audio
@@ -453,8 +449,6 @@ navigation:
                 contents:
                   - endpoint: POST /v1/speak
                     title: Text to Speech - REST
-                  - page: Text to Speech - Streaming
-                    path: docs/transform-text-to-speech.mdx
                   - endpoint: GET /v1/speak
                     slug: speak-streaming
                     title: Text to Speech - Streaming
@@ -1129,7 +1123,7 @@ redirects:
   - source: /docs/introduction
     destination: /home/introduction
   - source: /reference/build-a-voice-agent
-    destination: /reference/voice-agent-api/build-a-voice-agent
+    destination: /reference/voice-agent-api/agent
   - source: /reference/listen-file
     destination: /reference/speech-to-text-api/listen
   - source: /reference/listen-remote
