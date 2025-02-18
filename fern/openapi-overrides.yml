@@ -1,6 +1,17 @@
 paths:
   /v1/listen:
     post:
+      requestBody: 
+        description: Transcribe an audio file
+        content: 
+          application/json:
+            schema:
+              oneOf: 
+                - $ref: '#/components/schemas/ListenRequestUrl'
+                - $ref: '#/components/schemas/ListenRequestFile'
+          audio/*:
+            schema: null
+        required: true
       x-fern-sdk-group-name:
         - speechToText
       x-fern-sdk-method-name: listen
@@ -8,6 +19,7 @@ paths:
         - name: Local File
           code-samples:
             - language: curl
+              name: Local File
               code: >
                 curl \
                   --request POST \
@@ -16,6 +28,7 @@ paths:
                   --data-binary @youraudio.wav \
                   --url 'https://api.deepgram.com/v1/listen'
             - language: python
+              name: Local File
               code: >
                 import requests
 
@@ -35,6 +48,7 @@ paths:
 
                 print(response.json())
             - language: javascript
+              name: Local File
               code: >
                 const fs = require("fs");
                 
@@ -79,6 +93,7 @@ paths:
                     });
                 });
             - language: go
+              name: Local File
               code: >
                 package main
 
@@ -143,6 +158,7 @@ paths:
                   fmt.Println("Response body:", responseBody.String())
                 }
             - language: csharp
+              name: Local File
               code: > 
                 using System;
                 using System.IO;
@@ -203,6 +219,7 @@ paths:
                     }
                 }
             - language: java
+              name: Local File
               code: >
                 import java.io.*;
                 import java.net.*;
@@ -269,6 +286,7 @@ paths:
                   }
                 }
             - language: php
+              name: Local File
               code: >
                 <?php
 
@@ -310,6 +328,7 @@ paths:
 
                 ?>
             - language: ruby
+              name: Local File
               code: >
                 require 'net/http'
 
@@ -342,6 +361,7 @@ paths:
                 # Print the response body
                 puts response.body
             - language: swift
+              name: Local File
               code: >
                 import Foundation
 
@@ -558,6 +578,7 @@ paths:
         - name: Remote File
           code-samples:
             - language: curl
+              name: Remote File
               code: |
                 curl --request POST \
                   --url https://api.deepgram.com/v1/listen \
@@ -566,6 +587,7 @@ paths:
                   --header 'Content-Type: application/json' \
                   --data '{"url": "https://dpgr.am/spacewalk.wav"}'
             - language: python
+              name: Remote File
               code: |
                 import requests
 
@@ -586,6 +608,7 @@ paths:
 
                 print(response.json())
             - language: javascript
+              name: Remote File
               code: |
                 const url = "https://api.deepgram.com/v1/listen";
                 const apiKey = "DEEPGRAM_API_KEY"; // Replace with your actual API key
@@ -617,6 +640,7 @@ paths:
                     console.error("Error:", error); // Handle errors
                   });
             - language: go
+              name: Remote File
               code: >
                 package main
 
@@ -659,6 +683,7 @@ paths:
                   fmt.Println(string(body))
                 }
             - language: csharp
+              name: Remote File
               code: > 
                 using System;
                 using System.Net.Http;
@@ -696,6 +721,7 @@ paths:
                     }
                 }
             - language: java
+              name: Remote File
               code: >
                 import okhttp3.*;
 
@@ -740,6 +766,7 @@ paths:
                   }
                 }
             - language: php
+              name: Remote File
               code: >
                 <?php
 
@@ -790,6 +817,7 @@ paths:
 
                 ?>
             - language: ruby
+              name: Remote File
               code: >
                 require 'uri'
                 require 'net/http'
@@ -818,6 +846,7 @@ paths:
                 # Output the response body
                 puts response.body
             - language: swift
+              name: Remote File
               code: >
                 import Foundation
 
@@ -1011,14 +1040,6 @@ paths:
 
                 // Teardown Library
                 Library.Terminate();   
-      requestBody: 
-        content: 
-          application/json:
-            schema:
-              oneOf: 
-                - $ref: '#/components/schemas/ListenRequest'
-                - $ref: '#/components/schemas/ListenRequestFile'
-          audio/*: null
   /v1/read:
     post:
       x-fern-sdk-group-name:
