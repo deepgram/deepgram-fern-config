@@ -1011,7 +1011,14 @@ paths:
 
                 // Teardown Library
                 Library.Terminate();   
-        
+      requestBody: 
+        content: 
+          application/json:
+            schema:
+              oneOf: 
+                - $ref: '#/components/schemas/ListenRequest'
+                - $ref: '#/components/schemas/ListenRequestFile'
+          audio/*: null
   /v1/read:
     post:
       x-fern-sdk-group-name:
