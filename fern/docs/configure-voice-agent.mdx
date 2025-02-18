@@ -15,7 +15,7 @@ To configure the voice agent, you'll need to send a [Settings Configuration](/do
 
 | Parameter                   | Description                                                                                                                                                       |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `audio.input`               | The speech-to-text audio media input you wish to send. [See options](/docs/media-input-settings)                                                                  |
+| `audio.input`               | The speech-to-text audio media input you wish to send. The audio must be uncontainerized and have the following encodings: <br /> - `Linear16` <br /> - `alaw` <br /> - `mulaw` |
 | `audio.output`              | The text-to-speech audio media output you wish to receive. [See options](/docs/tts-media-output-settings)                                                         |
 | `agent.listen.model`        | The Deepgram speech-to-text model to be used. [See options](/docs/models-languages-overview)                                                                      |
 | `agent.think.model`         | Defines the LLM Model to be used. [See options](/docs/voice-agent-llm-models)                                                                                     |
@@ -24,7 +24,7 @@ To configure the voice agent, you'll need to send a [Settings Configuration](/do
 | `agent.think.functions`     | Pass functions to the agent that will be called throughout the conversation if/when needed as described per function. [See options](/docs/voice-agent-llm-models) |
 | `agent.speak.model`         | The Deepgram text-to-speech model to be used. [See options](/docs/voice-agent-tts-models)                                                                         |
 | `context.messages`          | Used to restore existing conversation if websocket connection break.                                                                                              |
-| `context.reply`             | Used to to replay the last message, if it is an assistant message.                                                                                                |
+| `context.replay`             | Used to to replay the last message, if it is an assistant message.                                                                                                |
 
 ## Full Example
 
