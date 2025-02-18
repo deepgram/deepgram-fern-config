@@ -1846,40 +1846,40 @@ components:
       required: false
       description: Sample Rate specifies the sample rate for the output audio. Based on the encoding, different sample rates are supported. For some encodings, the sample rate is not configurable
       schema:
-        default: 24000
+        default: "a24000"
         oneOf:
           - title: linear16
             description: Encoding - linear16. Supported sample rates - 8000, 16000, 24000, 32000, 48000 Hz.
-            type: integer
+            type: string
             enum:
-              - 8000
-              - 16000
-              - 24000
-              - 32000
-              - 48000
+              - "a8000"
+              - "a16000"
+              - "a24000"
+              - "a32000"
+              - "a48000"
           - title: mulaw
             description: Encoding - mulaw. Supported sample rates - 8000, 16000 Hz.
-            type: integer
+            type: string
             enum:
-              - 8000
-              - 16000
+              - "a8000"
+              - "a16000"
           - title: alaw
             description: Encoding - alaw. Supported sample rates - 8000, 16000 Hz.
-            type: integer
+            type: string
             enum:
-              - 8000
-              - 16000
+              - "a8000"
+              - "a16000"
           - title: mp3
             description: Encoding - mp3. Sample rate is fixed and not configurable (22050 Hz).
-            type: integer
+            type: string
             enum:
-              - 22050
+              - "a22050"
           - title: opus
             description: Encoding - opus. Sample rate is fixed at 48000 Hz.
-            type: integer
+            type: string
             enum:
-              - 48000
-      example: 24000
+              - "a48000"
+      example: "a24000"
     project_id:
       name: project_id
       in: path
