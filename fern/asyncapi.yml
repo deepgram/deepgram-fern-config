@@ -89,13 +89,13 @@ channels:
         location: $message.payload#/sample_rate
         default: '24000'
         enum:
-          - 'a8000'
-          - 'a16000'
-          - 'a24000'
-          - 'a44100'
-          - 'a48000'
+          - '8000'
+          - '16000'
+          - '24000'
+          - '44100'
+          - '48000'
         examples:
-          - 'a24000'
+          - '24000'
     messages:
       textToSpeechRequest:
         description: Request to convert text to speech
