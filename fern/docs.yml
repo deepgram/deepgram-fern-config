@@ -1126,85 +1126,86 @@ redirects:
     destination: /docs/live-streaming-audio
   - source: /docs/introduction
     destination: /home/introduction
-## this section will need to be updated to use the new API navigation
-  - source: /reference/analyze-text
-    destination: /reference/text-intelligence-api/text-read
   - source: /reference/build-a-voice-agent
     destination: /reference/voice-agent-api/build-a-voice-agent
-  - source: /reference/create-credentials
-    destination: /reference/management-api/create-self-hosted-dist-creds
-  - source: /reference/create-key
-    destination: /reference/management-api/create-project-key
-  - source: /reference/delete-credentials
-    destination: /reference/management-api/delete-self-hosted-dist-creds
-  - source: /reference/delete-invite
-    destination: /reference/management-api/delete-project-invite
-  - source: /reference/delete-key
-    destination: /reference/management-api/delete-project-key
-  - source: /reference/delete-project
-    destination: /reference/management-api/delete-project
-  - source: /reference/get-all-balances
-    destination: /reference/management-api/get-project-balances
-  - source: /reference/get-all-requests
-    destination: /reference/management-api/list-project-requests
-  - source: /reference/get-balance
-    destination: /reference/management-api/get-project-balance
-  - source: /reference/get-credentials
-    destination: /reference/management-api/get-self-hosted-credentials
-  - source: /reference/get-fields
-    destination: /reference/management-api/list-project-usage-fields
-  - source: /reference/get-key
-    destination: /reference/management-api/get-project-key
-  - source: /reference/get-member-scopes
-    destination: /reference/management-api/list-project-member-scopes
-  - source: /reference/get-members
-    destination: /reference/management-api/list-project-members
-  - source: /reference/get-model
-    destination: /reference/management-api/get-model
-  - source: /reference/get-models
-    destination: /reference/management-api/list-models
-  - source: /reference/get-project
-    destination: /reference/management-api/get-project
-  - source: /reference/get-project-model
-    destination: /reference/management-api/get-project-model
-  - source: /reference/get-project-models
-    destination: /reference/management-api/list-project-models
-  - source: /reference/get-projects
-    destination: /reference/management-api/list-projects
-  - source: /reference/get-purchases
-    destination: /reference/management-api/list-project-purchases
-  - source: /reference/get-request
-    destination: /reference/management-api/get-project-request
-  - source: /reference/leave-project
-    destination: /reference/management-api/delete-project-leave
-  - source: /reference/list-credentials
-    destination: /reference/management-api/list-self-hosted-dist-creds
-  - source: /reference/list-invites
-    destination: /reference/management-api/list-project-invites
-  - source: /reference/list-keys
-    destination: /reference/management-api/list-project-keys
   - source: /reference/listen-file
+    destination: /reference/speech-to-text-api/listen
+  - source: /reference/listen-remote
     destination: /reference/speech-to-text-api/listen
   - source: /reference/listen-live
     destination: /reference/speech-to-text-api/transcribe-live-audio
-  - source: /reference/listen-remote
-    destination: /reference/speech-to-text-api/listen
-  - source: /reference/remove-member
-    destination: /reference/management-api/delete-project-member
-  - source: /reference/send-invites
-    destination: /reference/management-api/create-project-invite
-  - source: /reference/summarize-usage
-    destination: /reference/management-api/get-project-usage
   - source: /reference/text-to-speech-api
     destination: /reference/text-to-speech-api/speak
   - source: /reference/transform-text-to-speech-websocket
-    destination: /reference/web-socket-api/text-to-speech-streaming
+    destination: /reference/text-to-speech-api/speak
+  - source: /reference/analyze-text
+    destination: /reference/text-intelligence-api/text-read
+  - source: /reference/models
+    destination: /reference/management-api/models/list
+  - source: /reference/get-models
+    destination: /reference/management-api/models/list
+  - source: /reference/get-model
+    destination: /reference/management-api/models/get
+  - source: /reference/get-projects
+    destination: /reference/management-api/projects/list
+  - source: /reference/get-project
+    destination: /reference/management-api/projects/get
   - source: /reference/update-project
-    destination: /reference/management-api/update-project
+    destination: /reference/management-api/projects/update
+  - source: /reference/delete-project
+    destination: /reference/management-api/projects/delete
+  - source: /reference/get-project-models
+    destination: /reference/management-api/projects/list-models
+  - source: /reference/get-project-model
+    destination: /reference/management-api/projects/get-model
+  - source: /reference/list-keys
+    destination: /reference/management-api/keys/list
+  - source: /reference/get-key
+    destination: /reference/management-api/keys/get
+  - source: /reference/create-key
+    destination: /reference/management-api/keys/create
+  - source: /reference/delete-key
+    destination: /reference/management-api/keys/delete
+  - source: /reference/get-members
+    destination: /reference/management-api/members/list
+  - source: /reference/remove-member
+    destination: /reference/management-api/members/delete
+  - source: /reference/get-member-scopes
+    destination: /reference/management-api/scopes/list
   - source: /reference/update-scope
-    destination: /reference/management-api/update-project-member-scopes
+    destination: /reference/management-api/scopes/update
+  - source: /reference/list-invites
+    destination: /reference/management-api/invitations/list
+  - source: /reference/send-invites
+    destination: /reference/management-api/invitations/create
+  - source: /reference/delete-invite
+    destination: /reference/management-api/invitations/delete
+  - source: /reference/leave-project
+    destination: /reference/management-api/invitations/leave
+  - source: /reference/get-all-requests
+    destination: /reference/management-api/usage/list-requests
+  - source: /reference/get-request
+    destination: /reference/management-api/usage/get-request
+  - source: /reference/summarize-usage
+    destination: /reference/management-api/usage/get
+  - source: /reference/get-fields
+    destination: /reference/management-api/usage/list-fields
   - source: /reference/usage-breakdown
-    destination: /reference/management-api/get-project-usage-breakdown
+    destination: /reference/management-api/usage/get-breakdown
+  - source: /reference/get-all-balances
+    destination: /reference/management-api/purchases/list
+  - source: /reference/get-balance
+    destination: /reference/management-api/balances/get
+  - source: /reference/get-purchases
+    destination: /reference/management-api/balances/list
+  - source: /reference/list-credentials
+    destination: /reference/self-hosted-api/list-credentials
+  - source: /reference/get-credentials
+    destination: /reference/self-hosted-api/get-credentials
+  - source: /reference/create-credentials
+    destination: /reference/self-hosted-api/create-credentials
+  - source: /reference/delete-credentials
+    destination: /reference/self-hosted-api/delete-credentials
 
 
 # analytics:
