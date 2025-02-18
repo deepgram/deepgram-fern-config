@@ -78,11 +78,23 @@ Distribution credentials are used to authenticate with a container image reposit
 If your self-hosted Deepgram environment uses a static legacy license key, or you previously used DockerHub to access container images, you will need to modify your environment to use your newly generated credentials.
 
 <Info>
+  <h2> Checking if you need to migrate from DockerHub </h2>
   To check if you are currently pulling images from DockerHub and need to migrate to Quay, check your deployment files. Depending on your container orchestrator, this may be a Docker Compose file, a Podman Compose file, Kubernetes manifest files, or a Helm chart.
 
   A container image path and tag will be listed within those files. If it looks like any of the following, you are pulling from DockerHub and must migrate to Quay.
+  
+  - `deepgram/onprem-api:xxxx`
+  - `deepgram/onprem-engine:xxxx`
+  - `deepgram/onprem-license-proxy:xxxx`
 
   If your image tags have the prefix `quay.io`, such as some of the examples below, you are already using Quay and do not need to migrate.
+
+  - `quay.io/deepgram/onprem-api:xxxx`
+  - `quay.io/deepgram/self-hosted-api:xxxx`
+  - `quay.io/deepgram/onprem-engine:xxxx`
+  - `quay.io/deepgram/self-hosted-engine:xxxx`
+  - `quay.io/deepgram/onprem-license-proxy:xxxx`
+  - `quay.io/deepgram/self-hosted-license-proxy:xxxx`
 </Info>
 
 1. Upgrade your Deepgram container images to the most recent release provided by Quay.
