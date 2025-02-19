@@ -21,12 +21,6 @@ export function NavHeader() {
               <span>Documentation</span>
             </button>
           </a>
-          <a href="/reference" rel="noopener noreferrer">
-            <button className="tw-rounded-md tw-text-[#BBBBBF] tw-py-2 tw-px-3 tw-flex tw-items-center tw-gap-2">
-              <img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/code.svg" width="16" height="16" alt="code" />
-              <span>API Reference</span>
-            </button>
-          </a>
           <a href="https://community.deepgram.com" target="_blank" rel="noopener noreferrer">
             <button className="tw-rounded-md tw-text-[#BBBBBF] tw-py-2 tw-px-3 tw-flex tw-items-center tw-gap-2">
               <img src="https://fern-image-hosting.s3.us-east-1.amazonaws.com/deepgram/community-users.svg" width="16" height="16" alt="community" />
