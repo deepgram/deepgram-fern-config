@@ -82,6 +82,9 @@ tabs:
   security:
     display-name: Security
     slug: security
+  hidden:
+    display-name: Hidden
+    slug: hidden
 navigation:
   - tab: home
     layout:
@@ -685,61 +688,60 @@ navigation:
       - page: Information Security & Privacy Statement
         path: docs/information-security-privacy-statement.mdx
   - tab: hidden
-    hidden: true
     layout:
       - page: Aura 2 Private Preview
-        path: docs/hidden-pages/aura-2-preview.mdx
+        path: hidden-pages/aura-2-preview.mdx
         hidden: true
       - page: Amazon Elastic Container Service
-        path: docs/hidden-pages/aws-ecs.mdx
+        path: hidden-pages/aws-ecs.mdx
         hidden: true
       - page: Data Labeling Intro
-        path: docs/hidden-pages/data-labeling-intro.mdx
+        path: hidden-pages/data-labeling-intro.mdx
         hidden: true
       - page: Data Labeling Best Practices
-        path: docs/hidden-pages/data-labeling-best-practices.mdx
+        path: hidden-pages/data-labeling-best-practices.mdx
         hidden: true
       - page: Data Labeling Setting Up
-        path: docs/hidden-pages/data-labeling-setting-up.mdx
+        path: hidden-pages/data-labeling-setting-up.mdx
         hidden: true
       - page: Data Labeling Understanding the Workflow
-        path: docs/hidden-pages/data-labeling-understanding-the-workflow.mdx
+        path: hidden-pages/data-labeling-understanding-the-workflow.mdx
         hidden: true
       - page: Data Labeling Managing Work
-        path: docs/hidden-pages/data-labeling-managing-work.mdx
+        path: hidden-pages/data-labeling-managing-work.mdx
         hidden: true
       - page: Data Labeling Troubleshooting
-        path: docs/hidden-pages/data-labeling-troubleshooting.mdx
+        path: hidden-pages/data-labeling-troubleshooting.mdx
         hidden: true
       - page: DG Tools Overview
-        path: docs/hidden-pages/dgtools-overview.mdx
+        path: hidden-pages/dgtools-overview.mdx
         hidden: true
       - page: Distro Guide Ubuntu 20.04 LTS
-        path: docs/hidden-pages/distro-guide-ubuntu-2004-lts.mdx
+        path: hidden-pages/distro-guide-ubuntu-2004-lts.mdx
         hidden: true
       - page: Distro Guide RHEL 8
-        path: docs/hidden-pages/distro-guide-rhel-8.mdx
+        path: hidden-pages/distro-guide-rhel-8.mdx
         hidden: true
       - page: Distro Guide RHEL 7
-        path: docs/hidden-pages/distro-guide-rhel-7.mdx
+        path: hidden-pages/distro-guide-rhel-7.mdx
         hidden: true
       - page: RAG & Multi-Agent Workflows
-        path: docs/hidden-pages/voice-agent-rag-multi-agent-workflows.mdx
+        path: hidden-pages/voice-agent-rag-multi-agent-workflows.mdx
         hidden: true
       - page: Softbank Voice Agent API Reference
-        path: docs/hidden-pages/softbank-voice-agent-api-reference.mdx
+        path: hidden-pages/softbank-voice-agent-api-reference.mdx
         hidden: true
       - page: Using the Deepgram Event Captioner
-        path: docs/hidden-pages/using-the-deepgram-event-captioner.mdx
+        path: hidden-pages/using-the-deepgram-event-captioner.mdx
         hidden: true
       - page: Tier - Deprecated
-        path: docs/hidden-pages/tier.mdx
+        path: hidden-pages/tier.mdx
         hidden: true
       - page: Voice Agent Latency
-        path: docs/hidden-pages/voice-agent-latency.mdx
+        path: hidden-pages/voice-agent-latency.mdx
         hidden: true
       - page: Voice Agent Prompting
-        path: docs/hidden-pages/voice-agent-prompting.mdx
+        path: hidden-pages/voice-agent-prompting.mdx
         hidden: true
 
 redirects:
