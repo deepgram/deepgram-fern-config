@@ -444,19 +444,19 @@ navigation:
                   - speechToText
                 contents:
                   - endpoint: POST /v1/listen
-                    title: Transcribe - Pre-recorded audio
+                    title: Pre-Recorded Audio
                   - endpoint: GET /v1/listen
                     slug: listen-streaming
-                    title: Transcribe - Live audio
+                    title: Live Audio
               - section: Text to Speech API
                 referenced-packages:
                   - textToSpeech
                 contents:
                   - endpoint: POST /v1/speak
-                    title: Text to Speech - REST
+                    title: Single Text Request
                   - endpoint: GET /v1/speak
                     slug: speak-streaming
-                    title: Text to Speech - Streaming
+                    title: Continuous Text Stream
               - section: Text Intelligence API
                 referenced-packages:
                   - textIntelligence
