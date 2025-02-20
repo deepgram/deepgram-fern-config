@@ -5,6 +5,8 @@ description: ""
 hidden: true
 og:title: "Deepgram On-premise - Deploying: RHEL 7 - Deepgram Docs"
 ---
+<span class="dg-badge deprecated">Deprecated</span>
+
 Cloud-hosted on-premises (on-prem) deployments are the most common type of deployment performed by customers who want to leverage Deepgram within their own infrastructure. Specific configurations vary, but the Cloud Service Providers that are typically used include Amazon Web Services (AWS), Azure, and Google Cloud Platform (GCP). This guide details steps to set up a deployment to the cloud on an AWS instance running Red Hat Enterprise Linux (RHEL) 7.
 
 In this guide, you will learn how to expose and access your application in a secure and stable manner. You will need to perform some of these steps in the AWS Management Console and some in your local terminal.
@@ -457,7 +459,7 @@ Now that your environment is set up, you can download and set up your Deepgram p
    docker pull quay.io/deepgram/onprem-api:IMAGE_OR_RELEASE_TAG
    ```
 
-<Warning>   
+<Warning>
 Be sure to replace the `IMAGE_OR_RELEASE_TAG` placeholder value with the appropriate tag identified in step 1. Use this tag in all related configuration files.
 </Warning>
 
@@ -560,8 +562,8 @@ services:
     ports:
       - "8080:8080"
 
-    environment:  
-      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"  
+    environment:
+      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"
 
 	# Uncomment the next two lines if using a customized configuration file
     # volumes:
@@ -570,8 +572,8 @@ services:
       # the file on the host machine.
 
     # Invoke the API server
-    command: -v serve 
-    # If you are using a custom configuration file mounted at /api.toml, use the following command instead 
+    command: -v serve
+    # If you are using a custom configuration file mounted at /api.toml, use the following command instead
     # command: -v serve /api.toml
 
   # The speech engine service.
@@ -589,16 +591,16 @@ services:
       - "/path/to/models:/models:ro"
       # Uncomment the next line if using a customized configuration file
       # - "/path/to/engine.toml:/engine.toml:ro"
-    
+
     ports:
       - "9991:9991"
 
-    environment:  
-      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"  
+    environment:
+      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"
 
     # Invoke the Engine service
 	command: -v serve
-	# If you are using a custom configuration file mounted at /api.toml, use the following command instead 
+	# If you are using a custom configuration file mounted at /api.toml, use the following command instead
     # command: -v serve /engine.toml
 ```
 
@@ -805,7 +807,7 @@ Deepgram makes all of its products available through Quay.
 
 1. Log in to your Quay account from one of your servers.
 2. Similar to the API and Engine instructions, identify the latest on-prem release in the [Deepgram Changelog](https://deepgram.com/changelog/). Filter by "On-Prem", and select the latest release. You can use either the container image tag or the release tag listed for all images referenced in this documentation.
-3. Run the following command: 
+3. Run the following command:
 
    ```bash
    $ docker pull quay.io/deepgram/onprem-license-proxy:IMAGE_OR_RELEASE_TAG
@@ -838,8 +840,8 @@ services:
     ports:
       - "8080:8080"
 
-    environment:  
-      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"  
+    environment:
+      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"
 
 	# Uncomment the next two lines if using a customized configuration file
     # volumes:
@@ -848,8 +850,8 @@ services:
       # the file on the host machine.
 
     # Invoke the API server
-    command: -v serve 
-    # If you are using a custom configuration file mounted at /api.toml, use the following command instead 
+    command: -v serve
+    # If you are using a custom configuration file mounted at /api.toml, use the following command instead
     # command: -v serve /api.toml
 
   # The speech engine service.
@@ -867,16 +869,16 @@ services:
       - "/path/to/models:/models:ro"
       # Uncomment the next line if using a customized configuration file
       # - "/path/to/engine.toml:/engine.toml:ro"
-    
+
     ports:
       - "9991:9991"
 
-    environment:  
-      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"  
+    environment:
+      DEEPGRAM_API_KEY: "${DEEPGRAM_API_KEY}"
 
     # Invoke the Engine service
 	command: -v serve
-	# If you are using a custom configuration file mounted at /api.toml, use the following command instead 
+	# If you are using a custom configuration file mounted at /api.toml, use the following command instead
     # command: -v serve /engine.toml
 
   license-proxy:

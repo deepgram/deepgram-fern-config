@@ -1,10 +1,13 @@
 ---
-title: "DGTools"
-slug: "dgtools"
-description: ""
+title: "DGTools Overview"
+slug: "dgtools-overview"
+description: "Overview of the Deepgram Tools suite."
 hidden: true
 og:title: "Deepgram Self-Hosted - Enterprise: DGTools - Deepgram Docs"
 ---
+
+<span class="dg-badge deprecated">Deprecated</span>
+
 Deepgram offers custom model training as part of our [Enterprise offering](https://deepgram.com/enterprise). Typically, a customer will provide the needed data to Deepgram, and our team can handle all aspects of turning that data into a custom model for your use case.
 
 There may be situations where you want to train your own custom models in your self-hosted environment. DGTools offers a path forward. Users of DGTools can take a general domain model and train it with production-representative data, or trainable data, to produce a targeted domain model.
@@ -140,7 +143,7 @@ DGTools supports customizing Deepgram's Base and Enhanced models.
 
 #### Supported Languages
 
-DGTools supports training models for a variety of languages in the open beta. The default language is `en` and the `dgdatasets` for English can exist as a subdirectory of `$DGTOOLS_RESOURCE_DIR`. 
+DGTools supports training models for a variety of languages in the open beta. The default language is `en` and the `dgdatasets` for English can exist as a subdirectory of `$DGTOOLS_RESOURCE_DIR`.
 
 Additionally, DGTools can automatically detect the language type for a given model and search `$DGTOOLS_RESOURCE_DIR` for a matching subdirectory. Subdirectories for a specific language should match the BCP-47 language tag and contain a subdirectory named `dgdatsets`. For example, a Spanish dataset could be placed at `$DGTOOLS_RESOURCE_DIR/es/dgdatasets/example_data_set`.
 
@@ -179,7 +182,7 @@ dgtools autotrain ./general.last.dg --top-off --revisit-count 100
 ```
 
 <Warning>
-The default `--revisit-count` values for autotrain and topping-off were chosen to find a balance with training and the risk of “over-fitting” a model. 
+The default `--revisit-count` values for autotrain and topping-off were chosen to find a balance with training and the risk of “over-fitting” a model.
 
 A model is considered to be “over-fit” when training starts to negatively impact its validation accuracy. Validation accuracy is a useful measure for determining when a model’s training is “complete” and is used by DGTools to create model checkpoints.
 </Warning>
@@ -233,7 +236,7 @@ dgtools autotrain example-model.dg --dataset-locations /dgtraining/datasets.lst
 
 #### Providing `makedeployable` an output model name and tags
 
-To output a model with a specific filename, use the flag `--name` and `--tags` to provide the name and any tags for the model’s metadata information. You can specify an arbitrary number of _string_ tags for the model via the `--tags` flag. If you do not use these flags, the default name will be derived from the model's metadata, as opposed to updating the new model's metadata with the name you supplied. 
+To output a model with a specific filename, use the flag `--name` and `--tags` to provide the name and any tags for the model’s metadata information. You can specify an arbitrary number of _string_ tags for the model via the `--tags` flag. If you do not use these flags, the default name will be derived from the model's metadata, as opposed to updating the new model's metadata with the name you supplied.
 
 The `.last` model file should generally be used as the deployable file, but as a best practice we recommend evaluating either of the `.best` model files for deployment in addition to the `.last` model file.
 

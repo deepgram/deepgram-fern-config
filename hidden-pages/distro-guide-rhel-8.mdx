@@ -1,10 +1,12 @@
 ---
-title: "RHEL 8"
-slug: "rhel-8"
-description: ""
+title: "Distro Guide: RHEL 8"
+slug: "distro-guide-rhel-8"
+description: "Instructions for deploying Deepgram on RHEL 8."
 hidden: true
 og:title: "Deepgram On-premise - Deploying: RHEL 8 - Deepgram Docs"
 ---
+<span class="dg-badge deprecated">Deprecated</span>
+
 Cloud-hosted on-premises (on-prem) deployments are the most common type of deployment performed by customers who want to leverage Deepgram within their own infrastructure. Specific configurations vary, but the Cloud Service Providers that are typically used include Amazon Web Services (AWS), Azure, and Google Cloud Platform (GCP). This guide details steps to set up a deployment to the cloud on an AWS instance running Red Hat Enterprise Linux (RHEL) 8.
 
 In this guide, you will learn how to expose and access your application in a secure and stable manner. You will need to perform some of these steps in the AWS Management Console and some in your local terminal.
@@ -211,7 +213,7 @@ Install Podman which is the RHEL 8 native container engine:
 2. Verify that the Podman installation was sucessful:
 
    ```bash
-   podman version 
+   podman version
    ```
 
    You should expect the command to return the following output:
@@ -357,7 +359,7 @@ Install the NVIDIA Container Toolkit
    nvidia-container-cli -k list | restorecon -v -f -
    ```
 
-6. Restore the security context of the contents of `/dev` 
+6. Restore the security context of the contents of `/dev`
 
    ```bash
    restorecon -Rv /dev
@@ -680,7 +682,7 @@ podman run --security-opt=no-new-privileges --cap-drop=ALL --security-opt \
 5. Verify that Engine started properly
 
 ```bash
-podman container logs deepgram-onprem-engine 
+podman container logs deepgram-onprem-engine
 ```
 
 6. Start API
@@ -739,7 +741,7 @@ Deepgram makes all of its products available through Docker Hub.
 2. Run the following command:
 
    ```bash
-   $ podman pull docker.io/deepgram/onprem-license-proxy:1.4.0 
+   $ podman pull docker.io/deepgram/onprem-license-proxy:1.4.0
    ```
 
 ### Deploying
