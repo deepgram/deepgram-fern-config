@@ -2,8 +2,8 @@ channels:
   speak:
     parameters:
       encoding:
-        x-fern-is-optional: true
+        x-fern-optional: true
       model:
-        x-fern-is-optional: true
+        x-fern-optional: true
       sample_rate:
-        x-fern-is-optional: true
+        x-fern-optional: true
