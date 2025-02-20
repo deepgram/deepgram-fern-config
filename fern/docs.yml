@@ -82,10 +82,6 @@ tabs:
   security:
     display-name: Security
     slug: security
-  hidden:
-    display-name: Hidden
-    slug: hidden
-    hidden: true
 navigation:
   - tab: home
     layout:
@@ -546,6 +542,63 @@ navigation:
             path: docs/zapier-integration.mdx
           - page: Zoom and Deepgram
             path: docs/integrate-deepgram-with-zoom.mdx
+      - section: Hidden Docs
+        hidden: true
+        contents:
+          - page: Aura 2 Private Preview
+            path: hidden-pages/aura-2-preview.mdx
+            hidden: true
+          - page: Amazon Elastic Container Service
+            path: hidden-pages/aws-ecs.mdx
+            hidden: true
+          - page: Data Labeling Intro
+            path: hidden-pages/data-labeling-intro.mdx
+            hidden: true
+          - page: Data Labeling Best Practices
+            path: hidden-pages/data-labeling-best-practices.mdx
+            hidden: true
+          - page: Data Labeling Setting Up
+            path: hidden-pages/data-labeling-setting-up.mdx
+            hidden: true
+          - page: Data Labeling Understanding the Workflow
+            path: hidden-pages/data-labeling-understanding-the-workflow.mdx
+            hidden: true
+          - page: Data Labeling Managing Work
+            path: hidden-pages/data-labeling-managing-work.mdx
+            hidden: true
+          - page: Data Labeling Troubleshooting
+            path: hidden-pages/data-labeling-troubleshooting.mdx
+            hidden: true
+          - page: DG Tools Overview
+            path: hidden-pages/dgtools-overview.mdx
+            hidden: true
+          - page: Distro Guide Ubuntu 20.04 LTS
+            path: hidden-pages/distro-guide-ubuntu-2004-lts.mdx
+            hidden: true
+          - page: Distro Guide RHEL 8
+            path: hidden-pages/distro-guide-rhel-8.mdx
+            hidden: true
+          - page: Distro Guide RHEL 7
+            path: hidden-pages/distro-guide-rhel-7.mdx
+            hidden: true
+          - page: RAG & Multi-Agent Workflows
+            path: hidden-pages/voice-agent-rag-multi-agent-workflows.mdx
+            hidden: true
+          - page: Softbank Voice Agent API Reference
+            path: hidden-pages/softbank-voice-agent-api-reference.mdx
+            hidden: true
+          - page: Using the Deepgram Event Captioner
+            path: hidden-pages/using-the-deepgram-event-captioner.mdx
+            hidden: true
+          - page: Tier - Deprecated
+            path: hidden-pages/tier.mdx
+            hidden: true
+          - page: Voice Agent Latency
+            path: hidden-pages/voice-agent-latency.mdx
+            hidden: true
+          - page: Voice Agent Prompting
+            path: hidden-pages/voice-agent-prompting.mdx
+            hidden: true
   - tab: sdks
     layout:
       - page: Deepgram SDKs
@@ -688,65 +741,6 @@ navigation:
         path: docs/data-privacy-compliance.mdx
       - page: Information Security & Privacy Statement
         path: docs/information-security-privacy-statement.mdx
-  - tab: hidden
-    layout:
-      - section: Hidden Docs
-        hidden: true
-        contents:
-          - page: Aura 2 Private Preview
-            path: hidden-pages/aura-2-preview.mdx
-            hidden: true
-          - page: Amazon Elastic Container Service
-            path: hidden-pages/aws-ecs.mdx
-            hidden: true
-          - page: Data Labeling Intro
-            path: hidden-pages/data-labeling-intro.mdx
-            hidden: true
-          - page: Data Labeling Best Practices
-            path: hidden-pages/data-labeling-best-practices.mdx
-            hidden: true
-          - page: Data Labeling Setting Up
-            path: hidden-pages/data-labeling-setting-up.mdx
-            hidden: true
-          - page: Data Labeling Understanding the Workflow
-            path: hidden-pages/data-labeling-understanding-the-workflow.mdx
-            hidden: true
-          - page: Data Labeling Managing Work
-            path: hidden-pages/data-labeling-managing-work.mdx
-            hidden: true
-          - page: Data Labeling Troubleshooting
-            path: hidden-pages/data-labeling-troubleshooting.mdx
-            hidden: true
-          - page: DG Tools Overview
-            path: hidden-pages/dgtools-overview.mdx
-            hidden: true
-          - page: Distro Guide Ubuntu 20.04 LTS
-            path: hidden-pages/distro-guide-ubuntu-2004-lts.mdx
-            hidden: true
-          - page: Distro Guide RHEL 8
-            path: hidden-pages/distro-guide-rhel-8.mdx
-            hidden: true
-          - page: Distro Guide RHEL 7
-            path: hidden-pages/distro-guide-rhel-7.mdx
-            hidden: true
-          - page: RAG & Multi-Agent Workflows
-            path: hidden-pages/voice-agent-rag-multi-agent-workflows.mdx
-            hidden: true
-          - page: Softbank Voice Agent API Reference
-            path: hidden-pages/softbank-voice-agent-api-reference.mdx
-            hidden: true
-          - page: Using the Deepgram Event Captioner
-            path: hidden-pages/using-the-deepgram-event-captioner.mdx
-            hidden: true
-          - page: Tier - Deprecated
-            path: hidden-pages/tier.mdx
-            hidden: true
-          - page: Voice Agent Latency
-            path: hidden-pages/voice-agent-latency.mdx
-            hidden: true
-          - page: Voice Agent Prompting
-            path: hidden-pages/voice-agent-prompting.mdx
-            hidden: true
 
 redirects:
   - source: /api-reference
