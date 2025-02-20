@@ -3,7 +3,7 @@ function insertHeap() {
   script.type = 'text/javascript';
   script.async = true;
   script.src = 'https://cdn.heapanalytics.com/js/heap-765739241.js';
-  document.body.appendChild(script);
+  document.head.appendChild(script);
 }
 
 function insertKapaWidget() {
