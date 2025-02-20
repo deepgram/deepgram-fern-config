@@ -40,14 +40,12 @@ servers:
 channels:
   speak:
     address: /v1/speak
+    description: Deepgram Text to Speech WebSocket
     servers:
       - $ref: '#/servers/public'
-    description: Deepgram Text to Speech WebSocket
     parameters:
       ApiKey:
-        description: >-
-          API key for authentication. Format should be 'token
-          <DEEPGRAM_API_KEY>'
+        description: API key for authentication. Format should be token <DEEPGRAM_API_KEY>
         location: $message.header#/Authorization
         examples:
           - token YOUR_DEEPGRAM_API_KEY
@@ -310,9 +308,7 @@ channels:
     description: Deepgram Speech to Text WebSocket
     parameters:
       ApiKey:
-        description: >-
-          API key for authentication. Format should be 'token
-          <DEEPGRAM_API_KEY>'
+        description: API key for authentication. Format should be token <DEEPGRAM_API_KEY>
         location: $message.header#/Authorization
         examples:
           - token YOUR_DEEPGRAM_API_KEY
@@ -1026,9 +1022,7 @@ channels:
     description: Deepgram Voice Agent WebSocket
     parameters:
       ApiKey:
-        description: >-
-          API key for authentication. Format should be 'token
-          <DEEPGRAM_API_KEY>'
+        description: API key for authentication. Format should be token <DEEPGRAM_API_KEY>
         location: $message.header#/Authorization
         examples:
           - token YOUR_DEEPGRAM_API_KEY
@@ -1042,8 +1036,10 @@ channels:
             formats
           required:
             - type
+            - audio
             - agent
             - think
+            - speak
           properties:
             type:
               type: string
@@ -1785,7 +1781,7 @@ operations:
 components:
   parameters:
     ApiKey:
-      description: API key for authentication. Format should be 'token <DEEPGRAM_API_KEY>'
+      description: API key for authentication. Format should be token <DEEPGRAM_API_KEY>
       location: $message.header#/Authorization
       examples:
         - token YOUR_DEEPGRAM_API_KEY
