@@ -1,16 +1,16 @@
 ---
-title: "(Softbank) Voice Agent API - Reference"
+title: "Softbank Voice Agent API Reference"
 slug: "softbank-voice-agent-api-reference"
 description: ""
 hidden: true
 ---
-Note: This API is still in development and will be ready for a private preview for Softbank when ready for the PoC. 
+Note: This API is still in development and will be ready for a private preview for Softbank when ready for the PoC.
 
 # Get Started
 
 To start a conversation with Deepgram's Voice Agent API:
 
-1. Open a websocket connection to `wss://[softbank specific url]`. 
+1. Open a websocket connection to `wss://[softbank specific url]`.
    1. Include the HTTP header `Authorization: Token YOUR_DEEPGRAM_API_KEY`. If you don't have an API key, you can create one for free through the [console](https://console.deepgram.com/).
 2. Send a message over the websocket with your desired settings.
 3. Start streaming audio from your device microphone or audio source of your choice. Audio should be sent as binary messages over the websocket.
@@ -31,7 +31,7 @@ The client should send a `SettingsConfiguration` message immediately after openi
   "audio": {
     "input": { // optional. defaults to 16kHz linear16
       "encoding": "",
-      "sample_rate": 24000 // defaults to 24k 
+      "sample_rate": 24000 // defaults to 24k
     },
     "output": { // optional. see table below for defaults and allowed combinations
       "encoding": "",
@@ -110,7 +110,7 @@ The client can send an `UpdateInstructions` message to give additional instructi
 ```json
 {
   "type": "UpdateInstructions",
-  "instructions": "" // The new instructions to give  
+  "instructions": "" // The new instructions to give
 }
 ```
 
@@ -121,7 +121,7 @@ The client can send an `UpdateSpeak` message to change the Speak model in the mi
 ```json
 {
   "type": "UpdateSpeak",
-  "model": "" // The new Speak model  
+  "model": "" // The new Speak model
 }
 ```
 
@@ -161,7 +161,7 @@ Note that `KeepAlive`s are not needed for most conversations, because you will t
 
 ```json
 {
-  "type": "KeepAlive" 
+  "type": "KeepAlive"
 }
 ```
 
@@ -198,7 +198,7 @@ The server will send a `UserStartedSpeaking` message every time the user begins 
 
 ```json
 {
-  "type": "UserStartedSpeaking"  
+  "type": "UserStartedSpeaking"
 }
 ```
 
@@ -233,7 +233,7 @@ The server will sometimes send `FunctionCalling` messages when making function c
 ```json
 {
   "type": "FunctionCalling",
-  ...  
+  ...
 }
 ```
 
@@ -289,7 +289,7 @@ Where this JSON is supplied at the top level of a `SettingsConfiguration` messag
 
 # Rate Limits
 
-EA projects start at 1 concurrent connection for testing. This can be raised upon request or with a contract. 
+EA projects start at 1 concurrent connection for testing. This can be raised upon request or with a contract.
 
 # Usage Tracking
 
