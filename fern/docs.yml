@@ -1209,6 +1209,6 @@ redirects:
     destination: /reference/self-hosted-api/delete-credentials
 
 
-# analytics:
-#   gtm:
-#     container-id: ${GTM_CONTAINER_ID}
+analytics:
+  gtm:
+    container-id: ${GTM_CONTAINER_ID}
