@@ -34,14 +34,9 @@ servers:
   public:
     host: api.deepgram.com
     protocol: wss
-  agent:
-    host: agent.deepgram.com
-    protocol: wss
 channels:
   speak:
     address: /v1/speak
-    servers:
-      - $ref: '#/servers/public'
     description: Deepgram Text to Speech WebSocket
     parameters:
       ApiKey:
@@ -305,8 +300,6 @@ channels:
               description: Time limit exceeded
   listen:
     address: /v1/listen
-    servers:
-      - $ref: '#/servers/public'
     description: Deepgram Speech to Text WebSocket
     parameters:
       ApiKey:
@@ -1021,8 +1014,6 @@ channels:
               description: Failed to receive message
   agent:
     address: /agent
-    servers:
-      - $ref: '#/servers/agent'
     description: Deepgram Voice Agent WebSocket
     parameters:
       ApiKey:
@@ -1042,8 +1033,10 @@ channels:
             formats
           required:
             - type
+            - audio
             - agent
             - think
+            - speak
           properties:
             type:
               type: string
