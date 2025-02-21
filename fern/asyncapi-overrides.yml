@@ -26,7 +26,7 @@ channels:
           - type: subscribe
             channelId: speak
             messageId: textToSpeechResponse
-            value: JKFLDJSAHFKLJSDHFLKJSDHF
+            value: Y3VyaW91cyBtaW5kcyB0aGluayBhbGlrZSA6KQ==
   listen:
     x-fern-examples:
       - name: Speech-to-Text Example
@@ -35,11 +35,11 @@ channels:
           - type: publish
             channelId: listen
             messageId: transcriptionRequest
-            value: JKFLDJSAHFKLJSD
+            value: Y3VyaW91cyBtaW5k
           - type: publish
             channelId: listen
             messageId: transcriptionRequest
-            value: HFLKJSDHF
+            value: cyB0aGluayBhbGlrZSA6KQ==
           - type: subscribe
             channelId: listen
             messageId: transcriptionResponse
