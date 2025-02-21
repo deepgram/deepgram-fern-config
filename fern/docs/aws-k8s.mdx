@@ -26,6 +26,7 @@ The [AWS CLI](https://aws.amazon.com/cli/) provides programmatic access to manag
 2. Once installed, follow the [setup guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-quickstart.html) to configure the CLI with access to your AWS account. When configuring, set the default region to `us-west-2`.
 
    <Info>
+     <h2> Choosing a Region </h2>
      The templates and steps in this guide provision resources in the AWS `us-west-2` region.
 
      If you would like to deploy to a different region, make sure to specify your desired region when running `aws configure`, and adjust templates and steps in this guide accordingly.
@@ -396,6 +397,9 @@ Test your environment and container setup with a local file.
 
    <Info>
      If needed, adjust pieces of the above command:
+      - the query parameters to match the directions from your Deepgram Account Representative
+      - the service name `deepgram-api-external`
+      - the namespace `dg-self-hosted`
    </Info>
 
 You should receive a JSON response with the transcript and associated metadata. Congratulations - your self-hosted setup is working!

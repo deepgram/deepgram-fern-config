@@ -263,6 +263,11 @@ GKE clusters with default IAM settings should have access to pull images from yo
 
    <Info>
      Replace `YOUR_PRIVATE_CONTAINER_PATH` with the output of:
+       <CodeGroup>
+         ```shell Shell
+         echo "$API_REPO_URI:$RELEASE_TAG"
+         ```
+       </CodeGroup>
    </Info>
 
 2. Restart your containers to use the new container image:
@@ -291,6 +296,12 @@ GKE clusters with default IAM settings should have access to pull images from yo
 
    <Info>
      Replace `IMAGE_PATH` and `IMAGE_TAG` with the output of:
+     <CodeGroup>
+         ```shell Shell
+         echo "$API_REPO_URI"
+         echo "$RELEASE_TAG"
+         ```
+       </CodeGroup>
    </Info>
 
 2. Upgrade your Helm installation to use the new container images:

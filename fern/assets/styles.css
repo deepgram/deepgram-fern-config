@@ -218,8 +218,28 @@ div[class*="callout"] {
 .callout-outlined-primary h5,
 .callout-outlined-check p,
 .callout-outlined-check h5,
-.callout-outlined-secondary p {
+.callout-outlined-secondary p,
+.callout-outlined-warning li {
 	color: var(--grayscale-a11) !important;
+}
+
+.callout-outlined li {
+	margin-top: 0px !important;
+}
+
+.callout-outlined h2 {
+	margin-top: 0px !important;
+}
+
+.callout-outlined-warning h2 {
+	margin-top: 0px !important;
+}
+
+.logs {
+	background-color: #0b0b0c !important;
+	padding: 0.5rem !important;
+	font-family: var(--typography-code-font-family, var(--code-font-fallback));
+
 }
 
 div[class*="callout"] .mt-0\.5.w-4 {

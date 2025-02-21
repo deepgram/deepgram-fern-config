@@ -27,6 +27,7 @@ The [`gcloud` CLI](https://cloud.google.com/sdk/gcloud) provides programmatic ac
 2. Once installed, run `gcloud init` to configure the CLI with access to your GCP account and project.
 
 <Info>
+  <h2> Choosing a Region </h2>
   The templates and steps in this guide provision resources in the GCP `us-west1` region.
 
   If you would like to deploy to a different region, make sure to adjust templates and steps in this guide accordingly.
@@ -73,7 +74,8 @@ Google Kubernetes Engine (GKE) is a managed Kubernetes service to run Kubernetes
 2. Create separate node pools for each Deepgram component (API, Engine, License Proxy). Adjust the machine types and node counts according to your needs. You may wish to consult your Deepgram Account Representative in planning your cluster's capacity.
 
    <Info>
-     `num-nodes` configures the number of nodes in the node pool ***in each of the cluster's zones***. If your cluster is configured in 3 zones, setting`num-nodes` to 1 will result in 1 node per zone, or 3 nodes across the entire cluster.
+     <h2> `num-nodes` Default Behavior</h2>
+    `num-nodes` configures the number of nodes in the node pool ***in each of the cluster's zones***. If your cluster is configured in 3 zones, setting`num-nodes` to 1 will result in 1 node per zone, or 3 nodes across the entire cluster.
    </Info>
 
    <Info>
@@ -289,6 +291,7 @@ Deepgram maintains the official `deepgram-self-hosted` Helm Chart. You can refer
    </CodeGroup>
 
    <Warning>
+     <h2> Resource Limits </h2>
      It may take some time for GKE to resize the number of nodes in your cluster to accommodate your deployment.
 
      If you want to monitor the status, or your pods aren't being scheduled as you expect, you can see a pod's scheduling status with `kubectl describe pod <pod-name>`, which may contain details on what is preventing scheduling.
@@ -340,6 +343,9 @@ Test your environment and container setup with a local file.
 
    <Info>
      If needed, adjust pieces of the above command:
+     - the query parameters to match the directions from your Deepgram Account Representative
+     - the service name `deepgram-api-external`
+     - the namespace `dg-self-hosted`
    </Info>
 
 You should receive a JSON response with the transcript and associated metadata. Congratulations - your self-hosted setup is working!
