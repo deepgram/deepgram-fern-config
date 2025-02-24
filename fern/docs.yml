@@ -1170,7 +1170,13 @@ redirects:
   - source: /docs/oci
     destination: /docs/oci-docker-podman
   - source: /docs/azure
-    destination: /docs/azure-docker-podma
+    destination: /docs/azure-docker-podman
+  - source: /docs/on-prem-deployment-environments
+    destination: /docs/self-hosted-deployment-environments
+  - source: /docs/on-prem-self-service-tutorial
+    destination: /docs/self-hosted-self-service-tutorial
+  - source: /docs/on-prem-add-ons
+    destination: /docs/self-hosted-add-ons
   - source: /reference/voicebot-api-phase-preview-copy
     destination: /reference/voicebot-api-phase-preview
   - source: /docs/keep-alive
