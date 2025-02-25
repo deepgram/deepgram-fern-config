@@ -1,5 +1,6 @@
 channels:
   speak:
+    # Sets API Playground parameters to optional
     parameters:
       encoding:
         x-fern-optional: true
@@ -7,6 +8,7 @@ channels:
         x-fern-optional: true
       sample_rate:
         x-fern-optional: true
+    # Defines examples for the API Playground
     x-fern-examples:
       - name: Text-to-Speech Example
         summary: This is an example of a text-to-speech session
@@ -28,6 +30,73 @@ channels:
             messageId: textToSpeechResponse
             value: Y3VyaW91cyBtaW5kcyB0aGluayBhbGlrZSA6KQ==
   listen:
+    # Sets API Playground parameters to optional
+    parameters:
+      callback:
+        x-fern-optional: true
+      callback_method:
+        x-fern-optional: true
+      channels:
+        x-fern-optional: true
+      diarize:
+        x-fern-optional: true
+      diarize_version:
+        x-fern-optional: true
+      dictation:
+        x-fern-optional: true
+      encoding:
+        x-fern-optional: true
+      endpointing:
+        x-fern-optional: true
+      extra:
+        x-fern-optional: true
+      filler_words:
+        x-fern-optional: true
+      interim_results:
+        x-fern-optional: true
+      keyterm:
+        x-fern-optional: true
+      keywords:
+        x-fern-optional: true
+      language:
+        x-fern-optional: true
+      model:
+        x-fern-optional: true
+      multichannel:
+        x-fern-optional: true
+      numerals:
+        x-fern-optional: true
+      profanity_filter:
+        x-fern-optional: true
+      punctuate:
+        x-fern-optional: true
+      redact:
+        x-fern-optional: true
+      replace:
+        x-fern-optional: true
+      sample_rate:
+        x-fern-optional: true
+      search:
+        x-fern-optional: true
+      smart_format:
+        x-fern-optional: true
+      tag:
+        x-fern-optional: true
+      utterance_end:
+        x-fern-optional: true
+      vad_events:
+        x-fern-optional: true
+      version:
+        x-fern-optional: true
+    control_messages_request:
+      # Sets API Playground control messages to optional
+      Finalize:
+        x-fern-optional: true
+      CloseStream:
+        x-fern-optional: true
+      KeepAlive:
+        x-fern-optional: true
+    # Defines examples for the API Playground
     x-fern-examples:
       - name: Speech-to-Text Example
         summary: This is an example of a speech-to-text session
