@@ -78,7 +78,7 @@ Multiple types of entities can be redacted with the syntax `redact=option_1&reda
 ### Streaming
 
 <Info>
-   To ensure redaction occurs, set `no_delay=false` or avoid using `no_delay` altogether.
+   To ensure redaction operates with the highest accuracy, set `no_delay=false` or avoid including `no_delay` altogether. If `no_delay=true` is set, our system will opt for low latency at the risk of redaction performance.
 </Info>
 
 When live-streaming audio to Deepgram's hosted endpoint, redaction options include:
