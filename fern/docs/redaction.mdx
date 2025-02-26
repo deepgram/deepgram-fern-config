@@ -8,7 +8,7 @@ slug: docs/redaction
 `redact` *string* Default: `False`
 
 <div class="flex flex-row gap-2">
-<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/en-only.mdx" />
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/specific-languages-only.mdx" />
 </div>
 
 <div class="api-playground-call">
@@ -78,7 +78,7 @@ Multiple types of entities can be redacted with the syntax `redact=option_1&reda
 ### Streaming
 
 <Info>
-  Using `no_delay=true` with Redaction will result in Redaction being disabled.
+   To ensure redaction occurs, set `no_delay=false` or avoid using `no_delay` altogether.
 </Info>
 
 When live-streaming audio to Deepgram's hosted endpoint, redaction options include:
