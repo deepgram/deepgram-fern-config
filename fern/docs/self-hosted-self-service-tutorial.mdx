@@ -82,7 +82,7 @@ If your self-hosted Deepgram environment uses a static legacy license key, or yo
   To check if you are currently pulling images from DockerHub and need to migrate to Quay, check your deployment files. Depending on your container orchestrator, this may be a Docker Compose file, a Podman Compose file, Kubernetes manifest files, or a Helm chart.
 
   A container image path and tag will be listed within those files. If it looks like any of the following, you are pulling from DockerHub and must migrate to Quay.
-  
+
   - `deepgram/onprem-api:xxxx`
   - `deepgram/onprem-engine:xxxx`
   - `deepgram/onprem-license-proxy:xxxx`
@@ -110,7 +110,7 @@ If your self-hosted Deepgram environment uses a static legacy license key, or yo
 
 ***
 
-What’s Next
+What's Next
 
 Whether you are spinning up a new deployment environment, or modifying an existing environment to use your new self-service credentials, the next step is to deploy Deepgram services with your container orchestration tool of choice.
 
