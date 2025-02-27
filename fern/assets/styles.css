@@ -220,7 +220,7 @@ div[class*="callout"] {
 .callout-outlined-check h5,
 .callout-outlined-secondary p,
 .callout-outlined-warning li {
-	color: var(--grayscale-a11) !important;
+	color: #E1E1E5 !important;
 }
 
 .callout-outlined li {
