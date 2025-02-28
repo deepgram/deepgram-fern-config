@@ -1276,6 +1276,8 @@ redirects:
     destination: /reference/self-hosted-api/create-credentials
   - source: /reference/delete-credentials
     destination: /reference/self-hosted-api/delete-credentials
+  - source: /docs/aura-2-formatting
+    destination: /aura-2-formatting
   - source: /docs/aura-2-preview
     destination: /aura-2-preview
   - source: /docs/code-of-conduct
