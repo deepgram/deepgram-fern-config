@@ -24,6 +24,12 @@ jobs:
       - name: Build the custom components
         run: npm --prefix custom-app run build
 
+      - name: Sync public docs
+        run: ./.bin/get-docs
+
+      - name: Sync public specs
+        run: ./.bin/get-specs
+
       - name: Generate preview URL
         id: generate-docs
         env:
