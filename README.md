@@ -1,21 +1,39 @@
 # Deepgram's Fern Configuration
 
-This repo contains the configuration files for Terra's API documentation and SDK generation, built using Fern.
+This repo contains the configuration files for Deepgram's API documentation and SDK generation, built using Fern.
 
-## Validating your OpenAPI spec
+## Prerequisites
 
-To validate your API, run:
-```sh
-npm install -g fern-api # only required once
+- Node.js v18+
+- Fern CLI
+
+### Installing the Fern CLI
+
+The Fern CLI is used to develop, validate, and generate the docs and SDKs.
+
+```shell
+npm install -g fern-api
+```
+
+Optionally, if you want to publish preview URLs or the hosted docs, you'll need to authenticate with Fern.
+
+```shell
+fern login
+```
+
+## Validating your API specs
+
+To validate your API specs, run:
+
+```shell
 fern check
 ```
 
 ## Updating your SDKs
 
-To update your SDKs, run the `Release Java SDK` GitHub Action with the desired version for the release. Under the hood, this leverages the Fern CLI:
+To update your SDKs, run:
 
-```sh
-npm install -g fern-api # only required once
+```shell
 fern generate --group java-sdk
 ```
 
@@ -25,7 +43,11 @@ fern generate --group java-sdk
 
 To run a local development server with hot-reloading you can run the following command
 
-```sh
+```shell
+# Build the custom components
+npm --prefix custom-app run build
+
+# Run the local development server
 fern docs dev
 ```
 
@@ -33,45 +55,30 @@ fern docs dev
 
 To generate a shareable but un-indexed staging link, you can run the following command
 
-```sh
-npm install -g fern-api # only required once
-
+```shell
 fern generate --docs --preview
 ```
 
-### Viewing Custom Components
+### Viewing Custom Components or API Playground Changes
 
-To view custom components in a Preview URL, you can run the following commands from `/deepgram-fern-config/custom-app/src`
+To view custom components or API Playground changes in a Preview URL, you can run the following commands from `/deepgram-fern-config/custom-app`
 
-```sh
-npm i
+```shell
+# Build the custom components
+npm --prefix custom-app run build
 
-npm run build
-
+# Generate the docs preview
 fern generate --docs --preview
 ```
 
-## View API Playground Changes
+### Production Docs
 
-To view changes to the API Playground, you can run the following command
-
-```sh
-fern generate --docs --preview
-```
-
-### Hosted URL
-
-Documentation is automatically updated when you push to main via the `fern generate` command.
+Documentation is automatically published when you run the `fern generate` command. We only expect this to be ran via the GitHub Actions workflows. Please ***DO NOT RUN THIS COMMAND MANUALLY***.
 
 ```sh
-npm install -g fern-api # only required once
-fern login # only required once
-# then reach out to the Fern team to be added as an authenticated user
 fern generate --docs
 ```
 
 ## Contributing
 
 To contribute to the Docs, you can create a new branch, make your changes, and then create a pull request. See the [CONTRIBUTING.md](CONTRIBUTING.md) file for more information.
-
-
