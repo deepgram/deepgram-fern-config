@@ -41,7 +41,7 @@ fern generate --group java-sdk
 
 ### Local Development server
 
-To run a local development server with hot-reloading you can run the following command
+To run a local development server with hot-reloading you can run the following commands
 
 ```shell
 # Build the custom components
@@ -61,7 +61,7 @@ fern generate --docs --preview
 
 ### Viewing Custom Components or API Playground Changes
 
-To view custom components or API Playground changes in a Preview URL, you can run the following commands from `/deepgram-fern-config/custom-app`
+To view custom components or API Playground changes in a Preview URL, you can run the following commands
 
 ```shell
 # Build the custom components
