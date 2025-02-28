@@ -493,8 +493,12 @@ div[id="/reference/speech-to-text-api/listen#request"] .flex.flex-col div:nth-of
 }
 
 .api-playground-call a {
-    padding-left: 4px !important;
-    padding-right: 4px !important;
-    color: #79affa !important;
-    text-decoration: none !important;
+	padding-left: 4px !important;
+	padding-right: 4px !important;
+	color: #79affa !important;
+	text-decoration: none !important;
+}
+
+.custom-backdrop {
+	background-color: #0B0B0C !important;
 }
