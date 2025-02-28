@@ -549,6 +549,9 @@ navigation:
           - page: Code of Conduct
             path: hidden-pages/code-of-conduct.mdx
             hidden: true
+          - page: Aura 2 Formatting
+            path: hidden-pages/aura-2-formatting.mdx
+            hidden: true
           - page: Aura 2 Private Preview
             path: hidden-pages/aura-2-preview.mdx
             hidden: true
@@ -1273,6 +1276,8 @@ redirects:
     destination: /reference/self-hosted-api/create-credentials
   - source: /reference/delete-credentials
     destination: /reference/self-hosted-api/delete-credentials
+  - source: /docs/aura-2-formatting
+    destination: /aura-2-formatting
   - source: /docs/aura-2-preview
     destination: /aura-2-preview
   - source: /docs/code-of-conduct
