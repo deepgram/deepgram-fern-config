@@ -549,6 +549,9 @@ navigation:
           - page: Code of Conduct
             path: hidden-pages/code-of-conduct.mdx
             hidden: true
+          - page: Aura 2 Formatting
+            path: hidden-pages/aura-2-formatting.mdx
+            hidden: true
           - page: Aura 2 Private Preview
             path: hidden-pages/aura-2-preview.mdx
             hidden: true
