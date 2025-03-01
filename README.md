@@ -1,6 +1,8 @@
-# Deepgram's Fern Configuration
+# Deepgram's Docs
 
-This repo contains the configuration files for Deepgram's API documentation and SDK generation, built using Fern.
+This repo contains the architecture for Deepgram's docs and SDK generation.
+
+Our docs site and SDKs are built with [Fern](http://buildwithfern.com).
 
 ## Prerequisites
 
@@ -41,7 +43,7 @@ fern generate --group java-sdk
 
 ### Local Development server
 
-To run a local development server with hot-reloading you can run the following commands
+To run a local development server with hot-reloading you can run the following commands:
 
 ```shell
 # Build the custom components
@@ -53,7 +55,7 @@ fern docs dev
 
 ### Preview URLs
 
-To generate a shareable but un-indexed staging link, you can run the following command
+To generate a shareable but un-indexed staging link, you can run the following command:
 
 ```shell
 fern generate --docs --preview
@@ -61,7 +63,7 @@ fern generate --docs --preview
 
 ### Viewing Custom Components or API Playground Changes
 
-To view custom components or API Playground changes in a Preview URL, you can run the following commands
+To view custom components or API Playground changes in a Preview URL, you can run the following commands:
 
 ```shell
 # Build the custom components
@@ -73,7 +75,9 @@ fern generate --docs --preview
 
 ### Production Docs
 
-Documentation is automatically published when you run the `fern generate` command. We only expect this to be ran via the GitHub Actions workflows. Please ***DO NOT RUN THIS COMMAND MANUALLY***.
+Documentation is automatically published when you run the `fern generate` command. We only expect this to be ran via the GitHub Actions workflows. 
+
+Please ***DO NOT RUN THIS COMMAND MANUALLY*** unless you know what you're doing.
 
 ```sh
 fern generate --docs
