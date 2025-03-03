@@ -20,7 +20,11 @@ The Models endpoint allows users to efficiently query all available public model
 
 ### GET /models
 
-Returns metadata on all the latest public models. If multiple versions exist, the latest model version is returned. If you wish to return all models you can use the `include_outdated=true` parameter in your request.
+Returns metadata on all the latest public models. If multiple versions exist, the latest model version is returned. If you wish to return all models you can use the `include_outdated=true` parameter in your request.`
+
+<Info>
+  If you need to get information on a custom model (non-public) you can use the Get Project Models endpoints.
+</Info>
 
 #### Request
 
