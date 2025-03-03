@@ -55,7 +55,8 @@ typography:
 tabs:
   home:
     display-name: Home
-    slug: home
+    icon: fa-regular fa-home
+    skip-slug: true
   voice-agent:
     display-name: Voice Agent
     slug: voice-agent
@@ -69,7 +70,7 @@ tabs:
     display-name: Intelligence
     slug: intelligence
   api-ref:
-    display-name: API Ref
+    display-name: API Reference
     slug: reference
   guides:
     display-name: Guides
@@ -86,22 +87,21 @@ tabs:
 navigation:
   - tab: home
     layout:
-      - page: Introduction
-        path: docs/landing.mdx
-      - page: Getting Started
-        path: docs/getting-started.mdx
-      - page: Support
-        path: docs/support.mdx
+      - page: Welcome
+        #path: docs/landing.mdx
+        path: pages/home/landing.mdx
   - tab: voice-agent
     layout:
-      - page: Getting Started
-        path: docs/voice-agent.mdx
-      - page: Feature Overview
-        path: docs/voice-agent-feature-overview.mdx
-      - page: Starter Apps
-        path: docs/voice-agent-starter-apps.mdx
-      - page: Configure the Voice Agent
-        path: docs/configure-voice-agent.mdx
+      - section: Voice Agent
+        contents:
+          - page: Getting Started
+            path: docs/voice-agent.mdx
+          - page: Feature Overview
+            path: docs/voice-agent-feature-overview.mdx
+          - page: Starter Apps
+            path: docs/voice-agent-starter-apps.mdx
+          - page: Configure the Voice Agent
+            path: docs/configure-voice-agent.mdx
       - section: Function Calling
         path: docs/voice-agents-function-calling.mdx
         contents:
@@ -416,17 +416,14 @@ navigation:
             path: docs/text-intelligence-callback.mdx
   - tab: api-ref
     layout:
-      - section: General
-        skip-slug: true
-        contents:
-          - page: Deepgram API Overview
-            path: docs/deepgram-api-overview.mdx
-          - page: Authentication
-            path: docs/authentication.mdx
-          - page: Errors
-            path: docs/errors.mdx
-          - page: API Rate Limits
-            path: docs/api-rate-limits.mdx
+      - page: Deepgram API Overview
+        path: docs/deepgram-api-overview.mdx
+      - page: Authentication
+        path: docs/authentication.mdx
+      - page: Errors
+        path: docs/errors.mdx
+      - page: API Rate Limits
+        path: docs/api-rate-limits.mdx
       - section: API Reference
         skip-slug: true
         contents:
@@ -546,6 +543,12 @@ navigation:
       - section: Hidden Docs
         hidden: true
         contents:
+          - page: Getting Started
+            path: docs/getting-started.mdx
+            hidden: true
+          - page: Support
+            path: docs/support.mdx
+            hidden: true
           - page: Code of Conduct
             path: hidden-pages/code-of-conduct.mdx
             hidden: true
