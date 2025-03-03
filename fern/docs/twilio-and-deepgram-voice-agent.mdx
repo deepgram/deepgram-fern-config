@@ -72,7 +72,7 @@ Your `TwiML Bin` must then be connected to one of your Twilio phone numbers so t
 
 ## Building the Server
 
-Copy the `server.py`code from the [repository](https://github.com/deepgram-devs/deepgram-twilio-streaming-python/blob/nikolawhallon-tts/twilio.py) as we will use this in the steps below and save this code locally as with a file name of `server.py`.
+Copy the server code from the [repository](https://github.com/deepgram-devs/sts-twilio/blob/main/server.py) as we will use this in the steps below and save this code locally as with a file name of `server.py`.
 
 At this point you'll want to start up a virtual environment for Python. Please refer to documentation for how to do that based on your personal Python preferences.
 
@@ -213,7 +213,7 @@ Also included in `twilio_handler` is the [Setting Configuration](/docs/voice-age
                   },
               },
           }
-      
+
       await sts_ws.send(json.dumps(config_message))
   ```
 </CodeGroup>
