@@ -1,4 +1,3 @@
-import './main.css'
 import '@deepgram/web-components/deepgram-header'
 
 const FERN_HEADER_CONTAINER_ID = 'fern-header'
