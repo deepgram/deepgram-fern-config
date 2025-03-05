@@ -772,7 +772,7 @@ redirects:
   - source: /api-reference/usage
     destination: /reference/get-all-requests
   - source: /documentation
-    destination: /docs
+    destination: /home
   - source: /documentation/features
     destination: /docs/stt-pre-recorded-feature-overview
   - source: /documentation/features/callback
