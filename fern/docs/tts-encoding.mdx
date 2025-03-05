@@ -48,11 +48,11 @@ You can use the following cURL command in a terminal or your favorite API client
 <CodeGroup>
   ```bash cURL
   curl --request POST \
-       --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=linear16" \
+       --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=linear16&container=wav" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
        --header 'Content-Type: application/json' \
        --output outputfile_Linear16.wav \
-       --data '{"text": "Hello, how can I help you today?"}'\
+       --data '{"text": "Hello, how can I help you today?"}' \
        --fail-with-body \
        --silent \
        || (jq . outputfile_Linear16.wav && rm outputfile_Linear16.wav)
@@ -63,15 +63,15 @@ You can use the following cURL command in a terminal or your favorite API client
 
 <CodeGroup>
   ```bash cURL
-  curl --request POST \
+  `curl --request POST \
        --url "https://api.deepgram.com/v1/speak?model=aura-asteria-en&encoding=mp3&bit_rate=32000" \
        --header "Authorization: Token DEEPGRAM_API_KEY" \
        --header 'Content-Type: application/json' \
        --output outputfile_mp3_32000.mp3 \
-       --data '{"text": "Hello, how can I help you today?"}'
+       --data '{"text": "Hello, how can I help you today?"}' \
        --fail-with-body \
        --silent \
-       || (jq . outputfile_mp3_32000.mp3 && rm outputfile_mp3_32000.mp3)
+       || (jq . outputfile_mp3_32000.mp3 && rm outputfile_mp3_32000.mp3)`
   ```
 </CodeGroup>
 

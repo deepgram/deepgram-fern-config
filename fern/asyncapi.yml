@@ -97,6 +97,17 @@ channels:
           - '24000'
           - '44100'
           - '48000'
+        x-fern-enum:
+          '8000':
+            name: EightThousand
+          '16000':
+            name: SixteenThousand
+          '24000':
+            name: TwentyFourThousand
+          '44100':
+            name: FortyFourThousandOneHundred
+          '48000':
+            name: FortyEightThousand
         examples:
           - '24000'
     messages:
@@ -211,6 +222,19 @@ channels:
                 - 429
                 - 503
               description: HTTP status code equivalent
+              x-fern-enum:
+                '400':
+                  name: BadRequest
+                '401':
+                  name: Unauthorized
+                '402':
+                  name: PaymentRequired
+                '403':
+                  name: Forbidden
+                '429':
+                  name: TooManyRequests
+                '503':
+                  name: ServiceUnavailable
             error_message:
               type: string
               description: Error message
@@ -233,6 +257,9 @@ channels:
               enum:
                 - 200
               description: HTTP status code equivalent
+              x-fern-enum:
+                '200':
+                  name: OK
             success_message:
               type: string
               description: Success message
@@ -260,6 +287,17 @@ channels:
                 - 1009
                 - 1011
               description: WebSocket close status code
+              x-fern-enum:
+                '1000':
+                  name: NormalClosure
+                '1003':
+                  name: ProtocolError
+                '1008':
+                  name: PolicyViolation
+                '1009':
+                  name: MessageTooBig
+                '1011':
+                  name: InternalServerError
             payload:
               type: string
               enum:
@@ -508,6 +546,7 @@ channels:
         enum:
           - nova-3
           - nova-3-general
+          - nova-3-medical
           - nova-2
           - nova-2-general
           - nova-2-meeting
@@ -584,6 +623,10 @@ channels:
         enum:
           - 'true'
           - 'false'
+          - pci
+          - numbers
+          - aggressive_numbers
+          - ssn
         examples:
           - 'true'
       replace:
@@ -947,6 +990,19 @@ channels:
                 - 429
                 - 503
               description: HTTP status code equivalent
+              x-fern-enum:
+                '400':
+                  name: BadRequest
+                '401':
+                  name: Unauthorized
+                '402':
+                  name: PaymentRequired
+                '403':
+                  name: Forbidden
+                '429':
+                  name: TooManyRequests
+                '503':
+                  name: ServiceUnavailable
             error_message:
               type: string
               description: Error message
@@ -969,6 +1025,9 @@ channels:
               enum:
                 - 200
               description: HTTP status code equivalent
+              x-fern-enum:
+                '200':
+                  name: OK
             success_message:
               type: string
               description: Success message
@@ -994,6 +1053,13 @@ channels:
                 - 1008
                 - 1011
               description: WebSocket close status code
+              x-fern-enum:
+                '1000':
+                  name: NormalClosure
+                '1008':
+                  name: PolicyViolation
+                '1011':
+                  name: InternalServerError
             payload:
               type: string
               enum:
@@ -1085,8 +1151,13 @@ channels:
                   properties:
                     model:
                       type: string
-                      default: nova-2
+                      default: nova-3
                       description: Model to use for speech recognition
+                    keyterms:
+                      type: array
+                      items:
+                        type: string
+                      description: List of keyterms to listen for, only available on nova-3
                 think:
                   type: object
                   properties:
@@ -1193,7 +1264,7 @@ channels:
                   container: none
               agent:
                 listen:
-                  model: nova-2
+                  model: nova-3
                 think:
                   provider:
                     type: openai

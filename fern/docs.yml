@@ -4,7 +4,7 @@ instances:
     edit-this-page:
       github:
         owner: deepgram
-        repo: deepgram-fern-config
+        repo: deepgram-docs
         branch: main
 title: Deepgram | Documentation
 logo:
@@ -106,7 +106,7 @@ navigation:
         contents:
           - page: Build A Function Call
             path: docs/build-a-function-call.mdx
-      - section: 'Inputs: Client Messages'
+      - section: "Inputs: Client Messages"
         path: docs/voice-agent-inputs.mdx
         contents:
           - page: Settings Configuration
@@ -121,7 +121,7 @@ navigation:
             path: docs/voice-agent-function-call-response.mdx
           - page: Agent Keep Alive
             path: docs/agent-keep-alive.mdx
-      - section: 'Outputs: Server Events'
+      - section: "Outputs: Server Events"
         path: docs/voice-agent-outputs.mdx
         contents:
           - page: Welcome
@@ -545,6 +545,12 @@ navigation:
       - section: Hidden Docs
         hidden: true
         contents:
+          - page: Code of Conduct
+            path: hidden-pages/code-of-conduct.mdx
+            hidden: true
+          - page: Aura 2 Formatting
+            path: hidden-pages/aura-2-formatting.mdx
+            hidden: true
           - page: Aura 2 Private Preview
             path: hidden-pages/aura-2-preview.mdx
             hidden: true
@@ -837,7 +843,7 @@ redirects:
     destination: /docs/models-languages-overview
   - source: /documentation/getting-started/prerecorded-es
     destination: /docs
-  - source:  /documentation/getting-started/prerecorded
+  - source: /documentation/getting-started/prerecorded
     destination: /docs/getting-started-with-pre-recorded-audio
   - source: /documentation/getting-started/projects
     destination: /docs/prerecorded-español
@@ -1065,8 +1071,6 @@ redirects:
     destination: /docs/transcribe-meetings-in-realtime
   - source: /use-cases/transcription/transcribe-recorded-calls-with-twilio
     destination: /docs/transcribe-recorded-calls-with-twilio
-  - source: /code-of-conduct
-    destination: /page/code-of-conduct
   - source: /blog/2022/01/translation-itranslate/
     destination: https://deepgram.com/learn/translation-itranslate
   - source: /blog/2022/02/classroom-captioner/
@@ -1170,7 +1174,13 @@ redirects:
   - source: /docs/oci
     destination: /docs/oci-docker-podman
   - source: /docs/azure
-    destination: /docs/azure-docker-podma
+    destination: /docs/azure-docker-podman
+  - source: /docs/on-prem-deployment-environments
+    destination: /docs/self-hosted-deployment-environments
+  - source: /docs/on-prem-self-service-tutorial
+    destination: /docs/self-hosted-self-service-tutorial
+  - source: /docs/on-prem-add-ons
+    destination: /docs/self-hosted-add-ons
   - source: /reference/voicebot-api-phase-preview-copy
     destination: /reference/voicebot-api-phase-preview
   - source: /docs/keep-alive
@@ -1265,8 +1275,12 @@ redirects:
     destination: /reference/self-hosted-api/create-credentials
   - source: /reference/delete-credentials
     destination: /reference/self-hosted-api/delete-credentials
+  - source: /docs/aura-2-formatting
+    destination: /aura-2-formatting
   - source: /docs/aura-2-preview
     destination: /aura-2-preview
+  - source: /docs/code-of-conduct
+    destination: /code-of-conduct
 
 analytics:
   gtm:

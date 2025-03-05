@@ -6,25 +6,25 @@ subtitle: >-
 slug: docs/configure-voice-agent
 ---
 
-
 <Markdown src="../snippets/voice-agent.mdx" />
 
 To configure the voice agent, you'll need to send a [Settings Configuration](/docs/settings-configuration) message immediately after connection. Below is a detailed explanation of the configurations available.
 
 ## Configuration Parameters
 
-| Parameter                   | Description                                                                                                                                                       |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter                   | Description                                                                                                                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `audio.input`               | The speech-to-text audio media input you wish to send. The audio must be uncontainerized and have the following encodings: <br /> - `Linear16` <br /> - `alaw` <br /> - `mulaw` |
-| `audio.output`              | The text-to-speech audio media output you wish to receive. [See options](/docs/tts-media-output-settings)                                                         |
-| `agent.listen.model`        | The Deepgram speech-to-text model to be used. [See options](/docs/models-languages-overview)                                                                      |
-| `agent.think.model`         | Defines the LLM Model to be used. [See options](/docs/voice-agent-llm-models)                                                                                     |
-| `agent.think.provider.type` | Defines the LLM Provider [See options](/docs/voice-agent-llm-models)                                                                                              |
-| `agent.think.instructions`  | Defines the System Prompt for the LLM                                                                                                                             |
-| `agent.think.functions`     | Pass functions to the agent that will be called throughout the conversation if/when needed as described per function. [See options](/docs/voice-agent-llm-models) |
-| `agent.speak.model`         | The Deepgram text-to-speech model to be used. [See options](/docs/voice-agent-tts-models)                                                                         |
-| `context.messages`          | Used to restore existing conversation if websocket connection break.                                                                                              |
-| `context.replay`             | Used to to replay the last message, if it is an assistant message.                                                                                                |
+| `audio.output`              | The text-to-speech audio media output you wish to receive. [See options](/docs/tts-media-output-settings)                                                                       |
+| `agent.listen.model`        | The Deepgram speech-to-text model to be used. [See options](/docs/models-languages-overview)                                                                                    |
+| `agent.listen.keyterms`     | Keyterms you want increased recognition for. [See more](/docs/keyterm)                                                                                                          |
+| `agent.think.model`         | Defines the LLM Model to be used. [See options](/docs/voice-agent-llm-models)                                                                                                   |
+| `agent.think.provider.type` | Defines the LLM Provider [See options](/docs/voice-agent-llm-models)                                                                                                            |
+| `agent.think.instructions`  | Defines the System Prompt for the LLM                                                                                                                                           |
+| `agent.think.functions`     | Pass functions to the agent that will be called throughout the conversation if/when needed as described per function. [See options](/docs/voice-agent-llm-models)               |
+| `agent.speak.model`         | The Deepgram text-to-speech model to be used. [See options](/docs/voice-agent-tts-models)                                                                                       |
+| `context.messages`          | Used to restore existing conversation if websocket connection break.                                                                                                            |
+| `context.replay`            | Used to to replay the last message, if it is an assistant message.                                                                                                              |
 
 ## Full Example
 
@@ -48,7 +48,8 @@ Below is an in-depth example showing all the fields available fields for `Settin
     },
     "agent": {
       "listen": {
-        "model": "" // optional. default 'nova-2'
+        "model": "", // optional. default 'nova-3'
+        "keyterms": [] // optional, only available on nova 3 models
       },
       "think": {
         "provider": {

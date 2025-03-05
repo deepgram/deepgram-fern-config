@@ -5,10 +5,10 @@ slug: docs/redaction
 ---
 
 
-`redact` *boolean* Default: `false`
+`redact` *string* Default: `False`
 
 <div class="flex flex-row gap-2">
-<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/en-only.mdx" />
+<Markdown src="../snippets/pre-recorded.mdx" /> <Markdown src="../snippets/streaming.mdx" /> <Markdown src="../snippets/all-available-languages.mdx" />
 </div>
 
 <div class="api-playground-call">
@@ -77,9 +77,9 @@ Multiple types of entities can be redacted with the syntax `redact=option_1&reda
 
 ### Streaming
 
-<Warning>
-  Live streamed redaction is not currently available when using smart formatting on our Nova or enhanced models.
-</Warning>
+<Info>
+   To ensure redaction operates with the highest accuracy, set `no_delay=false` or avoid including `no_delay` altogether. If `no_delay=true` is set, our system will opt for low latency at the risk of redaction performance.
+</Info>
 
 When live-streaming audio to Deepgram's hosted endpoint, redaction options include:
 
@@ -91,9 +91,7 @@ When live-streaming audio to Deepgram's hosted endpoint, redaction options inclu
 
 ## Results
 
-### Pre-Recorded
-
-For pre-recorded audio, redaction replaces redacted content with the type of entity redacted and the number of times that entity has been detected in the transcript. For example, if you choose to redact social security numbers, the phrase "My social security number is five five five two two one one one one and his is six six six two two one three three three" would appear in your transcript as "My social security number is \[SSN\_1] and his is \[SSN\_2]".
+For both Live-streaming and Pre-recorded audio, Redaction replaces redacted content with the type of entity redacted and the number of times that entity has been detected in the transcript. For example, if you choose to redact social security numbers, the phrase "My social security number is five five five two two one one one one and his is six six six two two one three three three" would appear in your transcript as "My social security number is \[SSN\_1] and his is \[SSN\_2]".
 
 Example with `redact=pci&redact=pii`:
 
@@ -101,12 +99,6 @@ Example with `redact=pci&redact=pii`:
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | my credit card number is four four four four nine nine nine nine three three three three two two two two with an expiration date of one twenty three and the cvv code is one one one i live at one two three main street dallas texas seven five two zero one my phone number is five five five two one two nine three three three my date of birth is july twelfth nineteen seventy six | my credit card number is four four four four nine nine nine nine three three three three two two two two with an expiration date of one twenty three and the cvv code is one one one i live at one two three main street dallas texas seven five two zero one my phone number is five five five two one two nine three three three my date of birth is july twelfth nineteen seventy six | my credit card number is \[CREDIT\_CARD\_1] with an expiration date of \[CREDIT\_CARD\_EXPIRATION\_1] and the cv code is \[CVV\_1] i live at \[LOCATION\_ADDRESS\_1] my phone number is \[PHONE\_NUMBER\_1] my date of birth is \[DOB\_1] |
 
-### Live Streaming Audio
+## Self Hosted Language Support
 
-For streaming audio, redaction replaces redacted content with asterisks (\*).
-
-Example with `redact=pci`:
-
-| Source                                                                                                                                                                                                                                                                                                                                                                                   | Before redact                                                                                                                                                                                                                                                                                                                                                                            | After redact                                                                                                                                                                                                                                         |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| my credit card number is four four four four nine nine nine nine three three three three two two two two with an expiration date of one twenty three and the cvv code is one one one i live at one two three main street dallas texas seven five two zero one my phone number is five five five two one two nine three three three my date of birth is july twelfth nineteen seventy six | my credit card number is four four four four nine nine nine nine three three three three two two two two with an expiration date of one twenty three and the cvv code is one one one i live at one two three main street dallas texas seven five two zero one my phone number is five five five two one two nine three three three my date of birth is july twelfth nineteen seventy six | my credit card number is \* with an expiration date of \* and the cvv code is \* i live at \* main street dallas texas \* my phone number is five five five two one two nine three three three my date of birth is july twelfth nineteen seventy six |
+ For [self-hosted](/docs/self-hosted-introduction) deployments, we currently only support English language redaction.

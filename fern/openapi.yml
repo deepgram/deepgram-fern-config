@@ -540,6 +540,7 @@ paths:
     description: Manage your project keys
     parameters:
       - $ref: '#/components/parameters/project_id'
+      - $ref: '#/components/parameters/keys_status'
     get:
       summary: List Project Keys
       tags:
@@ -1094,7 +1095,7 @@ paths:
       security:
         - ApiKeyAuth: []
       operationId: listModels
-      description: Returns metadata on all the latest public models
+      description: Returns metadata on all the latest public models. To retrieve custom models, use the Get Projects Models endpoint
       parameters:
         - $ref: '#/components/parameters/include_outdated'
       responses:
@@ -1110,8 +1111,8 @@ paths:
       security:
         - ApiKeyAuth: []
       operationId: getModel
-      summary: Get a specific Project Model
-      description: Returns metadata for a specific model
+      summary: Get a specific Model
+      description: Returns metadata for a specific public model
       parameters:
         - $ref: '#/components/parameters/model_id'
       responses:
@@ -1472,6 +1473,7 @@ components:
             enum:
               - nova-3
               - nova-3-general
+              - nova-3-medical
               - nova-2
               - nova-2-general
               - nova-2-meeting
@@ -1679,19 +1681,37 @@ components:
           - title: mp3(default)
             description: Encoding - mp3(default). Supported bitrates - 32000, 48000(default) bps.
             type: integer
+            nullable: true
             enum:
               - 32000
               - 48000
+            x-fern-enum:
+              '32000':
+                name: ThirtyTwoThousand
+              '48000':
+                name: FortyEightThousand
           - title: opus
             description: Encoding - opus. Bitrate range - 4000-650000 bps.
             type: integer
+            nullable: true
             minimum: 4000
             maximum: 650000
+            x-fern-enum:
+              '4000':
+                name: FourThousand
+              '650000':
+                name: SixHundredFiftyThousand
           - title: aac
             description: Encoding -aac. Bitrate range - 4000-192000 bps.
             type: integer
+            nullable: true
             minimum: 4000
             maximum: 192000
+            x-fern-enum:
+              '4000':
+                name: FourThousand
+              '192000':
+                name: OneHundredNinetyTwoThousand
     container:
       name: container
       in: query
@@ -1793,6 +1813,7 @@ components:
           - aura-orpheus-en
           - aura-helios-en
           - aura-zeus-en
+      example: aura-asteria-en
     speak_sample_rate:
       name: sample_rate
       in: query
@@ -1804,34 +1825,66 @@ components:
           - title: linear16
             description: Encoding - linear16. Supported sample rates - 8000, 16000, 24000, 32000, 48000 Hz.
             type: integer
+            nullable: true
             enum:
               - 8000
               - 16000
               - 24000
               - 32000
               - 48000
+            x-fern-enum:
+              '8000':
+                name: EightThousand
+              '16000':
+                name: SixteenThousand
+              '24000':
+                name: TwentyFourThousand
+              '32000':
+                name: ThirtyTwoThousand
+              '48000':
+                name: FortyEightThousand
           - title: mulaw
             description: Encoding - mulaw. Supported sample rates - 8000, 16000 Hz.
             type: integer
+            nullable: true
             enum:
               - 8000
               - 16000
+            x-fern-enum:
+              '8000':
+                name: EightThousand
+              '16000':
+                name: SixteenThousand
           - title: alaw
             description: Encoding - alaw. Supported sample rates - 8000, 16000 Hz.
             type: integer
+            nullable: true
             enum:
               - 8000
               - 16000
+            x-fern-enum:
+              '8000':
+                name: EightThousand
+              '16000':
+                name: SixteenThousand
           - title: mp3
             description: Encoding - mp3. Sample rate is fixed and not configurable (22050 Hz).
             type: integer
+            nullable: true
             enum:
               - 22050
+            x-fern-enum:
+              '22050':
+                name: TwentyTwoThousandFifty
           - title: opus
             description: Encoding - opus. Sample rate is fixed at 48000 Hz.
             type: integer
+            nullable: true
             enum:
               - 48000
+            x-fern-enum:
+              '48000':
+                name: FortyEightThousand
     project_id:
       name: project_id
       in: path
@@ -1896,6 +1949,16 @@ components:
       schema:
         type: string
       example: af6e9977-99f6-4d8f-b6f5-dfdf6fb6e291
+    keys_status:
+      name: status
+      in: query
+      required: false
+      description: Only return keys with a specific status
+      schema:
+        type: string
+        enum:
+          - active
+          - expired
     key_id:
       name: key_id
       in: path
